@@ -55,6 +55,15 @@ jobs:
             pymupdf==1.26.7 \
             weasyprint==68.0
 
+      - name: Apply reproducibility hardening
+        shell: bash
+        working-directory: repo
+        run: |
+          set -euo pipefail
+          if [ -f tools/apply_reproducibility_fix.py ]; then
+            python tools/apply_reproducibility_fix.py
+          fi
+
       - name: Apply pending audit improvements
         shell: bash
         working-directory: repo
@@ -80,6 +89,43 @@ jobs:
             python tools/apply_audit_improvements.py post
           fi
 
+      - name: Verify byte-for-byte reproducibility
+        shell: bash
+        working-directory: repo
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from hashlib import sha256
+          from pathlib import Path
+
+          root = Path('.')
+          targets = sorted(
+              list((root/'cases/case-01-titanium/figures').glob('*.svg')) +
+              list((root/'cases/case-02-portal-kombat/figures').glob('*.svg')) +
+              [root/'cases/case-01-titanium/report.pdf', root/'cases/case-02-portal-kombat/report.pdf', root/'publication/checksums.sha256']
+          )
+          def digest(p):
+              return sha256(p.read_bytes()).hexdigest()
+          Path('/tmp/repro-first.txt').write_text('\n'.join(f'{digest(p)}  {p.as_posix()}' for p in targets) + '\n')
+          PY
+          python tools/build_publication.py >/tmp/repro-second-build.log
+          python - <<'PY'
+          from hashlib import sha256
+          from pathlib import Path
+
+          root = Path('.')
+          targets = sorted(
+              list((root/'cases/case-01-titanium/figures').glob('*.svg')) +
+              list((root/'cases/case-02-portal-kombat/figures').glob('*.svg')) +
+              [root/'cases/case-01-titanium/report.pdf', root/'cases/case-02-portal-kombat/report.pdf', root/'publication/checksums.sha256']
+          )
+          def digest(p):
+              return sha256(p.read_bytes()).hexdigest()
+          Path('/tmp/repro-second.txt').write_text('\n'.join(f'{digest(p)}  {p.as_posix()}' for p in targets) + '\n')
+          PY
+          diff -u /tmp/repro-first.txt /tmp/repro-second.txt
+          echo 'BYTE_REPRODUCIBILITY=PASS'
+
       - name: Render visual QA contact sheets
         shell: bash
         working-directory: repo
@@ -88,7 +134,6 @@ jobs:
           mkdir -p /tmp/publication-visual-qa
           python - <<'PY'
           import math
-          from pathlib import Path
           import fitz
           from PIL import Image, ImageDraw
 
@@ -138,5 +183,5 @@ jobs:
             echo 'No generated changes to commit.'
             exit 0
           fi
-          git commit -m 'build(publication): apply audit improvements and regenerate reports [skip ci]'
+          git commit -m 'build(publication): harden reproducibility and regenerate reports [skip ci]'
           git push origin HEAD:main
