@@ -29,7 +29,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git -c http.extraheader="AUTHORIZATION: bearer ${GH_TOKEN}" clone --branch main --single-branch "https://github.com/${GITHUB_REPOSITORY}.git" repo
+          git clone --branch main --single-branch "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" repo
 
       - name: Restore publication sources when bootstrapping
         shell: bash
@@ -42,7 +42,6 @@ jobs:
             tar -xzf /tmp/open-intelligence-casebook.tgz -C .
             rm -rf .bootstrap
             rm -rf docs/superpowers
-            python -c "from pathlib import Path; p=Path('README.md'); s=p.read_text(encoding='utf-8'); s=s.replace('| **2 rapports publics finalisés** | **40 pages A4** au total |', '| **2 rapports publics finalisés** | **42 pages A4** au total |'); s=s.replace('[**Télécharger le rapport PDF — 20 pages**](cases/case-02-portal-kombat/report.pdf)', '[**Télécharger le rapport PDF — 22 pages**](cases/case-02-portal-kombat/report.pdf)'); p.write_text(s, encoding='utf-8')"
           fi
 
       - name: Install document toolchain
@@ -76,4 +75,4 @@ jobs:
             exit 0
           fi
           git commit -m 'build(publication): generate audited public reports [skip ci]'
-          git -c http.extraheader="AUTHORIZATION: bearer ${GH_TOKEN}" push origin HEAD:main
+          git push origin HEAD:main
