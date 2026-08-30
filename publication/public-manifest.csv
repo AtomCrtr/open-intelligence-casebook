@@ -40,7 +40,6 @@ methodology/source-evaluation.md,documentation,public_original_or_link_only_sour
 publication/checksums.sha256,documentation,public_original_or_link_only_sources
 publication/release-checklist.md,documentation,public_original_or_link_only_sources
 publication/rights-review.md,documentation,public_original_or_link_only_sources
-tools/apply_audit_improvements.py,build_tooling,public_original_code
 tools/build_publication.py,build_tooling,public_original_code
 tools/report.css,build_tooling,public_original_code
 publication/public-manifest.csv,publication_control,public_original_content
