@@ -7,6 +7,10 @@ import os
 import subprocess
 import tempfile
 import xml.etree.ElementTree as ET
+
+# Reproducible-build epoch: public edition date, 2026-08-30 UTC.
+os.environ.setdefault('SOURCE_DATE_EPOCH', '1788048000')
+
 from pathlib import Path
 
 import fitz
@@ -20,7 +24,7 @@ PUB = ROOT / 'publication'
 CSS = ROOT / 'tools/report.css'
 REPO_URL = 'https://github.com/AtomCrtr/open-intelligence-casebook'
 
-plt.rcParams.update({'font.family': 'Noto Sans', 'font.size': 10})
+plt.rcParams.update({'font.family': 'Noto Sans', 'font.size': 10, 'svg.hashsalt': 'open-intelligence-casebook-v1'})
 
 
 def run(*args: str, cwd: Path | None = None) -> None:
@@ -173,14 +177,36 @@ def build_pdf(case_dir: Path, title: str, keywords: str) -> None:
         md.write_text(source, encoding='utf-8')
         run('pandoc', str(md), '--standalone', '--from=gfm', '--to=html5', '-o', str(html))
         run('weasyprint', '-u', str(case_dir), '-s', str(CSS), '--optimize-images', str(html), str(raw))
-        run('gs','-sDEVICE=pdfwrite','-dCompatibilityLevel=1.7','-dPDFSETTINGS=/screen','-dNOPAUSE','-dQUIET','-dBATCH',f'-sOutputFile={compressed}',str(raw))
+        run('gs','-sDEVICE=pdfwrite','-dCompatibilityLevel=1.7','-dPDFSETTINGS=/screen','-dDeterministicID','-dOmitInfoDate=true','-dNOPAUSE','-dQUIET','-dBATCH',f'-sOutputFile={compressed}',str(raw))
         doc = fitz.open(compressed)
         metadata = doc.metadata or {}
         metadata.update({'title': title, 'author': 'Emeline Cartier', 'subject': 'Open Intelligence Casebook - rapport public', 'keywords': keywords, 'creator': 'Open Intelligence Casebook', 'producer': 'Open Intelligence Casebook', 'creationDate': '', 'modDate': ''})
         doc.set_metadata(metadata)
         out = case_dir/'report.pdf'
-        doc.save(out, garbage=4, deflate=True, clean=True)
+        doc.save(out, garbage=4, deflate=True, clean=True, no_new_id=True)
         doc.close()
+
+        # PyMuPDF preserves the upstream trailer /ID. Ghostscript's /ID may
+        # still vary even when every content byte is stable. Normalize only
+        # the two fixed-width 16-byte IDs without changing file offsets.
+        pdf = out.read_bytes()
+        marker = b'/ID[<'
+        start = pdf.rfind(marker)
+        if start < 0:
+            raise RuntimeError(f'{out}: trailer /ID introuvable')
+        first_start = start + len(marker)
+        first_end = pdf.find(b'>', first_start)
+        second_start = pdf.find(b'<', first_end) + 1
+        second_end = pdf.find(b'>', second_start)
+        if first_end - first_start != 32 or second_end - second_start != 32:
+            raise RuntimeError(f'{out}: format /ID inattendu')
+        zeros = b'0' * 32
+        normalized = (pdf[:first_start] + zeros + pdf[first_end:second_start] +
+                      zeros + pdf[second_end:])
+        stable_id = hashlib.sha256(normalized).hexdigest()[:32].upper().encode('ascii')
+        normalized = (normalized[:first_start] + stable_id + normalized[first_end:second_start] +
+                      stable_id + normalized[second_end:])
+        out.write_bytes(normalized)
 
 
 def validate_pdf(path: Path, expected_title: str) -> None:
