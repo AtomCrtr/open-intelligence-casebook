@@ -50,6 +50,21 @@ La question analytique est : **comment l'exposition de la filière aéronautique
 
 Le code **81082000** appelle une prudence particulière : il agrège éponge, lingots, billettes, autres formes brutes et poudres. Il ne permet pas d'isoler l'éponge ni un grade aéronautique.
 
+## 2.1 Couverture des besoins prioritaires en renseignement (PIR)
+
+Le dépôt canonique suivait cinq PIR distincts. Leur couverture publique est affichée ici pour éviter qu'une réponse décisionnelle synthétique soit confondue avec une résolution exhaustive de toutes les sous-questions.
+
+| PIR | Question résumée | Statut à l'issue du casebook | Confiance | Lacune qui reste ouverte |
+|---|---|---|---|---|
+| PIR-01 | concentration mondiale maillon par maillon | **partiellement répondu** | faible | pas de série mondiale comparable 2014-2025 pour tous les maillons ni de cartographie exhaustive des acteurs qualifiés |
+| PIR-02 | exposition européenne directe et indirecte | **partiellement répondu** | modérée | les flux CN8 restent toutes industries ; pièces intégrées, réexportations et portefeuille réel non mesurés |
+| PIR-03 | diversification annoncée vs vérifiable | **partiellement répondu** | modérée | approbations clients, contrats, stocks et livraisons restent peu visibles publiquement |
+| PIR-04 | substituabilité, qualification et délais | **partiellement répondu** | faible | aucun délai générique fiable ni équivalence fournisseur/matière transférable à tous les programmes |
+| PIR-05 | trajectoires 2030 et signaux de vigilance | **répondu avec limites au stade scénarios/veille** | modérée sur le cadre | les 18 EWI définissent des signaux et cadences, pas des probabilités ni des seuils automatiques de décision |
+
+> **Interprétation.** Une PIR partiellement répondue n'est pas un échec : elle matérialise la frontière entre ce qui est défendable en sources ouvertes et ce qui exige des données industrielles, contractuelles ou client non publiques.
+
+
 # 3. Méthode expliquée simplement
 
 La chaîne de travail suit quatre niveaux :
@@ -170,21 +185,39 @@ La surveillance des indicateurs est la seule mesure pouvant véritablement **com
 
 # 12. Recommandations conditionnelles
 
-## 12.1 Mettre en place une surveillance gouvernée
+Le dossier canonique transforme les dix options de résilience en **huit recommandations**. Les niveaux ci-dessous indiquent une posture de préparation, pas un ordre d'achat. Un EWI ouvre une **revue de posture** ; il ne déclenche jamais automatiquement un sourcing, un stock ou un investissement.
 
-Construire un dispositif de veille avec responsables, sources, cadence de revue et règles d'escalade. Cette action améliore l'anticipation mais ne réduit pas physiquement l'exposition.
+| Niveau | ID | Recommandation | Déclencheurs / signaux principaux | Condition avant activation réelle |
+|---|---|---|---|---|
+| **Agir maintenant** | REC-01 | mettre en place une surveillance gouvernée | démarrage immédiat dans le périmètre informationnel | responsables, sources, cadence, règle de preuve et revue humaine |
+| **Préparer maintenant** | REC-02 | préparer diversification et qualification de nouvelles sources | EWI-03, EWI-04, EWI-06, EWI-09, EWI-17 | objet nommé, données internes, qualification, approbation, accès contractuel et livraison |
+| **Développer / valider** | REC-03 | préparer la visibilité multi-rangs et les droits d'information | préparation continue ; nouveaux jeux de données exploitables (EWI-16) | droits d'accès, fraîcheur, références, sites, origines et statuts de qualification |
+| **Développer / valider** | REC-04 | construire une redondance qualifiée et contractuellement accessible | EWI-04, EWI-06, EWI-07, EWI-09, EWI-12 | deux flux réellement indépendants sur un périmètre qualifié identique |
+| **Développer / valider** | REC-05 | construire la méthode de dimensionnement des stocks ciblés | EWI-09, EWI-13, EWI-17 | consommation, stock existant, délais, criticité, traçabilité et coût d'immobilisation |
+| **Développer / valider** | REC-06 | évaluer une boucle fermée sur un flux de chutes attribuable | EWI-10 | grade, volume collectable, rendement, traitement, qualification, approbation et retour matière |
+| **Développer / valider** | REC-07 | développer un dossier d'alternative matière ou procédé | EWI-03, EWI-18 | faisabilité, essais, responsabilités, qualification, approbation et capacité industrielle |
+| **Maintenir sous surveillance** | REC-08 | conserver la coopération clients/fournisseurs comme option liée à un dossier nommé | EWI-03, EWI-04, EWI-17 | dossier commun, responsabilités identifiées et signal attribuable |
 
-## 12.2 Préparer la visibilité multi-rangs
+### 12.1 Ce que signifient les EWI
 
-Relier références, sites, origines, fournisseurs directs, statuts de qualification et dépendances communes. Avant usage opérationnel, les droits d'information et la fraîcheur des données doivent être vérifiés.
+Le cadre de veille canonique contient **18 Early Warning Indicators** couvrant capacité industrielle, qualification, contractualisation, commerce, recyclage, réglementation, géopolitique, logistique, demande et technologie. Leur force dépend de la nature de la preuve : une annonce de capacité reste faible ; une production commerciale attribuable est forte ; une approbation client ou une première livraison aéronautique peut devenir décisive.
 
-## 12.3 Préparer les chemins de diversification avant le signal
+Exemples :
 
-Les qualifications longues rendent une préparation commencée seulement après une crise trop tardive. Les dossiers peuvent être préparés à l'avance, mais une activation réelle attend la preuve de capacité, qualification, approbation, accès contractuel et livraison.
+- **EWI-04** : qualification matière, procédé et site achevée et vérifiée ;
+- **EWI-06** : première livraison aéronautique vérifiée depuis une source alternative ;
+- **EWI-09** : concentration persistante ou croissante sur un code suivi ;
+- **EWI-10** : production recyclée avec chaîne d'usage aéronautique vérifiée ;
+- **EWI-12** : restriction d'exportation ou d'accès officiellement entrée en vigueur ;
+- **EWI-17** : plusieurs indicateurs montrent une demande progressant plus vite que l'offre réellement qualifiée ;
+- **EWI-18** : procédé émergent qualifié, approuvé et livré pour un usage aéronautique nommé.
 
-## 12.4 Ne pas dimensionner un stock à partir d'OSINT seul
+### 12.2 Quatre règles de décision
 
-Sans consommation, criticité, délais, stock existant et coût d'immobilisation, un « nombre de mois » serait artificiel. L'OSINT peut identifier le besoin d'une analyse de stock, pas produire le dimensionnement final.
+1. **Surveiller n'est pas réduire physiquement le risque.** La veille réduit surtout l'incertitude et le délai de détection.
+2. **Préparer n'est pas activer.** Un dossier de diversification peut être préparé avant crise, mais l'engagement attend toutes les portes applicables.
+3. **Un trigger ouvre une revue, pas une action automatique.** La preuve, le périmètre et les données internes restent obligatoires.
+4. **L'OSINT ne dimensionne pas seul un stock.** Sans consommation, criticité, délais, stock existant et coût d'immobilisation, un nombre de mois serait artificiel.
 
 # 13. Données internes nécessaires avant une décision réelle
 

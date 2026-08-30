@@ -10,4 +10,5 @@ Le cas combine des données commerciales Eurostat, des sources institutionnelles
 - [PDF public](report.pdf)
 - [Méthodologie](methodology.md)
 - [Sources](sources.md)
+- [Carte publique affirmation-preuve](evidence-map.md)
 - [Métriques dérivées](data/key_metrics.csv)

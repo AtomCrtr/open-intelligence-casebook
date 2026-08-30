@@ -43,6 +43,22 @@ Une enquête OSINT sérieuse doit donc progresser par niveaux de preuve. Le fait
 
 Le périmètre privilégie France et Union européenne, avec contexte international lorsque nécessaire. Aucune intrusion n'est réalisée. Les personnes privées, e-mails et identifiants inutiles sont exclus des sorties publiques.
 
+## 2.1 Couverture des besoins prioritaires en renseignement (PIR)
+
+Les six PIR du dossier canonique sont conservées comme grille de contrôle. La question centrale est bien caractérisée, mais deux couches restent volontairement partielles : la production éditoriale au niveau article et l'identification indépendante d'un opérateur.
+
+| PIR | Question résumée | Statut | Confiance | Lacune résiduelle |
+|---|---|---|---|---|
+| PIR-01 | vagues d'expansion géographique et linguistique | **répondu avec limites** | moyenne | 139 domaines sans date ; `valid_from` n'est pas une date de première publication indépendante |
+| PIR-02 | liens techniques et éditoriaux entre portails | **répondu avec limites** | moyenne | pas de comparaison indépendante DNS/certificats/hébergement dans le snapshot |
+| PIR-03 | sélection, reformulation et localisation des contenus | **partiel** | faible | pas de corpus article sous licence pour tester duplication, traduction et transformation |
+| PIR-04 | acteurs ou sources alimentant le réseau | **partiel** | faible | le contrôle opérateur n'est pas établi indépendamment ; identifiants personnels exclus |
+| PIR-05 | chemins de dissémination hors des portails | **répondu avec limites** | élevée | un lien observé ne mesure ni audience, ni croyance, ni appartenance à un corpus d'entraînement |
+| PIR-06 | niveau de coordination démontrable | **hypothèse de travail** | faible ; H4 faible à moyenne | pas de preuve article-level, ownership ou command-and-control ; attribution étatique non établie |
+
+> **À retenir.** Le produit répond donc à la question décisionnelle sans masquer ses lacunes : la dissémination est la couche la mieux étayée ; la production éditoriale, les acteurs et la coordination restent les couches les plus incertaines.
+
+
 # 3. Méthode : quatre couches complémentaires
 
 1. **chronologie** : dates de domaines et publications institutionnelles ;

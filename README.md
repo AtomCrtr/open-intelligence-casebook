@@ -22,7 +22,7 @@ Chaque cas part d'une question concrète, transforme des sources publiques en pr
 
 | | |
 |---|---|
-| **2 rapports publics finalisés** | **42 pages A4** au total |
+| **2 rapports publics finalisés** | **44 pages A4** au total |
 | **3 casebooks** | 2 publiés · 1 en développement |
 | **Approche** | OSINT passif · GEOINT · analyse de données · graphes · ACH |
 | **Principe central** | chaque conclusion reste reliée à ses preuves, ses limites et son niveau de confiance |
@@ -52,7 +52,7 @@ L'étude combine données commerciales publiques, preuves industrielles et analy
 
 <div align="center">
 
-[**Lire la synthèse**](cases/case-01-titanium/README.md) · [**Rapport complet en Markdown**](cases/case-01-titanium/report.md) · [**Télécharger le rapport PDF — 20 pages**](cases/case-01-titanium/report.pdf) · [**Méthodologie**](cases/case-01-titanium/methodology.md) · [**Sources**](cases/case-01-titanium/sources.md)
+[**Lire la synthèse**](cases/case-01-titanium/README.md) · [**Rapport complet en Markdown**](cases/case-01-titanium/report.md) · [**Télécharger le rapport PDF — 22 pages**](cases/case-01-titanium/report.pdf) · [**Méthodologie**](cases/case-01-titanium/methodology.md) · [**Sources**](cases/case-01-titanium/sources.md) · [**Carte des preuves**](cases/case-01-titanium/evidence-map.md)
 
 </div>
 
@@ -77,7 +77,7 @@ Le cas associe chronologie, analyse de graphe STIX, tests de sensibilité, diss�
 
 <div align="center">
 
-[**Lire la synthèse**](cases/case-02-portal-kombat/README.md) · [**Rapport complet en Markdown**](cases/case-02-portal-kombat/report.md) · [**Télécharger le rapport PDF — 22 pages**](cases/case-02-portal-kombat/report.pdf) · [**Méthodologie**](cases/case-02-portal-kombat/methodology.md) · [**Sources**](cases/case-02-portal-kombat/sources.md)
+[**Lire la synthèse**](cases/case-02-portal-kombat/README.md) · [**Rapport complet en Markdown**](cases/case-02-portal-kombat/report.md) · [**Télécharger le rapport PDF — 22 pages**](cases/case-02-portal-kombat/report.pdf) · [**Méthodologie**](cases/case-02-portal-kombat/methodology.md) · [**Sources**](cases/case-02-portal-kombat/sources.md) · [**Carte des preuves**](cases/case-02-portal-kombat/evidence-map.md)
 
 </div>
 

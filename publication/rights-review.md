@@ -21,7 +21,7 @@ Aucun corpus tiers brut dont les droits sont absents, ambigus ou dépendants d'u
 | Élément public | Origine | Traitement | Décision |
 |---|---|---|---|
 | `report.md`, `report.pdf` | rédaction analytique originale dérivée de résultats déjà audités | CC BY 4.0 pour le contenu original | **autorisé** |
-| figures PNG | visualisations originales à partir de métriques déjà validées | CC BY 4.0 pour les figures originales | **autorisé** |
+| figures SVG | visualisations originales à partir de métriques déjà validées | CC BY 4.0 pour les figures originales | **autorisé** |
 | `data/key_metrics.csv` | métriques dérivées de la lecture Eurostat/Comext déjà validée | Eurostat autorise la réutilisation avec attribution | **autorisé** |
 | documents Eurostat, USGS, UE, BEI, SEC et acteurs industriels | sources tierces | liens et références uniquement ; aucun document complet recopié | **link-only** |
 | UN Comtrade | source complémentaire du casebook canonique | aucune donnée brute publiée ici | **exclu de la redistribution** |
@@ -33,7 +33,7 @@ Le périmètre public du Case 01 reste borné aux résultats du snapshot assaini
 | Élément public | Origine | Traitement | Décision |
 |---|---|---|---|
 | `report.md`, `report.pdf` | rédaction analytique originale à partir de résultats Lot 3 validés | CC BY 4.0 pour le contenu original | **autorisé** |
-| figures PNG | visualisations originales de métriques dérivées | CC BY 4.0 pour les figures originales | **autorisé** |
+| figures SVG | visualisations originales de métriques dérivées | CC BY 4.0 pour les figures originales | **autorisé** |
 | `data/key_metrics.csv` | décomptes dérivés du snapshot canonique | aucune ligne brute de corpus amont | **derived-only** |
 | rapports VIGINUM/SGDSN, EDMO, EEAS, DFRLab, ASP, NewsGuard, publication académique | publications tierces | liens uniquement ; aucune copie intégrale | **link-only** |
 | fichiers techniques VIGINUM / CheckFirst | dépôts publics aux conditions variables | aucun corpus brut copié ; seuls liens et métriques dérivées | **review-required -> non redistribué** |
