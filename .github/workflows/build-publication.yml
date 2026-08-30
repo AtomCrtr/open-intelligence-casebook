@@ -89,42 +89,48 @@ jobs:
             python tools/apply_audit_improvements.py post
           fi
 
-      - name: Verify byte-for-byte reproducibility
+      - name: Diagnose byte-for-byte reproducibility
         shell: bash
         working-directory: repo
         run: |
           set -euo pipefail
+          mkdir -p /tmp/repro-diagnostic/first /tmp/repro-diagnostic/second
+          cp cases/case-01-titanium/report.pdf /tmp/repro-diagnostic/first/case-01.pdf
+          cp cases/case-02-portal-kombat/report.pdf /tmp/repro-diagnostic/first/case-02.pdf
+          cp publication/checksums.sha256 /tmp/repro-diagnostic/first/checksums.sha256
           python - <<'PY'
           from hashlib import sha256
           from pathlib import Path
-
           root = Path('.')
           targets = sorted(
               list((root/'cases/case-01-titanium/figures').glob('*.svg')) +
               list((root/'cases/case-02-portal-kombat/figures').glob('*.svg')) +
               [root/'cases/case-01-titanium/report.pdf', root/'cases/case-02-portal-kombat/report.pdf', root/'publication/checksums.sha256']
           )
-          def digest(p):
-              return sha256(p.read_bytes()).hexdigest()
-          Path('/tmp/repro-first.txt').write_text('\n'.join(f'{digest(p)}  {p.as_posix()}' for p in targets) + '\n')
+          def digest(p): return sha256(p.read_bytes()).hexdigest()
+          Path('/tmp/repro-diagnostic/first-hashes.txt').write_text('\n'.join(f'{digest(p)}  {p.as_posix()}' for p in targets) + '\n')
           PY
-          python tools/build_publication.py >/tmp/repro-second-build.log
+          python tools/build_publication.py >/tmp/repro-diagnostic/second-build.log 2>&1
+          cp cases/case-01-titanium/report.pdf /tmp/repro-diagnostic/second/case-01.pdf
+          cp cases/case-02-portal-kombat/report.pdf /tmp/repro-diagnostic/second/case-02.pdf
+          cp publication/checksums.sha256 /tmp/repro-diagnostic/second/checksums.sha256
           python - <<'PY'
           from hashlib import sha256
           from pathlib import Path
-
           root = Path('.')
           targets = sorted(
               list((root/'cases/case-01-titanium/figures').glob('*.svg')) +
               list((root/'cases/case-02-portal-kombat/figures').glob('*.svg')) +
               [root/'cases/case-01-titanium/report.pdf', root/'cases/case-02-portal-kombat/report.pdf', root/'publication/checksums.sha256']
           )
-          def digest(p):
-              return sha256(p.read_bytes()).hexdigest()
-          Path('/tmp/repro-second.txt').write_text('\n'.join(f'{digest(p)}  {p.as_posix()}' for p in targets) + '\n')
+          def digest(p): return sha256(p.read_bytes()).hexdigest()
+          Path('/tmp/repro-diagnostic/second-hashes.txt').write_text('\n'.join(f'{digest(p)}  {p.as_posix()}' for p in targets) + '\n')
           PY
-          diff -u /tmp/repro-first.txt /tmp/repro-second.txt
-          echo 'BYTE_REPRODUCIBILITY=PASS'
+          if diff -u /tmp/repro-diagnostic/first-hashes.txt /tmp/repro-diagnostic/second-hashes.txt > /tmp/repro-diagnostic/hash-diff.txt; then
+            echo 'BYTE_REPRODUCIBILITY=PASS'
+          else
+            echo 'BYTE_REPRODUCIBILITY=FAIL' | tee /tmp/repro-diagnostic/FAILED
+          fi
 
       - name: Render visual QA contact sheets
         shell: bash
@@ -163,13 +169,25 @@ jobs:
           contact_sheet('cases/case-02-portal-kombat/report.pdf', '/tmp/publication-visual-qa/case-02-contact-sheet.png')
           PY
 
-      - name: Upload visual QA artifact
+      - name: Upload QA and reproducibility diagnostics
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: public-pdf-visual-qa
-          path: /tmp/publication-visual-qa/*.png
+          name: public-pdf-qa-diagnostics
+          path: |
+            /tmp/publication-visual-qa/*.png
+            /tmp/repro-diagnostic/**
           retention-days: 1
           if-no-files-found: error
+
+      - name: Enforce reproducibility gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f /tmp/repro-diagnostic/FAILED ]; then
+            cat /tmp/repro-diagnostic/hash-diff.txt
+            exit 1
+          fi
 
       - name: Commit publication package
         shell: bash
