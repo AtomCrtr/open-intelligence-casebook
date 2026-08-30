@@ -80,6 +80,52 @@ jobs:
             python tools/apply_audit_improvements.py post
           fi
 
+      - name: Render visual QA contact sheets
+        shell: bash
+        working-directory: repo
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/publication-visual-qa
+          python - <<'PY'
+          import math
+          from pathlib import Path
+          import fitz
+          from PIL import Image, ImageDraw
+
+          def contact_sheet(pdf_path: str, out_path: str) -> None:
+              doc = fitz.open(pdf_path)
+              thumbs = []
+              for idx, page in enumerate(doc):
+                  pix = page.get_pixmap(matrix=fitz.Matrix(0.32, 0.32), alpha=False)
+                  img = Image.frombytes('RGB', [pix.width, pix.height], pix.samples)
+                  framed = Image.new('RGB', (img.width, img.height + 24), 'white')
+                  framed.paste(img, (0, 24))
+                  ImageDraw.Draw(framed).text((6, 5), f'Page {idx + 1}', fill='black')
+                  thumbs.append(framed)
+              cols = 4
+              cell_w = max(i.width for i in thumbs)
+              cell_h = max(i.height for i in thumbs)
+              rows = math.ceil(len(thumbs) / cols)
+              sheet = Image.new('RGB', (cols * cell_w, rows * cell_h), 'white')
+              for idx, img in enumerate(thumbs):
+                  x = (idx % cols) * cell_w
+                  y = (idx // cols) * cell_h
+                  sheet.paste(img, (x, y))
+              sheet.save(out_path, optimize=True)
+              doc.close()
+
+          contact_sheet('cases/case-01-titanium/report.pdf', '/tmp/publication-visual-qa/case-01-contact-sheet.png')
+          contact_sheet('cases/case-02-portal-kombat/report.pdf', '/tmp/publication-visual-qa/case-02-contact-sheet.png')
+          PY
+
+      - name: Upload visual QA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-pdf-visual-qa
+          path: /tmp/publication-visual-qa/*.png
+          retention-days: 1
+          if-no-files-found: error
+
       - name: Commit publication package
         shell: bash
         working-directory: repo
