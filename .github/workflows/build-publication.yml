@@ -1,0 +1,79 @@
+name: Build public reports
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.bootstrap/**'
+      - 'cases/**/report.md'
+      - 'cases/**/data/key_metrics.csv'
+      - 'tools/**'
+      - '.github/workflows/build-publication.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: public-report-build-main
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Clone repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -c http.extraheader="AUTHORIZATION: bearer ${GH_TOKEN}" clone --branch main --single-branch "https://github.com/${GITHUB_REPOSITORY}.git" repo
+
+      - name: Restore publication sources when bootstrapping
+        shell: bash
+        working-directory: repo
+        run: |
+          set -euo pipefail
+          if compgen -G '.bootstrap/part*' > /dev/null; then
+            cat .bootstrap/part* | tr -d '\n' | base64 --decode > /tmp/open-intelligence-casebook.tgz
+            echo '33f3e67bdb7c123235062edfda1dbda964bbecf00add1b1dfdba77332758e15f  /tmp/open-intelligence-casebook.tgz' | sha256sum -c -
+            tar -xzf /tmp/open-intelligence-casebook.tgz -C .
+            rm -rf .bootstrap
+            rm -rf docs/superpowers
+            python -c "from pathlib import Path; p=Path('README.md'); s=p.read_text(encoding='utf-8'); s=s.replace('| **2 rapports publics finalisés** | **40 pages A4** au total |', '| **2 rapports publics finalisés** | **42 pages A4** au total |'); s=s.replace('[**Télécharger le rapport PDF — 20 pages**](cases/case-02-portal-kombat/report.pdf)', '[**Télécharger le rapport PDF — 22 pages**](cases/case-02-portal-kombat/report.pdf)'); p.write_text(s, encoding='utf-8')"
+          fi
+
+      - name: Install document toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends pandoc ghostscript fonts-noto-core
+          python -m pip install --disable-pip-version-check \
+            matplotlib==3.10.8 \
+            pymupdf==1.26.7 \
+            weasyprint==68.0
+
+      - name: Build and verify publication
+        shell: bash
+        working-directory: repo
+        run: |
+          set -euo pipefail
+          python tools/build_publication.py
+
+      - name: Commit publication package
+        shell: bash
+        working-directory: repo
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit.'
+            exit 0
+          fi
+          git commit -m 'build(publication): generate audited public reports [skip ci]'
+          git -c http.extraheader="AUTHORIZATION: bearer ${GH_TOKEN}" push origin HEAD:main
