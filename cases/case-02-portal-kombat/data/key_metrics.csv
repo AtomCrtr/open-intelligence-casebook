@@ -1,0 +1,16 @@
+metric,value,description
+domaines_viginum,371,observations de domaines dans le snapshot VIGINUM
+domaines_dates,232,domaines avec valid_from
+domaines_non_dates,139,domaines sans date
+domaines_mars_2024,31,observations datées 2024-03
+stix_noeuds,609,objets non relationnels du paquet STIX
+stix_relations,1013,relations du paquet STIX
+composante_principale,604,nœuds dans la composante principale baseline
+wikipedia_observations,1932,observations Wikipedia
+x_observations,2018,observations X
+wikipedia_fr,28,observations Wikipedia code fr
+x_fr,94,observations X code langue fr
+x_fr_domains,130,observations X vers domaines France-compatibles
+portails_checkfirst,101,portails dans les agrégats CheckFirst
+portail_langue_rows,4572,lignes portail-langue
+langues_codes,47,codes langue
