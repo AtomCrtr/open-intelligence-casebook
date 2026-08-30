@@ -1,71 +1,71 @@
-# Open Intelligence Casebook - Public Edition Design
+# Open Intelligence Casebook — Conception de l'édition publique
 
-## Purpose
+## Objectif
 
-Create a clean, public-facing edition of the private `osint-intelligence-casebook` portfolio without exposing the private repository history, internal audits, working branches, non-redistributable data, personal data, or intermediate research artifacts.
+Créer une édition publique, propre et lisible du portfolio privé `osint-intelligence-casebook`, sans exposer l'historique du dépôt privé, les audits internes, les branches de travail, les données non redistribuables, les données personnelles ni les artefacts intermédiaires de recherche.
 
-The public edition is intended for recruiters, analysts, decision-makers, students, and non-specialist readers. It must remain analytically rigorous while being understandable without prior OSINT, supply-chain, FIMI, DISARM, or GEOINT knowledge.
+L'édition publique s'adresse aux recruteurs, analystes, décideurs, étudiants et lecteurs non spécialistes. Elle doit conserver une rigueur analytique élevée tout en restant compréhensible sans connaissance préalable de l'OSINT, des chaînes d'approvisionnement, de la FIMI, de DISARM ou du GEOINT.
 
-## Publication model
+## Modèle de publication
 
-The private repository remains the canonical working repository. The public repository `AtomCrtr/open-intelligence-casebook` is a fresh-history sanitized publication surface.
+Le dépôt privé reste le dépôt canonique de travail. Le dépôt public `AtomCrtr/open-intelligence-casebook` constitue une surface de publication assainie avec un historique Git neuf.
 
-No Git history from the private repository is copied. Every public file is either:
+Aucun historique Git du dépôt privé n'est copié. Chaque fichier public doit appartenir à l'une des catégories suivantes :
 
-- original explanatory material written for the public edition;
-- a sanitized copy of a previously audited public-ready artifact;
-- a derived table or figure whose redistribution is explicitly permitted;
-- a generated report based on already validated analytical results;
-- a methodology, attribution, licence, transparency, or disclaimer file required for responsible publication.
+- contenu explicatif original rédigé pour l'édition publique ;
+- copie assainie d'un artefact déjà audité et prêt à être publié ;
+- tableau ou figure dérivé dont la redistribution est explicitement autorisée ;
+- rapport généré à partir de résultats analytiques déjà validés ;
+- fichier de méthodologie, attribution, licence, transparence ou avertissement nécessaire à une publication responsable.
 
-The public repository must not contain raw third-party datasets unless redistribution is explicitly permitted.
+Le dépôt public ne doit contenir aucun jeu de données brut tiers sauf si sa redistribution est explicitement autorisée.
 
-## Scope of the first public release
+## Périmètre de la première édition publique
 
-### Case 01 - Titanium supply-chain resilience
+### Case 01 — Résilience de la chaîne d'approvisionnement du titane
 
-Status: complete and publishable from the previously audited public snapshot.
+Statut : terminé et publiable à partir du snapshot public précédemment audité.
 
-Public edition contents:
+Contenu de l'édition publique :
 
-- concise case landing page;
-- detailed public report in Markdown;
-- polished public PDF report;
-- selected figures and derived tables needed to understand the conclusions;
-- methodological notes explaining HHI, source limitations, qualification gates, scenario analysis, and confidence levels;
-- source and attribution register limited to public-safe entries.
+- page de présentation concise du cas ;
+- rapport public détaillé en Markdown ;
+- rapport PDF public soigné ;
+- figures sélectionnées et tableaux dérivés nécessaires à la compréhension des conclusions ;
+- notes méthodologiques expliquant le HHI, les limites des sources, les portes de qualification, l'analyse de scénarios et les niveaux de confiance ;
+- registre des sources et des attributions limité aux éléments compatibles avec une publication publique.
 
-The public report must preserve the central distinction:
+Le rapport public doit préserver la distinction centrale :
 
-`commercial availability != aerospace qualification != customer approval != operational substitutability`.
+`disponibilité commerciale != qualification aéronautique != approbation client != substituabilité opérationnelle`.
 
-It must also preserve the distinction between trade data covering all industries and the aerospace-specific decision question.
+Il doit également préserver la distinction entre les données commerciales couvrant toutes les industries et la question décisionnelle spécifique à l'aéronautique.
 
-### Case 02 - Portal Kombat / Pravda information integrity
+### Case 02 — Portal Kombat / Pravda et intégrité de l'information
 
-Status: analytical report complete; publication package requires its own sanitized-rights verification before final release.
+Statut : rapport analytique terminé ; le package de publication doit faire l'objet de sa propre vérification assainissement/droits avant diffusion finale.
 
-Public edition contents:
+Contenu de l'édition publique :
 
-- concise case landing page;
-- detailed public report in Markdown;
-- polished public PDF report;
-- public-safe figures explaining chronology, network structure, dissemination, France/UE focus, ACH, and confidence levels;
-- public-safe derived counts and tables;
-- methodology explaining passive OSINT, graph sensitivity analysis, DISARM use, triangulation, and competing hypotheses;
-- source links and attribution without redistributing third-party raw corpora whose upstream licence is uncertain or review-required.
+- page de présentation concise du cas ;
+- rapport public détaillé en Markdown ;
+- rapport PDF public soigné ;
+- figures compatibles avec une diffusion publique expliquant la chronologie, la structure du réseau, la dissémination, le focus France/UE, l'ACH et les niveaux de confiance ;
+- décomptes et tableaux dérivés compatibles avec une diffusion publique ;
+- méthodologie expliquant l'OSINT passif, l'analyse de sensibilité du graphe, l'usage de DISARM, la triangulation et les hypothèses concurrentes ;
+- liens vers les sources et attribution, sans redistribuer les corpus bruts tiers dont la licence amont est incertaine ou marquée comme nécessitant une revue.
 
-The report must not claim state attribution, editorial command, measured human impact, or demonstrated LLM poisoning where the evidence does not support those conclusions.
+Le rapport ne doit pas affirmer une attribution étatique, un commandement éditorial, un impact humain mesuré ou un empoisonnement démontré des modèles de langage lorsque les preuves ne permettent pas ces conclusions.
 
-### Case 03 - GNSS interference and European civil aviation
+### Case 03 — Interférences GNSS et aviation civile européenne
 
-Status: work in progress.
+Statut : étude en cours.
 
-The first public release contains only a short teaser describing the research question, methods under development, and current status. It must explicitly state that the analytical design is frozen before real trajectory observations and that no historical GNSS-interference conclusion is published yet.
+La première édition publique ne contient qu'une courte présentation décrivant la question de recherche, les méthodes en cours de développement et l'état d'avancement. Elle doit préciser explicitement que le design analytique a été gelé avant l'inspection de trajectoires réelles et qu'aucune conclusion historique sur les interférences GNSS n'est encore publiée.
 
-No Case 03 working data, branch history, GPSJAM bulk data, aircraft identifiers, event outputs, or synthetic fixtures are published in the first public release.
+Aucune donnée de travail du Case 03, aucun historique de branche, aucune donnée GPSJAM en volume, aucun identifiant d'aéronef, aucune sortie événementielle et aucune fixture synthétique ne sont publiés dans la première édition publique.
 
-## Public repository information architecture
+## Architecture de l'information du dépôt public
 
 ```text
 README.md
@@ -114,176 +114,176 @@ docs/superpowers/
   plans/
 ```
 
-## README design
+## Conception du README
 
-The root README acts as the portfolio home page and must be understandable in under two minutes.
+Le README racine sert de page d'accueil du portfolio et doit être compréhensible en moins de deux minutes.
 
-It contains:
+Il contient :
 
-1. one-sentence purpose statement;
-2. short explanation of what an intelligence casebook is;
-3. cards or compact sections for Case 01, Case 02, and Case 03;
-4. direct links to the two finished public PDFs;
-5. a transparent status label for every case;
-6. key demonstrated capabilities: OSINT, GEOINT, data engineering, evidence traceability, ACH, uncertainty management, and reproducibility;
-7. a short common-method diagram;
-8. publication and ethics principles;
-9. links to methodology, AI transparency, licence, notice, and disclaimer.
+1. une phrase présentant l'objectif du portfolio ;
+2. une courte explication de ce qu'est un casebook d'intelligence ;
+3. des cartes ou sections compactes pour le Case 01, le Case 02 et le Case 03 ;
+4. des liens directs vers les deux PDF publics terminés ;
+5. un statut transparent pour chaque cas ;
+6. les compétences démontrées : OSINT, GEOINT, data engineering, traçabilité des preuves, ACH, gestion de l'incertitude et reproductibilité ;
+7. un schéma court de la méthode commune ;
+8. les principes de publication et d'éthique ;
+9. des liens vers la méthodologie, la transparence IA, la licence, la notice et le disclaimer.
 
-The README must not overstate expertise or present analytical hypotheses as established facts.
+Le README ne doit ni exagérer le niveau d'expertise ni présenter des hypothèses analytiques comme des faits établis.
 
-## PDF editorial design
+## Conception éditoriale des PDF
 
-Two public reports are produced for the first release, one per completed case.
+Deux rapports publics sont produits pour la première édition, un pour chaque cas terminé.
 
-Target length: approximately 20-30 A4 pages per report, allowed to vary when clarity requires it.
+Longueur cible : environ 20 à 30 pages A4 par rapport, avec possibilité de varier si la clarté l'exige.
 
-Each report uses the same visual identity so the portfolio reads as one publication series.
+Les deux rapports utilisent la même identité visuelle afin que le portfolio soit perçu comme une série éditoriale cohérente.
 
-### Shared report structure
+### Structure commune des rapports
 
-1. cover page;
-2. document status, date, scope, and diffusion level;
-3. "In two minutes" executive summary;
-4. five to eight key numbers or findings;
-5. question and why it matters;
-6. methodology explained in plain French;
-7. evidence and main findings;
-8. visual chronology and/or analytical flow;
-9. competing hypotheses and confidence levels;
-10. what the evidence does not establish;
-11. implications and conditional recommendations;
-12. reproducibility and source traceability;
-13. glossary;
-14. selected sources and full-source navigation.
+1. page de couverture ;
+2. statut du document, date, périmètre et niveau de diffusion ;
+3. résumé exécutif « En deux minutes » ;
+4. cinq à huit chiffres ou constats clés ;
+5. question centrale et raisons de son importance ;
+6. méthodologie expliquée en français clair ;
+7. preuves et résultats principaux ;
+8. chronologie visuelle et/ou chaîne analytique ;
+9. hypothèses concurrentes et niveaux de confiance ;
+10. ce que les preuves ne permettent pas d'établir ;
+11. implications et recommandations conditionnelles ;
+12. reproductibilité et traçabilité des sources ;
+13. glossaire ;
+14. sélection de sources et navigation vers l'ensemble des sources.
 
-### Visual principles
+### Principes visuels
 
-- modern institutional / intelligence-report aesthetic;
-- generous whitespace;
-- strong hierarchy and page navigation;
-- readable body text at normal zoom;
-- no dense decorative backgrounds;
-- charts used only when they clarify a conclusion;
-- every chart includes title, period, unit, source, and limitation note;
-- callout boxes for "A retenir", "Limite", "Niveau de confiance", and "Ce que cela ne prouve pas";
-- colour must never be the sole carrier of meaning;
-- tables should be simplified for non-specialists and detailed evidence moved to appendices when needed;
-- clickable source references where technically reliable.
+- esthétique moderne de type rapport institutionnel / renseignement ;
+- espace blanc généreux ;
+- hiérarchie visuelle forte et navigation claire entre les pages ;
+- corps de texte lisible à un niveau de zoom normal ;
+- absence de fonds décoratifs denses ;
+- graphiques utilisés uniquement lorsqu'ils clarifient une conclusion ;
+- chaque graphique comporte un titre, une période, une unité, une source et une note de limite ;
+- encadrés « À retenir », « Limite », « Niveau de confiance » et « Ce que cela ne prouve pas » ;
+- la couleur ne doit jamais être le seul moyen de transmettre une information ;
+- les tableaux doivent être simplifiés pour les non-spécialistes et les preuves détaillées déplacées en annexe si nécessaire ;
+- références de sources cliquables lorsque cela est techniquement fiable.
 
-### Case 01 visual content
+### Contenu visuel du Case 01
 
-The report should include, where supported by publishable data:
+Le rapport doit inclure, lorsque les données publiables le permettent :
 
-- six-product HHI comparison 2017 vs 2025;
-- dominant-origin comparison;
-- trade composition view with explicit double-counting warning;
-- industrial maturity vs aerospace-qualification diagram;
-- qualification/substitution gate diagram;
-- scenario and options matrix;
-- key limits of customs data.
+- comparaison du HHI 2017 vs 2025 pour les six catégories de produits ;
+- comparaison des origines dominantes ;
+- vue de composition des échanges avec avertissement explicite sur le double comptage ;
+- schéma maturité industrielle vs qualification aéronautique ;
+- schéma des portes de qualification et de substitution ;
+- matrice scénarios/options ;
+- principales limites des données douanières.
 
-### Case 02 visual content
+### Contenu visuel du Case 02
 
-The report should include, where supported by public-safe derived data:
+Le rapport doit inclure, lorsque les données dérivées sont compatibles avec une diffusion publique :
 
-- timeline from 2013 through the 2024/2025 expansion phases;
-- network-structure explainer rather than an unreadable full graph dump;
-- graph sensitivity table or visual;
-- France/UE focus panel;
-- dissemination panel for Wikipedia and X observations;
-- competing-hypotheses / ACH view;
-- distinction between visibility, coordination, attribution, and impact;
-- explicit unresolved LLM-grooming vs information-gap question.
+- chronologie de 2013 aux phases d'expansion 2024/2025 ;
+- explication visuelle de la structure du réseau plutôt qu'un graphe complet illisible ;
+- tableau ou visualisation de sensibilité du graphe ;
+- encadré France/UE ;
+- panneau de dissémination pour les observations Wikipedia et X ;
+- vue des hypothèses concurrentes / ACH ;
+- distinction entre visibilité, coordination, attribution et impact ;
+- question explicitement non résolue entre « LLM grooming » et « vides informationnels ».
 
-## Accessibility and broad-audience rules
+## Accessibilité et règles pour un large public
 
-The main narrative is written in French, with English terminology retained only when useful and defined on first use.
+Le récit principal est rédigé en français. Les termes anglais sont conservés uniquement lorsqu'ils sont utiles et sont définis lors de leur première apparition.
 
-Every technical term that a general reader may not know must either be explained inline or included in the glossary.
+Tout terme technique qu'un lecteur généraliste peut ne pas connaître doit être expliqué dans le texte ou dans le glossaire.
 
-Charts must have text captions that summarize the takeaway. Tables must remain legible on A4 without requiring zoom beyond normal reading conditions.
+Les graphiques doivent comporter des légendes textuelles résumant leur enseignement. Les tableaux doivent rester lisibles sur une page A4 sans nécessiter un zoom supérieur à des conditions normales de lecture.
 
-Reports must not depend on colour alone and should maintain usable contrast when printed in greyscale.
+Les rapports ne doivent pas dépendre de la couleur seule et doivent conserver un contraste exploitable lors d'une impression en niveaux de gris.
 
-## Evidence integrity rules
+## Règles d'intégrité des preuves
 
-Every numerical statement in a public report must trace to an existing validated analysis result or an explicitly documented public-safe derivation.
+Chaque affirmation chiffrée d'un rapport public doit être reliée à un résultat analytique existant et validé, ou à une dérivation compatible avec une diffusion publique et explicitement documentée.
 
-No new causal conclusion is introduced only for editorial effect.
+Aucune nouvelle conclusion causale ne doit être ajoutée pour des raisons éditoriales.
 
-The public reports keep separate labels for:
+Les rapports publics conservent des catégories distinctes :
 
-- observed;
-- reported;
-- corroborated;
-- inferred;
-- hypothesis;
-- not demonstrated.
+- observé ;
+- rapporté ;
+- corroboré ;
+- inféré ;
+- hypothèse ;
+- non démontré.
 
-Confidence language must match the underlying casebook.
+Le vocabulaire de confiance doit rester conforme au casebook d'origine.
 
-## Privacy and operational-safety rules
+## Règles de confidentialité et de sécurité opérationnelle
 
-The public edition excludes:
+L'édition publique exclut :
 
-- secrets, tokens, credentials, local paths, machine names, or private e-mail addresses;
-- unnecessary personal data;
-- raw account identifiers where anonymisation was part of the canonical publication policy;
-- private aircraft identifiers, callsigns, stable ICAO24 hashes, or sensitive trajectory records;
-- private audit logs and working notes;
-- any content whose publication could be mistaken for a live operational warning or navigation product.
+- secrets, jetons, identifiants, chemins locaux, noms de machines ou adresses e-mail privées ;
+- données personnelles inutiles ;
+- identifiants bruts de comptes lorsque l'anonymisation faisait partie de la politique canonique de publication ;
+- identifiants d'aéronefs privés, callsigns, hashes ICAO24 stables ou enregistrements sensibles de trajectoires ;
+- journaux d'audit privés et notes de travail ;
+- tout contenu pouvant être interprété à tort comme une alerte opérationnelle en direct ou un produit de navigation.
 
-## Rights and attribution rules
+## Règles de droits et d'attribution
 
-Case 01 publication follows the already passed sanitized snapshot rights model.
+La publication du Case 01 suit le modèle de droits du snapshot assaini ayant déjà passé l'audit.
 
-Case 02 gets an explicit public-package rights review before release. Upstream material marked review-required is linked and described, not copied into the public repository unless redistribution permission is independently established.
+Le Case 02 fait l'objet d'une revue explicite des droits du package public avant publication. Les éléments amont marqués comme nécessitant une revue sont liés et décrits, mais ne sont pas copiés dans le dépôt public tant que leur permission de redistribution n'est pas établie indépendamment.
 
-Original code and original analytical text receive an explicit licence. Third-party material retains its original conditions and is documented in `NOTICE.md` and case-specific source pages.
+Le code original et le texte analytique original reçoivent une licence explicite. Les contenus tiers conservent leurs conditions d'origine et sont documentés dans `NOTICE.md` ainsi que dans les pages de sources propres à chaque cas.
 
-## AI transparency
+## Transparence sur l'IA
 
-`AI_TRANSPARENCY.md` must state that generative AI may assist with drafting, code generation, formatting, or editorial transformation, while source selection, evidence evaluation, analytical judgements, validation, and publication decisions remain subject to human review.
+`AI_TRANSPARENCY.md` doit préciser que l'IA générative peut contribuer à la rédaction, à la génération de code, au formatage ou à la transformation éditoriale, tandis que la sélection des sources, l'évaluation des preuves, les jugements analytiques, la validation et les décisions de publication restent soumis à une revue humaine.
 
-The public PDF reports must include a short transparency note and direct readers to the repository file for details.
+Les rapports PDF publics doivent inclure une courte note de transparence et renvoyer vers ce fichier du dépôt pour davantage de détails.
 
-## Reproducibility
+## Reproductibilité
 
-The public edition should provide enough methodology and derived artifacts for readers to understand and, where rights permit, reproduce the published results without requiring access to the private canonical repository.
+L'édition publique doit fournir suffisamment de méthodologie et d'artefacts dérivés pour permettre aux lecteurs de comprendre et, lorsque les droits le permettent, de reproduire les résultats publiés sans avoir accès au dépôt canonique privé.
 
-Where raw data cannot be redistributed, the public repository documents:
+Lorsque les données brutes ne peuvent pas être redistribuées, le dépôt public documente :
 
-- the upstream source;
-- collection or snapshot date where relevant;
-- transformation logic;
-- schema or expected fields;
-- checksums for redistributable public artifacts;
-- the exact limitation preventing raw-data publication.
+- la source amont ;
+- la date de collecte ou de snapshot lorsque cela est pertinent ;
+- la logique de transformation ;
+- le schéma ou les champs attendus ;
+- les sommes de contrôle des artefacts publics redistribuables ;
+- la limite exacte empêchant la publication des données brutes.
 
-## Release gate
+## Gate de publication
 
-The repository is not considered release-ready until all of the following pass:
+Le dépôt n'est pas considéré comme prêt à être publié tant que tous les contrôles suivants ne sont pas validés :
 
-- no private-history copy;
-- public manifest exactly matches intended files;
-- secret and privacy scan clean;
-- no local paths or machine identifiers;
-- PDF metadata reviewed;
-- internal links valid;
-- report source claims reviewed against casebook evidence;
-- Case 01 rights inherited only from the validated public snapshot scope;
-- Case 02 rights review contains no unresolved redistribution blocker for any copied artifact;
-- third-party materials with unclear rights are link-only;
-- PDF render review confirms no clipping, overlap, broken glyphs, or unreadable tables;
-- checksums generated for final PDF reports;
-- AI transparency, notice, disclaimer, and licence visible from the first-minute navigation;
-- final independent release checklist records PASS.
+- aucun historique privé copié ;
+- manifeste public correspondant exactement aux fichiers prévus ;
+- scan secrets et vie privée sans finding ;
+- aucun chemin local ni identifiant de machine ;
+- métadonnées PDF contrôlées ;
+- liens internes valides ;
+- affirmations des rapports revues par rapport aux preuves des casebooks ;
+- droits du Case 01 hérités uniquement du périmètre du snapshot public validé ;
+- revue des droits du Case 02 sans blocage de redistribution non résolu pour les artefacts copiés ;
+- contenus tiers aux droits incertains publiés uniquement sous forme de liens ;
+- revue du rendu PDF confirmant l'absence de texte rogné, chevauchement, glyphes cassés ou tableaux illisibles ;
+- sommes de contrôle générées pour les PDF finaux ;
+- transparence IA, notice, disclaimer et licence visibles depuis la navigation de première lecture ;
+- checklist indépendante finale enregistrant un statut `PASS`.
 
-## Success criteria
+## Critères de réussite
 
-A non-specialist should understand the central question, the main findings, the limitations, and the meaning of the confidence level of either case within ten minutes.
+Un lecteur non spécialiste doit pouvoir comprendre la question centrale, les résultats principaux, les limites et le sens du niveau de confiance de chacun des cas en moins de dix minutes.
 
-A technical reviewer should be able to trace important claims to public source references and understand the derivation without needing the private repository.
+Un lecteur technique doit pouvoir relier les affirmations importantes à des références publiques et comprendre leur dérivation sans avoir besoin du dépôt privé.
 
-A recruiter should be able to identify demonstrated skills in OSINT, GEOINT, data engineering, structured analysis, reproducibility, uncertainty management, and decision-oriented communication from the root README and the first five pages of either PDF.
+Un recruteur doit pouvoir identifier les compétences démontrées en OSINT, GEOINT, data engineering, analyse structurée, reproductibilité, gestion de l'incertitude et communication orientée décision depuis le README racine et les cinq premières pages de chaque PDF.
