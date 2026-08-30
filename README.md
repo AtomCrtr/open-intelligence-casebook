@@ -7,7 +7,7 @@
 [![Langue](https://img.shields.io/badge/langue-fran%C3%A7ais-1f6f78)](README.md)
 [![Rapports](https://img.shields.io/badge/rapports%20publics-2-244c66)](#les-casebooks)
 [![OSINT](https://img.shields.io/badge/OSINT-passif-355c7d)](#m%C3%A9thode-commune)
-[![Publication](https://img.shields.io/badge/publication-sanitized%20snapshot-4b6584)](publication/release-checklist.md)
+[![Publication](https://img.shields.io/badge/publication-RELEASE%20PASS-2e7d32)](publication/release-checklist.md)
 
 **Open Intelligence Casebook** est un portfolio public d'études d'intelligence en sources ouvertes.  
 Chaque cas part d'une question concrète, transforme des sources publiques en preuves vérifiables, confronte plusieurs hypothèses et restitue un jugement avec ses limites.
@@ -22,7 +22,7 @@ Chaque cas part d'une question concrète, transforme des sources publiques en pr
 
 | | |
 |---|---|
-| **2 rapports publics finalisés** | **40 pages A4** au total |
+| **2 rapports publics finalisés** | **42 pages A4** au total |
 | **3 casebooks** | 2 publiés · 1 en développement |
 | **Approche** | OSINT passif · GEOINT · analyse de données · graphes · ACH |
 | **Principe central** | chaque conclusion reste reliée à ses preuves, ses limites et son niveau de confiance |
@@ -77,7 +77,7 @@ Le cas associe chronologie, analyse de graphe STIX, tests de sensibilité, diss�
 
 <div align="center">
 
-[**Lire la synthèse**](cases/case-02-portal-kombat/README.md) · [**Rapport complet en Markdown**](cases/case-02-portal-kombat/report.md) · [**Télécharger le rapport PDF — 20 pages**](cases/case-02-portal-kombat/report.pdf) · [**Méthodologie**](cases/case-02-portal-kombat/methodology.md) · [**Sources**](cases/case-02-portal-kombat/sources.md)
+[**Lire la synthèse**](cases/case-02-portal-kombat/README.md) · [**Rapport complet en Markdown**](cases/case-02-portal-kombat/report.md) · [**Télécharger le rapport PDF — 22 pages**](cases/case-02-portal-kombat/report.pdf) · [**Méthodologie**](cases/case-02-portal-kombat/methodology.md) · [**Sources**](cases/case-02-portal-kombat/sources.md)
 
 </div>
 
