@@ -55,12 +55,30 @@ jobs:
             pymupdf==1.26.7 \
             weasyprint==68.0
 
+      - name: Apply pending audit improvements
+        shell: bash
+        working-directory: repo
+        run: |
+          set -euo pipefail
+          if [ -f tools/apply_audit_improvements.py ]; then
+            python tools/apply_audit_improvements.py pre
+          fi
+
       - name: Build and verify publication
         shell: bash
         working-directory: repo
         run: |
           set -euo pipefail
           python tools/build_publication.py
+
+      - name: Finalize audit improvements
+        shell: bash
+        working-directory: repo
+        run: |
+          set -euo pipefail
+          if [ -f tools/apply_audit_improvements.py ]; then
+            python tools/apply_audit_improvements.py post
+          fi
 
       - name: Commit publication package
         shell: bash
@@ -74,5 +92,5 @@ jobs:
             echo 'No generated changes to commit.'
             exit 0
           fi
-          git commit -m 'build(publication): generate audited public reports [skip ci]'
+          git commit -m 'build(publication): apply audit improvements and regenerate reports [skip ci]'
           git push origin HEAD:main
