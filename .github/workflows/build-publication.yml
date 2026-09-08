@@ -23,6 +23,8 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
     steps:
       - name: Clone repository
         env:
@@ -181,9 +183,21 @@ jobs:
         working-directory: repo
         run: |
           set -euo pipefail
+          # The final build binds checksums to the exact files that are staged.
+          python tools/build_publication.py
+          python -m pytest tests -q
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
+          git add -- \
+            cases/case-01-titanium/data/key_metrics.csv \
+            cases/case-01-titanium/figures/*.svg \
+            cases/case-01-titanium/report.pdf \
+            cases/case-02-portal-kombat/data/key_metrics.csv \
+            cases/case-02-portal-kombat/figures/*.svg \
+            cases/case-02-portal-kombat/report.pdf \
+            publication/checksums.sha256 \
+            publication/public-manifest.csv \
+            publication/release-checklist.md
           if git diff --cached --quiet; then
             echo 'No generated changes to commit.'
             exit 0

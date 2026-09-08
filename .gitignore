@@ -1,0 +1,5 @@
+# Python and local tool caches are never publication artifacts.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/

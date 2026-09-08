@@ -309,6 +309,7 @@ def write_publication_files() -> None:
         and '.ruff_cache' not in p.parts
         and '.pytest_cache' not in p.parts
         and not any(part.startswith('__pycache__') for part in p.parts)
+        and p.suffix.lower() not in {'.pyc', '.pyo', '.pyd'}
     ]
     # generated workflow logs/temp files are never inside the repo; list all tracked/intended package files except the manifest itself.
     with (PUB/'public-manifest.csv').open('w',encoding='utf-8',newline='') as f:
