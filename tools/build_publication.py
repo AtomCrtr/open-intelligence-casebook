@@ -382,12 +382,6 @@ def validate_repository() -> None:
         for token in forbidden:
             if token in text: raise RuntimeError(f'{p}: token interdit {token}')
 
-    readme = (ROOT/'README.md').read_text(encoding='utf-8')
-    for case_dir in (C1, C2):
-        with fitz.open(case_dir/'report.pdf') as pdf:
-            expected = f"Télécharger le rapport PDF — {len(pdf)} pages"
-        if expected not in readme:
-            raise RuntimeError(f'{case_dir}: nombre de pages README incorrect')
     validate_pdf(C1/'report.pdf','Titane et résilience de la filière aéronautique civile européenne - Case 01')
     validate_pdf(C2/'report.pdf','Portal Kombat / Pravda - comprendre un écosystème informationnel par l’OSINT - Case 02')
 

@@ -1,4 +1,5 @@
 import csv
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -90,3 +91,10 @@ def test_changed_timeline_svg_has_no_trailing_whitespace():
 def test_pdf_artifacts_are_declared_binary_for_git_checks():
     attributes = (ROOT / ".gitattributes").read_text(encoding="utf-8")
     assert "*.pdf binary" in attributes.splitlines()
+
+
+def test_readme_does_not_publish_environment_dependent_pdf_page_counts():
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    assert not re.search(r"rapport PDF — \d+ pages", readme)
+    assert "cases/case-01-titanium/report.pdf" in readme
+    assert "cases/case-02-portal-kombat/report.pdf" in readme

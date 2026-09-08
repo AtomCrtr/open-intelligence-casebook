@@ -52,7 +52,7 @@ L'étude combine données commerciales publiques, preuves industrielles et analy
 
 <div align="center">
 
-[**Lire la synthèse**](cases/case-01-titanium/README.md) · [**Rapport complet en Markdown**](cases/case-01-titanium/report.md) · [**Télécharger le rapport PDF — 23 pages**](cases/case-01-titanium/report.pdf) · [**Méthodologie**](cases/case-01-titanium/methodology.md) · [**Sources**](cases/case-01-titanium/sources.md) · [**Carte des preuves**](cases/case-01-titanium/evidence-map.md) · [**Provenance**](cases/case-01-titanium/provenance.csv)
+[**Lire la synthèse**](cases/case-01-titanium/README.md) · [**Rapport complet en Markdown**](cases/case-01-titanium/report.md) · [**Télécharger le rapport PDF**](cases/case-01-titanium/report.pdf) · [**Méthodologie**](cases/case-01-titanium/methodology.md) · [**Sources**](cases/case-01-titanium/sources.md) · [**Carte des preuves**](cases/case-01-titanium/evidence-map.md) · [**Provenance**](cases/case-01-titanium/provenance.csv)
 
 </div>
 
@@ -77,7 +77,7 @@ Le cas associe chronologie, analyse de graphe STIX, tests de sensibilité, diss�
 
 <div align="center">
 
-[**Lire la synthèse**](cases/case-02-portal-kombat/README.md) · [**Rapport complet en Markdown**](cases/case-02-portal-kombat/report.md) · [**Télécharger le rapport PDF — 23 pages**](cases/case-02-portal-kombat/report.pdf) · [**Méthodologie**](cases/case-02-portal-kombat/methodology.md) · [**Sources**](cases/case-02-portal-kombat/sources.md) · [**Carte des preuves**](cases/case-02-portal-kombat/evidence-map.md) · [**Provenance**](cases/case-02-portal-kombat/provenance.csv)
+[**Lire la synthèse**](cases/case-02-portal-kombat/README.md) · [**Rapport complet en Markdown**](cases/case-02-portal-kombat/report.md) · [**Télécharger le rapport PDF**](cases/case-02-portal-kombat/report.pdf) · [**Méthodologie**](cases/case-02-portal-kombat/methodology.md) · [**Sources**](cases/case-02-portal-kombat/sources.md) · [**Carte des preuves**](cases/case-02-portal-kombat/evidence-map.md) · [**Provenance**](cases/case-02-portal-kombat/provenance.csv)
 
 </div>
 
