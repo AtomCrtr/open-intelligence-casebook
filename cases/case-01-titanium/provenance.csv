@@ -1,0 +1,11 @@
+claim_id,source_id,evidence_role,information_lineage,independence_note,scope_limit
+C1-PUB-001,S-001,primary_trade_data,EUROSTAT-COMEXT,local calculations reproduce this source,trade flows cover all industries
+C1-PUB-002,S-001,primary_trade_data,EUROSTAT-COMEXT,same lineage as C1-PUB-001,customs origin is not the qualified producer
+C1-PUB-003,S-001,primary_trade_data,EUROSTAT-COMEXT,same lineage as C1-PUB-001,does not prove closed-loop aerospace recycling
+C1-PUB-004,S-001,derived_trade_inference,EUROSTAT-COMEXT,no independent industrial observation,commercial concentration is not industrial dependence
+C1-PUB-005,S-016,institutional_project_record,ECOTITANIUM-EIB,distinct institutional project record,capacity is not proof of qualification or delivery
+C1-PUB-005,S-020,company_announcement,OSAKA-COMPANY,interested company source,announced capacity and schedule remain conditional
+C1-PUB-005,S-015,regulatory_filing,IPERIONX-SEC,distinct regulatory filing,commissioning is not customer approval
+C1-PUB-006,DERIVED-C1,analyst_assessment,CLAIM-SPECIFIC-MIX,independence assessed per underlying claim,hypotheses remain bounded by public evidence
+C1-PUB-007,ANALYST-SCENARIO,analyst_construct,ANALYST-CONSTRUCT,no external corroboration claimed,no probability assigned
+C1-PUB-008,ANALYST-SYNTHESIS,conditional_recommendation,ANALYST-CONSTRUCT,derived from prior claim-specific evidence,cannot size a real sourcing decision

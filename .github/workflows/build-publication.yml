@@ -5,8 +5,9 @@ on:
     branches: [main]
     paths:
       - '.bootstrap/**'
-      - 'cases/**/report.md'
-      - 'cases/**/data/key_metrics.csv'
+      - 'README.md'
+      - 'cases/**'
+      - 'tests/**'
       - 'tools/**'
       - '.github/workflows/build-publication.yml'
   workflow_dispatch:
@@ -22,10 +23,10 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Clone repository
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
         run: |
           set -euo pipefail
@@ -53,6 +54,7 @@ jobs:
           python -m pip install --disable-pip-version-check \
             matplotlib==3.10.8 \
             pymupdf==1.26.7 \
+            pytest==8.4.1 \
             weasyprint==68.0
 
       - name: Apply reproducibility hardening
@@ -72,6 +74,11 @@ jobs:
           if [ -f tools/apply_audit_improvements.py ]; then
             python tools/apply_audit_improvements.py pre
           fi
+
+      - name: Verify editorial and provenance contracts
+        shell: bash
+        working-directory: repo
+        run: python -m pytest tests -q
 
       - name: Build and verify publication
         shell: bash
@@ -160,7 +167,7 @@ jobs:
           PY
 
       - name: Upload visual QA artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: public-pdf-visual-qa
           path: /tmp/publication-visual-qa/*.png
@@ -168,6 +175,8 @@ jobs:
           if-no-files-found: error
 
       - name: Commit publication package
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
         working-directory: repo
         run: |

@@ -1,0 +1,18 @@
+claim_id,source_id,evidence_role,information_lineage,independence_note,scope_limit
+C2-PUB-001,S-008,primary_domain_snapshot,VIGINUM-DOMAIN-EXPORT,local counts reproduce this source,valid_from is not first publication
+C2-PUB-002,S-003,primary_reporting,VIGINUM-DISCLOSURE-CHAIN,same primary lineage as S-008,phase framing is source-reported
+C2-PUB-002,S-008,primary_domain_snapshot,VIGINUM-DISCLOSURE-CHAIN,local count reproduces VIGINUM,no new independent observation
+C2-PUB-002,S-024,secondary_context,VIGINUM-DISCLOSURE-CHAIN,EDMO contextualizes the VIGINUM disclosure,not an independent primary collection
+C2-PUB-003,S-031,primary_stix_snapshot,VIGINUM-STIX,local graph counts reproduce this source,graph contains source modeling choices
+C2-PUB-004,DERIVED-C2-STIX,sensitivity_analysis,VIGINUM-STIX,same underlying STIX lineage,tests model sensitivity not real command
+C2-PUB-005,S-011,primary_dissemination_snapshot,DFRLAB-CHECKFIRST-SHARED-STUDY,same data family as S-016 and S-030,presence is not audience or impact
+C2-PUB-005,S-016,joint_study_publication,DFRLAB-CHECKFIRST-SHARED-STUDY,two publishers but one shared study,not independent corroboration
+C2-PUB-005,S-030,joint_study_publication,DFRLAB-CHECKFIRST-SHARED-STUDY,two publishers but one shared study,not independent corroboration
+C2-PUB-006,S-010,primary_portal_snapshot,CHECKFIRST-DATA-FAMILY,local France counts reproduce this source,no audience measure
+C2-PUB-006,S-011,primary_dissemination_snapshot,CHECKFIRST-DATA-FAMILY,same publisher data family,no audience measure
+C2-PUB-007,S-003,structural_reporting,VIGINUM-DISCLOSURE-CHAIN,one input to a mixed assessment,does not establish control
+C2-PUB-007,S-010,localization_data,CHECKFIRST-DATA-FAMILY,distinct data family from VIGINUM,does not establish editorial autonomy
+C2-PUB-007,ANALYST-ACH,analyst_assessment,CLAIM-SPECIFIC-MIX,independence assessed per underlying claim,working hypothesis not attribution
+C2-PUB-008,S-027,reported_llm_hypothesis,ASP-LLM-INTERPRETATION,distinct interpretation source,causal mechanism not observed
+C2-PUB-008,S-028,reported_llm_hypothesis,NEWSGUARD-LLM-INTERPRETATION,distinct interpretation source,causal mechanism not observed
+C2-PUB-008,S-029,competing_llm_interpretation,HKS-DATA-VOID-STUDY,applies only to the LLM question,not evidence about network structure or attribution

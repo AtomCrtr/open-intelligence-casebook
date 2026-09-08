@@ -11,4 +11,5 @@ Le cas met en œuvre collecte passive, STIX, analyse de graphe, triangulation, D
 - [Méthodologie](methodology.md)
 - [Sources](sources.md)
 - [Carte publique affirmation-preuve](evidence-map.md)
+- [Table de provenance publique](provenance.csv)
 - [Métriques dérivées](data/key_metrics.csv)

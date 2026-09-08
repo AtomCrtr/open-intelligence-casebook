@@ -2,7 +2,7 @@
 title: "Titane et résilience de la filière aéronautique civile européenne"
 subtitle: "Case 01 - Comprendre la concentration, la qualification et la substituabilité à l'horizon 2030"
 author: "Emeline Cartier - Open Intelligence Casebook"
-date: "Édition publique - août 2026"
+date: "Édition publique révisée - septembre 2026"
 lang: fr-FR
 ---
 
@@ -37,7 +37,9 @@ Cette nuance est essentielle lorsqu'on lit des annonces de « nouvelle capacité
 
 # 2. Question, périmètre et unité de lecture
 
-La question analytique est : **comment l'exposition de la filière aéronautique civile européenne aux concentrations et ruptures de la chaîne d'approvisionnement du titane a-t-elle évolué depuis 2014, et quelles options de résilience un équipementier de rang 1 devrait-il prioriser à l'horizon 2030 ?**
+En langage courant : **comment la dépendance européenne aux importations de titane a-t-elle évolué depuis 2014, et quelles preuves supplémentaires faut-il avant d'en déduire la résilience aéronautique à l'horizon 2030 ?**
+
+La question analytique détaillée est : **comment l'exposition de la filière aéronautique civile européenne aux concentrations et ruptures de la chaîne d'approvisionnement du titane a-t-elle évolué depuis 2014, et quelles options de résilience un équipementier de rang 1 devrait-il prioriser à l'horizon 2030 ?**
 
 | Dimension | Périmètre | Limite |
 |---|---|---|

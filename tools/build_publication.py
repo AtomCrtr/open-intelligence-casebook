@@ -4,11 +4,14 @@ from __future__ import annotations
 import csv
 import hashlib
 import os
+import re
+import shutil
 import subprocess
+import sys
 import tempfile
 import xml.etree.ElementTree as ET
 
-# Reproducible-build epoch: public edition date, 2026-08-30 UTC.
+# Fixed reproducible-build epoch for the public v1 series.
 os.environ.setdefault('SOURCE_DATE_EPOCH', '1788048000')
 
 from pathlib import Path
@@ -27,8 +30,21 @@ REPO_URL = 'https://github.com/AtomCrtr/open-intelligence-casebook'
 plt.rcParams.update({'font.family': 'Noto Sans', 'font.size': 10, 'svg.hashsalt': 'open-intelligence-casebook-v1'})
 
 
-def run(*args: str, cwd: Path | None = None) -> None:
-    subprocess.run(args, cwd=cwd, check=True)
+def run(*args: str, cwd: Path = ROOT) -> None:
+    env = os.environ.copy()
+    dll_dirs = env.get('WEASYPRINT_DLL_DIRECTORIES', '')
+    if dll_dirs:
+        env['PATH'] = dll_dirs + os.pathsep + env.get('PATH', '')
+    subprocess.run(args, cwd=cwd, check=True, env=env)
+
+def command(name: str) -> str:
+    """Resolve a CLI installed beside the active Python on Windows."""
+    resolved = shutil.which(name)
+    if resolved:
+        return resolved
+    suffix = '.exe' if os.name == 'nt' else ''
+    candidate = Path(sys.executable).with_name(f'{name}{suffix}')
+    return str(candidate) if candidate.exists() else name
 
 
 def read_case1_rows():
@@ -112,14 +128,23 @@ def generate_figures() -> None:
     fig, ax = plt.subplots(figsize=(10.8,4.7)); ax.set_xlim(2012.5,2025.8); ax.set_ylim(0,1.08); ax.set_yticks([]); ax.hlines(.43,2013,2025.1,lw=2)
     events = [
         (2013,'Écosystèmes\nhistoriques',.70,0,'center'), (2018,'Concentration\ndatée',.72,0,'center'),
-        (2022,'Cluster post-2022\n(-news.ru)',.70,0,'center'), (2024.25,'Mars 2024\n31 domaines pravda-*',.86,-.10,'right'),
+        (2022,'Cluster post-2022\n(-news.ru)',.70,0,'center'), (2024.25,'Mars 2024\n31 observations pravda-*',.86,-.10,'right'),
         (2025.05,'Expansion mondiale\nrapportée 2024-2025',.62,.18,'left'),
     ]
     for x,t,ty,dx,ha in events:
         ax.scatter([x],[.43],s=85,zorder=3); ax.vlines(x,.43,ty-.05,lw=1); ax.text(x+dx,ty,t,ha=ha,va='bottom',fontsize=8.8)
     ax.set_xticks([2013,2018,2022,2024,2025]); ax.set_title('Chronologie synthétique de l’écosystème Portal Kombat / Pravda')
     for spine in ['left','right','top']: ax.spines[spine].set_visible(False)
-    fig.tight_layout(pad=.7); fig.savefig(C2/'figures/timeline.svg', bbox_inches='tight'); plt.close(fig)
+    fig.tight_layout(pad=.7)
+    timeline_svg = C2/'figures/timeline.svg'
+    fig.savefig(timeline_svg, bbox_inches='tight')
+    plt.close(fig)
+    timeline_text = timeline_svg.read_text(encoding='utf-8')
+    timeline_svg.write_text(
+        '\n'.join(line.rstrip() for line in timeline_text.rstrip().splitlines()) + '\n',
+        encoding='utf-8',
+        newline='\n',
+    )
 
     labels2 = ['Baseline','Sans nœud campagne','Sans relations amplifies','Sans relations uses']; vals=[604,602,305,560]
     fig, ax = plt.subplots(figsize=(9.5,5.3)); bars=ax.barh(labels2,vals,alpha=.85,hatch=['','//','xx','..']); ax.invert_yaxis()
@@ -175,16 +200,42 @@ def build_pdf(case_dir: Path, title: str, keywords: str) -> None:
     with tempfile.TemporaryDirectory() as td:
         td = Path(td); md = td/'report.md'; html = td/'report.html'; raw = td/'raw.pdf'; compressed = td/'compressed.pdf'
         md.write_text(source, encoding='utf-8')
-        run('pandoc', str(md), '--standalone', '--from=gfm', '--to=html5', '-o', str(html))
-        run('weasyprint', '-u', str(case_dir), '-s', str(CSS), '--optimize-images', str(html), str(raw))
-        run('gs','-sDEVICE=pdfwrite','-dCompatibilityLevel=1.7','-dPDFSETTINGS=/screen','-dDeterministicID','-dOmitInfoDate=true','-dNOPAUSE','-dQUIET','-dBATCH',f'-sOutputFile={compressed}',str(raw))
-        doc = fitz.open(compressed)
-        metadata = doc.metadata or {}
+        if shutil.which('pandoc'):
+            run('pandoc', str(md), '--standalone', '--from=gfm', '--to=html5', '-o', str(html))
+        else:
+            try:
+                import pypandoc
+            except ImportError as exc:
+                raise RuntimeError('pandoc absent et pypandoc non installé') from exc
+            pypandoc.convert_file(
+                str(md), 'html5', format='gfm', outputfile=str(html),
+                extra_args=['--standalone'],
+            )
+        run(command('weasyprint'), '-u', str(case_dir), '-s', str(CSS), '--optimize-images', str(html), str(raw))
+        pdf_input = raw
+        if shutil.which('gs'):
+            run('gs','-sDEVICE=pdfwrite','-dCompatibilityLevel=1.7','-dPDFSETTINGS=/screen','-dDeterministicID','-dOmitInfoDate=true','-dNOPAUSE','-dQUIET','-dBATCH',f'-sOutputFile={compressed}',str(raw))
+            pdf_input = compressed
+        doc = fitz.open(pdf_input)
+        out = case_dir/'report.pdf'
+        normalized_pdf = td/'normalized.pdf'
+        doc.save(normalized_pdf, garbage=4, deflate=True, clean=True, no_new_id=True)
+        doc.close()
+        normalized_pdf.replace(out)
+
+        # Apply metadata in a second pass. Cairo-produced Info dictionaries can
+        # survive a same-pass clean/save on Windows even after set_metadata().
+        doc = fitz.open(out)
+        metadata = {
+            key: value if isinstance(value, str) else str(value)
+            for key, value in (doc.metadata or {}).items()
+        }
         metadata.update({'title': title, 'author': 'Emeline Cartier', 'subject': 'Open Intelligence Casebook - rapport public', 'keywords': keywords, 'creator': 'Open Intelligence Casebook', 'producer': 'Open Intelligence Casebook', 'creationDate': '', 'modDate': ''})
         doc.set_metadata(metadata)
-        out = case_dir/'report.pdf'
-        doc.save(out, garbage=4, deflate=True, clean=True, no_new_id=True)
+        metadata_pdf = td/'metadata.pdf'
+        doc.save(metadata_pdf, garbage=4, deflate=True, clean=True, no_new_id=True)
         doc.close()
+        metadata_pdf.replace(out)
 
         # PyMuPDF preserves the upstream trailer /ID. Ghostscript's /ID may
         # still vary even when every content byte is stable. Normalize only
@@ -193,7 +244,18 @@ def build_pdf(case_dir: Path, title: str, keywords: str) -> None:
         marker = b'/ID[<'
         start = pdf.rfind(marker)
         if start < 0:
-            raise RuntimeError(f'{out}: trailer /ID introuvable')
+            trailer = re.search(
+                rb'trailer\s*<<(.*?)>>\s*startxref\s*\d+\s*%%EOF\s*$',
+                pdf,
+                re.DOTALL,
+            )
+            if trailer is None:
+                raise RuntimeError(f'{out}: trailer PDF introuvable')
+            stable_id = hashlib.sha256(pdf).hexdigest()[:32].upper().encode('ascii')
+            trailer_id = b'\n/ID[<' + stable_id + b'><' + stable_id + b'>]'
+            pdf = pdf[:trailer.end(1)] + trailer_id + pdf[trailer.end(1):]
+            out.write_bytes(pdf)
+            start = pdf.rfind(marker)
         first_start = start + len(marker)
         first_end = pdf.find(b'>', first_start)
         second_start = pdf.find(b'<', first_end) + 1
@@ -233,23 +295,34 @@ def sha256(path: Path) -> str:
 
 def write_publication_files() -> None:
     generated = [
-        C1/'data/key_metrics.csv', *sorted((C1/'figures').glob('*.svg')), C1/'report.pdf',
-        C2/'data/key_metrics.csv', *sorted((C2/'figures').glob('*.svg')), C2/'report.pdf',
+        C1/'data/key_metrics.csv', C1/'provenance.csv', *sorted((C1/'figures').glob('*.svg')), C1/'report.pdf',
+        C2/'data/key_metrics.csv', C2/'provenance.csv', *sorted((C2/'figures').glob('*.svg')), C2/'report.pdf',
     ]
     with (PUB/'checksums.sha256').open('w',encoding='utf-8',newline='\n') as f:
         for p in generated:
             f.write(f'{sha256(p)}  {p.relative_to(ROOT).as_posix()}\n')
 
-    intended = [p for p in ROOT.rglob('*') if p.is_file() and '.git' not in p.parts and not any(part.startswith('__pycache__') for part in p.parts)]
+    intended = [
+        p for p in ROOT.rglob('*')
+        if p.is_file()
+        and '.git' not in p.parts
+        and '.ruff_cache' not in p.parts
+        and '.pytest_cache' not in p.parts
+        and not any(part.startswith('__pycache__') for part in p.parts)
+    ]
     # generated workflow logs/temp files are never inside the repo; list all tracked/intended package files except the manifest itself.
     with (PUB/'public-manifest.csv').open('w',encoding='utf-8',newline='') as f:
-        w=csv.writer(f); w.writerow(['path','class','publication_rule'])
+        w=csv.writer(f, lineterminator='\n')
+        w.writerow(['path','class','publication_rule'])
         for p in sorted(intended):
             rel=p.relative_to(ROOT).as_posix()
             if rel=='publication/public-manifest.csv': continue
             if rel.endswith('.pdf'): cls='generated_report'; rule='public_original_analysis'
             elif '/figures/' in rel and rel.endswith('.svg'): cls='derived_figure'; rule='public_original_derivation'
             elif rel.startswith('.github/') or rel.startswith('tools/'): cls='build_tooling'; rule='public_original_code'
+            elif rel.startswith('tests/'):
+                cls='build_validation'
+                rule='public_original_code'
             elif rel.endswith('.csv'): cls='derived_data'; rule='public_original_derivation'
             else: cls='documentation'; rule='public_original_or_link_only_sources'
             w.writerow([rel,cls,rule])
@@ -259,7 +332,40 @@ def write_publication_files() -> None:
     (PUB/'release-checklist.md').write_text(checklist,encoding='utf-8')
 
 
+def validate_public_provenance() -> None:
+    required = {
+        'claim_id', 'source_id', 'evidence_role', 'information_lineage',
+        'independence_note', 'scope_limit',
+    }
+    tables = {}
+    for case_dir in (C1, C2):
+        with (case_dir/'provenance.csv').open(encoding='utf-8', newline='') as f:
+            reader = csv.DictReader(f)
+            if not required.issubset(reader.fieldnames or []):
+                raise RuntimeError(f'{case_dir}: schéma de provenance incomplet')
+            rows = list(reader)
+        if len({row['claim_id'] for row in rows}) < 8:
+            raise RuntimeError(f'{case_dir}: moins de huit affirmations publiques tracées')
+        if any(not row['information_lineage'] for row in rows):
+            raise RuntimeError(f'{case_dir}: lignée informationnelle manquante')
+        tables[case_dir.name] = rows
+
+    case2 = tables[C2.name]
+    shared = {
+        row['source_id']: row['information_lineage']
+        for row in case2 if row['source_id'] in {'S-016', 'S-030'}
+    }
+    if shared != {
+        'S-016': 'DFRLAB-CHECKFIRST-SHARED-STUDY',
+        'S-030': 'DFRLAB-CHECKFIRST-SHARED-STUDY',
+    }:
+        raise RuntimeError('Case 02: étude commune DFRLab/CheckFirst mal déclarée')
+    if any(row['source_id'] == 'S-029' and row['claim_id'] != 'C2-PUB-008' for row in case2):
+        raise RuntimeError('Case 02: la source data-void dépasse son périmètre LLM')
+
+
 def validate_repository() -> None:
+    validate_public_provenance()
     # SVG parse
     svgs=list(C1.joinpath('figures').glob('*.svg'))+list(C2.joinpath('figures').glob('*.svg'))
     if len(svgs)!=12: raise RuntimeError(f'Nombre de SVG inattendu: {len(svgs)}')
@@ -276,6 +382,12 @@ def validate_repository() -> None:
         for token in forbidden:
             if token in text: raise RuntimeError(f'{p}: token interdit {token}')
 
+    readme = (ROOT/'README.md').read_text(encoding='utf-8')
+    for case_dir in (C1, C2):
+        with fitz.open(case_dir/'report.pdf') as pdf:
+            expected = f"Télécharger le rapport PDF — {len(pdf)} pages"
+        if expected not in readme:
+            raise RuntimeError(f'{case_dir}: nombre de pages README incorrect')
     validate_pdf(C1/'report.pdf','Titane et résilience de la filière aéronautique civile européenne - Case 01')
     validate_pdf(C2/'report.pdf','Portal Kombat / Pravda - comprendre un écosystème informationnel par l’OSINT - Case 02')
 
