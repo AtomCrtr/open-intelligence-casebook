@@ -1,6 +1,9 @@
 import csv
+import hashlib
 import re
 from pathlib import Path
+
+import tools.build_publication as publication_builder
 
 ROOT = Path(__file__).resolve().parents[1]
 CASE01 = ROOT / "cases" / "case-01-titanium"
@@ -63,8 +66,45 @@ def test_public_manifest_excludes_local_cache_artifacts():
     manifest = (ROOT / "publication" / "public-manifest.csv").read_text(
         encoding="utf-8"
     )
+    ignored = (ROOT / ".gitignore").read_text(encoding="utf-8")
     for cache_name in (".ruff_cache", ".pytest_cache", "__pycache__"):
         assert cache_name not in manifest
+        assert cache_name in ignored
+
+
+def test_manifest_excludes_direct_python_bytecode_cache():
+    cache_path = ROOT / ".manifest-test-cache.pyc"
+    cache_preexisted = cache_path.exists()
+    original_cache = cache_path.read_bytes() if cache_preexisted else None
+    control_files = [
+        ROOT / "publication" / "checksums.sha256",
+        ROOT / "publication" / "public-manifest.csv",
+        ROOT / "publication" / "release-checklist.md",
+    ]
+    originals = {path: path.read_bytes() for path in control_files}
+
+    cache_path.write_bytes(b"bytecode cache fixture")
+    try:
+        publication_builder.write_publication_files()
+        manifest = (ROOT / "publication" / "public-manifest.csv").read_text(
+            encoding="utf-8"
+        )
+        assert cache_path.name not in manifest
+    finally:
+        if cache_preexisted:
+            cache_path.write_bytes(original_cache or b"")
+        else:
+            cache_path.unlink(missing_ok=True)
+        for path, content in originals.items():
+            path.write_bytes(content)
+
+
+def test_checked_in_checksums_match_declared_public_artifacts():
+    checksum_file = ROOT / "publication" / "checksums.sha256"
+    for line in checksum_file.read_text(encoding="utf-8").splitlines():
+        expected, relative_path = line.split("  ", 1)
+        actual = hashlib.sha256((ROOT / relative_path).read_bytes()).hexdigest()
+        assert actual == expected, relative_path
 
 
 def test_writable_ci_pins_upload_action_and_scopes_token():
@@ -78,6 +118,13 @@ def test_writable_ci_pins_upload_action_and_scopes_token():
     assert workflow.count("GH_TOKEN:") == 2
     assert "weasyprint==68.0" in workflow
     assert "weasyprint==68.0" in build_guide
+    assert "git add -A" not in workflow
+    assert "PYTHONDONTWRITEBYTECODE: \"1\"" in workflow
+    commit_section = workflow.split("- name: Commit publication package", 1)[1]
+    assert commit_section.index("python tools/build_publication.py") < commit_section.index(
+        "git add --"
+    )
+    assert "publication/release-checklist.md" in commit_section
 
 
 def test_changed_timeline_svg_has_no_trailing_whitespace():
