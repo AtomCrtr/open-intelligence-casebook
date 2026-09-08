@@ -1,6 +1,6 @@
 # Carte publique affirmation-preuve - Case 01
 
-Cette carte rend visible la chaîne **affirmation -> preuve -> confiance -> limite** sans republier les registres internes ni les corpus tiers du dépôt canonique. Elle complète le [rapport public](report.md) et la [liste des sources](sources.md).
+Cette carte rend visible la chaîne **affirmation -> preuve -> confiance -> limite** sans republier les registres internes ni les corpus tiers du dépôt canonique. Elle complète le [rapport public](report.md), la [liste des sources](sources.md) et la [table de provenance publique](provenance.csv), qui distingue éditeur et lignée informationnelle.
 
 | Affirmation publique | Type de preuve | Sources / artefacts publics | Confiance | Limite déterminante |
 |---|---|---|---|---|

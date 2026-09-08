@@ -2,7 +2,7 @@
 title: "Portal Kombat / Pravda : comprendre un écosystème informationnel par l'OSINT"
 subtitle: "Case 02 - Structure, expansion, dissémination et limites d'attribution"
 author: "Emeline Cartier - Open Intelligence Casebook"
-date: "Édition publique - août 2026"
+date: "Édition publique révisée - septembre 2026"
 lang: fr-FR
 ---
 
@@ -12,19 +12,19 @@ lang: fr-FR
 
 Portal Kombat / Pravda est un ensemble de portails d'information automatisés et localisés, documenté par VIGINUM et plusieurs organisations de recherche. L'objectif de ce casebook n'est pas de répéter une attribution, mais de montrer **ce qu'une analyse structurée en sources ouvertes peut établir** sur la chronologie, la structure, la visibilité et les hypothèses de coordination.
 
-Le snapshot étudié contient **371 observations de domaines**, dont **232 datées** et **139 sans date**. Le paquet STIX comprend **609 objets non relationnels** et **1 013 relations**. La dissémination figée contient **1 932 observations Wikipedia** et **2 018 observations X**. Ces métriques décrivent un corpus observé ; elles ne mesurent ni l'adhésion humaine, ni l'audience, ni un effet électoral.
+Le snapshot étudié contient **371 observations correspondant à 370 domaines distincts**, dont **232 datées** et **139 sans date**. Le paquet STIX comprend **609 objets non relationnels** et **1 013 relations**. La dissémination figée contient **1 932 observations Wikipedia réparties entre 44 éditions linguistiques** et **2 018 observations X**. Ces métriques décrivent un corpus observé ; elles ne mesurent ni l'adhésion humaine, ni l'audience, ni un effet électoral.
 
 La meilleure hypothèse de travail reste un **modèle hybride** : une couche structurelle partagée coexiste avec des profils linguistiques et des chemins de diffusion hétérogènes. Cette hypothèse conserve une confiance **faible à moyenne** et ne prouve ni un opérateur éditorial unique ni une attribution étatique.
 
 ## Chiffres clés
 
-- **371** observations de domaines dans l'export VIGINUM figé.
+- **371 observations correspondant à 370 domaines distincts** dans l'export VIGINUM figé.
 - **31** observations datées de mars 2024 dans la vague `pravda-*`.
 - **609 nœuds / 1 013 relations** dans le graphe STIX.
 - composante principale : **604 nœuds** en baseline ; **602** sans nœud campagne ; **305** sans `amplifies` ; **560** sans `uses`.
-- **1 932** observations Wikipedia : `ru=922`, `uk=580`, `en=133`, `fr=28`.
+- **1 932** observations Wikipedia réparties entre **44 éditions linguistiques** : `ru=922`, `uk=580`, `en=133`, `fr=28`.
 - **2 018** observations X, dont **94** en code langue `fr` et **130** vers des domaines France-compatibles.
-- **101 portails** dans les agrégats CheckFirst et **4 572** lignes portail-langue pour **47** codes.
+- **101 profils de portails** dans les agrégats CheckFirst et **4 572** lignes portail-langue pour **47** codes.
 - H4 - modèle hybride - reste la **meilleure hypothèse de travail**, pas une attribution.
 
 # 1. Le défi analytique : ne pas confondre présence, coordination et impact
@@ -64,7 +64,7 @@ Les six PIR du dossier canonique sont conservées comme grille de contrôle. La 
 1. **chronologie** : dates de domaines et publications institutionnelles ;
 2. **graphe STIX** : structure source-modélisée et analyse de sensibilité ;
 3. **dissémination** : observations Wikipedia et X dans des snapshots figés ;
-4. **ACH et triangulation** : hypothèses concurrentes confrontées à des sources institutionnelles et indépendantes.
+4. **ACH et triangulation** : hypothèses concurrentes confrontées à des publications dont la lignée informationnelle est évaluée avant de parler d'indépendance.
 
 STIX est un format structuré utilisé pour représenter des objets et relations. DISARM fournit un vocabulaire de techniques de manipulation de l'information. ACH (Analysis of Competing Hypotheses) évite de chercher uniquement des éléments favorables à une conclusion préférée.
 
@@ -72,9 +72,9 @@ STIX est un format structuré utilisé pour représenter des objets et relations
 
 ![Chronologie](figures/timeline.svg)
 
-L'export VIGINUM contient **371 observations de domaines**. **232** portent une date `valid_from`, **139** restent non datées. Les concentrations annuelles datées apparaissent notamment en 2013, 2018, 2022 et 2024.
+L'export VIGINUM contient **371 observations correspondant à 370 domaines distincts**. **232** observations portent une date `valid_from`, **139** restent non datées. Les concentrations annuelles datées apparaissent notamment en 2013, 2018, 2022 et 2024.
 
-Le maximum mensuel récent du snapshot est **mars 2024 avec 31 domaines**, tous au schéma `pravda-xx[.]com`. Des publications VIGINUM et EDMO décrivent indépendamment cette vague paneuropéenne.
+Le maximum mensuel récent du snapshot est **mars 2024 avec 31 observations**, toutes au schéma `pravda-xx[.]com`. VIGINUM décrit cette vague ; EDMO la relaie et la contextualise à partir de cette divulgation. Le décompte local reproduit l'export VIGINUM : ces trois présentations ne constituent donc pas trois observations primaires indépendantes.
 
 Les phases 2024 tardif et 2025 sont davantage documentées par des publications ultérieures (notamment DFRLab) que par le graphe STIX figé de février 2024. Elles sont donc traitées comme **rapportées**, pas comme entièrement observées dans le même snapshot.
 
@@ -115,7 +115,7 @@ Le ciblage français est documenté, mais la France n'est pas dominante dans la 
 - Wikipedia code `fr` : **28 / 1 932** ;
 - X code langue `fr` : **94 / 2 018** ;
 - X vers domaines France-compatibles : **130 / 2 018** ;
-- agrégats France-compatibles : **2 / 101**.
+- agrégats France-compatibles : **2 / 101 profils de portails**.
 
 Ces décomptes mesurent une présence dans le corpus, pas une audience ni une adhésion.
 
@@ -123,7 +123,7 @@ Ces décomptes mesurent une présence dans le corpus, pas une audience ni une ad
 
 ![Langues Wikipedia](figures/wikipedia_languages.svg)
 
-Les observations Wikipedia se concentrent surtout en russe et ukrainien : `ru=922`, `uk=580`, devant `en=133` et `fr=28`. Le domaine `crimea-news[.]com` représente **245** observations dans le snapshot cité par les analyses publiques.
+Les **1 932 observations Wikipedia**, réparties entre **44 éditions linguistiques**, se concentrent surtout en russe et ukrainien : `ru=922`, `uk=580`, devant `en=133` et `fr=28`. Le domaine `crimea-news[.]com` représente **245** observations dans le snapshot cité par les analyses publiques.
 
 Sur X, le snapshot contient **2 018 observations**. Un post ou un lien établit une présence dans la collecte ; il ne permet pas de conclure au nombre de personnes exposées, à leur croyance ou à un effet causal.
 
@@ -143,7 +143,7 @@ Ces étiquettes sont utiles pour structurer la lecture, mais elles doivent reste
 |---|---|---|
 | H1 - coordination centralisée | compatible avec certains objets, mais pas de preuve de contrôle | faible |
 | H2 - fournisseur / infrastructure partagée | compatible avec les éléments TigerWeb et infrastructure | faible |
-| H3 - agrégation indépendante | compatible avec l'hétérogénéité, moins avec la composante géante et la vague coordonnée | faible |
+| H3 - agrégation indépendante | compatible avec l'hétérogénéité observée ; elle ne peut pas être rejetée à partir des données publiques. La composante géante et la vague `pravda-*` réduisent toutefois son pouvoir explicatif | faible |
 | **H4 - modèle hybride** | **meilleure hypothèse de travail** | **faible à moyenne** |
 
 H4 signifie seulement que **structure partagée et variations locales coexistent dans le corpus**. Elle n'est pas une attribution.
@@ -166,11 +166,11 @@ Conserver des frontières entre opérations adjacentes évite d'étendre artific
 
 | Établi / observable | Non démontré |
 |---|---|
-| 371 observations de domaines dans le snapshot | contrôle éditorial centralisé |
+| 371 observations correspondant à 370 domaines distincts dans le snapshot | contrôle éditorial centralisé |
 | structure STIX fortement connectée | chaîne de commandement réelle |
-| expansion de mars 2024 corroborée | attribution étatique par ce casebook |
+| expansion de mars 2024 décrite par VIGINUM, contextualisée par EDMO et recomptée dans le même export | attribution étatique par ce casebook |
 | visibilité Wikipedia/X | audience, croyance ou effet électoral |
-| agrégation automatisée rapportée par plusieurs sources | empoisonnement démontré des modèles d'IA |
+| agrégation automatisée rapportée dans une étude commune DFRLab/CheckFirst et reproduite depuis les mêmes snapshots | empoisonnement démontré des modèles d'IA |
 | présence France/UE | effet causal sur l'opinion française |
 
 # 14. Recommandations conditionnelles
@@ -222,17 +222,20 @@ La revue canonique de licence applique une règle prudente : **URL publique ≠ 
 
 Le Case 02 privilégie les liens vers les publications et dépôts d'origine. Les corpus dont les droits amont sont incertains ne sont pas recopiés dans cette édition. La liste complète, avec la règle de traitement, se trouve dans [sources.md](sources.md).
 
-1. [VIGINUM - export public de domaines Portal Kombat](https://raw.githubusercontent.com/VIGINUM-FR/Rapports-Techniques/main/202402%20-%20Portal%20Kombat/20241227_SGDSN_VIGINUM_NP_TLP-CLEAR_Portal-Kombat-domains.csv) - chronologie et décompte des domaines.
-2. [VIGINUM - dépôt technique Portal Kombat](https://api.github.com/repos/VIGINUM-FR/Rapports-Techniques/contents/202402%20-%20Portal%20Kombat) - artefacts structurés et paquet STIX référencé.
-3. [VIGINUM - rapport Portal Kombat, partie 1](https://www.sgdsn.gouv.fr/files/files/20240212_NP_SGDSN_VIGINUM_PORTAL-KOMBAT-NETWORK_ENG_VF.pdf) - caractérisation initiale.
-4. [VIGINUM - rapport Portal Kombat, partie 3](https://www.sgdsn.gouv.fr/files/files/Publications/20240428_NP_SGDSN_VIGINUM_PORTAL-KOMBAT-NETWORK-REPORT_NEW%20DOMAIN%20NAME_%28PART3%29_ENG_VF.pdf) - expansion paneuropéenne de 2024.
-5. [CheckFirst - pravda-network](https://github.com/CheckFirstHQ/pravda-network) - agrégats publics et travaux de recherche.
-6. [CheckFirst - données de dissémination](https://github.com/CheckFirstHQ/pravda-network-dissemination-data) - source amont des métriques dérivées Wikipedia/X.
-7. [EDMO - expansion du réseau Pravda dans l'UE](https://edmo.eu/publications/russian-disinformation-network-pravda-grew-bigger-in-the-eu-even-after-its-uncovering) - corroboration indépendante de l'expansion.
-8. [DFRLab - expansion mondiale](https://dfrlab.org/2025/02/24/russia-pravda-network-expands-worldwide) - phases ultérieures et contexte international.
-9. [DFRLab - Wikipedia, LLM et X](https://dfrlab.org/2025/03/12/pravda-network-wikipedia-llm-x) - dissémination et enjeux liés aux modèles de langage.
-10. [EEAS / EUvsDisinfo - False Facade](https://euvsdisinfo.eu/building-a-false-facade) - opération adjacente conservée séparée analytiquement.
-11. [American Sunlight Project - rapport sur le « LLM grooming »](https://americansunlight.org/s/PK-Report.pdf) - hypothèse de ciblage des systèmes d'IA.
-12. [Harvard Misinformation Review - « grooming » ou vides informationnels ?](https://misinforeview.hks.harvard.edu/article/llms-grooming-or-data-voids-llm-powered-chatbot-references-to-kremlin-disinformation-reflect-information-gaps-not-manipulation) - explication académique concurrente.
+1. [S-008 — VIGINUM, export public de domaines Portal Kombat](https://raw.githubusercontent.com/VIGINUM-FR/Rapports-Techniques/main/202402%20-%20Portal%20Kombat/20241227_SGDSN_VIGINUM_NP_TLP-CLEAR_Portal-Kombat-domains.csv) - chronologie et décompte des observations de domaines.
+2. [S-031 — VIGINUM, paquet STIX figé](https://raw.githubusercontent.com/VIGINUM-FR/STIX2/main/Portal%20Kombat/Portal_Kombat_STIX_V2_20240212.json) - structure STIX analysée localement.
+3. [S-001 — VIGINUM, rapport Portal Kombat partie 1](https://www.sgdsn.gouv.fr/files/files/20240212_NP_SGDSN_VIGINUM_PORTAL-KOMBAT-NETWORK_ENG_VF.pdf) - caractérisation initiale.
+4. [S-003 — VIGINUM, rapport Portal Kombat partie 3](https://www.sgdsn.gouv.fr/files/files/Publications/20240428_NP_SGDSN_VIGINUM_PORTAL-KOMBAT-NETWORK-REPORT_NEW%20DOMAIN%20NAME_%28PART3%29_ENG_VF.pdf) - expansion paneuropéenne de 2024.
+5. [S-010 — CheckFirst, dépôt pravda-network](https://github.com/CheckFirstHQ/pravda-network) - agrégats publics et travaux de recherche.
+6. [S-011 — CheckFirst, données de dissémination](https://github.com/CheckFirstHQ/pravda-network-dissemination-data) - source amont des métriques dérivées Wikipedia/X.
+7. [S-024 — EDMO, expansion du réseau Pravda dans l'UE](https://edmo.eu/publications/russian-disinformation-network-pravda-grew-bigger-in-the-eu-even-after-its-uncovering) - contextualisation secondaire de la divulgation VIGINUM, pas observation primaire indépendante.
+8. [S-015 — DFRLab, expansion mondiale](https://dfrlab.org/2025/02/24/russia-pravda-network-expands-worldwide) - phases ultérieures et contexte international.
+9. [S-016 — DFRLab, Wikipedia, LLM et X](https://dfrlab.org/2025/03/12/pravda-network-wikipedia-llm-x) - publication de l'étude commune DFRLab/CheckFirst.
+10. [S-030 — CheckFirst, résumé de la même étude](https://checkfirst.network/pravda-network-worldwide-expansion-and-llm-wikipedia-pollution/) - seconde publication de la même lignée informationnelle, pas corroboration indépendante.
+11. [S-025/S-026 — EEAS / EUvsDisinfo, False Facade](https://euvsdisinfo.eu/building-a-false-facade) - opération adjacente conservée séparée analytiquement.
+12. [S-027 — American Sunlight Project, rapport sur le « LLM grooming »](https://americansunlight.org/s/PK-Report.pdf) - hypothèse de ciblage des systèmes d'IA.
+13. [S-029 — Harvard Misinformation Review, « grooming » ou vides informationnels ?](https://misinforeview.hks.harvard.edu/article/llms-grooming-or-data-voids-llm-powered-chatbot-references-to-kremlin-disinformation-reflect-information-gaps-not-manipulation) - explication concurrente limitée au mécanisme de citation par les modèles ; elle ne contredit pas la structure du réseau.
+
+La table [provenance.csv](provenance.csv) distingue ces lignées publication par publication. Elle empêche de compter une republication ou le recomptage d'un même snapshot comme une nouvelle source indépendante.
 
 > **Transparence IA.** L'IA générative a pu assister la structuration éditoriale et technique de cette édition. Les sources, chiffres, jugements et décisions de publication restent soumis à validation humaine. Voir [AI_TRANSPARENCY.md](../../AI_TRANSPARENCY.md) à la racine du dépôt.

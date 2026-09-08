@@ -35,7 +35,7 @@ Chaque cas part d'une question concrète, transforme des sources publiques en pr
 
 ### ✈️ Case 01 — Titane & résilience aéronautique
 
-**Question :** comment l'exposition européenne aux concentrations de la chaîne d'approvisionnement du titane a-t-elle évolué depuis 2014, et quelles options de résilience un équipementier aéronautique peut-il préparer à l'horizon 2030 ?
+**Question :** comment la dépendance européenne aux importations de titane a-t-elle évolué depuis 2014, et quelles preuves supplémentaires faut-il avant d'en déduire la résilience aéronautique à l'horizon 2030 ?
 
 L'étude combine données commerciales publiques, preuves industrielles et analyse structurée. Elle montre surtout qu'une diversification commerciale ne devient pas automatiquement une alternative aéronautique utilisable.
 
@@ -52,7 +52,7 @@ L'étude combine données commerciales publiques, preuves industrielles et analy
 
 <div align="center">
 
-[**Lire la synthèse**](cases/case-01-titanium/README.md) · [**Rapport complet en Markdown**](cases/case-01-titanium/report.md) · [**Télécharger le rapport PDF — 22 pages**](cases/case-01-titanium/report.pdf) · [**Méthodologie**](cases/case-01-titanium/methodology.md) · [**Sources**](cases/case-01-titanium/sources.md) · [**Carte des preuves**](cases/case-01-titanium/evidence-map.md)
+[**Lire la synthèse**](cases/case-01-titanium/README.md) · [**Rapport complet en Markdown**](cases/case-01-titanium/report.md) · [**Télécharger le rapport PDF — 23 pages**](cases/case-01-titanium/report.pdf) · [**Méthodologie**](cases/case-01-titanium/methodology.md) · [**Sources**](cases/case-01-titanium/sources.md) · [**Carte des preuves**](cases/case-01-titanium/evidence-map.md) · [**Provenance**](cases/case-01-titanium/provenance.csv)
 
 </div>
 
@@ -65,9 +65,9 @@ L'étude combine données commerciales publiques, preuves industrielles et analy
 Le cas associe chronologie, analyse de graphe STIX, tests de sensibilité, dissémination Wikipedia/X, triangulation multi-sources et hypothèses concurrentes.
 
 **À retenir :**
-- **371** observations de domaines dans le snapshot VIGINUM utilisé ;
+- **371 observations correspondant à 370 domaines distincts** dans le snapshot VIGINUM utilisé ;
 - **609 nœuds** et **1 013 relations** dans le paquet STIX analysé ;
-- **1 932** observations Wikipedia et **2 018** observations X dans les données de dissémination étudiées ;
+- **1 932** observations Wikipedia réparties entre **44 éditions linguistiques** et **2 018** observations X dans les données de dissémination étudiées ;
 - une lecture **hybride** reste l'hypothèse de travail la plus compatible avec le corpus, sans constituer une attribution ;
 - le rapport sépare explicitement **visibilité, coordination, attribution et impact**.
 
@@ -77,7 +77,7 @@ Le cas associe chronologie, analyse de graphe STIX, tests de sensibilité, diss�
 
 <div align="center">
 
-[**Lire la synthèse**](cases/case-02-portal-kombat/README.md) · [**Rapport complet en Markdown**](cases/case-02-portal-kombat/report.md) · [**Télécharger le rapport PDF — 22 pages**](cases/case-02-portal-kombat/report.pdf) · [**Méthodologie**](cases/case-02-portal-kombat/methodology.md) · [**Sources**](cases/case-02-portal-kombat/sources.md) · [**Carte des preuves**](cases/case-02-portal-kombat/evidence-map.md)
+[**Lire la synthèse**](cases/case-02-portal-kombat/README.md) · [**Rapport complet en Markdown**](cases/case-02-portal-kombat/report.md) · [**Télécharger le rapport PDF — 23 pages**](cases/case-02-portal-kombat/report.pdf) · [**Méthodologie**](cases/case-02-portal-kombat/methodology.md) · [**Sources**](cases/case-02-portal-kombat/sources.md) · [**Carte des preuves**](cases/case-02-portal-kombat/evidence-map.md) · [**Provenance**](cases/case-02-portal-kombat/provenance.csv)
 
 </div>
 
@@ -147,7 +147,7 @@ Le dépôt est une **surface de publication à historique neuf**, distincte du d
 - les artefacts principaux disposent de checksums SHA-256 ;
 - l'assistance par IA est documentée et ne remplace pas la validation humaine.
 
-[🔎 Revue des droits](publication/rights-review.md) · [✅ Checklist de publication](publication/release-checklist.md) · [#️⃣ Checksums](publication/checksums.sha256) · [🤖 Transparence IA](AI_TRANSPARENCY.md) · [⚖️ Licence](LICENSE) · [📌 Notice](NOTICE.md) · [⚠️ Avertissement](DISCLAIMER.md)
+[🔎 Revue des droits](publication/rights-review.md) · [✅ Checklist de publication](publication/release-checklist.md) · [🛠️ Construire et vérifier](BUILD.md) · [#️⃣ Checksums](publication/checksums.sha256) · [🤖 Transparence IA](AI_TRANSPARENCY.md) · [⚖️ Licence](LICENSE) · [📌 Notice](NOTICE.md) · [⚠️ Avertissement](DISCLAIMER.md)
 
 ---
 

@@ -1,0 +1,5 @@
+# Generated publication artifacts need stable Git treatment.
+*.pdf binary
+*.csv text eol=lf
+*.sha256 text eol=lf
+*.svg text eol=lf
