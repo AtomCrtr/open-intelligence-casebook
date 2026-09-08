@@ -77,17 +77,19 @@ jobs:
             python tools/apply_audit_improvements.py pre
           fi
 
-      - name: Verify editorial and provenance contracts
-        shell: bash
-        working-directory: repo
-        run: python -m pytest tests -q
-
       - name: Build and verify publication
         shell: bash
         working-directory: repo
         run: |
           set -euo pipefail
           python tools/build_publication.py
+
+      # Bootstrap restoration supplies source-state figures. Build before
+      # integrity contracts so hashes always describe generated artifacts.
+      - name: Verify editorial and provenance contracts
+        shell: bash
+        working-directory: repo
+        run: python -m pytest tests -q
 
       - name: Finalize audit improvements
         shell: bash

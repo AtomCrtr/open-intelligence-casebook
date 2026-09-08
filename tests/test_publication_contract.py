@@ -120,6 +120,9 @@ def test_writable_ci_pins_upload_action_and_scopes_token():
     assert "weasyprint==68.0" in build_guide
     assert "git add -A" not in workflow
     assert "PYTHONDONTWRITEBYTECODE: \"1\"" in workflow
+    assert workflow.index("- name: Build and verify publication") < workflow.index(
+        "- name: Verify editorial and provenance contracts"
+    )
     commit_section = workflow.split("- name: Commit publication package", 1)[1]
     assert commit_section.index("python tools/build_publication.py") < commit_section.index(
         "git add --"
