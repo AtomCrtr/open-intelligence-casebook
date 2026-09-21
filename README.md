@@ -25,7 +25,7 @@ Chaque cas part d'une question concrète, transforme des sources publiques en pr
 | **2 rapports publics finalisés** | **44 pages A4** au total |
 | **3 casebooks** | 2 publiés · 1 en développement |
 | **Approche** | OSINT passif · GEOINT · analyse de données · graphes · ACH |
-| **Principe central** | chaque conclusion reste reliée à ses preuves, ses limites et son niveau de confiance |
+| **Principe central** | **Decision-first + Evidence-deep** : décision rapide, preuve entièrement auditable |
 
 > **Ce dépôt n'est pas un dump de recherche.** C'est une édition publique assainie : pas d'historique privé, pas d'audits internes, pas de secrets et pas de corpus tiers redistribué lorsque les droits sont incertains.
 
@@ -110,14 +110,15 @@ flowchart LR
     I --> J[Recommandations conditionnelles]
 ```
 
-La méthode repose sur quatre règles :
+La méthode repose désormais sur une **Règle 0** et quatre garde-fous :
 
+0. **Decision-first + Evidence-deep** — chaque casebook doit être compréhensible en moins de cinq minutes dans sa couche décisionnelle, puis entièrement auditable dans sa couche probatoire ;
 1. **une source n'est pas une conclusion** — elle doit être évaluée, contextualisée et recoupée ;
 2. **absence de preuve ≠ preuve d'absence** — une lacune reste une lacune ;
 3. **une corrélation n'est pas une attribution** — les inférences causales sont bornées par ce qui est observable ;
 4. **le niveau de confiance reste séparé du verdict** — une hypothèse peut être compatible avec les faits tout en restant faiblement étayée.
 
-[Cycle analytique](methodology/analytical-cycle.md) · [Évaluation des sources](methodology/source-evaluation.md) · [Hypothèses & confiance](methodology/confidence-and-hypotheses.md) · [Reproductibilité](methodology/reproducibility.md)
+[**ATOM Casebook Standard v2.0**](methodology/ATOM_CASEBOOK_STANDARD_V2.md) · [Cycle analytique](methodology/analytical-cycle.md) · [Évaluation des sources](methodology/source-evaluation.md) · [Hypothèses & confiance](methodology/confidence-and-hypotheses.md) · [Reproductibilité](methodology/reproducibility.md)
 
 ---
 
