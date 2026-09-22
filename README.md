@@ -118,7 +118,7 @@ La méthode repose désormais sur une **Règle 0** et quatre garde-fous :
 3. **une corrélation n'est pas une attribution** — les inférences causales sont bornées par ce qui est observable ;
 4. **le niveau de confiance reste séparé du verdict** — une hypothèse peut être compatible avec les faits tout en restant faiblement étayée.
 
-[**ATOM Casebook Standard v2.0**](methodology/ATOM_CASEBOOK_STANDARD_V2.md) · [Cycle analytique](methodology/analytical-cycle.md) · [Évaluation des sources](methodology/source-evaluation.md) · [Hypothèses & confiance](methodology/confidence-and-hypotheses.md) · [Reproductibilité](methodology/reproducibility.md)
+[**ATOM Casebook Standard v2.0**](methodology/ATOM_CASEBOOK_STANDARD_V2.md) · [**Template complet v2**](methodology/ATOM_CASEBOOK_TEMPLATE_V2.md) · [**Méga-prompt v2**](methodology/ATOM_CASEBOOK_MEGA_PROMPT_V2.md) · [Cycle analytique](methodology/analytical-cycle.md) · [Évaluation des sources](methodology/source-evaluation.md) · [Hypothèses & confiance](methodology/confidence-and-hypotheses.md) · [Reproductibilité](methodology/reproducibility.md)
 
 ---
 
