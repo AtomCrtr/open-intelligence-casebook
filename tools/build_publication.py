@@ -320,7 +320,7 @@ def write_publication_files() -> None:
             if rel=='publication/public-manifest.csv': continue
             if rel.endswith('.pdf'): cls='generated_report'; rule='public_original_analysis'
             elif '/figures/' in rel and rel.endswith('.svg'): cls='derived_figure'; rule='public_original_derivation'
-            elif rel.startswith('.github/') or rel.startswith('tools/'): cls='build_tooling'; rule='public_original_code'
+            elif rel.startswith(('.github/', 'tools/')): cls='build_tooling'; rule='public_original_code'
             elif rel.startswith('tests/'):
                 cls='build_validation'
                 rule='public_original_code'
