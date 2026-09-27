@@ -151,9 +151,14 @@ def test_readme_does_not_publish_environment_dependent_pdf_page_counts():
     assert "cases/case-02-portal-kombat/report.pdf" in readme
 
 
+def test_every_case_passes_traceability_checks():
+    for case_dir in sorted((ROOT / "cases").iterdir()):
+        assert check_case.check_case(case_dir) == [], case_dir.name
+
+
 def test_case4_traceability_and_sanitization():
     case4 = ROOT / "cases" / "case-04-xz-utils"
-    assert check_case.check_case(case4) == []
+    assert (case4 / "citations-ledger.json").exists()
     for path in case4.iterdir():
         text = path.read_text(encoding="utf-8")
         assert "avatars.githubusercontent.com" not in text, path.name
