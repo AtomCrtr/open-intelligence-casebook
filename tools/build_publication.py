@@ -23,6 +23,7 @@ from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
 ROOT = Path(__file__).resolve().parents[1]
 C1 = ROOT / 'cases/case-01-titanium'
 C2 = ROOT / 'cases/case-02-portal-kombat'
+C4 = ROOT / 'cases/case-04-xz-utils'
 PUB = ROOT / 'publication'
 CSS = ROOT / 'tools/report.css'
 REPO_URL = 'https://github.com/AtomCrtr/open-intelligence-casebook'
@@ -340,7 +341,7 @@ def validate_public_provenance() -> None:
         'independence_note', 'scope_limit',
     }
     tables = {}
-    for case_dir in (C1, C2):
+    for case_dir in (C1, C2, C4):
         with (case_dir/'provenance.csv').open(encoding='utf-8', newline='') as f:
             reader = csv.DictReader(f)
             if not required.issubset(reader.fieldnames or []):

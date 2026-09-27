@@ -1,0 +1,21 @@
+claim_id,source_id,evidence_role,information_lineage,independence_note,scope_limit
+C4-PUB-001,S-001,primary_reporting,CISA-ALERT,institutional alert distinct from project and distributions,historical alert; not the current state of every distribution
+C4-PUB-001,S-003,primary_reporting,XZ-PROJECT-STATEMENT,project statement; direct interest in crisis communication,evolving page mixing history and later updates
+C4-PUB-001,S-005,primary_reporting,DEBIAN-DSA,independent distribution advisory,Debian scope only
+C4-PUB-002,S-002,primary_technical,FREUND-OSS-SECURITY,primary technical disclosure reused by many secondary sources,author states parts of the mechanism were not fully analysed
+C4-PUB-002,S-004,secondary_synthesis,OPENSSF-SYNTHESIS,depends on Openwall Red Hat and Debian,synthesis weaker than original technical proof
+C4-PUB-002,S-010,primary_reporting,CERT-EU-ADVISORY,institutional advisory citing Openwall and distributions,written during evolving analysis
+C4-PUB-003,S-002,primary_technical,FREUND-OSS-SECURITY,single primary source for the discoverer's own observations,first observation minute not established
+C4-PUB-004,S-005,primary_reporting,DEBIAN-DSA,independent distribution advisory,stable not known affected at publication time; Debian only
+C4-PUB-004,S-011,primary_reporting,REDHAT-ADVISORY,independent vendor advisory,Red Hat and Fedora products only
+C4-PUB-005,S-002,primary_technical,FREUND-OSS-SECURITY,primary technical disclosure,capability described; exploitation not observed
+C4-PUB-005,S-007,secondary_technical,DATADOG-ANALYSIS,curates external analyses including Openwall,risk of narrative propagation
+C4-PUB-005,S-010,primary_reporting,CERT-EU-ADVISORY,institutional advisory,capability under conditions; list of distributions not exhaustive
+C4-PUB-005,S-012,secondary_media,ARS-TECHNICA,relies on researchers and advisories,no uploaded code observed; cannot support a finding alone
+C4-PUB-006,S-004,secondary_synthesis,OPENSSF-SYNTHESIS,states motivation remains unknown,no identification of an actor
+C4-PUB-006,S-012,secondary_media,ARS-TECHNICA,states real identity behind the pseudonym is unknown,cannot support attribution
+C4-PUB-007,S-006,secondary_technical,MICROSOFT-GUIDANCE,response guidance reusing CISA and distributions,date without time zone
+C4-PUB-007,S-007,secondary_technical,DATADOG-ANALYSIS,curated analysis,date without time zone
+C4-PUB-007,S-002,primary_technical,FREUND-OSS-SECURITY,primary disclosure with full timestamp,publication time is not first observation time
+C4-PUB-008,S-008,primary_metadata,GITHUB-RELEASE-METADATA,repository metadata distinct from advisories,tag time shown without time zone; does not prove intent
+C4-PUB-008,S-009,primary_metadata,GITHUB-RELEASE-METADATA,same lineage as S-008,tag time shown without time zone; does not prove intent

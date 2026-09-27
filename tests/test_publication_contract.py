@@ -4,6 +4,7 @@ import re
 from pathlib import Path
 
 import tools.build_publication as publication_builder
+from tools import check_case
 
 ROOT = Path(__file__).resolve().parents[1]
 CASE01 = ROOT / "cases" / "case-01-titanium"
@@ -148,3 +149,13 @@ def test_readme_does_not_publish_environment_dependent_pdf_page_counts():
     assert not re.search(r"rapport PDF — \d+ pages", readme)
     assert "cases/case-01-titanium/report.pdf" in readme
     assert "cases/case-02-portal-kombat/report.pdf" in readme
+
+
+def test_case4_traceability_and_sanitization():
+    case4 = ROOT / "cases" / "case-04-xz-utils"
+    assert check_case.check_case(case4) == []
+    for path in case4.iterdir():
+        text = path.read_text(encoding="utf-8")
+        assert "avatars.githubusercontent.com" not in text, path.name
+        assert "VERDICT DU TEST DU WORKSPACE" not in text, path.name
+    assert len({row["claim_id"] for row in rows(case4 / "provenance.csv")}) >= 8
