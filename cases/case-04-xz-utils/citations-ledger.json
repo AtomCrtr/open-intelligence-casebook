@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.cisa.gov/news-events/alerts/2024/03/29/reported-supply-chain-compromise-affecting-xz-utils-data-compression-library-cve-2024-3094",
+      "title": "CISA",
+      "accessed": "2026-08-21",
+      "quotes": [
+        {
+          "text": "CISA and the open source community are responding to reports of malicious code being embedded in XZ Utils versions 5.6.0 and 5.6.1. This activity was assigned CVE-2024-3094.",
+          "added": "2026-08-21"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "url": "https://www.openwall.com/lists/oss-security/2024/03/29/4",
+      "title": "Openwall oss-security — Andres Freund",
+      "accessed": "2026-08-21",
+      "quotes": [
+        {
+          "text": "The upstream xz repository and the xz tarballs have been backdoored.",
+          "added": "2026-08-21"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "url": "https://tukaani.org/xz-backdoor",
+      "title": "XZ Utils maintainer page",
+      "accessed": "2026-08-21",
+      "quotes": [
+        {
+          "text": "XZ Utils 5.6.0 and 5.6.1 release tarballs contain a backdoor.",
+          "added": "2026-08-21"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "url": "https://openssf.org/blog/2024/03/30/xz-backdoor-cve-2024-3094",
+      "title": "OpenSSF",
+      "accessed": "2026-08-21",
+      "quotes": [
+        {
+          "text": "While the motivation behind this backdoor remains unknown, the intent was to compromise specific distributions, as the backdoors were only applied to DEB or RPM packages for the x86-64 architecture built with gcc and the gnu linker.",
+          "added": "2026-08-21"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "url": "https://www.debian.org/security/dsa-5649-1",
+      "title": "Debian DSA-5649-1",
+      "accessed": "2026-08-21",
+      "quotes": [
+        {
+          "text": "Right now no Debian stable versions are known to be affected.",
+          "added": "2026-08-21"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "url": "https://techcommunity.microsoft.com/blog/vulnerability-management/microsoft-faq-and-guidance-for-xz-utils-backdoor/4101961",
+      "title": "Microsoft",
+      "accessed": "2026-08-21",
+      "quotes": [
+        {
+          "text": "On March 28, 2024 a backdoor was identified in XZ Utils.",
+          "added": "2026-08-21"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "url": "https://securitylabs.datadoghq.com/articles/xz-backdoor-cve-2024-3094",
+      "title": "Datadog Security Labs",
+      "accessed": "2026-08-21",
+      "quotes": [
+        {
+          "text": "When a malicious version of the `xz-utils` library is installed, a malicious shared object (SO) file is stored on disk.",
+          "added": "2026-08-21"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "url": "https://github.com/tukaani-project/xz/releases/tag/v5.6.0",
+      "title": "GitHub release v5.6.0",
+      "accessed": "2026-08-21",
+      "quotes": [
+        {
+          "text": "> JiaT75 tagged this 24 Feb 08:22",
+          "added": "2026-08-21"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "url": "https://github.com/tukaani-project/xz/releases/tag/v5.6.1",
+      "title": "GitHub release v5.6.1",
+      "accessed": "2026-08-21",
+      "quotes": [
+        {
+          "text": "> JiaT75 tagged this 09 Mar 08:16",
+          "added": "2026-08-21"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "url": "https://cert.europa.eu/publications/security-advisories/2024-032/pdf",
+      "title": "CERT-EU Advisory 2024-032",
+      "accessed": "2026-08-21",
+      "quotes": [
+        {
+          "text": "On March 29, several companies issued a warning regarding a backdoor found in the XZ Utils software.",
+          "added": "2026-08-21"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "url": "https://www.redhat.com/en/blog/urgent-security-alert-fedora-41-and-rawhide-users",
+      "title": "Red Hat advisory",
+      "accessed": "2026-08-21",
+      "quotes": [
+        {
+          "text": "No versions of Red Hat Enterprise Linux (RHEL) are affected by this CVE.",
+          "added": "2026-08-21"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "url": "https://arstechnica.com/security/2024/04/what-we-know-about-the-xz-utils-backdoor-that-almost-infected-the-world",
+      "title": "Ars Technica",
+      "accessed": "2026-08-21",
+      "quotes": [
+        {
+          "text": "At the moment, it’s unknown if there was ever a real-world person behind this username or if Jia Tan is a completely fabricated individual.",
+          "added": "2026-08-21"
+        }
+      ]
+    }
+  ]
+}

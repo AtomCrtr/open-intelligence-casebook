@@ -10,14 +10,14 @@
 ### Des sources ouvertes à une analyse traçable, reproductible et utile à la décision
 
 [![Langue](https://img.shields.io/badge/langue-fran%C3%A7ais-1f6f78)](README.md)
-[![Rapports](https://img.shields.io/badge/rapports%20publics-2-244c66)](#les-casebooks)
+[![Rapports](https://img.shields.io/badge/rapports%20publics-3-244c66)](#les-casebooks)
 [![OSINT](https://img.shields.io/badge/OSINT-passif-355c7d)](#m%C3%A9thode-commune)
 [![Publication](https://img.shields.io/badge/publication-RELEASE%20PASS-2e7d32)](publication/release-checklist.md)
 
 **Open Intelligence Casebook** est un portfolio public d'études d'intelligence en sources ouvertes.  
 Chaque cas part d'une question concrète, transforme des sources publiques en preuves vérifiables, confronte plusieurs hypothèses et restitue un jugement avec ses limites.
 
-[📘 Case 01 — Titane](cases/case-01-titanium/README.md) · [📕 PDF](cases/case-01-titanium/report.pdf) · [🛰️ Case 02 — Portal Kombat](cases/case-02-portal-kombat/README.md) · [📕 PDF](cases/case-02-portal-kombat/report.pdf)
+[📘 Case 01 — Titane](cases/case-01-titanium/README.md) · [📕 PDF](cases/case-01-titanium/report.pdf) · [🛰️ Case 02 — Portal Kombat](cases/case-02-portal-kombat/README.md) · [📕 PDF](cases/case-02-portal-kombat/report.pdf) · [🔐 Case 04 — XZ Utils](cases/case-04-xz-utils/README.md)
 
 </div>
 
@@ -27,8 +27,8 @@ Chaque cas part d'une question concrète, transforme des sources publiques en pr
 
 | | |
 |---|---|
-| **2 rapports publics finalisés** | PDF A4 et Markdown, reconstruits de façon déterministe par la CI |
-| **3 casebooks** | 2 publiés · 1 en développement |
+| **3 rapports publics finalisés** | Cases 01-02 en PDF A4 et Markdown reconstruits par la CI · Case 04 en Markdown |
+| **4 casebooks** | 3 publiés · 1 en développement |
 | **Approche** | OSINT passif · GEOINT · analyse de données · graphes · ACH |
 | **Principe central** | **Decision-first + Evidence-deep** : décision rapide, preuve entièrement auditable |
 
@@ -39,7 +39,7 @@ Chaque cas part d'une question concrète, transforme des sources publiques en pr
 | Vous avez… | Lisez | Vous obtenez |
 |---|---|---|
 | **5 minutes** | la section « En deux minutes » d'un README de cas | la question, la réponse et le niveau de confiance |
-| **30 minutes** | le rapport complet ([Case 01](cases/case-01-titanium/report.md) · [Case 02](cases/case-02-portal-kombat/report.md)) | le raisonnement, les hypothèses concurrentes et les limites |
+| **30 minutes** | le rapport complet ([Case 01](cases/case-01-titanium/report.md) · [Case 02](cases/case-02-portal-kombat/report.md) · [Case 04](cases/case-04-xz-utils/report.md)) | le raisonnement, les hypothèses concurrentes et les limites |
 | **le temps d'auditer** | la carte des preuves, la table de provenance et les métriques dérivées | le lien vérifiable entre chaque affirmation publique et sa source |
 
 ---
@@ -106,6 +106,26 @@ La première édition publique ne contient **aucune conclusion historique sur de
 
 ---
 
+### 🔐 Case 04 — XZ Utils / CVE-2024-3094
+
+**Question :** que permettent d'établir les sources publiques sur la chronologie de la compromission de XZ Utils, sa découverte, sa portée technique et la réponse de l'écosystème, sans dépasser les preuves disponibles sur l'intention, l'identité ou l'attribution ?
+
+Un cas de **compromission de la chaîne d'approvisionnement logicielle** traité en OSINT strictement passif, avec 12 sources publiques et des citations vérifiées automatiquement mot pour mot.
+
+**À retenir :**
+- versions **5.6.0 et 5.6.1** compromises via la chaîne de publication / build — confiance **HIGH** ;
+- impact **segmenté** par distribution : Debian stable et RHEL n'étaient pas connus comme affectés ;
+- capacité pré-authentification SSH décrite sous conditions, **aucune exploitation à grande échelle démontrée** ;
+- **aucune attribution** établie (confiance LOW) ; cinq contradictions entre sources conservées plutôt que lissées.
+
+<div align="center">
+
+[**Lire la synthèse**](cases/case-04-xz-utils/README.md) · [**Rapport complet**](cases/case-04-xz-utils/report.md) · [**Sources**](cases/case-04-xz-utils/sources.md) · [**Carte des preuves**](cases/case-04-xz-utils/evidence-map.md) · [**Provenance**](cases/case-04-xz-utils/provenance.csv) · [**Ledger de citations**](cases/case-04-xz-utils/citations-ledger.json)
+
+</div>
+
+---
+
 ## Méthode commune
 
 Chaque étude utilise une chaîne analytique explicite :
@@ -143,11 +163,12 @@ La méthode repose désormais sur une **Règle 0** et quatre garde-fous :
 | **Data Engineering** | normalisation, métriques dérivées, contrôles qualité, reproductibilité |
 | **GEOINT / spatial** | raisonnement géographique et préparation de traitements spatiaux |
 | **Analyse structurée** | ACH, scénarios, indicateurs, niveaux de confiance, limites explicites |
+| **Cyber / supply chain** | compromission logicielle, chronologie multi-sources, périmètre d'impact, attribution prudente |
 | **Graph intelligence** | STIX, topologie, sensibilité des relations, dissémination |
 | **Communication décisionnelle** | briefs, rapports publics, visualisations et recommandations conditionnelles |
 | **Gouvernance** | droits de redistribution, minimisation des données, checksums, transparence IA |
 
-`Python` `OSINT` `GEOINT` `STIX` `DISARM` `ACH` `Data Engineering` `Graph Analysis` `Evidence Traceability` `Reproducibility`
+`Python` `OSINT` `CTI` `Supply Chain Security` `GEOINT` `STIX` `DISARM` `ACH` `Data Engineering` `Graph Analysis` `Evidence Traceability` `Reproducibility`
 
 ---
 
@@ -173,10 +194,12 @@ open-intelligence-casebook/
 ├── cases/
 │   ├── case-01-titanium/          # rapport, figures, métriques, méthode, sources
 │   ├── case-02-portal-kombat/     # rapport, figures, métriques, méthode, sources
-│   └── case-03-gnss-interference/ # présentation du travail en cours
+│   ├── case-03-gnss-interference/ # présentation du travail en cours
+│   └── case-04-xz-utils/          # rapport, sources, provenance, ledger de citations
 ├── methodology/                   # méthode analytique commune
 ├── publication/                   # droits, manifeste, checksums, release gate
 ├── AI_TRANSPARENCY.md
+├── CITATION.cff
 ├── DISCLAIMER.md
 ├── NOTICE.md
 └── LICENSE
@@ -192,6 +215,8 @@ Les éléments originaux utilisent une double licence :
 - **textes, diagrammes et figures originaux** : CC BY 4.0.
 
 Les contenus tiers conservent leurs propres conditions et ne sont jamais relicenciés par ce dépôt. Voir [LICENSE](LICENSE) et [NOTICE.md](NOTICE.md).
+
+Pour citer ce travail : [`CITATION.cff`](CITATION.cff) (bouton « Cite this repository » de GitHub).
 
 ---
 

@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "Si vous réutilisez ces analyses, merci de citer ce casebook."
+title: "Open Intelligence Casebook"
+abstract: >-
+  Portfolio public d'études d'intelligence en sources ouvertes (OSINT) :
+  chaque cas part d'une question décisionnelle, transforme des sources
+  publiques en preuves traçables, confronte des hypothèses concurrentes et
+  restitue un jugement avec son niveau de confiance et ses limites.
+authors:
+  - alias: AtomCrtr
+repository-code: "https://github.com/AtomCrtr/open-intelligence-casebook"
+url: "https://github.com/AtomCrtr/open-intelligence-casebook"
+license:
+  - Apache-2.0
+  - CC-BY-4.0
+keywords:
+  - OSINT
+  - intelligence analysis
+  - analysis of competing hypotheses
+  - supply chain
+  - information integrity
+  - reproducibility

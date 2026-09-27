@@ -71,10 +71,12 @@
 <text x="72" y="75" font-family="'Cascadia Code', 'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="14" letter-spacing="2.5" fill="#3cc4bd">OSINT · GEOINT · DATA · ANALYSE STRUCTURÉE</text>
 <text x="56" y="140" font-family="'Segoe UI', Inter, 'Helvetica Neue', Arial, sans-serif" font-size="51" font-weight="700" fill="#e6edf3">Open Intelligence Casebook</text>
 <text x="58" y="180" font-family="'Segoe UI', Inter, 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#a9bcc6">Des sources ouvertes à une analyse traçable, reproductible et utile à la décision</text>
-<rect x="56" y="222" width="220" height="34" rx="17" fill="#131d24" stroke="#2b3f49"/>
-<text x="166" y="244" text-anchor="middle" font-family="'Segoe UI', Inter, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#e6edf3">01 · Titane &amp; aéronautique</text>
-<rect x="287.6" y="222" width="227" height="34" rx="17" fill="#131d24" stroke="#2b3f49"/>
-<text x="401" y="244" text-anchor="middle" font-family="'Segoe UI', Inter, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#e6edf3">02 · Portal Kombat / Pravda</text>
-<rect x="526.8" y="222" width="197" height="34" rx="17" fill="#131d24" stroke="#2b3f49"/>
-<text x="625" y="244" text-anchor="middle" font-family="'Segoe UI', Inter, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#e6edf3">03 · Interférences GNSS</text>
+<rect x="56" y="222" width="106" height="34" rx="17" fill="#131d24" stroke="#2b3f49"/>
+<text x="109" y="244" text-anchor="middle" font-family="'Segoe UI', Inter, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#e6edf3">01 · Titane</text>
+<rect x="173.6" y="222" width="159" height="34" rx="17" fill="#131d24" stroke="#2b3f49"/>
+<text x="253" y="244" text-anchor="middle" font-family="'Segoe UI', Inter, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#e6edf3">02 · Portal Kombat</text>
+<rect x="344.4" y="222" width="90" height="34" rx="17" fill="#131d24" stroke="#2b3f49"/>
+<text x="390" y="244" text-anchor="middle" font-family="'Segoe UI', Inter, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#e6edf3">03 · GNSS</text>
+<rect x="446.79999999999995" y="222" width="121" height="34" rx="17" fill="#131d24" stroke="#2b3f49"/>
+<text x="507" y="244" text-anchor="middle" font-family="'Segoe UI', Inter, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#e6edf3">04 · XZ Utils</text>
 </svg>
