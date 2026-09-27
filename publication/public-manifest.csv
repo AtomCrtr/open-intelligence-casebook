@@ -9,6 +9,8 @@ DISCLAIMER.md,documentation,public_original_or_link_only_sources
 LICENSE,documentation,public_original_or_link_only_sources
 NOTICE.md,documentation,public_original_or_link_only_sources
 README.md,documentation,public_original_or_link_only_sources
+assets/banner-dark.svg,branding,public_original_content
+assets/banner.svg,branding,public_original_content
 cases/case-01-titanium/README.md,documentation,public_original_or_link_only_sources
 cases/case-01-titanium/data/key_metrics.csv,derived_data,public_original_derivation
 cases/case-01-titanium/evidence-map.md,documentation,public_original_or_link_only_sources
