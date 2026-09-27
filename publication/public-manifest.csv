@@ -4,6 +4,7 @@ path,class,publication_rule
 .gitignore,documentation,public_original_or_link_only_sources
 AI_TRANSPARENCY.md,documentation,public_original_or_link_only_sources
 BUILD.md,documentation,public_original_or_link_only_sources
+CITATION.cff,documentation,public_original_or_link_only_sources
 CONTRIBUTING.md,documentation,public_original_or_link_only_sources
 DISCLAIMER.md,documentation,public_original_or_link_only_sources
 LICENSE,documentation,public_original_or_link_only_sources
@@ -11,6 +12,7 @@ NOTICE.md,documentation,public_original_or_link_only_sources
 README.md,documentation,public_original_or_link_only_sources
 assets/banner-dark.svg,branding,public_original_content
 assets/banner.svg,branding,public_original_content
+assets/social-preview.png,branding,public_original_content
 cases/case-01-titanium/README.md,documentation,public_original_or_link_only_sources
 cases/case-01-titanium/data/key_metrics.csv,derived_data,public_original_derivation
 cases/case-01-titanium/evidence-map.md,documentation,public_original_or_link_only_sources
@@ -40,6 +42,14 @@ cases/case-02-portal-kombat/report.md,documentation,public_original_or_link_only
 cases/case-02-portal-kombat/report.pdf,generated_report,public_original_analysis
 cases/case-02-portal-kombat/sources.md,documentation,public_original_or_link_only_sources
 cases/case-03-gnss-interference/README.md,documentation,public_original_or_link_only_sources
+cases/case-04-xz-utils/README.md,documentation,public_original_or_link_only_sources
+cases/case-04-xz-utils/citations-ledger.json,documentation,public_original_or_link_only_sources
+cases/case-04-xz-utils/evidence-map.md,documentation,public_original_or_link_only_sources
+cases/case-04-xz-utils/evidence-register.md,documentation,public_original_or_link_only_sources
+cases/case-04-xz-utils/provenance.csv,derived_data,public_original_derivation
+cases/case-04-xz-utils/report.md,documentation,public_original_or_link_only_sources
+cases/case-04-xz-utils/source-extracts.md,documentation,public_original_or_link_only_sources
+cases/case-04-xz-utils/sources.md,documentation,public_original_or_link_only_sources
 methodology/analytical-cycle.md,documentation,public_original_or_link_only_sources
 methodology/confidence-and-hypotheses.md,documentation,public_original_or_link_only_sources
 methodology/reproducibility.md,documentation,public_original_or_link_only_sources
@@ -49,5 +59,6 @@ publication/release-checklist.md,documentation,public_original_or_link_only_sour
 publication/rights-review.md,documentation,public_original_or_link_only_sources
 tests/test_publication_contract.py,build_validation,public_original_code
 tools/build_publication.py,build_tooling,public_original_code
+tools/check_case.py,build_tooling,public_original_code
 tools/report.css,build_tooling,public_original_code
 publication/public-manifest.csv,publication_control,public_original_content
