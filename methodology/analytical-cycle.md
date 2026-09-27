@@ -25,4 +25,4 @@ Pour les rapports complexes, une distinction rédactionnelle supplémentaire peu
 
 L'objectif n'est pas de produire une certitude artificielle, mais une conclusion proportionnée aux preuves disponibles et directement utile à la décision.
 
-Voir le standard complet : [ATOM Casebook Standard v2.0](ATOM_CASEBOOK_STANDARD_V2.md).
+Le standard de travail complet (ATOM Casebook Standard v2) est maintenu dans le dépôt canonique privé ; cette page en présente les principes publics.
