@@ -1,5 +1,10 @@
 <div align="center">
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
+  <img src="assets/banner.svg" alt="Open Intelligence Casebook — des sources ouvertes à une analyse traçable, reproductible et utile à la décision" width="100%">
+</picture>
+
 # 🧭 Open Intelligence Casebook
 
 ### Des sources ouvertes à une analyse traçable, reproductible et utile à la décision
@@ -22,12 +27,20 @@ Chaque cas part d'une question concrète, transforme des sources publiques en pr
 
 | | |
 |---|---|
-| **2 rapports publics finalisés** | **44 pages A4** au total |
+| **2 rapports publics finalisés** | PDF A4 et Markdown, reconstruits de façon déterministe par la CI |
 | **3 casebooks** | 2 publiés · 1 en développement |
 | **Approche** | OSINT passif · GEOINT · analyse de données · graphes · ACH |
 | **Principe central** | **Decision-first + Evidence-deep** : décision rapide, preuve entièrement auditable |
 
 > **Ce dépôt n'est pas un dump de recherche.** C'est une édition publique assainie : pas d'historique privé, pas d'audits internes, pas de secrets et pas de corpus tiers redistribué lorsque les droits sont incertains.
+
+### Par où commencer ?
+
+| Vous avez… | Lisez | Vous obtenez |
+|---|---|---|
+| **5 minutes** | la section « En deux minutes » d'un README de cas | la question, la réponse et le niveau de confiance |
+| **30 minutes** | le rapport complet ([Case 01](cases/case-01-titanium/report.md) · [Case 02](cases/case-02-portal-kombat/report.md)) | le raisonnement, les hypothèses concurrentes et les limites |
+| **le temps d'auditer** | la carte des preuves, la table de provenance et les métriques dérivées | le lien vérifiable entre chaque affirmation publique et sa source |
 
 ---
 
@@ -156,6 +169,7 @@ Le dépôt est une **surface de publication à historique neuf**, distincte du d
 
 ```text
 open-intelligence-casebook/
+├── assets/                        # bannières clair / sombre
 ├── cases/
 │   ├── case-01-titanium/          # rapport, figures, métriques, méthode, sources
 │   ├── case-02-portal-kombat/     # rapport, figures, métriques, méthode, sources
