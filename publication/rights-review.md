@@ -43,7 +43,7 @@ La présence d'une licence MPL-2.0 sur le dépôt de dissémination CheckFirst n
 
 ## Case 03 - GNSS
 
-Le Case 03 ne publie qu'une page de présentation originale. Aucune donnée GPSJAM, aucune fixture, aucune trajectoire, aucun identifiant d'aéronef et aucune sortie événementielle ne sont redistribués.
+Le Case 03 ne publie qu'une page de présentation originale et un schéma d'avancement original (`figures/case03_gates.svg`, sans donnée ni source tierce). Aucune donnée GPSJAM, aucune fixture, aucune trajectoire, aucun identifiant d'aéronef et aucune sortie événementielle ne sont redistribués.
 
 **Décision : autorisé pour le teaser original ; données de travail exclues.**
 
