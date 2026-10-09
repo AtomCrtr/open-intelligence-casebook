@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" role="img" aria-labelledby="t d" font-family="'Noto Sans', 'DejaVu Sans', Arial, sans-serif">
+<title id="t">Case 03 - avancement par étapes et garde-fous</title>
+<desc id="d">Six étapes du Case 03. Les trois premières (question et périmètre, design analytique, protocole pré-enregistré) sont gelées. L'accès borné aux données est sous gates d'autorisation, les jugements ne sont pas rédigés et la publication est en HOLD. Quatre garde-fous d'interprétation sont rappelés sous le schéma.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f9fb"/><stop offset="1" stop-color="#e6f0f2"/></linearGradient>
+</defs>
+<rect width="1200" height="400" rx="18" fill="url(#bg)"/>
+<text x="40" y="52" font-size="22" font-weight="700" fill="#1b2a33">Case 03 - où en est-on ?</text>
+<text x="40" y="78" font-size="14" fill="#4a5d68">Le design est gelé avant toute observation réelle ; chaque étape suivante passe par un gate explicite.</text>
+
+<g font-size="15" fill="#ffffff" text-anchor="middle">
+<rect x="40" y="110" width="170" height="104" rx="12" fill="#1f6f78"/>
+<text x="125" y="146" font-weight="700">1 · Question</text>
+<text x="125" y="168" font-size="14">et périmètre</text>
+<text x="125" y="196" font-size="13">GELÉ</text>
+
+<rect x="226" y="110" width="170" height="104" rx="12" fill="#1f6f78"/>
+<text x="311" y="146" font-weight="700">2 · Design</text>
+<text x="311" y="168" font-size="14">analytique</text>
+<text x="311" y="196" font-size="13">GELÉ</text>
+
+<rect x="412" y="110" width="170" height="104" rx="12" fill="#1f6f78"/>
+<text x="497" y="146" font-weight="700">3 · Protocole</text>
+<text x="497" y="168" font-size="14">pré-enregistré</text>
+<text x="497" y="196" font-size="13">GELÉ</text>
+
+<rect x="598" y="110" width="170" height="104" rx="12" fill="#fff4ec" stroke="#c8643b" stroke-width="2.5" stroke-dasharray="7 5"/>
+<text x="683" y="146" font-weight="700" fill="#8f3d1b">4 · Accès borné</text>
+<text x="683" y="168" font-size="14" fill="#8f3d1b">aux données</text>
+<text x="683" y="196" font-size="13" fill="#8f3d1b">SOUS GATES</text>
+
+<rect x="784" y="110" width="170" height="104" rx="12" fill="#eef2f4" stroke="#7a93a0" stroke-width="2.5" stroke-dasharray="7 5"/>
+<text x="869" y="146" font-weight="700" fill="#3f535e">5 · Jugements</text>
+<text x="869" y="168" font-size="14" fill="#3f535e">et confiance</text>
+<text x="869" y="196" font-size="13" fill="#3f535e">NON RÉDIGÉS</text>
+
+<rect x="970" y="110" width="190" height="104" rx="12" fill="#eef2f4" stroke="#7a93a0" stroke-width="2.5" stroke-dasharray="7 5"/>
+<text x="1065" y="146" font-weight="700" fill="#3f535e">6 · Publication</text>
+<text x="1065" y="168" font-size="14" fill="#3f535e">du cas complet</text>
+<text x="1065" y="196" font-size="13" fill="#3f535e">HOLD</text>
+</g>
+
+<g fill="none" stroke="#7a93a0" stroke-width="2.5" stroke-linecap="round">
+<path d="M212 162 H224"/>
+<path d="M398 162 H410"/>
+<path d="M584 162 H596"/>
+<path d="M770 162 H782"/>
+<path d="M956 162 H968"/>
+</g>
+
+<text x="40" y="262" font-size="14" font-weight="700" fill="#1b2a33">Quatre garde-fous d'interprétation</text>
+<g font-size="13" fill="#2a3b45">
+<rect x="40" y="276" width="270" height="62" rx="10" fill="#ffffff" stroke="#c9d8de"/>
+<text x="56" y="301">Précision de navigation déclarée</text>
+<text x="56" y="321" font-weight="700">≠ preuve de brouillage</text>
+
+<rect x="326" y="276" width="270" height="62" rx="10" fill="#ffffff" stroke="#c9d8de"/>
+<text x="342" y="301">Observation ADS-B</text>
+<text x="342" y="321" font-weight="700">≠ mesure radiofréquence</text>
+
+<rect x="612" y="276" width="270" height="62" rx="10" fill="#ffffff" stroke="#c9d8de"/>
+<text x="628" y="301">Coïncidence temporelle</text>
+<text x="628" y="321" font-weight="700">≠ causalité</text>
+
+<rect x="898" y="276" width="262" height="62" rx="10" fill="#ffffff" stroke="#c9d8de"/>
+<text x="914" y="301">Géométrie ou proximité</text>
+<text x="914" y="321" font-weight="700">≠ attribution</text>
+</g>
+<text x="40" y="374" font-size="12" fill="#4a5d68">Analyse OSINT - non destinée à la navigation. Aucune donnée d'observation réelle n'est publiée à ce stade.</text>
+</svg>

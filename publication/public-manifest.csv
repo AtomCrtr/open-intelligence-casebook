@@ -42,6 +42,7 @@ cases/case-02-portal-kombat/report.md,documentation,public_original_or_link_only
 cases/case-02-portal-kombat/report.pdf,generated_report,public_original_analysis
 cases/case-02-portal-kombat/sources.md,documentation,public_original_or_link_only_sources
 cases/case-03-gnss-interference/README.md,documentation,public_original_or_link_only_sources
+cases/case-03-gnss-interference/figures/case03_gates.svg,derived_figure,public_original_derivation
 cases/case-04-xz-utils/README.md,documentation,public_original_or_link_only_sources
 cases/case-04-xz-utils/citations-ledger.json,documentation,public_original_or_link_only_sources
 cases/case-04-xz-utils/evidence-map.md,documentation,public_original_or_link_only_sources

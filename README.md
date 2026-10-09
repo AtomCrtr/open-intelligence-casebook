@@ -100,9 +100,25 @@ Le cas associe chronologie, analyse de graphe STIX, tests de sensibilité, diss�
 
 **Statut : en développement.** Le cadre analytique est conçu avant l'inspection des observations réelles afin de limiter les biais de sélection et d'interprétation.
 
+**Question :** comment les données ouvertes peuvent-elles aider à suivre et caractériser les dégradations de navigation touchant l'aviation civile européenne depuis 2022, sans confondre corrélation, couverture des capteurs et causalité ?
+
 La première édition publique ne contient **aucune conclusion historique sur des événements GNSS réels**, aucun identifiant aéronef et aucune donnée opérationnelle. Le cas sera ajouté lorsqu'il aura franchi son propre gate de publication.
 
-[**Voir le périmètre et l'état d'avancement**](cases/case-03-gnss-interference/README.md)
+**À retenir :**
+- question, périmètre et règles de décision **gelés avant** toute observation réelle ;
+- quatre hypothèses concurrentes conservées ouvertes, **aucune privilégiée** ;
+- une précision de navigation déclarée n'est **pas** une preuve de brouillage, une observation ADS-B n'est **pas** une mesure radiofréquence, une coïncidence temporelle n'est **pas** une cause ;
+- accès aux données réelles soumis à des gates documentés et à une approbation humaine explicite.
+
+<p align="center">
+  <img src="cases/case-03-gnss-interference/figures/case03_gates.svg" alt="Avancement du Case 03 en six étapes : design et protocole gelés, accès aux données sous gates, jugements non rédigés, publication en HOLD" width="92%">
+</p>
+
+<div align="center">
+
+[**Voir la méthode et l'état d'avancement**](cases/case-03-gnss-interference/README.md)
+
+</div>
 
 ---
 
@@ -194,7 +210,7 @@ open-intelligence-casebook/
 ├── cases/
 │   ├── case-01-titanium/          # rapport, figures, métriques, méthode, sources
 │   ├── case-02-portal-kombat/     # rapport, figures, métriques, méthode, sources
-│   ├── case-03-gnss-interference/ # présentation du travail en cours
+│   ├── case-03-gnss-interference/ # méthode et état d'avancement (sans données)
 │   └── case-04-xz-utils/          # rapport, sources, provenance, ledger de citations
 ├── methodology/                   # méthode analytique commune
 ├── publication/                   # droits, manifeste, checksums, release gate
