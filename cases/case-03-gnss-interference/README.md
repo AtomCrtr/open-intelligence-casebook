@@ -1,20 +1,20 @@
-# 🛩️ Case 03 - Interférences GNSS et aviation civile européenne
+# 🛩️ Case 03 — Interférences GNSS et aviation civile européenne
 
-**Statut : en cours - design analytique gelé avant données réelles.**
+**Statut : en cours — conception analytique gelée avant données d'observation réelles ; synthèse documentaire intermédiaire privée rédigée.**
 
 [![Statut](https://img.shields.io/badge/statut-en%20d%C3%A9veloppement-c8643b)](#avancement)
-[![Design](https://img.shields.io/badge/design-gel%C3%A9-1f6f78)](#pourquoi-geler-le-design-avant-les-données-)
+[![Conception](https://img.shields.io/badge/conception-gel%C3%A9e-1f6f78)](#pourquoi-geler-la-conception-avant-les-données-)
 [![Données réelles](https://img.shields.io/badge/donn%C3%A9es%20r%C3%A9elles-aucune%20publi%C3%A9e-7a93a0)](#ce-que-cette-page-ne-contient-pas)
 [![Publication](https://img.shields.io/badge/publication-HOLD-7a93a0)](#comment-ce-cas-deviendra-publiable)
 
 > **Question de recherche :** comment les données ouvertes peuvent-elles aider à suivre et caractériser les dégradations de navigation touchant l'aviation civile européenne depuis 2022, sans confondre corrélation, couverture des capteurs et causalité ?
 
-Le travail combine OSINT institutionnel, GEOINT par FIR, data engineering et analyse bornée de trajectoires historiques. Le design actuel impose une séparation stricte entre **observation cinématique ou qualité de données** et toute classification de brouillage, spoofing, interférence GNSS ou attribution.
+Le travail combine OSINT institutionnel, GEOINT par FIR, ingénierie des données et analyse bornée de trajectoires historiques. La conception actuelle impose une séparation stricte entre **observation cinématique ou qualité de données** et toute classification de brouillage, leurrage, interférence GNSS ou attribution.
 
-*État au 9 octobre 2026. Cette page présente une méthode et un état d'avancement, pas un résultat.*
+*Mise à jour documentaire du 17 octobre 2026. Cette page présente une méthode et un état d'avancement, pas un résultat historique mesuré.*
 
 <p align="center">
-  <img src="figures/case03_gates.svg" alt="Avancement du Case 03 en six étapes : question, design et protocole gelés ; accès aux données sous gates ; jugements non rédigés ; publication en HOLD. Quatre garde-fous d'interprétation sont rappelés." width="100%">
+  <img src="figures/case03_gates.svg" alt="Avancement du Case 03 : question, conception et protocole gelés ; accès aux données sous contrôle ; jugements finaux non rédigés ; publication suspendue (HOLD). Quatre garde-fous d'interprétation sont rappelés." width="100%">
 </p>
 
 📌 [Avancement](#avancement) · 🔬 [Axes d'étude](#six-axes-détude) · ⚖️ [Hypothèses concurrentes](#hypothèses-concurrentes) · 🛡️ [Garde-fous](#garde-fous-méthodologiques) · ✅ [Établi / non démontré](#établi--non-démontré) · 🔎 [Revue des droits](../../publication/rights-review.md)
@@ -23,14 +23,15 @@ Le travail combine OSINT institutionnel, GEOINT par FIR, data engineering et ana
 
 ## En deux minutes
 
-- **Ce que le cas cherche à faire :** suivre, du 14 février 2022 au 31 juillet 2026, l'évolution et la distribution géographique des **dégradations de navigation déclarées** dans l'espace aérien européen, puis examiner ce qu'elles permettent - ou non - d'affirmer sur d'éventuelles interférences GNSS.
+- **Ce que le cas cherche à faire :** suivre, du 14 février 2022 au 31 juillet 2026, l'évolution et la distribution géographique des **dégradations de navigation déclarées** dans l'espace aérien européen, puis examiner ce qu'elles permettent — ou non — d'affirmer sur d'éventuelles interférences GNSS.
 - **Où il en est :** la question, le périmètre, les règles de décision et le protocole d'accès borné aux données sont **gelés**. Ils l'ont été **avant** toute observation réelle, pour que ni les événements retenus, ni le choix d'éventuelles zones témoins, ni les seuils ne puissent être ajustés après coup.
-- **Ce qui est publié :** uniquement cette page de méthode. **Aucune conclusion, aucun niveau de confiance, aucune carte, aucune statistique** issus de données réelles : il n'en existe pas encore de publiables.
+- **Ce qui a été rédigé en privé :** une synthèse documentaire intermédiaire, non finale et non publiable. Elle ne constitue ni une analyse de trajectoires réelles ni des jugements finaux ; son contenu n'est pas exporté dans ce dépôt.
+- **Ce qui est publié :** uniquement cette page de méthode et son schéma d'avancement. **Aucune conclusion, aucun niveau de confiance, aucune carte, aucune statistique** issus de données réelles : il n'en existe pas encore de publiables.
 - **Ce qui est interdit d'avance :** transformer un signal de précision déclarée en preuve de brouillage, une observation ADS-B en mesure radiofréquence, une coïncidence temporelle en cause, ou une géométrie en attribution.
 
-## Pourquoi geler le design avant les données ?
+## Pourquoi geler la conception avant les données ?
 
-Définir les fenêtres, les critères et les tests **avant** d'inspecter les observations réelles limite deux biais classiques : choisir les événements qui confirment l'intuition, et ajuster les seuils après coup. Chaque étape d'accès à des données réelles passe par un gate documenté et une approbation humaine explicite.
+Définir les fenêtres, les critères et les tests **avant** d'inspecter les observations réelles limite deux biais classiques : choisir les événements qui confirment l'intuition, et ajuster les seuils après coup. Chaque étape d'accès à des données réelles passe par un contrôle documenté et une approbation humaine explicite.
 
 Concrètement, le protocole gelé fixe à l'avance :
 
@@ -44,11 +45,12 @@ Concrètement, le protocole gelé fixe à l'avance :
 | Étape | État |
 |---|---|
 | Question, périmètre, besoins de renseignement | ✅ gelés |
-| Design analytique | ✅ gelé |
+| Conception analytique | ✅ gelée |
 | Pré-enregistrement de l'accès borné aux données | ✅ gelé |
-| Accès aux données réelles | ⏳ sous gates d'autorisation humaine explicite |
-| Jugements analytiques | ⏳ non rédigés |
-| Publication du cas complet | ⛔ HOLD |
+| Synthèse documentaire intermédiaire | 📝 rédigée en privé ; non finale, non publiable |
+| Accès aux données réelles | ⏳ soumis à des contrôles et à une autorisation humaine explicite |
+| Jugements analytiques finaux | ⏳ non rédigés |
+| Publication du cas complet | ⛔ suspendue (`HOLD`) |
 
 ## Six axes d'étude
 
@@ -61,7 +63,7 @@ Concrètement, le protocole gelé fixe à l'avance :
 | 5. Biais et sensibilité | quelle part d'une tendance s'explique par la couverture, le trafic, les jours incomplets ou la géométrie ? | non traité |
 | 6. Indicateurs de veille civile | quels indicateurs ouverts sont utiles sans devenir des alertes de navigation ? | non traité |
 
-Le troisième axe produira, le moment venu, une **évaluation qualitative de compatibilité** accompagnée de ses explications alternatives et de ses conditions d'invalidation - jamais un score probabiliste ni une classification automatique de « brouillage » ou de « leurrage ».
+Le troisième axe produira, le moment venu, une **évaluation qualitative de compatibilité** accompagnée de ses explications alternatives et de ses conditions d'invalidation — jamais un score probabiliste ni une classification automatique de « brouillage » ou de « leurrage ».
 
 ## Hypothèses concurrentes
 
@@ -90,19 +92,19 @@ Ces règles s'appliquent à toute étape future du cas :
 
 ## Établi / non démontré
 
-| Établi à ce stade | Non démontré - et non produit |
+| Établi à ce stade | Non démontré — et non produit |
 |---|---|
 | la question, le périmètre et la période d'étude sont fixés | toute tendance temporelle de la dégradation déclarée |
 | les règles de décision sont gelées avant observation | toute zone persistante ou émergente |
 | les garde-fous d'interprétation sont explicites | toute compatibilité avec un brouillage ou un leurrage |
 | les quatre hypothèses sont posées sans en privilégier une | toute conséquence opérationnelle |
-| les accès aux données sont soumis à des gates humains | toute attribution |
+| les accès aux données sont soumis à des contrôles humains | toute attribution |
 
 ## Ce que cette page ne contient pas
 
-**Aucune conclusion historique issue de données réelles n'est publiée dans cette première édition.** Aucun identifiant d'aéronef, aucune trajectoire sensible, aucune donnée GPSJAM en volume, aucune fixture synthétique et aucune sortie événementielle ne sont inclus.
+**Aucune conclusion historique issue de données réelles n'est publiée dans cette première édition.** Aucun identifiant d'aéronef, aucune trajectoire sensible, aucune donnée GPSJAM en volume, aucun jeu d'essai synthétique et aucune sortie événementielle ne sont inclus.
 
-Le cas sera ajouté lorsqu'il aura franchi son propre gate de publication.
+Le rapport analytique ne sera ajouté qu'après franchissement de son propre contrôle de publication. La mention d'une synthèse privée ne constitue pas une autorisation de diffuser son contenu.
 
 ## Comment ce cas deviendra publiable
 
@@ -113,13 +115,13 @@ sources figées (URL, horodatage UTC, SHA-256)
 → contradictions et hypothèses concurrentes
 → robustesse si la source dominante est retirée
 → 3 à 5 jugements, rédigés en dernier
-→ Red Team analytique
+→ contre-analyse analytique (Red Team)
 → vérification des droits et de la confidentialité
 → autorisation humaine explicite
 ```
 
-- Le dépôt canonique de travail reste privé ; ce dépôt public ne reçoit que des **éditions assainies**, jamais un miroir du travail en cours.
-- Les données tierces dont la réutilisation n'est pas clairement autorisée - notamment les agrégats GPSJAM - ne sont ni collectées en volume ni redistribuées tant qu'un accord de réutilisation explicite n'existe pas.
+- Le dépôt canonique de travail et la synthèse intermédiaire restent privés ; ce dépôt public ne reçoit que des **éditions assainies**, jamais un miroir du travail en cours.
+- Les données tierces dont la réutilisation n'est pas clairement autorisée — notamment les agrégats GPSJAM — ne sont ni collectées en volume ni redistribuées tant qu'un accord de réutilisation explicite n'existe pas.
 - Les documents institutionnels (EASA, EUROCONTROL, OACI) seront cités et liés ; ils ne sont pas recopiés.
 - Les identifiants d'aéronefs, indicatifs individuels et trajectoires sensibles ne seront jamais publiés.
 

@@ -30,9 +30,9 @@ Chaque cas part d'une question concrète, transforme des sources publiques en pr
 | **3 rapports publics finalisés** | Cases 01-02 en PDF A4 et Markdown reconstruits par la CI · Case 04 en Markdown |
 | **4 casebooks** | 3 publiés · 1 en développement |
 | **Approche** | OSINT passif · GEOINT · analyse de données · graphes · ACH |
-| **Principe central** | **Decision-first + Evidence-deep** : décision rapide, preuve entièrement auditable |
+| **Principe central** | **Priorité à la décision, profondeur de la preuve** (`Decision-first + Evidence-deep`) : décision rapide, preuve entièrement auditable |
 
-> **Ce dépôt n'est pas un dump de recherche.** C'est une édition publique assainie : pas d'historique privé, pas d'audits internes, pas de secrets et pas de corpus tiers redistribué lorsque les droits sont incertains.
+> **Ce dépôt n'est pas un dépôt de notes brutes de recherche.** C'est une édition publique assainie : pas d'historique privé, pas d'audits internes, pas de secrets et pas de corpus tiers redistribué lorsque les droits sont incertains.
 
 ### Par où commencer ?
 
@@ -102,16 +102,17 @@ Le cas associe chronologie, analyse de graphe STIX, tests de sensibilité, diss�
 
 **Question :** comment les données ouvertes peuvent-elles aider à suivre et caractériser les dégradations de navigation touchant l'aviation civile européenne depuis 2022, sans confondre corrélation, couverture des capteurs et causalité ?
 
-La première édition publique ne contient **aucune conclusion historique sur des événements GNSS réels**, aucun identifiant aéronef et aucune donnée opérationnelle. Le cas sera ajouté lorsqu'il aura franchi son propre gate de publication.
+La première édition publique ne contient **aucune conclusion historique sur des événements GNSS réels**, aucun identifiant aéronef et aucune donnée opérationnelle. Le rapport analytique ne sera ajouté qu'après franchissement de son propre contrôle de publication.
 
 **À retenir :**
 - question, périmètre et règles de décision **gelés avant** toute observation réelle ;
 - quatre hypothèses concurrentes conservées ouvertes, **aucune privilégiée** ;
 - une précision de navigation déclarée n'est **pas** une preuve de brouillage, une observation ADS-B n'est **pas** une mesure radiofréquence, une coïncidence temporelle n'est **pas** une cause ;
-- accès aux données réelles soumis à des gates documentés et à une approbation humaine explicite.
+- accès aux données réelles soumis à des contrôles documentés et à une approbation humaine explicite ;
+- une **synthèse documentaire intermédiaire a été rédigée en privé**, sans être un rapport final ni une publication autorisée ; son contenu n'est pas exporté ici. Le cas complet reste suspendu (`HOLD`).
 
 <p align="center">
-  <img src="cases/case-03-gnss-interference/figures/case03_gates.svg" alt="Avancement du Case 03 en six étapes : design et protocole gelés, accès aux données sous gates, jugements non rédigés, publication en HOLD" width="92%">
+  <img src="cases/case-03-gnss-interference/figures/case03_gates.svg" alt="Avancement du Case 03 : conception et protocole gelés, accès aux données sous contrôle, jugements finaux non rédigés, publication du cas complet suspendue (HOLD)" width="92%">
 </p>
 
 <div align="center">
@@ -129,14 +130,14 @@ La première édition publique ne contient **aucune conclusion historique sur de
 Un cas de **compromission de la chaîne d'approvisionnement logicielle** traité en OSINT strictement passif, avec 12 sources publiques et des citations vérifiées automatiquement mot pour mot.
 
 **À retenir :**
-- versions **5.6.0 et 5.6.1** compromises via la chaîne de publication / build — confiance **HIGH** ;
+- versions **5.6.0 et 5.6.1** compromises via la chaîne de publication / construction — confiance **élevée** (`HIGH`) ;
 - impact **segmenté** par distribution : Debian stable et RHEL n'étaient pas connus comme affectés ;
 - capacité pré-authentification SSH décrite sous conditions, **aucune exploitation à grande échelle démontrée** ;
-- **aucune attribution** établie (confiance LOW) ; cinq contradictions entre sources conservées plutôt que lissées.
+- **aucune attribution** établie (confiance faible, `LOW`) ; cinq contradictions entre sources conservées plutôt que lissées.
 
 <div align="center">
 
-[**Lire la synthèse**](cases/case-04-xz-utils/README.md) · [**Rapport complet**](cases/case-04-xz-utils/report.md) · [**Sources**](cases/case-04-xz-utils/sources.md) · [**Carte des preuves**](cases/case-04-xz-utils/evidence-map.md) · [**Provenance**](cases/case-04-xz-utils/provenance.csv) · [**Ledger de citations**](cases/case-04-xz-utils/citations-ledger.json)
+[**Lire la synthèse**](cases/case-04-xz-utils/README.md) · [**Rapport complet**](cases/case-04-xz-utils/report.md) · [**Sources**](cases/case-04-xz-utils/sources.md) · [**Carte des preuves**](cases/case-04-xz-utils/evidence-map.md) · [**Provenance**](cases/case-04-xz-utils/provenance.csv) · [**Registre de citations**](cases/case-04-xz-utils/citations-ledger.json)
 
 </div>
 
@@ -161,7 +162,7 @@ flowchart LR
 
 La méthode repose désormais sur une **Règle 0** et quatre garde-fous :
 
-0. **Decision-first + Evidence-deep** — chaque casebook doit être compréhensible en moins de cinq minutes dans sa couche décisionnelle, puis entièrement auditable dans sa couche probatoire ;
+0. **Priorité à la décision, profondeur de la preuve** (`Decision-first + Evidence-deep`) — chaque casebook doit être compréhensible en moins de cinq minutes dans sa couche décisionnelle, puis entièrement auditable dans sa couche probatoire ;
 1. **une source n'est pas une conclusion** — elle doit être évaluée, contextualisée et recoupée ;
 2. **absence de preuve ≠ preuve d'absence** — une lacune reste une lacune ;
 3. **une corrélation n'est pas une attribution** — les inférences causales sont bornées par ce qui est observable ;
@@ -176,13 +177,13 @@ La méthode repose désormais sur une **Règle 0** et quatre garde-fous :
 | Domaine | Mise en pratique |
 |---|---|
 | **OSINT** | recherche passive, qualification, triangulation, registres de sources |
-| **Data Engineering** | normalisation, métriques dérivées, contrôles qualité, reproductibilité |
+| **Ingénierie des données** | normalisation, métriques dérivées, contrôles qualité, reproductibilité |
 | **GEOINT / spatial** | raisonnement géographique et préparation de traitements spatiaux |
 | **Analyse structurée** | ACH, scénarios, indicateurs, niveaux de confiance, limites explicites |
-| **Cyber / supply chain** | compromission logicielle, chronologie multi-sources, périmètre d'impact, attribution prudente |
-| **Graph intelligence** | STIX, topologie, sensibilité des relations, dissémination |
-| **Communication décisionnelle** | briefs, rapports publics, visualisations et recommandations conditionnelles |
-| **Gouvernance** | droits de redistribution, minimisation des données, checksums, transparence IA |
+| **Cyber / chaîne d'approvisionnement** | compromission logicielle, chronologie multi-sources, périmètre d'impact, attribution prudente |
+| **Analyse de graphes** | STIX, topologie, sensibilité des relations, dissémination |
+| **Communication décisionnelle** | notes de synthèse, rapports publics, visualisations et recommandations conditionnelles |
+| **Gouvernance** | droits de redistribution, minimisation des données, empreintes de contrôle, transparence IA |
 
 `Python` `OSINT` `CTI` `Supply Chain Security` `GEOINT` `STIX` `DISARM` `ACH` `Data Engineering` `Graph Analysis` `Evidence Traceability` `Reproducibility`
 
@@ -190,15 +191,17 @@ La méthode repose désormais sur une **Règle 0** et quatre garde-fous :
 
 ## Publication responsable
 
-Le dépôt est une **surface de publication à historique neuf**, distincte du dépôt canonique de travail. Les contenus publics sont sélectionnés selon une allowlist et un principe de minimisation.
+Le statut général de publication concerne les rapports déjà diffusés. Il **n'autorise pas la publication du Case 03 complet**, qui reste suspendue (`HOLD`).
 
-- les données tierces dont les droits sont incertains restent **link-only** ou **derived-only** ;
+Le dépôt est une **surface de publication à historique neuf**, distincte du dépôt canonique de travail. Les contenus publics sont sélectionnés selon une liste de contenus autorisés et un principe de minimisation.
+
+- les données tierces dont les droits sont incertains restent accessibles **par lien uniquement** (`link-only`) ou **sous forme de dérivations uniquement** (`derived-only`) ;
 - les rapports distinguent **observé**, **rapporté**, **corroboré**, **inféré**, **hypothèse** et **non démontré** ;
 - les PDF sont contrôlés pour la lisibilité, les métadonnées et les liens ;
-- les artefacts principaux disposent de checksums SHA-256 ;
+- les artefacts principaux disposent d'empreintes de contrôle SHA-256 ;
 - l'assistance par IA est documentée et ne remplace pas la validation humaine.
 
-[🔎 Revue des droits](publication/rights-review.md) · [✅ Checklist de publication](publication/release-checklist.md) · [🛠️ Construire et vérifier](BUILD.md) · [#️⃣ Checksums](publication/checksums.sha256) · [🤖 Transparence IA](AI_TRANSPARENCY.md) · [⚖️ Licence](LICENSE) · [📌 Notice](NOTICE.md) · [⚠️ Avertissement](DISCLAIMER.md)
+[🔎 Revue des droits](publication/rights-review.md) · [✅ Liste de contrôle de publication](publication/release-checklist.md) · [🛠️ Construire et vérifier](BUILD.md) · [#️⃣ Empreintes de contrôle](publication/checksums.sha256) · [🤖 Transparence IA](AI_TRANSPARENCY.md) · [⚖️ Licence](LICENSE) · [📌 Notice](NOTICE.md) · [⚠️ Avertissement](DISCLAIMER.md)
 
 ---
 
@@ -211,9 +214,9 @@ open-intelligence-casebook/
 │   ├── case-01-titanium/          # rapport, figures, métriques, méthode, sources
 │   ├── case-02-portal-kombat/     # rapport, figures, métriques, méthode, sources
 │   ├── case-03-gnss-interference/ # méthode et état d'avancement (sans données)
-│   └── case-04-xz-utils/          # rapport, sources, provenance, ledger de citations
+│   └── case-04-xz-utils/          # rapport, sources, provenance, registre de citations
 ├── methodology/                   # méthode analytique commune
-├── publication/                   # droits, manifeste, checksums, release gate
+├── publication/                   # droits, manifeste, empreintes, contrôle de publication
 ├── AI_TRANSPARENCY.md
 ├── CITATION.cff
 ├── DISCLAIMER.md
@@ -237,9 +240,9 @@ Pour citer ce travail : [`CITATION.cff`](CITATION.cff) (bouton « Cite this repo
 ---
 
 <details>
-<summary><strong>English summary</strong></summary>
+<summary><strong>Synthèse du portfolio</strong></summary>
 
-**Open Intelligence Casebook** is a public portfolio of reproducible open-source intelligence studies. It focuses on evidence traceability, competing hypotheses, uncertainty management, responsible publication and decision-oriented communication. The main reports are intentionally written in French.
+**Open Intelligence Casebook** réunit des études reproductibles en sources ouvertes. Le portfolio met en pratique la traçabilité des preuves, la confrontation d'hypothèses, la gestion de l'incertitude et la publication responsable. Les rapports et la présentation sont rédigés en français.
 
 </details>
 
