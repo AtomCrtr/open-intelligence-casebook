@@ -2,7 +2,7 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
-  <img src="assets/banner.svg" alt="Open Intelligence Casebook — des sources ouvertes à une analyse traçable, reproductible et utile à la décision" width="100%">
+  <img src="assets/banner.svg" alt="Open Intelligence Casebook — édition publique assainie : quatre casebooks, de la source au jugement" width="100%">
 </picture>
 
 # 🧭 Open Intelligence Casebook
