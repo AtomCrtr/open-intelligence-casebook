@@ -130,6 +130,30 @@
         {
           "text": "No versions of Red Hat Enterprise Linux (RHEL) are affected by this CVE.",
           "added": "2026-08-21"
+        },
+        {
+          "text": "The malicious injection present in the xz versions 5.6.0 and 5.6.1 libraries is obfuscated and only included in full in the download package - the Git distribution lacks the M4 macro that triggers the build of the malicious code.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "The second-stage artifacts are present in the Git repository for the injection during the build time, in case the malicious M4 macro is present.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "We have determined that Fedora Linux 40 beta does contain two affected versions of xz libraries",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "At this time the Fedora Linux 40 builds have not been shown to be compromised.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "We have reports and evidence of the injections successfully building in xz 5.6.x versions built for Debian unstable (Sid).",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Fedora Rawhide users may have received version 5.6.0 or 5.6.1.",
+          "added": "2026-10-30"
         }
       ]
     },
@@ -142,6 +166,142 @@
         {
           "text": "At the moment, it’s unknown if there was ever a real-world person behind this username or if Jia Tan is a completely fabricated individual.",
           "added": "2026-08-21"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "url": "https://research.swtch.com/xz-timeline",
+      "title": "Russ Cox — Timeline of the xz open source attack",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "Over a period of over two years, an attacker using the name “Jia Tan” worked as a diligent, effective contributor to the xz compression library, eventually being granted commit access and maintainership.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "2021-10-29: Jia Tan sends first, innocuous patch to the xz-devel mailing list, adding “.editorconfig” file.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Brian Krebs observes that many of these email addresses never appeared elsewhere on the internet, even in data breaches (nor again in xz-devel). It seems likely that they were fakes created to push Lasse to give Jia more control.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "At this point we know they have commit access.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "2023-03-18: Jia Tan tags and builds their first release, v5.4.2.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "2024-02-23: Jia Tan merges hidden backdoor binary code well hidden inside some binary test input files.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "This m4 file is not present in the source repository, but many other legitimate ones are added during package as well, so it’s not suspicious by itself.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "2024-03-28: Andres Freund discovers bug, privately notifies Debian and distros@openwall. RedHat assigns CVE-2024-3094.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "(Note that this does not include systems like Arch Linux, Gentoo, and NixOS, which do not patch sshd.)",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "a part of xz that also happens to be a dependency of OpenSSH sshd on Debian, Ubuntu, and Fedora, and other systemd-based Linux systems that patched sshd to link libsystemd.",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-3094",
+      "title": "NIST NVD — CVE-2024-3094",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "Malicious code was discovered in the upstream tarballs of xz, starting with version 5.6.0.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Through a series of complex obfuscations, the liblzma build process extracts a prebuilt object file from a disguised test file existing in the source code, which is then used to modify specific functions in the liblzma code.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Base Score: 10 CRITICAL",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "CNA: Red Hat, Inc.",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "url": "https://github.com/amlweems/xzbot",
+      "title": "xzbot — notes, honeypot, and exploit demo for the xz backdoor",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "The backdoor uses a hardcoded ED448 public key for signature validation and decrypting the payload.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "This payload must be encrypted and signed with the attacker's ED448 key.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Note: successful exploitation does not generate any INFO or higher log entries.",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "url": "https://archlinux.org/news/the-xz-package-has-been-backdoored/",
+      "title": "Arch Linux — The xz package has been backdoored",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "To our knowledge the malicious code which was distributed via the release tarball never made it into the Arch Linux provided binaries, as the build script was configured to only inject the bad code in Debian/Fedora based package build environments.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Arch does not directly link openssh to liblzma, and thus this attack vector is not possible.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "The `xz` packages prior to version `5.6.1-2` (specifically `5.6.0-1` and `5.6.1-1`) contain this backdoor.",
+          "added": "2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "url": "https://news.opensuse.org/2024/03/29/xz-backdoor/",
+      "title": "openSUSE — supply chain attack against xz",
+      "accessed": "2026-10-30",
+      "quotes": [
+        {
+          "text": "Our rolling release distribution openSUSE Tumbleweed and openSUSE MicroOS included this version between March 7 and March 28.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "It has been established that the malicious file introduced into Tumbleweed is not present in SUSE Linux Enterprise and/or openSUSE Leap.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "Current research indicates that the backdoor is active in the SSH Daemon, allowing malicious actors to access systems where SSH is exposed to the internet.",
+          "added": "2026-10-30"
+        },
+        {
+          "text": "As of March 29, reverse engineering of the backdoor is still ongoing.",
+          "added": "2026-10-30"
         }
       ]
     }

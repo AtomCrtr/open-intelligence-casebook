@@ -126,13 +126,14 @@ La première édition publique ne contient **aucune conclusion historique sur de
 
 **Question :** que permettent d'établir les sources publiques sur la chronologie de la compromission de XZ Utils, sa découverte, sa portée technique et la réponse de l'écosystème, sans dépasser les preuves disponibles sur l'intention, l'identité ou l'attribution ?
 
-Un cas de **compromission de la chaîne d'approvisionnement logicielle** traité en OSINT strictement passif, avec 12 sources publiques et des citations vérifiées automatiquement mot pour mot.
+Un cas de **compromission de la chaîne d'approvisionnement logicielle** traité en OSINT strictement passif, avec 17 sources publiques et des citations vérifiées automatiquement mot pour mot (révisé le 30 octobre 2026).
 
 **À retenir :**
 - versions **5.6.0 et 5.6.1** compromises via la chaîne de publication / build — confiance **HIGH** ;
-- impact **segmenté** par distribution : Debian stable et RHEL n'étaient pas connus comme affectés ;
-- capacité pré-authentification SSH décrite sous conditions, **aucune exploitation à grande échelle démontrée** ;
-- **aucune attribution** établie (confiance LOW) ; cinq contradictions entre sources conservées plutôt que lissées.
+- impact **segmenté** par distribution : Debian stable, RHEL, SUSE Linux Enterprise et Leap n'étaient pas affectés ; Arch Linux n'a pas compilé le code ;
+- capacité pré-authentification SSH **réservée au détenteur d'une clé Ed448**, **aucune exploitation réelle démontrée** ;
+- préparation de **plus de deux ans** (2021–2024) avant les releases compromises ;
+- **aucune attribution** établie (confiance LOW) ; six contradictions entre sources conservées, dont deux désormais résolues.
 
 <div align="center">
 
