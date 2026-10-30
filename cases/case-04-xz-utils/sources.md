@@ -1,6 +1,6 @@
 # Sources - Case 04
 
-Toutes les sources sont publiques et **link-only** : ce dépôt ne republie que de courts extraits (voir [`source-extracts.md`](source-extracts.md)), vérifiables contre [`citations-ledger.json`](citations-ledger.json). Pages consultées le **2026-08-21**, en lecture seule. L'évaluation détaillée figure dans la section *Source assessment* du [rapport](report.md).
+Toutes les sources sont publiques et **link-only** : ce dépôt ne republie que de courts extraits (voir [`source-extracts.md`](source-extracts.md)), vérifiables contre [`citations-ledger.json`](citations-ledger.json). Pages consultées le **2026-08-21** ([1] à [12]) et le **2026-10-30** ([13] à [17], et relecture de [11]), en lecture seule. L'évaluation détaillée figure dans la section *Source assessment* du [rapport](report.md).
 
 | Réf. | ID | Source | Type | Fiabilité | Lien |
 |---|---|---|---|---|---|
@@ -14,8 +14,13 @@ Toutes les sources sont publiques et **link-only** : ce dépôt ne republie que 
 | [8] | S-008 | GitHub release v5.6.0 | métadonnées de dépôt | HIGH (tags affichés) | [lien](https://github.com/tukaani-project/xz/releases/tag/v5.6.0) |
 | [9] | S-009 | GitHub release v5.6.1 | métadonnées de dépôt | HIGH (tags affichés) | [lien](https://github.com/tukaani-project/xz/releases/tag/v5.6.1) |
 | [10] | S-010 | CERT-EU Advisory 2024-032 | advisory institutionnel européen | HIGH (publication) / MEDIUM-HIGH (détails) | [lien](https://cert.europa.eu/publications/security-advisories/2024-032/pdf) |
-| [11] | S-011 | Red Hat advisory | advisory fournisseur / distribution | HIGH | [lien](https://www.redhat.com/en/blog/urgent-security-alert-fedora-41-and-rawhide-users) |
+| [11] | S-011 | Red Hat advisory (l'URL redirige depuis vers le billet « Fedora Linux 40 ») | advisory fournisseur / distribution | HIGH | [lien](https://www.redhat.com/en/blog/urgent-security-alert-fedora-41-and-rawhide-users) |
 | [12] | S-012 | Ars Technica | journalisme technique | MEDIUM | [lien](https://arstechnica.com/security/2024/04/what-we-know-about-the-xz-utils-backdoor-that-almost-infected-the-world) |
+| [13] | S-013 | Russ Cox — chronologie de l'attaque | compilation chronologique sourcée | MEDIUM-HIGH | [lien](https://research.swtch.com/xz-timeline) |
+| [14] | S-014 | NIST NVD — CVE-2024-3094 | notice de vulnérabilité officielle | HIGH | [lien](https://nvd.nist.gov/vuln/detail/CVE-2024-3094) |
+| [15] | S-015 | xzbot — analyse du binaire | rétro-ingénierie de chercheur | MEDIUM-HIGH | [lien](https://github.com/amlweems/xzbot) |
+| [16] | S-016 | Arch Linux — annonce | annonce de distribution | HIGH | [lien](https://archlinux.org/news/the-xz-package-has-been-backdoored/) |
+| [17] | S-017 | openSUSE — annonce | annonce de distribution | HIGH (périmètre) / MEDIUM (impact) | [lien](https://news.opensuse.org/2024/03/29/xz-backdoor/) |
 
 ## Dépendances à garder en tête
 
@@ -23,5 +28,9 @@ Toutes les sources sont publiques et **link-only** : ce dépôt ne republie que 
 - **S-004, S-006, S-007, S-012** sont secondaires ou de synthèse : leur convergence ne vaut pas quatre corroborations indépendantes.
 - **S-001, S-005, S-010, S-011** sont institutionnelles et distinctes, mais publiées dans la même fenêtre de réponse.
 - **S-008 / S-009** établissent la séquence des releases, pas l'intention de l'auteur des tags.
+- **S-013** est une compilation secondaire : précieuse pour la chronologie 2021–2024, elle reprend elle-même S-002 pour la détection.
+- **S-014** reprend la description fournie par le CNA Red Hat : même lignée textuelle que S-011.
+- **S-015** est une analyse de chercheur indépendante de S-002 pour le format de la charge ; elle n'observe aucune exploitation réelle.
+- **S-016 / S-017** sont deux distributions indépendantes de Debian et Red Hat.
 
 Les contenus tiers restent soumis à leurs conditions d'origine (voir [NOTICE](../../NOTICE.md)).

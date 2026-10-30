@@ -19,3 +19,14 @@ C4-PUB-007,S-007,secondary_technical,DATADOG-ANALYSIS,curated analysis,date with
 C4-PUB-007,S-002,primary_technical,FREUND-OSS-SECURITY,primary disclosure with full timestamp,publication time is not first observation time
 C4-PUB-008,S-008,primary_metadata,GITHUB-RELEASE-METADATA,repository metadata distinct from advisories,tag time shown without time zone; does not prove intent
 C4-PUB-008,S-009,primary_metadata,GITHUB-RELEASE-METADATA,same lineage as S-008,tag time shown without time zone; does not prove intent
+C4-PUB-005,S-015,primary_technical,XZBOT-REVERSE-ENGINEERING,researcher binary analysis distinct from the discoverer's report,capability gated by attacker Ed448 key; lab demonstration with substituted key; no real exploitation observed
+C4-PUB-007,S-013,secondary_compilation,RSC-TIMELINE,curated timeline linking public archives; reuses S-002 for detection,distros list not public; dates without time
+C4-PUB-007,S-017,primary_reporting,OPENSUSE-ANNOUNCEMENT,independent distribution announcement,states the report went to Debian first; no date of first observation
+C4-PUB-008,S-013,secondary_compilation,RSC-TIMELINE,independent of GitHub page rendering,day-level corroboration only; no time zone
+C4-PUB-009,S-013,secondary_compilation,RSC-TIMELINE,curated timeline linking xz-devel archives and git commits,secondary; primary links not re-verified one by one
+C4-PUB-010,S-011,primary_reporting,REDHAT-ADVISORY,vendor advisory,documentary resolution; no byte-level artifact comparison
+C4-PUB-010,S-014,primary_reporting,NVD-CVE-RECORD,official record; description supplied by Red Hat CNA,same text lineage as S-011 for the description
+C4-PUB-010,S-013,secondary_compilation,RSC-TIMELINE,independent compilation,secondary
+C4-PUB-011,S-016,primary_reporting,ARCH-ANNOUNCEMENT,independent distribution announcement,Arch Linux scope only
+C4-PUB-011,S-017,primary_reporting,OPENSUSE-ANNOUNCEMENT,independent distribution announcement,openSUSE and SUSE scope only; impact wording predates binary analysis
+C4-PUB-012,S-014,primary_reporting,NVD-CVE-RECORD,score assigned by NVD and by Red Hat CNA,severity of potential impact; not evidence of exploitation
