@@ -219,7 +219,8 @@ open-intelligence-casebook/
 ├── CITATION.cff
 ├── DISCLAIMER.md
 ├── NOTICE.md
-└── LICENSE
+├── LICENSE
+└── LICENSES/                      # textes complets Apache-2.0 et CC BY 4.0
 ```
 
 ---
@@ -231,7 +232,7 @@ Les éléments originaux utilisent une double licence :
 - **code original** : Apache License 2.0 ;
 - **textes, diagrammes et figures originaux** : CC BY 4.0.
 
-Les contenus tiers conservent leurs propres conditions et ne sont jamais relicenciés par ce dépôt. Voir [LICENSE](LICENSE) et [NOTICE.md](NOTICE.md).
+Les contenus tiers conservent leurs propres conditions et ne sont jamais relicenciés par ce dépôt. Voir [LICENSE](LICENSE), les textes complets dans [`LICENSES/`](LICENSES/) et [NOTICE.md](NOTICE.md).
 
 Pour citer ce travail : [`CITATION.cff`](CITATION.cff) (bouton « Cite this repository » de GitHub).
 

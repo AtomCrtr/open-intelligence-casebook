@@ -5,11 +5,13 @@
 - `cases/case-01-titanium/report.md` et `cases/case-02-portal-kombat/report.md` portent le texte des rapports.
 - `data/key_metrics.csv` porte les métriques publiées.
 - `provenance.csv` porte les liens publics affirmation-source et les lignées informationnelles.
-- `tools/build_publication.py` génère les figures, les PDF, les checksums et le manifeste.
+- `tools/build_publication.py` génère les figures, les PDF, les checksums, le manifeste et la checklist de publication (dérivée des contrôles exécutés).
 
 Le texte analytique ne doit pas être recopié dans le générateur PDF.
 
 ## Environnement Linux de référence
+
+Python **3.12.12** (épinglé dans la CI par `actions/setup-python`), sur `ubuntu-24.04`.
 
 ```bash
 sudo apt-get update

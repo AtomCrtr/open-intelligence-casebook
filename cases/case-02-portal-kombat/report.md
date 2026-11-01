@@ -223,7 +223,7 @@ La revue canonique de licence applique une règle prudente : **URL publique ≠ 
 Le Case 02 privilégie les liens vers les publications et dépôts d'origine. Les corpus dont les droits amont sont incertains ne sont pas recopiés dans cette édition. La liste complète, avec la règle de traitement, se trouve dans [sources.md](sources.md).
 
 1. [S-008 — VIGINUM, export public de domaines Portal Kombat](https://raw.githubusercontent.com/VIGINUM-FR/Rapports-Techniques/main/202402%20-%20Portal%20Kombat/20241227_SGDSN_VIGINUM_NP_TLP-CLEAR_Portal-Kombat-domains.csv) - chronologie et décompte des observations de domaines.
-2. [S-031 — VIGINUM, paquet STIX figé](https://raw.githubusercontent.com/VIGINUM-FR/STIX2/main/Portal%20Kombat/Portal_Kombat_STIX_V2_20240212.json) - structure STIX analysée localement.
+2. [S-031 — VIGINUM, paquet STIX figé](https://raw.githubusercontent.com/VIGINUM-FR/Rapports-Techniques/main/202402%20-%20Portal%20Kombat/20240212_VIGINUM_TLP%20CLEAR_Portal%20Kombat%20A%20structured%20and%20coordinated%20pro-Russian%20propaganda%20network_full.json) - structure STIX analysée localement.
 3. [S-001 — VIGINUM, rapport Portal Kombat partie 1](https://www.sgdsn.gouv.fr/files/files/20240212_NP_SGDSN_VIGINUM_PORTAL-KOMBAT-NETWORK_ENG_VF.pdf) - caractérisation initiale.
 4. [S-003 — VIGINUM, rapport Portal Kombat partie 3](https://www.sgdsn.gouv.fr/files/files/Publications/20240428_NP_SGDSN_VIGINUM_PORTAL-KOMBAT-NETWORK-REPORT_NEW%20DOMAIN%20NAME_%28PART3%29_ENG_VF.pdf) - expansion paneuropéenne de 2024.
 5. [S-010 — CheckFirst, dépôt pravda-network](https://github.com/CheckFirstHQ/pravda-network) - agrégats publics et travaux de recherche.

@@ -323,6 +323,7 @@ def write_publication_files() -> None:
             elif '/figures/' in rel and rel.endswith('.svg'): cls='derived_figure'; rule='public_original_derivation'
             elif rel.startswith(('.github/', 'tools/')): cls='build_tooling'; rule='public_original_code'
             elif rel.startswith('assets/'): cls='branding'; rule='public_original_content'
+            elif rel.startswith('LICENSES/'): cls='licence_text'; rule='verbatim_third_party_licence_text'
             elif rel.startswith('tests/'):
                 cls='build_validation'
                 rule='public_original_code'

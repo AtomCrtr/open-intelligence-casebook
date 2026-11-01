@@ -118,6 +118,9 @@ def test_writable_ci_pins_upload_action_and_scopes_token():
     assert "actions/upload-artifact@v4" not in workflow
     assert workflow.count("GH_TOKEN:") == 2
     assert "weasyprint==68.0" in workflow
+    assert "actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065" in workflow
+    assert "python-version: '3.12.12'" in workflow
+    assert workflow.index("- name: Set up Python") < workflow.index("- name: Install document toolchain")
     assert "weasyprint==68.0" in build_guide
     assert "git add -A" not in workflow
     assert "PYTHONDONTWRITEBYTECODE: \"1\"" in workflow
