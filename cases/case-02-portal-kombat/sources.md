@@ -3,7 +3,7 @@
 Les corpus amont aux droits de redistribution incertains ne sont pas recopiés dans ce dépôt. Ils sont référencés par lien et seuls des résultats dérivés sont publiés.
 
 1. [S-008 — VIGINUM, export public de domaines Portal Kombat](https://raw.githubusercontent.com/VIGINUM-FR/Rapports-Techniques/main/202402%20-%20Portal%20Kombat/20241227_SGDSN_VIGINUM_NP_TLP-CLEAR_Portal-Kombat-domains.csv)
-2. [S-031 — VIGINUM, paquet STIX figé du 12 février 2024](https://raw.githubusercontent.com/VIGINUM-FR/STIX2/main/Portal%20Kombat/Portal_Kombat_STIX_V2_20240212.json)
+2. [S-031 — VIGINUM, paquet STIX figé du 12 février 2024](https://raw.githubusercontent.com/VIGINUM-FR/Rapports-Techniques/main/202402%20-%20Portal%20Kombat/20240212_VIGINUM_TLP%20CLEAR_Portal%20Kombat%20A%20structured%20and%20coordinated%20pro-Russian%20propaganda%20network_full.json)
 3. [S-010 — CheckFirst, pravda-network](https://github.com/CheckFirstHQ/pravda-network)
 4. [S-011 — CheckFirst, pravda-network-dissemination-data](https://github.com/CheckFirstHQ/pravda-network-dissemination-data)
 5. [S-001 — VIGINUM, Portal Kombat partie 1](https://www.sgdsn.gouv.fr/files/files/20240212_NP_SGDSN_VIGINUM_PORTAL-KOMBAT-NETWORK_ENG_VF.pdf)

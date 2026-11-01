@@ -8,6 +8,8 @@ CITATION.cff,documentation,public_original_or_link_only_sources
 CONTRIBUTING.md,documentation,public_original_or_link_only_sources
 DISCLAIMER.md,documentation,public_original_or_link_only_sources
 LICENSE,documentation,public_original_or_link_only_sources
+LICENSES/Apache-2.0.txt,licence_text,verbatim_third_party_licence_text
+LICENSES/CC-BY-4.0.txt,licence_text,verbatim_third_party_licence_text
 NOTICE.md,documentation,public_original_or_link_only_sources
 README.md,documentation,public_original_or_link_only_sources
 assets/banner-dark.svg,branding,public_original_content
