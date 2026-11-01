@@ -22,6 +22,13 @@ Réétude du dossier à partir de cinq sources complémentaires ([13] à [17]) e
 - **Matrice d'exposition par distribution** : Arch Linux, openSUSE / SUSE ajoutés à Debian et Red Hat ; distinction entre version présente, code malveillant effectivement compilé et sshd réellement lié à liblzma (F-018, F-019).[16][17]
 - **Sévérité officielle** : CVSS 3.1 de 10.0 (CRITICAL), attribué par la NVD et par le CNA Red Hat (F-020).[14]
 
+## Révision du 2026-11-01
+
+Les deux lacunes de collecte laissées par la révision précédente sont comblées sur sources primaires ([18] à [21]) :
+
+- **Ubuntu ajouté à la matrice d'exposition** : selon l'équipe sécurité d'Ubuntu, la version touchée n'a été que dans `noble-proposed` et a été retirée avant d'atteindre noble ; aucune version publiée d'Ubuntu n'est affectée. L'historique de publication de Launchpad date ce passage du 26 février au 29 mars 2024 et montre que les copies vers la poche de publication, créées le 28 mars, n'ont jamais été publiées (F-021).[18][19]
+- **Chronologie longue revérifiée** : les quatre jalons tirés de [13] (premier correctif, accès en écriture, première release, fichiers de test piégés) sont confirmés à la seconde près, avec leur fuseau, par l'archive de la liste xz-devel et par les métadonnées du dépôt Git (F-022).[20][21] Les heures des tags v5.6.0 et v5.6.1 sont désormais normalisées en UTC.
+
 ---
 
 ## 1. Objectif et périmètre
@@ -52,10 +59,11 @@ Réétude du dossier à partir de cinq sources complémentaires ([13] à [17]) e
 - Recherche web et extraction de pages publiques, en lecture seule.
 - Sources enregistrées au moment de la collecte dans [`citations-ledger.json`](citations-ledger.json).
 - Extraits verbatim conservés dans [`source-extracts.md`](source-extracts.md).
-- Hash SHA-256 de `source-extracts.md` dans le dossier de travail d'origine : `c06370b5f0d48905a2504ccd44f429d02f59780d9beee491a2c386e04ead45fb`. La copie publique diffère uniquement par l'assainissement décrit en tête de ce rapport.
+- Hash SHA-256 de `source-extracts.md` dans le dossier de travail d'origine : `3f27ee7c0a69236dc32bfc052f6a0d79a5ab52f0ae382dae09891fa262639e48` (état du 2026-11-01 ; la valeur précédemment indiquée, `c06370b5…45fb`, ne correspondait plus au fichier d'origine depuis la révision du 2026-10-30). La copie publique diffère uniquement par l'assainissement décrit en tête de ce rapport.
 - Les sources ont été classées comme officielles, techniques primaires, secondaires ou synthèses d’organisations de sécurité.
 - Les dépendances entre sources ont été conservées : notamment OpenSSF, Microsoft, Datadog et Ars Technica citent ou reprennent des éléments issus de l’alerte initiale et d’analyses techniques publiques.
 - **Collecte complémentaire du 2026-10-30** : cinq pages publiques supplémentaires ([13] à [17]) et la page Red Hat [11] relue, par extraction de pages en lecture seule ; extraits ajoutés à [`source-extracts.md`](source-extracts.md) et au ledger. La page Ubuntu `ubuntu.com/security/CVE-2024-3094` a répondu HTTP 503 et n'est pas utilisée. Le dépôt xzbot [15] est lu comme documentation : aucun code n'est exécuté, aucune clé ni commande n'est reproduite.
+- **Collecte complémentaire du 2026-11-01** : page Ubuntu [18] relue (lisible), historique de publication de `xz-utils` pour noble via l'API publique de Launchpad [19], métadonnées du dépôt Git XZ [20] et archive de la liste xz-devel [21]. Le dépôt Git a été cloné **sans aucun contenu de fichier** (`git clone --filter=blob:none --no-checkout`) : seules les métadonnées des commits et des tags ont été lues ; les fichiers de test piégés n'ont été ni téléchargés ni exécutés.
 
 ---
 
@@ -77,7 +85,7 @@ Les éléments disponibles soutiennent avec une confiance élevée l’existence
 4. **Portée réelle :** les sources ne justifient pas l’affirmation simplifiée selon laquelle toutes les distributions Linux ou toutes les installations de production étaient compromises. Debian indique que les versions stables n’étaient pas connues comme affectées, Red Hat que RHEL n’était pas affecté ; Arch Linux indique que le code n’a pas été injecté dans ses binaires et que sshd n’y est pas lié à liblzma ; openSUSE situe l’exposition dans Tumbleweed et MicroOS (7–28 mars) et l’exclut pour SUSE Linux Enterprise et Leap.[5][11][16][17] **Confiance : HIGH** pour chacun de ces périmètres ; l’exposition dépend de trois conditions cumulées — version présente, code effectivement compilé (paquets DEB/RPM x86-64), sshd lié à liblzma via libsystemd — et ne s’extrapole pas aux distributions non documentées.
 5. **Capacité technique :** les analyses décrivent une interférence avec le processus d’authentification SSH permettant une exécution de commande pré-authentification ; l’analyse du binaire montre que la charge doit être chiffrée et signée avec une clé Ed448 de l’attaquant, ce qui réserve la capacité au détenteur de cette clé.[2][7][10][12][15] **Confiance : HIGH** pour la capacité réservée au détenteur de la clé (mécanisme décrit et reproduit en laboratoire avec une clé substituée) ; **LOW** pour toute exploitation réelle, qui n’est pas démontrée. Une exploitation réussie ne produisant pas d’entrée de journal de niveau INFO ou supérieur, l’absence de traces n’établit pas l’absence d’exploitation.[15]
 6. **Attribution :** les sources soutiennent une insertion malveillante et une préparation structurée, mais ne permettent pas d’identifier un acteur réel ou un État avec une confiance suffisante.[4][12] **Confiance : LOW** pour toute attribution spécifique.
-7. **Préparation longue :** l’opération s’inscrit dans plus de deux ans de contributions publiques (premier correctif en octobre 2021, accès en écriture établi fin 2022, première release produite par le même compte en mars 2023), accompagnées de messages de pression envoyés par des comptes qui n’apparaissent nulle part ailleurs selon les observations rapportées.[13] **Confiance : MEDIUM-HIGH** — chronologie secondaire dont chaque date renvoie à une archive publique (liste xz-devel, dépôt git), sans revérification ligne à ligne dans ce dossier.
+7. **Préparation longue :** l’opération s’inscrit dans plus de deux ans de contributions publiques (premier correctif en octobre 2021, accès en écriture établi fin 2022, première release produite par le même compte en mars 2023), accompagnées de messages de pression envoyés par des comptes qui n’apparaissent nulle part ailleurs selon les observations rapportées.[13][20][21] **Confiance : HIGH** pour les jalons datés, revérifiés le 2026-11-01 sur l’archive xz-devel et les métadonnées Git ; MEDIUM-HIGH pour les messages de pression, non revérifiés.
 
 ---
 
@@ -103,14 +111,16 @@ Aucun mapping MITRE ATT&CK n’est retenu dans ce dossier. Les sources publiques
 | F-010 | Ars Technica rapporte que le code permettrait, sous certaines conditions, de faire passer une commande via un mécanisme SSH, mais précise qu’aucun code n’a été observé comme effectivement téléversé et que l’identité réelle derrière Jia Tan reste inconnue. | S-012 / [12] | MEDIUM — source secondaire crédible, mais dépendante d’analyses externes et de déclarations de chercheurs. |
 | F-011 | Les sources consultées sont historiques et leur fraîcheur ne signifie pas que les pages ou les conclusions ont la même date de mise à jour : OpenSSF, Microsoft, Datadog et CERT-EU présentent des mises à jour distinctes. | S-004, S-006, S-007, S-010 / [4][6][7][10] | HIGH — observable dans les métadonnées des pages. |
 | F-012 | La collecte de ce dossier est passive et limitée à des sources publiques ; aucun système cible, compte ou donnée personnelle privée n’a été investigué. | Journal de collecte local | HIGH — action effectivement réalisée. |
-| F-013 | Une chronologie sourcée décrit un contributeur sous le nom « Jia Tan » actif pendant plus de deux ans, du premier correctif (2021-10-29) à l’obtention d’un accès en écriture et de la maintenance. | S-013 / [13] | MEDIUM-HIGH — compilation secondaire renvoyant à des archives publiques ; pas de revérification ligne à ligne. |
-| F-014 | La même chronologie date l’insertion de fichiers de test binaires contenant le code caché au 2024-02-23, la première release produite par ce compte (v5.4.2) au 2023-03-18, et indique que l’accès en écriture est établi au 2022-12-30. | S-013 / [13] | MEDIUM-HIGH — dates au jour, sans heure ni fuseau. |
+| F-013 | Une chronologie sourcée décrit un contributeur sous le nom « Jia Tan » actif pendant plus de deux ans, du premier correctif (2021-10-29) à l’obtention d’un accès en écriture et de la maintenance. | S-013, S-020, S-021 / [13][20][21] | HIGH — jalons revérifiés sur sources primaires le 2026-11-01 (F-022). |
+| F-014 | La même chronologie date l’insertion de fichiers de test binaires contenant le code caché au 2024-02-23, la première release produite par ce compte (v5.4.2) au 2023-03-18, et indique que l’accès en écriture est établi au 2022-12-30. | S-013, S-020 / [13][20] | HIGH — dates confirmées, avec heure et fuseau, par les métadonnées Git (F-022). |
 | F-015 | La découverte et la notification privée à Debian et à la liste distros@openwall sont datées du 2024-03-28 ; Red Hat attribue la CVE le même jour ; la divulgation publique suit le 29 mars. openSUSE confirme que le signalement a d’abord été adressé à Debian. | S-013, S-002, S-017 / [13][2][17] | MEDIUM-HIGH — la liste distros n’est pas publique ; séquence cohérente entre trois sources de lignées différentes. |
 | F-016 | Red Hat indique que l’injection n’est complète que dans le paquet téléchargé : la distribution Git ne contient pas la macro M4 déclencheuse, mais contient les artefacts de second niveau ; la NVD décrit l’extraction d’un objet précompilé depuis un fichier de test déguisé. | S-011, S-014, S-013 / [11][14][13] | HIGH — deux sources officielles convergentes et une compilation indépendante. |
 | F-017 | L’analyse publique du binaire indique que la porte dérobée valide une signature avec une clé publique Ed448 codée en dur et exige une charge chiffrée et signée avec la clé de l’attaquant ; une exploitation réussie ne génère aucune entrée de journal de niveau INFO ou supérieur. | S-015 / [15] | MEDIUM-HIGH — analyse d’un chercheur, reproductible et largement reprise, mais non institutionnelle. |
 | F-018 | Arch Linux indique que le code distribué dans le tarball n’a pas été injecté dans ses binaires (le script ne visait que les environnements de build Debian/Fedora) et que sshd n’y est pas lié à liblzma. | S-016 / [16] | HIGH pour le périmètre Arch Linux. |
 | F-019 | openSUSE indique que Tumbleweed et MicroOS ont inclus la version compromise du 7 au 28 mars 2024, et que le fichier malveillant n’est pas présent dans SUSE Linux Enterprise ni openSUSE Leap. | S-017 / [17] | HIGH pour le périmètre openSUSE / SUSE. |
 | F-020 | La NVD affiche un score CVSS 3.1 de 10.0 (CRITICAL), attribué à la fois par la NVD et par le CNA Red Hat. | S-014 / [14] | HIGH — notice officielle ; le score mesure la gravité potentielle, pas une exploitation observée. |
+| F-021 | Ubuntu déclare que la version touchée n’a été que dans `noble-proposed`, retirée avant d’atteindre noble, et qu’aucune version publiée n’est affectée. Launchpad enregistre `5.6.0-0.1` (publié le 2024-02-26) puis `5.6.0-0.2` (publié le 2024-02-29) dans `noble-proposed` ; quatre copies vers la poche de publication, créées le 2024-03-28, n’ont jamais été publiées (« Revert to previous version ») ; le remplacement `5.6.1+really5.4.5-1` est publié dans noble le 2024-03-30. Le numéro `5.6.1+really5.4.5` désigne du code 5.4.5 : un contrôle fondé sur la seule chaîne de version produirait un faux positif. | S-018, S-019 / [18][19] | HIGH pour le statut des versions publiées d’Ubuntu ; l’exposition des machines ayant activé `noble-proposed` n’est pas documentée. |
+| F-022 | L’archive xz-devel et les métadonnées Git confirment les jalons de [13] : premier correctif envoyé le 2021-10-29 à 11:29:18 −07:00 ; lot de commits enregistré par Jia Tan sur `master` le 2022-12-30 à 23:34:31 +08:00 (commit `8ace358d`) ; tag v5.4.2 le 2023-03-18 à 23:37:16 +08:00 ; commit `cf44e4b7` « Tests: Add a few test files » le 2024-02-23 à 23:09:59 +08:00 ; tags v5.6.0 le 2024-02-24 à 16:22:06 +08:00 et v5.6.1 le 2024-03-09 à 16:16:00 +08:00. Une copie du premier commit, sur la branche `v5.4`, porte une date de committer du 2022-12-16. | S-020, S-021 / [20][21] | HIGH pour les métadonnées ; une date de commit ou de tag est déclarée par l’outil de son auteur et ne prouve pas la date d’un push. |
 
 ---
 
@@ -146,12 +156,13 @@ Aucun mapping MITRE ATT&CK n’est retenu dans ce dossier. Les sources publiques
 
 | Timestamp source | Timezone / source timezone | Normalized UTC | Événement | Source | Statut |
 |------------------|----------------------------|----------------|-----------|--------|--------|
-| 2021-10-29 — heure non fournie | unknown | not available | Premier correctif du compte « Jia Tan » sur la liste xz-devel. | S-013 / [13] | rapporté (compilation sourcée) |
-| 2022-12-30 — heure non fournie | unknown | not available | Lot de commits fusionné directement dans le dépôt : accès en écriture établi. | S-013 / [13] | rapporté (compilation sourcée) |
-| 2023-03-18 — heure non fournie | unknown | not available | Première release (v5.4.2) produite par ce compte. | S-013 / [13] | rapporté (compilation sourcée) |
-| 2024-02-23 — heure non fournie | unknown | not available | Ajout de fichiers de test binaires contenant le code caché. | S-013 / [13] | rapporté (compilation sourcée) |
-| `24 Feb 08:22` — année contextuelle 2024 | unknown | not available | Tag GitHub v5.6.0 affiché sous JiaT75 ; date du 2024-02-24 corroborée au jour par [13]. | S-008 / [8] ; S-013 / [13] | confirmé comme affichage de page ; heure/fuseau incomplets |
-| `09 Mar 08:16` — année contextuelle 2024 | unknown | not available | Tag GitHub v5.6.1 affiché sous JiaT75 ; date du 2024-03-09 corroborée au jour par [13]. | S-009 / [9] ; S-013 / [13] | confirmé comme affichage de page ; heure/fuseau incomplets |
+| 2021-10-29T11:29:18-07:00 | UTC−07:00 | 2021-10-29T18:29:18Z | Premier correctif du compte « Jia Tan » sur la liste xz-devel (`.editorconfig`). | S-021 / [21] ; S-013 / [13] | confirmé sur l’archive de la liste |
+| 2022-12-30T23:34:31+08:00 | UTC+08:00 (déclaré) | 2022-12-30T15:34:31Z | Lot de commits enregistré par Jia Tan sur `master` (commit `8ace358d`) : accès en écriture établi. | S-020 / [20] ; S-013 / [13] | confirmé sur les métadonnées Git ; date déclarée, pas date de push |
+| 2023-03-18T23:37:16+08:00 | UTC+08:00 (déclaré) | 2023-03-18T15:37:16Z | Première release (tag v5.4.2) produite par ce compte. | S-020 / [20] ; S-013 / [13] | confirmé sur le tag |
+| 2024-02-23T23:09:59+08:00 | UTC+08:00 (déclaré) | 2024-02-23T15:09:59Z | Ajout de fichiers de test binaires contenant le code caché (commit `cf44e4b7`). | S-020 / [20] ; S-013 / [13] | confirmé sur les métadonnées Git |
+| 2024-02-24T16:22:06+08:00 | UTC+08:00 (déclaré) | 2024-02-24T08:22:06Z | Tag v5.6.0 par Jia Tan ; l’affichage GitHub `24 Feb 08:22` correspond à l’heure UTC. | S-020 / [20] ; S-008 / [8] | confirmé sur le tag |
+| 2024-02-26T13:47:39Z → 2024-03-29T06:10:17Z | UTC | 2024-02-26T13:47:39Z → 2024-03-29T06:10:17Z | `xz-utils` 5.6.0 dans `noble-proposed` (Ubuntu), jamais publié dans noble. | S-019 / [19] ; S-018 / [18] | confirmé sur Launchpad |
+| 2024-03-09T16:16:00+08:00 | UTC+08:00 (déclaré) | 2024-03-09T08:16:00Z | Tag v5.6.1 par Jia Tan ; l’affichage GitHub `09 Mar 08:16` correspond à l’heure UTC. | S-020 / [20] ; S-009 / [9] | confirmé sur le tag |
 | 2024-03-07 → 2024-03-28 | unknown | not available | Version compromise incluse dans openSUSE Tumbleweed et MicroOS. | S-017 / [17] | confirmé pour openSUSE |
 | 2024-03-28 — heure non fournie | unknown | not available | Découverte et notification privée à Debian et distros@openwall ; CVE-2024-3094 attribuée par Red Hat. Date d’identification également rapportée par Microsoft et Datadog. | S-013, S-006, S-007 / [13][6][7] | rapporté ; cohérent entre lignées distinctes |
 | 2024-03-29T08:51:26-07:00 | UTC−07:00 | 2024-03-29T15:51:26Z | Publication du rapport technique d’Andres Freund sur oss-security. | S-002 / [2] | confirmé |
@@ -249,7 +260,7 @@ openSUSE écrit, le 29 mars, que la porte dérobée permet à des acteurs malvei
 | openSUSE Tumbleweed, MicroOS | oui (7–28 mars 2024) | non précisé | décrit comme actif dans sshd | [17] | réinstallation recommandée si SSH exposé |
 | SUSE Linux Enterprise, openSUSE Leap | non | — | — | [17] | non affecté |
 | Arch Linux | oui (paquets 5.6.0-1, 5.6.1-1) | non selon Arch | non | [16][13] | vecteur SSH non applicable selon Arch |
-| Ubuntu | non vérifié | — | — | page en erreur 503 le 2026-10-30 | lacune de collecte |
+| Ubuntu | `noble-proposed` seulement (5.6.0, 26 févr. → 29 mars 2024) ; aucune version publiée | non précisé | — | [18][19] | non affecté selon Ubuntu ; utilisateurs de `noble-proposed` non documentés |
 
 Les cellules « — » ne sont pas renseignées par les sources retenues. Une absence de mention ne vaut pas absence d’exposition.
 
@@ -268,7 +279,7 @@ Les cellules « — » ne sont pas renseignées par les sources retenues. Une ab
 | L’impact a été limité à certains canaux/distributions et n’est pas équivalent à une compromission universelle | HIGH pour Debian/Red Hat ; MEDIUM pour l’écosystème global | Les sources sont précises pour leurs périmètres mais ne couvrent pas toutes les distributions. |
 | Une exploitation réussie à grande échelle a eu lieu | LOW / non établi | Les sources décrivent une capacité et un risque ; aucune preuve retenue d’exploitation réussie à grande échelle. |
 | La capacité est une exécution de commande pré-authentification réservée au détenteur de la clé Ed448 | HIGH | Mécanisme décrit par l’analyse du binaire et reproduit en laboratoire avec une clé substituée ; cohérent avec les advisories.[15] |
-| La compromission résulte d’une préparation de plus de deux ans | MEDIUM-HIGH | Chronologie sourcée renvoyant à des archives publiques, non revérifiée ligne à ligne.[13] |
+| La compromission résulte d’une préparation de plus de deux ans | HIGH | Jalons datés revérifiés sur l’archive xz-devel et les métadonnées Git (2021-10-29 → 2024-03-09).[13][20][21] |
 | Le 28 mars désigne la notification privée et le 29 mars la divulgation publique | MEDIUM-HIGH | Trois lignées concordantes ; la liste distros n’est pas publique.[13][2][17] |
 | Jia Tan correspond à une personne réelle identifiable | LOW / non établi | Les sources publiques retenues signalent explicitement cette incertitude. |
 | Attribution à un État ou à un groupe précis | LOW / non retenue | Aucun élément primaire suffisant ; hypothèse fondée surtout sur des inférences secondaires. |
@@ -279,13 +290,13 @@ Les cellules « — » ne sont pas renseignées par les sources retenues. Une ab
 
 - Les pages ont été consultées le 21 août 2026, mais une partie des documents est historique et certains sont évolutifs.
 - Les timestamps de plusieurs pages sont seulement des dates sans heure ni timezone.
-- Les dates affichées par GitHub pour les releases ne fournissent pas de timezone dans l’extrait collecté.
+- Les dates affichées par GitHub pour les releases ne fournissent pas de timezone dans l’extrait collecté ; les métadonnées Git [20] montrent qu’elles correspondent à l’heure UTC (révision du 2026-11-01).
 - Les sources secondaires dépendent parfois des mêmes sources primaires ; leur nombre ne constitue donc pas automatiquement un nombre équivalent de sources indépendantes.
 - Aucun accès aux journaux de commit complets, aux artefacts binaires originaux, aux logs d’infrastructure ou aux données d’exploitation n’a été réalisé dans ce dossier.
 - Les conclusions sur l’intention, l’identité et l’attribution restent limitées par l’absence de données non publiques.
 - La collecte web dépend du contenu rendu par les pages au moment de l’accès ; les extraits conservés ne remplacent pas les archives originales.
-- La collecte complémentaire du 2026-10-30 passe par un service d’extraction de pages tiers ; la page Ubuntu n’a pas pu être lue (HTTP 503) et la matrice d’exposition reste incomplète.
-- La chronologie longue [13] est une compilation secondaire : ses liens vers les archives xz-devel et les commits n’ont pas été revérifiés un à un dans ce dossier.
+- Les collectes complémentaires des 2026-10-30 et 2026-11-01 passent par un service d’extraction de pages tiers. La page Ubuntu, illisible le 2026-10-30, a été lue le 2026-11-01 ; la matrice d’exposition ne couvre toujours pas les autres distributions.
+- La chronologie longue [13] reste une compilation secondaire ; ses jalons datés ont été revérifiés sur sources primaires le 2026-11-01 [20][21], mais pas les messages de pression ni les autres entrées.
 
 ---
 
@@ -322,7 +333,7 @@ Les cellules « — » ne sont pas renseignées par les sources retenues. Une ab
 
 ### Affirmations dépendant d’une seule source
 
-- Les heures affichées par GitHub pour les tags 5.6.0 et 5.6.1 reposent sur les pages GitHub correspondantes ; elles sont corroborées par la séquence générale, mais pas par un second registre indépendant.
+- Les heures des tags 5.6.0 et 5.6.1 reposent désormais sur les pages GitHub et sur les métadonnées Git [20] ; les deux proviennent du même dépôt et ne constituent pas des registres indépendants.
 - L’absence d’affectation de RHEL repose principalement sur l’advisory Red Hat ; elle est valide pour le périmètre Red Hat, pas pour tout l’écosystème.
 - Les détails de la première observation reposent principalement sur le rapport d’Andres Freund, qui est la source primaire appropriée mais unique pour son expérience directe.
 
@@ -336,7 +347,7 @@ Les cellules « — » ne sont pas renseignées par les sources retenues. Une ab
 
 - La contradiction apparente entre dépôt et tarballs est résolue au niveau documentaire (révision du 2026-10-30) ; une comparaison artefact par artefact, octet par octet, reste à faire.
 - Les différences de formulation sur RCE, bypass et exploitation devraient être comparées avec la date et le niveau de reverse engineering de chaque source.
-- La portée par distribution couvre désormais Debian, Fedora/RHEL, Arch Linux et openSUSE/SUSE ; Ubuntu et les distributions non documentées restent à couvrir.
+- La portée par distribution couvre désormais Debian, Fedora/RHEL, Arch Linux, openSUSE/SUSE et Ubuntu ; les distributions non documentées restent à couvrir.
 
 ### Informations qui pourraient invalider l’analyse
 
@@ -383,3 +394,11 @@ Les cellules « — » ne sont pas renseignées par les sources retenues. Une ab
     > "To our knowledge the malicious code which was distributed via the release tarball never made it into the Arch Linux provided binaries, as the build script was configured to only inject the bad code in Debian/Fedora based package build environments."
 [17] https://news.opensuse.org/2024/03/29/xz-backdoor/
     > "Our rolling release distribution openSUSE Tumbleweed and openSUSE MicroOS included this version between March 7 and March 28."
+[18] https://ubuntu.com/security/CVE-2024-3094
+    > "The affected version of xz-utils was only in noble-proposed, and was removed before migrating to noble itself. No released versions of Ubuntu were affected by this issue."
+[19] https://api.launchpad.net/devel/ubuntu/+archive/primary?ws.op=getPublishedSources&source_name=xz-utils&exact_match=true&distro_series=https://api.launchpad.net/devel/ubuntu/noble&ws.size=300
+    > "5.6.0-0.2 Release Deleted created 2024-03-28T14:41:03.560483+00:00 published None superseded 2024-03-28T15:04:50.347590+00:00 removed 2024-03-29T06:10:17.845913+00:00 comment Revert to previous version."
+[20] https://github.com/tukaani-project/xz
+    > "commit cf44e4b7f5dfdbf8c78aef377c10f71e274f63c0 | author Jia Tan 2024-02-23T23:09:59+08:00 | committer Jia Tan 2024-02-23T23:09:59+08:00 | Tests: Add a few test files."
+[21] https://www.mail-archive.com/xz-devel@tukaani.org/msg00512.html
+    > "Jia Tan Fri, 29 Oct 2021 11:29:18 -0700"

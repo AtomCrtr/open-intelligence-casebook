@@ -1,6 +1,6 @@
 # XZ Utils — Extraits de sources collectées
 
-> Extraits verbatim collectés le 2026-08-21 (lecture seule, aucune interaction avec les systèmes décrits). Les citations doivent être vérifiées contre les pages originales.
+> Extraits verbatim collectés le 2026-08-21, puis les 2026-10-30 et 2026-11-01 (lecture seule, aucune interaction avec les systèmes décrits). Les citations doivent être vérifiées contre les pages originales.
 >
 > **Assainissement de l'édition publique :** dans S-008 et S-009, l'image d'avatar et le lien relatif du compte ont été retirés ; seul le pseudonyme affiché et l'horodatage sont conservés. Aucun autre extrait n'est modifié.
 
@@ -167,3 +167,59 @@ URL: https://news.opensuse.org/2024/03/29/xz-backdoor/
 > Current research indicates that the backdoor is active in the SSH Daemon, allowing malicious actors to access systems where SSH is exposed to the internet.
 
 > As of March 29, reverse engineering of the backdoor is still ongoing.
+
+## S-018 / Ubuntu Security
+
+URL: https://ubuntu.com/security/CVE-2024-3094
+
+Page consultée le 2026-11-01 (la même page renvoyait HTTP 503 le 2026-10-30). Ligne du tableau « Status » reproduite telle qu'extraite :
+
+> The affected version of xz-utils was only in noble-proposed, and was removed before migrating to noble itself. No released versions of Ubuntu were affected by this issue.
+
+> | xz-utils | 24.04<br> LTS<br> noble | Not affected |
+
+## S-019 / Launchpad API — historique de publication de xz-utils (noble)
+
+URL: https://api.launchpad.net/devel/ubuntu/+archive/primary?ws.op=getPublishedSources&source_name=xz-utils&exact_match=true&distro_series=https://api.launchpad.net/devel/ubuntu/noble&ws.size=300
+
+Réponse JSON reçue le 2026-11-01 (HTTP 200, 37 955 octets, SHA-256 `fa491cbed1e73627f9e0a82343b5590619eda8b66601d6dabf0c758717052d51`), non conservée. Lignes ci-dessous : champs `source_package_version`, `pocket`, `status`, `date_created`, `date_published`, `date_superseded`, `date_removed`, `removal_comment` des entrées 5.6.x, rendus sur une ligne par entrée.
+
+> 5.6.0-0.1 Proposed Superseded created 2024-02-26T11:11:11.215820+00:00 published 2024-02-26T13:47:39.901146+00:00 superseded 2024-02-29T05:42:25.722185+00:00
+
+> 5.6.0-0.2 Proposed Deleted created 2024-02-29T05:18:58.515667+00:00 published 2024-02-29T05:38:20.791716+00:00 superseded 2024-03-28T14:41:03.560483+00:00 removed 2024-03-29T06:10:17.845913+00:00 comment Moved to noble
+
+> 5.6.0-0.2 Release Deleted created 2024-03-28T14:41:03.560483+00:00 published None superseded 2024-03-28T15:04:50.347590+00:00 removed 2024-03-29T06:10:17.845913+00:00 comment Revert to previous version.
+
+> 5.6.1+really5.4.5-1 Proposed Deleted created 2024-03-29T17:00:17.576185+00:00 published 2024-03-29T17:22:29.390782+00:00 superseded 2024-03-30T21:26:57.896335+00:00 removed None comment Moved to noble
+
+> 5.6.1+really5.4.5-1 Release Published created 2024-03-30T21:26:57.896335+00:00 published 2024-03-30T21:37:25.108671+00:00
+
+## S-020 / Dépôt Git XZ Utils — métadonnées
+
+URL: https://github.com/tukaani-project/xz
+
+Clone sans contenu de fichier (`git clone --filter=blob:none --no-checkout`) le 2026-11-01 ; seules les métadonnées des commits et des tags ont été lues, aucun fichier du dépôt n'a été téléchargé ni exécuté. Tête de `master` lue : `9af25400834aede88f1bc77b8524fcba10f15651`. Lignes rendues par `git log` / `git for-each-ref` (identifiant, auteur, dates ISO 8601 avec fuseau, sujet). Les dates de commit et de tag sont déclarées par l'outil local de leur auteur ; elles ne prouvent pas la date d'un push.
+
+> commit 8ace358d65059152d9a1f43f4770170d29d35754 | author Jia Tan 2022-12-16T20:58:55+08:00 | committer Jia Tan 2022-12-30T23:34:31+08:00 | CMake: Update .gitignore for CMake artifacts from in source build.
+
+> commit 2fd28d2b7cec3468324a6f15eff7e73c285b1d7d | author Jia Tan 2022-12-16T20:58:55+08:00 | committer Jia Tan 2022-12-16T20:58:55+08:00 | CMake: Update .gitignore for CMake artifacts from in source build.
+
+> tag v5.4.2 | tagger Jia Tan | 2023-03-18T23:37:16+08:00 | object 6ca8046e
+
+> commit cf44e4b7f5dfdbf8c78aef377c10f71e274f63c0 | author Jia Tan 2024-02-23T23:09:59+08:00 | committer Jia Tan 2024-02-23T23:09:59+08:00 | Tests: Add a few test files.
+
+> tag v5.6.0 | tagger Jia Tan | 2024-02-24T16:22:06+08:00 | object 2d7d862e
+
+> tag v5.6.1 | tagger Jia Tan | 2024-03-09T16:16:00+08:00 | object fd1b975b
+
+## S-021 / Archive de la liste xz-devel
+
+URL: https://www.mail-archive.com/xz-devel@tukaani.org/msg00512.html
+
+Page consultée le 2026-11-01 ; adresse électronique de l'expéditeur non reproduite.
+
+> [xz-devel] [PATCH] xz: Added .editorconfig file for simple style guide encouragement
+
+> Jia Tan Fri, 29 Oct 2021 11:29:18 -0700
+
+> This patch adds a .editorconfig to the root directory.
