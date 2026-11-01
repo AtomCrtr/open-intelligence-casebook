@@ -164,3 +164,19 @@ def test_case4_traceability_and_sanitization():
         assert "avatars.githubusercontent.com" not in text, path.name
         assert "VERDICT DU TEST DU WORKSPACE" not in text, path.name
     assert len({row["claim_id"] for row in rows(case4 / "provenance.csv")}) >= 8
+
+
+def test_release_checklist_is_derived_from_executed_checks():
+    checklist_path = ROOT / "publication" / "release-checklist.md"
+    original = checklist_path.read_bytes()
+    try:
+        publication_builder.write_release_checklist()
+        checklist = checklist_path.read_text(encoding="utf-8")
+    finally:
+        checklist_path.write_bytes(original)
+    automated, human = checklist.split("## Engagements vérifiés par revue humaine", 1)
+    for case_dir in sorted(p for p in (ROOT / "cases").iterdir() if p.is_dir()):
+        assert f"`{case_dir.name}`" in automated
+    assert "Case 04 : " in automated and "Case 04 : " in human
+    assert "- [x]" not in human
+    assert checklist == original.decode("utf-8")

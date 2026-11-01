@@ -21,6 +21,10 @@ Toutes les sources sont publiques et **link-only** : ce dépôt ne republie que 
 | [15] | S-015 | xzbot — analyse du binaire | rétro-ingénierie de chercheur | MEDIUM-HIGH | [lien](https://github.com/amlweems/xzbot) |
 | [16] | S-016 | Arch Linux — annonce | annonce de distribution | HIGH | [lien](https://archlinux.org/news/the-xz-package-has-been-backdoored/) |
 | [17] | S-017 | openSUSE — annonce | annonce de distribution | HIGH (périmètre) / MEDIUM (impact) | [lien](https://news.opensuse.org/2024/03/29/xz-backdoor/) |
+| [18] | S-018 | Ubuntu Security — CVE-2024-3094 | page de suivi CVE de la distribution | HIGH | [lien](https://ubuntu.com/security/CVE-2024-3094) |
+| [19] | S-019 | Launchpad — historique de publication de xz-utils (noble) | registre d'archive de paquets (API) | HIGH | [lien](https://api.launchpad.net/devel/ubuntu/+archive/primary?ws.op=getPublishedSources&source_name=xz-utils&exact_match=true&distro_series=https://api.launchpad.net/devel/ubuntu/noble&ws.size=300) |
+| [20] | S-020 | Dépôt Git XZ Utils — métadonnées des commits et des tags | registre du projet | HIGH (métadonnées) | [lien](https://github.com/tukaani-project/xz) |
+| [21] | S-021 | Archive de la liste xz-devel — premier correctif | archive de liste publique | MEDIUM-HIGH (archive tierce) | [lien](https://www.mail-archive.com/xz-devel@tukaani.org/msg00512.html) |
 
 ## Dépendances à garder en tête
 
@@ -32,5 +36,8 @@ Toutes les sources sont publiques et **link-only** : ce dépôt ne republie que 
 - **S-014** reprend la description fournie par le CNA Red Hat : même lignée textuelle que S-011.
 - **S-015** est une analyse de chercheur indépendante de S-002 pour le format de la charge ; elle n'observe aucune exploitation réelle.
 - **S-016 / S-017** sont deux distributions indépendantes de Debian et Red Hat.
+- **S-018 / S-019** relèvent de la même lignée (Ubuntu / Canonical) : la déclaration de l'équipe sécurité et l'enregistrement de l'archive se recoupent, sans être indépendants.
+- **S-020** est le registre primaire du dépôt : il confirme les dates de S-013 et partage la lignée de S-008 / S-009 (même dépôt). Les dates de commit et de tag sont déclarées par leur auteur et ne prouvent pas la date d'un envoi.
+- **S-021** est la source primaire du premier correctif cité par S-013.
 
 Les contenus tiers restent soumis à leurs conditions d'origine (voir [NOTICE](../../NOTICE.md)).

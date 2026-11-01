@@ -331,9 +331,6 @@ def write_publication_files() -> None:
             w.writerow([rel,cls,rule])
         w.writerow(['publication/public-manifest.csv','publication_control','public_original_content'])
 
-    checklist = '''# Contrôle de publication — édition publique v1\n\n**Statut : PASS après génération reproductible sur la branche `main`.**\n\n## Périmètre et confidentialité\n\n- [x] Historique Git du dépôt canonique privé non copié.\n- [x] Aucun secret, jeton, fichier `.env`, chemin local ou nom de machine dans le package publié.\n- [x] Aucune donnée brute tierce aux droits incertains n’est redistribuée.\n- [x] Case 03 reste un teaser : aucune trajectoire, aucun identifiant avion et aucune conclusion GNSS historique.\n\n## Intégrité analytique\n\n- [x] Case 01 conserve la séparation commerce ≠ aéronautique ≠ qualification ≠ substitution.\n- [x] Case 02 conserve la séparation visibilité ≠ coordination ≠ attribution ≠ impact.\n- [x] Les chiffres publiés proviennent des résultats validés et des dérivations documentées.\n- [x] Les niveaux de confiance et les limites restent visibles.\n\n## Droits et transparence\n\n- [x] Code original : Apache-2.0 ; contenu analytique original : CC BY 4.0.\n- [x] Matériaux tiers non relicenciés ; sources amont incertaines traitées en `link-only` / `derived-only`.\n- [x] `NOTICE.md`, `DISCLAIMER.md` et `AI_TRANSPARENCY.md` accessibles depuis le README.\n\n## Qualité technique\n\n- [x] Figures SVG valides.\n- [x] PDF A4, texte sélectionnable, métadonnées assainies et liens web publics.\n- [x] Aucun lien `file://` dans les PDF.\n- [x] Checksums SHA-256 générés pour les PDF, figures et tables dérivées.\n- [x] Construction automatisée et reproductible depuis `tools/build_publication.py`.\n\n```text\nRELEASE READINESS: PASS\n```\n'''
-    (PUB/'release-checklist.md').write_text(checklist,encoding='utf-8')
-
 
 def validate_public_provenance() -> None:
     required = {
@@ -367,6 +364,16 @@ def validate_public_provenance() -> None:
         raise RuntimeError('Case 02: la source data-void dépasse son périmètre LLM')
 
 
+FORBIDDEN_TOKENS = ['/mnt/data/','C:\\Users\\','file://','private-user-images.githubusercontent.com']
+
+
+def public_text_files() -> list[Path]:
+    """Audience-facing documentation and data scanned for local paths and private URLs."""
+    roots = [ROOT/'README.md', ROOT/'NOTICE.md', ROOT/'DISCLAIMER.md', ROOT/'AI_TRANSPARENCY.md', ROOT/'CONTRIBUTING.md']
+    roots += [p for base in [ROOT/'cases', ROOT/'methodology', ROOT/'publication'] for p in base.rglob('*') if p.is_file() and p.suffix.lower() in {'.md','.csv','.sha256'} and p.name != 'release-checklist.md']
+    return sorted(roots)
+
+
 def validate_repository() -> None:
     validate_public_provenance()
     # SVG parse
@@ -376,10 +383,8 @@ def validate_repository() -> None:
 
     # Sensitive/local-path scan over audience-facing documentation and data.
     # Build tooling is excluded because it necessarily contains the patterns used by the scanner itself.
-    forbidden=['/mnt/data/','C:\\Users\\','file://','private-user-images.githubusercontent.com']
-    public_text_roots = [ROOT/'README.md', ROOT/'NOTICE.md', ROOT/'DISCLAIMER.md', ROOT/'AI_TRANSPARENCY.md', ROOT/'CONTRIBUTING.md']
-    public_text_roots += [p for base in [ROOT/'cases', ROOT/'methodology', ROOT/'publication'] for p in base.rglob('*') if p.is_file() and p.suffix.lower() in {'.md','.csv','.sha256'} and p.name != 'release-checklist.md']
-    for p in public_text_roots:
+    forbidden=FORBIDDEN_TOKENS
+    for p in public_text_files():
         try: text=p.read_text(encoding='utf-8')
         except UnicodeDecodeError: continue
         for token in forbidden:
@@ -394,12 +399,87 @@ def validate_repository() -> None:
         if sha256(ROOT/rel)!=digest: raise RuntimeError(f'Checksum incorrect: {rel}')
 
 
+def write_release_checklist() -> None:
+    """Write the release checklist from checks executed by this build.
+
+    Called only after validate_repository() has passed. Automated lines report what was
+    actually checked; commitments that no code verifies are listed separately.
+    """
+    sys.path.insert(0, str(ROOT/'tools'))
+    import check_case
+
+    cases = sorted(p for p in (ROOT/'cases').iterdir() if p.is_dir())
+    problems = {case.name: check_case.check_case(case) for case in cases}
+    failing = {name: issues for name, issues in problems.items() if issues}
+    if failing:
+        raise RuntimeError(f'Traçabilité des cas en échec : {failing}')
+    for path in sorted(C4.iterdir()):
+        text = path.read_text(encoding='utf-8')
+        if 'avatars.githubusercontent.com' in text or 'VERDICT DU TEST DU WORKSPACE' in text:
+            raise RuntimeError(f'{path}: assainissement du Case 04 incomplet')
+
+    def claims(case_dir: Path) -> int:
+        with (case_dir/'provenance.csv').open(encoding='utf-8', newline='') as f:
+            return len({row['claim_id'] for row in csv.DictReader(f)})
+
+    def pdf_facts(path: Path) -> str:
+        doc = fitz.open(path)
+        uri = sum(1 for page in doc for link in page.get_links() if link.get('uri'))
+        facts = f'{len(doc)} pages, {uri} liens web'
+        doc.close()
+        return facts
+
+    svgs = list(C1.joinpath('figures').glob('*.svg')) + list(C2.joinpath('figures').glob('*.svg'))
+    checksum_lines = (PUB/'checksums.sha256').read_text(encoding='utf-8').splitlines()
+    case_list = ', '.join(f'`{name}`' for name in problems)
+    tokens = ', '.join(f'`{token}`' for token in FORBIDDEN_TOKENS)
+    lines = [
+        '# Contrôle de publication — édition publique',
+        '',
+        '**Statut : PASS.** Fichier généré par `tools/build_publication.py` à la fin d\'une construction réussie. '
+        'La première section ne rapporte que des contrôles exécutés par le générateur ; la seconde liste des '
+        'engagements vérifiés par revue humaine, que le générateur ne contrôle pas.',
+        '',
+        '## Contrôles automatiques',
+        '',
+        f'- [x] Traçabilité de chaque cas (`tools/check_case.py`) : {case_list} — aucun problème.',
+        f'- [x] Provenance publique : Case 01 : {claims(C1)} affirmations ; Case 02 : {claims(C2)} ; '
+        f'Case 04 : {claims(C4)} (minimum 8 par cas, lignée informationnelle renseignée).',
+        '- [x] Case 02 : étude commune DFRLab / CheckFirst déclarée comme une seule lignée ; source S-029 bornée à C2-PUB-008.',
+        '- [x] Case 04 : aucune URL d\'avatar ni section interne d\'évaluation dans les fichiers publiés.',
+        f'- [x] Figures SVG : {len(svgs)} fichiers analysés sans erreur.',
+        f'- [x] PDF : Case 01 ({pdf_facts(C1/"report.pdf")}), Case 02 ({pdf_facts(C2/"report.pdf")}) ; '
+        'format A4, texte sélectionnable, titre conforme, aucun lien `file://`.',
+        f'- [x] Recherche de motifs interdits ({tokens}) dans {len(public_text_files())} fichiers publics : aucune occurrence.',
+        f'- [x] Empreintes SHA-256 : {len(checksum_lines)} fichiers générés vérifiés (`checksums.sha256`).',
+        '',
+        '## Engagements vérifiés par revue humaine (non contrôlés par le générateur)',
+        '',
+        '- Historique Git du dépôt canonique privé non copié.',
+        '- Aucune donnée brute tierce aux droits incertains n\'est redistribuée ; voir la [revue des droits](rights-review.md).',
+        '- Case 01 : séparation commerce ≠ aéronautique ≠ qualification ≠ substitution.',
+        '- Case 02 : séparation visibilité ≠ coordination ≠ attribution ≠ impact.',
+        '- Case 03 reste un teaser : aucune trajectoire, aucun identifiant avion et aucune conclusion GNSS historique.',
+        '- Case 04 : instruit dans un espace de travail distinct, publié sous forme assainie (écarts documentés en tête du rapport) ; '
+        'aucune tentative d\'identification des personnes derrière les pseudonymes.',
+        '- Licences : code original Apache-2.0 ; contenu analytique original CC BY 4.0 ; matériaux tiers non relicenciés.',
+        '- `NOTICE.md`, `DISCLAIMER.md` et `AI_TRANSPARENCY.md` accessibles depuis le README.',
+        '',
+        '```text',
+        'RELEASE READINESS: PASS',
+        '```',
+        '',
+    ]
+    (PUB/'release-checklist.md').write_text('\n'.join(lines), encoding='utf-8', newline='\n')
+
+
 def main() -> None:
     generate_figures()
     build_pdf(C1, 'Titane et résilience de la filière aéronautique civile européenne - Case 01', 'OSINT, aéronautique, titane, supply chain, résilience, Europe, data engineering')
     build_pdf(C2, 'Portal Kombat / Pravda - comprendre un écosystème informationnel par l’OSINT - Case 02', 'OSINT, FIMI, Portal Kombat, Pravda, DISARM, ACH, graphe, Europe')
     write_publication_files()
     validate_repository()
+    write_release_checklist()
     print('PUBLICATION_BUILD=PASS')
     print(f'CASE01_PAGES={len(fitz.open(C1/"report.pdf"))}')
     print(f'CASE02_PAGES={len(fitz.open(C2/"report.pdf"))}')

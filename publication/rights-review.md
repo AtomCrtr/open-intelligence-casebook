@@ -47,6 +47,22 @@ Le Case 03 ne publie qu'une page de présentation originale et un schéma d'avan
 
 **Décision : autorisé pour le teaser original ; données de travail exclues.**
 
+## Case 04 - XZ Utils
+
+**Revue du 1er novembre 2026**, lecture prudente des pratiques du cas, pas un avis juridique.
+
+| Élément public | Origine | Traitement | Décision |
+|---|---|---|---|
+| `report.md`, `README.md`, `evidence-map.md`, `evidence-register.md`, `provenance.csv`, `sources.md` | rédaction analytique originale | CC BY 4.0 pour le contenu original | **autorisé** |
+| `source-extracts.md`, `citations-ledger.json` | courts extraits verbatim de 21 sources publiques (advisories, annonces de distribution, registres de paquets et de dépôt, archive de liste, analyses) | citations courtes et attribuées, à des fins d'analyse et de vérification ; aucune copie intégrale de document | **link-only + citation courte** |
+| pages de release GitHub (S-008, S-009) | métadonnées de dépôt | image d'avatar et lien de profil retirés ; seul le pseudonyme affiché est conservé | **assaini** |
+| métadonnées Git (S-020) et archive xz-devel (S-021) | registres publics | identifiants de commit, dates et sujets ; aucune adresse électronique reproduite ; dépôt lu sans contenu de fichier | **link-only + citation courte** |
+| registre Launchpad (S-019) | réponse d'API publique | champs de version et de date ; aucun nom d'utilisateur reproduit ; réponse non redistribuée | **link-only + citation courte** |
+
+Aucune tentative d'identification des personnes derrière les pseudonymes ; aucun fichier du projet XZ, piégé ou non, n'est redistribué.
+
+**Décision : autorisé pour le texte original et les courts extraits attribués ; aucun document tiers redistribué.**
+
 ## Licences de l'édition
 
 - code original : Apache License 2.0 ;
