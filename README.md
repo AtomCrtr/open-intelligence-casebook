@@ -98,25 +98,27 @@ Le cas associe chronologie, analyse de graphe STIX, tests de sensibilité, diss�
 
 ### 🛩️ Case 03 — Interférences GNSS & aviation civile européenne
 
-**Statut : en développement.** Le cadre analytique est conçu avant l'inspection des observations réelles afin de limiter les biais de sélection et d'interprétation.
+**Statut : évaluation documentaire finale (version 1.0 du 1er novembre 2026).**
 
 **Question :** comment les données ouvertes peuvent-elles aider à suivre et caractériser les dégradations de navigation touchant l'aviation civile européenne depuis 2022, sans confondre corrélation, couverture des capteurs et causalité ?
 
-La première édition publique ne contient **aucune conclusion historique sur des événements GNSS réels**, aucun identifiant aéronef et aucune donnée opérationnelle. Le cas sera ajouté lorsqu'il aura franchi son propre gate de publication.
+Le cas confronte huit sources institutionnelles et sectorielles (EASA, OACI, IATA, atelier EASA–EUROCONTROL, UIT), regroupées en dix lignées d'information, à quatre hypothèses concurrentes. La couche d'observation propre (ADS-B, GPSJAM) prévue au départ n'a pas été exécutée : aucune trajectoire, aucun identifiant d'aéronef et aucune donnée GPSJAM n'est publié.
 
 **À retenir :**
-- question, périmètre et règles de décision **gelés avant** toute observation réelle ;
-- quatre hypothèses concurrentes conservées ouvertes, **aucune privilégiée** ;
-- une précision de navigation déclarée n'est **pas** une preuve de brouillage, une observation ADS-B n'est **pas** une mesure radiofréquence, une coïncidence temporelle n'est **pas** une cause ;
-- accès aux données réelles soumis à des gates documentés et à une approbation humaine explicite.
+- **hausse nette** des dégradations GNSS de 2022 à la mi-2025 ; évolution ultérieure **non établie** ;
+- **deux foyers persistants** : Baltique et Nord-Est ; mer Noire et Méditerranée orientale ;
+- des **brouillages et leurrages réels**, amplifiés par une meilleure détection ; l'hypothèse « simples artefacts » est écartée comme explication principale ;
+- des **conséquences opérationnelles documentées**, dont la fréquence n'est pas mesurable ;
+- pour la veille, des **taux normalisés**, jamais des comptages bruts : à Budapest, seuls 2,6 à 8,1 % des événements détectés sont déclarés par les pilotes ;
+- les attributions citées (UIT, Conseil de l'OACI, PANSA, IATA) sont **rapportées**, jamais requalifiées par le projet.
 
 <p align="center">
-  <img src="cases/case-03-gnss-interference/figures/case03_gates.svg" alt="Avancement du Case 03 en six étapes : design et protocole gelés, accès aux données sous gates, jugements non rédigés, publication en HOLD" width="92%">
+  <img src="cases/case-03-gnss-interference/figures/case03_confidence.svg" alt="Douze affirmations publiques du Case 03, chacune avec son niveau de confiance écrit en toutes lettres" width="92%">
 </p>
 
 <div align="center">
 
-[**Voir la méthode et l'état d'avancement**](cases/case-03-gnss-interference/README.md)
+[**Lire la synthèse**](cases/case-03-gnss-interference/README.md) · [**Rapport complet en Markdown**](cases/case-03-gnss-interference/report.md) · [**Télécharger le rapport PDF**](cases/case-03-gnss-interference/report.pdf) · [**Jugements clés**](cases/case-03-gnss-interference/key-judgments.md) · [**Sources**](cases/case-03-gnss-interference/sources.md) · [**Carte des preuves**](cases/case-03-gnss-interference/evidence-map.md) · [**Provenance**](cases/case-03-gnss-interference/provenance.csv)
 
 </div>
 
@@ -211,7 +213,7 @@ open-intelligence-casebook/
 ├── cases/
 │   ├── case-01-titanium/          # rapport, figures, métriques, méthode, sources
 │   ├── case-02-portal-kombat/     # rapport, figures, métriques, méthode, sources
-│   ├── case-03-gnss-interference/ # méthode et état d'avancement (sans données)
+│   ├── case-03-gnss-interference/ # rapport documentaire, jugements, sources, provenance
 │   └── case-04-xz-utils/          # rapport, sources, provenance, ledger de citations
 ├── methodology/                   # méthode analytique commune
 ├── publication/                   # droits, manifeste, checksums, release gate

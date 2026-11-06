@@ -9,6 +9,7 @@ from tools import check_case
 ROOT = Path(__file__).resolve().parents[1]
 CASE01 = ROOT / "cases" / "case-01-titanium"
 CASE02 = ROOT / "cases" / "case-02-portal-kombat"
+CASE03 = ROOT / "cases" / "case-03-gnss-interference"
 
 
 def rows(path: Path):
@@ -183,3 +184,13 @@ def test_release_checklist_is_derived_from_executed_checks():
     assert "Case 04 : " in automated and "Case 04 : " in human
     assert "- [x]" not in human
     assert checklist == original.decode("utf-8")
+
+
+def test_case3_documentary_edition_contract():
+    provenance = rows(CASE03 / "provenance.csv")
+    assert len({row["claim_id"] for row in provenance}) >= 8
+    assert all(row["information_lineage"] for row in provenance)
+    assert not (CASE03 / "figures" / "case03_gates.svg").exists()
+    report = (CASE03 / "report.md").read_text(encoding="utf-8")
+    assert "non destinée à la navigation" in report
+    assert "ongoing without interruption" not in report
