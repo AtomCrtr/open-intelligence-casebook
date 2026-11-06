@@ -9,7 +9,7 @@
 - [x] Case 02 : étude commune DFRLab / CheckFirst déclarée comme une seule lignée ; source S-029 bornée à C2-PUB-008.
 - [x] Case 04 : aucune URL d'avatar ni section interne d'évaluation dans les fichiers publiés.
 - [x] Figures SVG : 12 fichiers analysés sans erreur.
-- [x] PDF : Case 01 (22 pages, 11 liens web), Case 02 (22 pages, 16 liens web) ; format A4, texte sélectionnable, titre conforme, aucun lien `file://` ni lien vers un fichier local.
+- [x] PDF : Case 01 (22 pages, 11 liens web), Case 02 (22 pages, 17 liens web) ; format A4, texte sélectionnable, titre conforme, aucun lien `file://` ni lien vers un fichier local.
 - [x] Recherche de motifs interdits (`/mnt/data/`, `C:\Users\`, `file://`, `private-user-images.githubusercontent.com`) dans 34 fichiers publics : aucune occurrence.
 - [x] Empreintes SHA-256 : 18 fichiers générés vérifiés (`checksums.sha256`).
 
