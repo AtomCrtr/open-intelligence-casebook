@@ -196,7 +196,10 @@ def generate_figures() -> None:
 def build_pdf(case_dir: Path, title: str, keywords: str) -> None:
     source = (case_dir/'report.md').read_text(encoding='utf-8')
     case_slug = case_dir.name
-    source = source.replace('](sources.md)', f']({REPO_URL}/blob/main/cases/{case_slug}/sources.md)')
+    # Relative links to case files become absolute GitHub URLs; otherwise WeasyPrint writes
+    # "launch" links to the absolute build path (dead for readers, exposes the build directory).
+    for name in ('sources.md', 'key-judgments.md', 'evidence-map.md', 'provenance.csv'):
+        source = source.replace(f']({name})', f']({REPO_URL}/blob/main/cases/{case_slug}/{name})')
     source = source.replace('](../../AI_TRANSPARENCY.md)', f']({REPO_URL}/blob/main/AI_TRANSPARENCY.md)')
     with tempfile.TemporaryDirectory() as td:
         td = Path(td); md = td/'report.md'; html = td/'report.html'; raw = td/'raw.pdf'; compressed = td/'compressed.pdf'
@@ -282,6 +285,7 @@ def validate_pdf(path: Path, expected_title: str) -> None:
         links.extend(page.get_links())
     bad = [x for x in links if (x.get('uri') or '').lower().startswith('file:')]
     if bad: raise RuntimeError(f'{path}: liens file:// détectés')
+    if [x for x in links if x.get('kind') == fitz.LINK_LAUNCH]: raise RuntimeError(f'{path}: liens vers des fichiers locaux détectés')
     if len([x for x in links if x.get('uri')]) < 8: raise RuntimeError(f'{path}: trop peu de liens sources')
     if doc.metadata.get('title') != expected_title: raise RuntimeError(f'{path}: métadonnée titre incorrecte')
     doc.close()
@@ -450,7 +454,7 @@ def write_release_checklist() -> None:
         '- [x] Case 04 : aucune URL d\'avatar ni section interne d\'évaluation dans les fichiers publiés.',
         f'- [x] Figures SVG : {len(svgs)} fichiers analysés sans erreur.',
         f'- [x] PDF : Case 01 ({pdf_facts(C1/"report.pdf")}), Case 02 ({pdf_facts(C2/"report.pdf")}) ; '
-        'format A4, texte sélectionnable, titre conforme, aucun lien `file://`.',
+        'format A4, texte sélectionnable, titre conforme, aucun lien `file://` ni lien vers un fichier local.',
         f'- [x] Recherche de motifs interdits ({tokens}) dans {len(public_text_files())} fichiers publics : aucune occurrence.',
         f'- [x] Empreintes SHA-256 : {len(checksum_lines)} fichiers générés vérifiés (`checksums.sha256`).',
         '',
