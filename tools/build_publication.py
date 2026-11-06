@@ -23,6 +23,7 @@ from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
 ROOT = Path(__file__).resolve().parents[1]
 C1 = ROOT / 'cases/case-01-titanium'
 C2 = ROOT / 'cases/case-02-portal-kombat'
+C3 = ROOT / 'cases/case-03-gnss-interference'
 C4 = ROOT / 'cases/case-04-xz-utils'
 PUB = ROOT / 'publication'
 CSS = ROOT / 'tools/report.css'
@@ -275,9 +276,9 @@ def build_pdf(case_dir: Path, title: str, keywords: str) -> None:
         out.write_bytes(normalized)
 
 
-def validate_pdf(path: Path, expected_title: str) -> None:
+def validate_pdf(path: Path, expected_title: str, min_pages: int = 15) -> None:
     doc = fitz.open(path)
-    if len(doc) < 15: raise RuntimeError(f'{path}: rapport trop court ({len(doc)} pages)')
+    if len(doc) < min_pages: raise RuntimeError(f'{path}: rapport trop court ({len(doc)} pages)')
     if not all(abs(p.rect.width-595.28) < 1.0 and abs(p.rect.height-841.89) < 1.0 for p in doc): raise RuntimeError(f'{path}: format non A4')
     if sum(len(p.get_text().strip()) for p in doc) < 10000: raise RuntimeError(f'{path}: texte insuffisant / non sélectionnable')
     links = []
@@ -302,6 +303,7 @@ def write_publication_files() -> None:
     generated = [
         C1/'data/key_metrics.csv', C1/'provenance.csv', *sorted((C1/'figures').glob('*.svg')), C1/'report.pdf',
         C2/'data/key_metrics.csv', C2/'provenance.csv', *sorted((C2/'figures').glob('*.svg')), C2/'report.pdf',
+        C3/'provenance.csv', *sorted((C3/'figures').glob('*.svg')), C3/'report.pdf',
     ]
     with (PUB/'checksums.sha256').open('w',encoding='utf-8',newline='\n') as f:
         for p in generated:
@@ -343,7 +345,7 @@ def validate_public_provenance() -> None:
         'independence_note', 'scope_limit',
     }
     tables = {}
-    for case_dir in (C1, C2, C4):
+    for case_dir in (C1, C2, C3, C4):
         with (case_dir/'provenance.csv').open(encoding='utf-8', newline='') as f:
             reader = csv.DictReader(f)
             if not required.issubset(reader.fieldnames or []):
@@ -396,6 +398,7 @@ def validate_repository() -> None:
             if token in text: raise RuntimeError(f'{p}: token interdit {token}')
 
     validate_pdf(C1/'report.pdf','Titane et résilience de la filière aéronautique civile européenne - Case 01')
+    validate_pdf(C3/'report.pdf','Interférences GNSS et aviation civile européenne - Case 03', min_pages=8)
     validate_pdf(C2/'report.pdf','Portal Kombat / Pravda - comprendre un écosystème informationnel par l’OSINT - Case 02')
 
     # checksums verify
@@ -449,11 +452,12 @@ def write_release_checklist() -> None:
         '',
         f'- [x] Traçabilité de chaque cas (`tools/check_case.py`) : {case_list} — aucun problème.',
         f'- [x] Provenance publique : Case 01 : {claims(C1)} affirmations ; Case 02 : {claims(C2)} ; '
-        f'Case 04 : {claims(C4)} (minimum 8 par cas, lignée informationnelle renseignée).',
+        f'Case 03 : {claims(C3)} ; Case 04 : {claims(C4)} (minimum 8 par cas, lignée informationnelle renseignée).',
         '- [x] Case 02 : étude commune DFRLab / CheckFirst déclarée comme une seule lignée ; source S-029 bornée à C2-PUB-008.',
         '- [x] Case 04 : aucune URL d\'avatar ni section interne d\'évaluation dans les fichiers publiés.',
         f'- [x] Figures SVG : {len(svgs)} fichiers analysés sans erreur.',
-        f'- [x] PDF : Case 01 ({pdf_facts(C1/"report.pdf")}), Case 02 ({pdf_facts(C2/"report.pdf")}) ; '
+        f'- [x] PDF : Case 01 ({pdf_facts(C1/"report.pdf")}), Case 02 ({pdf_facts(C2/"report.pdf")}), '
+        f'Case 03 ({pdf_facts(C3/"report.pdf")}) ; '
         'format A4, texte sélectionnable, titre conforme, aucun lien `file://` ni lien vers un fichier local.',
         f'- [x] Recherche de motifs interdits ({tokens}) dans {len(public_text_files())} fichiers publics : aucune occurrence.',
         f'- [x] Empreintes SHA-256 : {len(checksum_lines)} fichiers générés vérifiés (`checksums.sha256`).',
@@ -464,7 +468,7 @@ def write_release_checklist() -> None:
         '- Aucune donnée brute tierce aux droits incertains n\'est redistribuée ; voir la [revue des droits](rights-review.md).',
         '- Case 01 : séparation commerce ≠ aéronautique ≠ qualification ≠ substitution.',
         '- Case 02 : séparation visibilité ≠ coordination ≠ attribution ≠ impact.',
-        '- Case 03 reste un teaser : aucune trajectoire, aucun identifiant avion et aucune conclusion GNSS historique.',
+        '- Case 03 : évaluation documentaire ; aucune trajectoire, aucun identifiant avion, aucune donnée GPSJAM ; citations OACI, IATA, UIT et intervenants de l\'atelier paraphrasées.',
         '- Case 04 : instruit dans un espace de travail distinct, publié sous forme assainie (écarts documentés en tête du rapport) ; '
         'aucune tentative d\'identification des personnes derrière les pseudonymes.',
         '- Licences : code original Apache-2.0 ; contenu analytique original CC BY 4.0 ; matériaux tiers non relicenciés.',
@@ -482,12 +486,14 @@ def main() -> None:
     generate_figures()
     build_pdf(C1, 'Titane et résilience de la filière aéronautique civile européenne - Case 01', 'OSINT, aéronautique, titane, supply chain, résilience, Europe, data engineering')
     build_pdf(C2, 'Portal Kombat / Pravda - comprendre un écosystème informationnel par l’OSINT - Case 02', 'OSINT, FIMI, Portal Kombat, Pravda, DISARM, ACH, graphe, Europe')
+    build_pdf(C3, 'Interférences GNSS et aviation civile européenne - Case 03', 'OSINT, GNSS, brouillage, leurrage, aviation civile, EASA, OACI, ACH, Europe')
     write_publication_files()
     validate_repository()
     write_release_checklist()
     print('PUBLICATION_BUILD=PASS')
     print(f'CASE01_PAGES={len(fitz.open(C1/"report.pdf"))}')
     print(f'CASE02_PAGES={len(fitz.open(C2/"report.pdf"))}')
+    print(f'CASE03_PAGES={len(fitz.open(C3/"report.pdf"))}')
 
 if __name__=='__main__':
     main()

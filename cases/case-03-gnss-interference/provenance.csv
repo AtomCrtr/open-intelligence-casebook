@@ -1,0 +1,38 @@
+claim_id,source_id,evidence_role,information_lineage,independence_note,scope_limit
+C3-PUB-01,S-001,institutional_bulletin,ODG-EASA-SIB,distinct pipeline; not an independent measurement class unless RF or crew report,reported by the source; not re-measured by the project
+C3-PUB-01,S-005,institutional_working_paper,ODG-STATES-CWP15745,distinct pipeline; not an independent measurement class unless RF or crew report,reported by the source; not re-measured by the project
+C3-PUB-01,S-020,industry_assessment,ODG-IATA-FDX,S-020 and S-021 share one lineage,global; not broken down for Europe
+C3-PUB-01,S-021,press_release,ODG-IATA-FDX,S-020 and S-021 share one lineage,global; same data as S-020
+C3-PUB-12,S-001,institutional_bulletin,ODG-EASA-SIB,distinct pipeline; not an independent measurement class unless RF or crew report,reported by the source; not re-measured by the project
+C3-PUB-12,S-005,institutional_working_paper,ODG-STATES-CWP15745,distinct pipeline; not an independent measurement class unless RF or crew report,reported by the source; not re-measured by the project
+C3-PUB-12,S-020,industry_assessment,ODG-IATA-FDX,S-020 and S-021 share one lineage,global; not broken down for Europe
+C3-PUB-02,S-002,institutional_dashboard,ODG-EASA-NIC,distinct pipeline; not an independent measurement class unless RF or crew report,ADS-B coverage and traffic dependent ranking
+C3-PUB-02,S-005,institutional_working_paper,ODG-ICAO-COUNCIL,cites the ITU conclusion (overlaps ODG-ITU-RRB),reported by the source; not re-measured by the project
+C3-PUB-02,S-022,workshop_presentations,ODG-PANSA,distinct pipeline; not an independent measurement class unless RF or crew report,slides; methods not published
+C3-PUB-03,S-001,institutional_bulletin,ODG-EASA-SIB,distinct pipeline; not an independent measurement class unless RF or crew report,reported by the source; not re-measured by the project
+C3-PUB-03,S-002,institutional_dashboard,ODG-EASA-NIC,distinct pipeline; not an independent measurement class unless RF or crew report,ADS-B coverage and traffic dependent ranking
+C3-PUB-03,S-005,institutional_working_paper,ODG-ICAO-COUNCIL,cites the ITU conclusion (overlaps ODG-ITU-RRB),reported by the source; not re-measured by the project
+C3-PUB-03,S-021,press_release,ODG-IATA-FDX,S-020 and S-021 share one lineage,global; same data as S-020
+C3-PUB-03,S-022,workshop_presentations,ODG-BOEING-GEM,distinct pipeline; not an independent measurement class unless RF or crew report,slides; methods not published
+C3-PUB-03,S-022,workshop_presentations,ODG-HUNGAROCONTROL,distinct pipeline; not an independent measurement class unless RF or crew report,slides; methods not published
+C3-PUB-04,S-002,institutional_dashboard,ODG-EASA-NIC,distinct pipeline; not an independent measurement class unless RF or crew report,ADS-B coverage and traffic dependent ranking
+C3-PUB-05,S-005,institutional_working_paper,ODG-STATES-CWP15745,distinct pipeline; not an independent measurement class unless RF or crew report,reported by the source; not re-measured by the project
+C3-PUB-05,S-020,industry_assessment,ODG-IATA-FDX,S-020 and S-021 share one lineage,global; not broken down for Europe
+C3-PUB-05,S-022,workshop_presentations,ODG-BOEING-GEM,distinct pipeline; not an independent measurement class unless RF or crew report,slides; methods not published
+C3-PUB-05,S-023,official_minutes,ODG-ITU-RRB,relies on national administration measurements,reported by the source; not re-measured by the project
+C3-PUB-06,S-002,institutional_dashboard,ODG-EASA-NIC,distinct pipeline; not an independent measurement class unless RF or crew report,ADS-B coverage and traffic dependent ranking
+C3-PUB-06,S-005,institutional_working_paper,ODG-STATES-CWP15745,distinct pipeline; not an independent measurement class unless RF or crew report,reported by the source; not re-measured by the project
+C3-PUB-06,S-020,industry_assessment,ODG-IATA-FDX,S-020 and S-021 share one lineage,global; not broken down for Europe
+C3-PUB-06,S-022,workshop_presentations,ODG-HUNGAROCONTROL,distinct pipeline; not an independent measurement class unless RF or crew report,slides; methods not published
+C3-PUB-07,S-005,institutional_working_paper,ODG-ICAO-COUNCIL,cites the ITU conclusion (overlaps ODG-ITU-RRB),reported by the source; not re-measured by the project
+C3-PUB-07,S-020,industry_assessment,ODG-IATA-FDX,S-020 and S-021 share one lineage,global; not broken down for Europe
+C3-PUB-07,S-022,workshop_presentations,ODG-PANSA,distinct pipeline; not an independent measurement class unless RF or crew report,slides; methods not published
+C3-PUB-07,S-023,official_minutes,ODG-ITU-RRB,relies on national administration measurements,reported by the source; not re-measured by the project
+C3-PUB-08,S-001,institutional_bulletin,ODG-EASA-SIB,distinct pipeline; not an independent measurement class unless RF or crew report,reported by the source; not re-measured by the project
+C3-PUB-08,S-004,institutional_working_paper,ODG-ICAO-SECRETARIAT,distinct pipeline; not an independent measurement class unless RF or crew report,reported by the source; not re-measured by the project
+C3-PUB-08,S-005,institutional_working_paper,ODG-STATES-CWP15745,distinct pipeline; not an independent measurement class unless RF or crew report,reported by the source; not re-measured by the project
+C3-PUB-08,S-022,workshop_presentations,ODG-HUNGAROCONTROL,distinct pipeline; not an independent measurement class unless RF or crew report,slides; methods not published
+C3-PUB-09,S-005,institutional_working_paper,ODG-STATES-CWP15745,distinct pipeline; not an independent measurement class unless RF or crew report,reported by the source; not re-measured by the project
+C3-PUB-10,S-004,institutional_working_paper,ODG-ICAO-SECRETARIAT,distinct pipeline; not an independent measurement class unless RF or crew report,reported by the source; not re-measured by the project
+C3-PUB-10,S-022,workshop_presentations,ODG-HUNGAROCONTROL,distinct pipeline; not an independent measurement class unless RF or crew report,slides; methods not published
+C3-PUB-11,S-002,institutional_dashboard,ODG-EASA-NIC,distinct pipeline; not an independent measurement class unless RF or crew report,ADS-B coverage and traffic dependent ranking

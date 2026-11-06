@@ -43,9 +43,23 @@ La présence d'une licence MPL-2.0 sur le dépôt de dissémination CheckFirst n
 
 ## Case 03 - GNSS
 
-Le Case 03 ne publie qu'une page de présentation originale et un schéma d'avancement original (`figures/case03_gates.svg`, sans donnée ni source tierce). Aucune donnée GPSJAM, aucune fixture, aucune trajectoire, aucun identifiant d'aéronef et aucune sortie événementielle ne sont redistribués.
+**Revue du 1er novembre 2026.** Conditions des éditeurs consultées à cette date ; lecture prudente, pas un avis juridique.
 
-**Décision : autorisé pour le teaser original ; données de travail exclues.**
+| Élément public | Origine | Traitement | Décision |
+|---|---|---|---|
+| `report.md`, `report.pdf`, `key-judgments.md` | rédaction analytique originale | CC BY 4.0 pour le contenu original | **autorisé** |
+| `figures/case03_confidence.svg` | figure originale, sans donnée tierce | CC BY 4.0 | **autorisé** |
+| `sources.md`, `evidence-map.md`, `provenance.csv` | références : liens, emplacements, empreintes, lignées | aucun texte d'extrait | **link-only** |
+| EASA (bulletin SIB 2022-02R4, page GNSS) | « Reproduction is authorised, provided the source is acknowledged » | courtes citations attribuées ; aucune copie de document | **link-only + citation courte** |
+| OACI (A42-WP/34, A42-WP/553) | usage personnel non commercial ; reproduction soumise à accord écrit | paraphrase attribuée | **link-only** |
+| IATA (évaluation de risque v5, communiqué EASA–IATA) | usage personnel non commercial ; aucune reproduction sur un autre site sans accord écrit | paraphrase attribuée ; chiffres reformulés | **link-only** |
+| Atelier EASA–EUROCONTROL de juillet 2026 | présentations propriété de chaque intervenant ; pas de licence globale | aucune diapositive ni graphique reproduit ; paraphrase attribuée | **link-only** |
+| UIT (procès-verbal CR/518) | usage personnel, éducatif ou non commercial ; reproduction et distribution soumises à permission | paraphrase attribuée | **link-only** |
+| GPSJAM, ADS-B, trajectoires | couche d'observation non exécutée | rien publié | **exclu** |
+
+Les registres de travail et les extraits verbatim restent dans le dépôt canonique privé.
+
+**Décision : autorisé pour le rapport, les jugements, la figure et les références ; aucun document tiers redistribué.**
 
 ## Case 04 - XZ Utils
 

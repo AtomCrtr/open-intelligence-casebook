@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="762" viewBox="0 0 960 762" role="img" aria-labelledby="t d" font-family="Noto Sans, Arial, sans-serif">
+<title id="t">Case 03 : ce qui est établi, et avec quelle confiance</title>
+<desc id="d">12 affirmations publiques tirées des cinq jugements clés, chacune avec son niveau de confiance écrit en toutes lettres.</desc>
+<rect width="960" height="762" fill="#ffffff"/>
+<text x="24" y="38" font-size="18" font-weight="700" fill="#1d2a30">Ce qui est établi, et avec quelle confiance</text>
+<text x="24" y="62" font-size="12" fill="#4b5b63">Confiance de l'analyste, portant sur l'affirmation et non sur la fiabilité d'une source. Analyse OSINT — non destinée à la navigation.</text>
+<text x="24" y="78" font-size="12" fill="#4b5b63">« non établi » : question sur laquelle les sources ne permettent qu'une confiance faible.</text>
+<text x="858" y="82" font-size="11" text-anchor="middle" fill="#4b5b63">confiance</text>
+<line x1="24" y1="96" x2="936" y2="96" stroke="#d5dde1"/>
+<text x="24" y="122" font-size="13" font-weight="700" fill="#33424a">KJ-01</text>
+<text x="24" y="138" font-size="10" fill="#4b5b63">C3-01</text>
+<text x="104" y="120" font-size="13" fill="#1d2a30">Les dégradations GNSS touchant l'aviation civile ont nettement augmenté entre 2022 et la</text>
+<text x="104" y="138" font-size="13" fill="#1d2a30">mi-2025, au niveau mondial et dans le foyer balte.</text>
+<rect x="780" y="106" width="156" height="24" rx="12" fill="#1a535a" stroke="#33424a" stroke-width="0"/>
+<text x="858" y="123" font-size="12" font-weight="700" text-anchor="middle" fill="#ffffff">Élevée</text>
+<line x1="24" y1="148" x2="936" y2="148" stroke="#d5dde1"/>
+<text x="24" y="174" font-size="13" font-weight="700" fill="#33424a">KJ-01</text>
+<text x="24" y="190" font-size="10" fill="#4b5b63">C3-12</text>
+<text x="104" y="172" font-size="13" fill="#1d2a30">Cette hausse 2022 – mi-2025 vaut aussi pour l'espace aérien européen pris dans son</text>
+<text x="104" y="190" font-size="13" fill="#1d2a30">ensemble.</text>
+<rect x="780" y="158" width="156" height="24" rx="12" fill="#3d7c84" stroke="#33424a" stroke-width="0"/>
+<text x="858" y="175" font-size="12" font-weight="700" text-anchor="middle" fill="#ffffff">Modérée</text>
+<line x1="24" y1="200" x2="936" y2="200" stroke="#d5dde1"/>
+<text x="24" y="226" font-size="13" font-weight="700" fill="#33424a">KJ-01</text>
+<text x="24" y="242" font-size="10" fill="#4b5b63">C3-02</text>
+<text x="104" y="224" font-size="13" fill="#1d2a30">Le sens de l'évolution après la mi-2025 : les institutions décrivent une persistance,</text>
+<text x="104" y="242" font-size="13" fill="#1d2a30">une baisse locale est documentée en Pologne.</text>
+<rect x="780" y="210" width="156" height="24" rx="12" fill="#ffffff" stroke="#33424a" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="858" y="227" font-size="12" font-weight="700" text-anchor="middle" fill="#33424a">non établi</text>
+<line x1="24" y1="252" x2="936" y2="252" stroke="#d5dde1"/>
+<text x="24" y="278" font-size="13" font-weight="700" fill="#33424a">KJ-02</text>
+<text x="24" y="294" font-size="10" fill="#4b5b63">C3-03</text>
+<text x="104" y="276" font-size="13" fill="#1d2a30">La dégradation se concentre de 2024 à octobre 2026 sur deux foyers : Baltique et Nord-</text>
+<text x="104" y="294" font-size="13" fill="#1d2a30">Est ; mer Noire et Méditerranée orientale.</text>
+<rect x="780" y="262" width="156" height="24" rx="12" fill="#1a535a" stroke="#33424a" stroke-width="0"/>
+<text x="858" y="279" font-size="12" font-weight="700" text-anchor="middle" fill="#ffffff">Élevée</text>
+<line x1="24" y1="304" x2="936" y2="304" stroke="#d5dde1"/>
+<text x="24" y="330" font-size="13" font-weight="700" fill="#33424a">KJ-02</text>
+<text x="24" y="346" font-size="10" fill="#4b5b63">C3-04</text>
+<text x="104" y="328" font-size="13" fill="#1d2a30">Le classement fin entre FIR et l'apparition de nouveaux foyers (un rang ne mesure pas</text>
+<text x="104" y="346" font-size="13" fill="#1d2a30">une intensité).</text>
+<rect x="780" y="314" width="156" height="24" rx="12" fill="#ffffff" stroke="#33424a" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="858" y="331" font-size="12" font-weight="700" text-anchor="middle" fill="#33424a">non établi</text>
+<line x1="24" y1="356" x2="936" y2="356" stroke="#d5dde1"/>
+<text x="24" y="382" font-size="13" font-weight="700" fill="#33424a">KJ-03</text>
+<text x="24" y="398" font-size="10" fill="#4b5b63">C3-05</text>
+<text x="104" y="380" font-size="13" fill="#1d2a30">Des artefacts de couverture ou des défauts techniques n'expliquent pas l'essentiel du</text>
+<text x="104" y="398" font-size="13" fill="#1d2a30">signal (H3 écartée comme explication principale).</text>
+<rect x="780" y="366" width="156" height="24" rx="12" fill="#1a535a" stroke="#33424a" stroke-width="0"/>
+<text x="858" y="383" font-size="12" font-weight="700" text-anchor="middle" fill="#ffffff">Élevée</text>
+<line x1="24" y1="408" x2="936" y2="408" stroke="#d5dde1"/>
+<text x="24" y="434" font-size="13" font-weight="700" fill="#33424a">KJ-03</text>
+<text x="24" y="450" font-size="10" fill="#4b5b63">C3-06</text>
+<text x="104" y="432" font-size="13" fill="#1d2a30">La composante réelle domine la hausse ; une partie des comptages vient d'une meilleure</text>
+<text x="104" y="450" font-size="13" fill="#1d2a30">détection (H2), dans une proportion non quantifiable.</text>
+<rect x="780" y="418" width="156" height="24" rx="12" fill="#3d7c84" stroke="#33424a" stroke-width="0"/>
+<text x="858" y="435" font-size="12" font-weight="700" text-anchor="middle" fill="#ffffff">Modérée</text>
+<line x1="24" y1="460" x2="936" y2="460" stroke="#d5dde1"/>
+<text x="24" y="486" font-size="13" font-weight="700" fill="#33424a">KJ-03</text>
+<text x="24" y="502" font-size="10" fill="#4b5b63">C3-07</text>
+<text x="104" y="484" font-size="13" fill="#1d2a30">Les attributions citées (UIT, Conseil de l'OACI, PANSA, IATA) sont rapportées telles</text>
+<text x="104" y="502" font-size="13" fill="#1d2a30">quelles ; le projet ne les requalifie pas.</text>
+<rect x="780" y="470" width="156" height="24" rx="12" fill="#ffffff" stroke="#33424a" stroke-width="1"/>
+<text x="858" y="487" font-size="12" font-weight="700" text-anchor="middle" fill="#33424a">rapportée, non jugée</text>
+<line x1="24" y1="512" x2="936" y2="512" stroke="#d5dde1"/>
+<text x="24" y="538" font-size="13" font-weight="700" fill="#33424a">KJ-04</text>
+<text x="24" y="554" font-size="10" fill="#4b5b63">C3-08</text>
+<text x="104" y="536" font-size="13" fill="#1d2a30">Les conséquences opérationnelles sont réelles : déroutements, fausses alertes TAWS et</text>
+<text x="104" y="554" font-size="13" fill="#1d2a30">effets importés sont rapportés comme observés ; d'autres effets sont décrits comme</text>
+<text x="104" y="572" font-size="13" fill="#1d2a30">possibles.</text>
+<rect x="780" y="522" width="156" height="24" rx="12" fill="#1a535a" stroke="#33424a" stroke-width="0"/>
+<text x="858" y="539" font-size="12" font-weight="700" text-anchor="middle" fill="#ffffff">Élevée</text>
+<line x1="24" y1="582" x2="936" y2="582" stroke="#d5dde1"/>
+<text x="24" y="608" font-size="13" font-weight="700" fill="#33424a">KJ-04</text>
+<text x="24" y="624" font-size="10" fill="#4b5b63">C3-09</text>
+<text x="104" y="606" font-size="13" fill="#1d2a30">La fréquence et la gravité de ces conséquences.</text>
+<rect x="780" y="592" width="156" height="24" rx="12" fill="#ffffff" stroke="#33424a" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="858" y="609" font-size="12" font-weight="700" text-anchor="middle" fill="#33424a">non établi</text>
+<line x1="24" y1="626" x2="936" y2="626" stroke="#d5dde1"/>
+<text x="24" y="652" font-size="13" font-weight="700" fill="#33424a">KJ-05</text>
+<text x="24" y="668" font-size="10" fill="#4b5b63">C3-10</text>
+<text x="104" y="650" font-size="13" fill="#1d2a30">Les comptages bruts d'incidents ne sont pas des indicateurs de tendance.</text>
+<rect x="780" y="636" width="156" height="24" rx="12" fill="#1a535a" stroke="#33424a" stroke-width="0"/>
+<text x="858" y="653" font-size="12" font-weight="700" text-anchor="middle" fill="#ffffff">Élevée</text>
+<line x1="24" y1="670" x2="936" y2="670" stroke="#d5dde1"/>
+<text x="24" y="696" font-size="13" font-weight="700" fill="#33424a">KJ-05</text>
+<text x="24" y="712" font-size="10" fill="#4b5b63">C3-11</text>
+<text x="104" y="694" font-size="13" fill="#1d2a30">Les taux normalisés et l'indicateur EASA par FIR sont utilisables pour la veille, à</text>
+<text x="104" y="712" font-size="13" fill="#1d2a30">condition d'en afficher les biais.</text>
+<rect x="780" y="680" width="156" height="24" rx="12" fill="#3d7c84" stroke="#33424a" stroke-width="0"/>
+<text x="858" y="697" font-size="12" font-weight="700" text-anchor="middle" fill="#ffffff">Modérée</text>
+<line x1="24" y1="722" x2="936" y2="722" stroke="#d5dde1"/>
+<text x="24" y="748" font-size="11" fill="#4b5b63">Source : jugements clés du Case 03 (key-judgments.md). Affirmations C3-01 à C3-12 et leurs preuves : evidence-map.md ; sources et lignées : provenance.csv.</text>
+</svg>
