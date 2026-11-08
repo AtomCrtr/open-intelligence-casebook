@@ -118,7 +118,9 @@ jobs:
           targets = sorted(
               list((root/'cases/case-01-titanium/figures').glob('*.svg')) +
               list((root/'cases/case-02-portal-kombat/figures').glob('*.svg')) +
-              [root/'cases/case-01-titanium/report.pdf', root/'cases/case-02-portal-kombat/report.pdf', root/'publication/checksums.sha256']
+              list((root/'cases/case-03-gnss-interference/figures').glob('*.svg')) +
+              [root/'cases/case-01-titanium/report.pdf', root/'cases/case-02-portal-kombat/report.pdf',
+               root/'cases/case-03-gnss-interference/report.pdf', root/'publication/checksums.sha256']
           )
           def digest(p): return sha256(p.read_bytes()).hexdigest()
           Path('/tmp/repro-first.txt').write_text('\n'.join(f'{digest(p)}  {p.as_posix()}' for p in targets) + '\n')
@@ -131,7 +133,9 @@ jobs:
           targets = sorted(
               list((root/'cases/case-01-titanium/figures').glob('*.svg')) +
               list((root/'cases/case-02-portal-kombat/figures').glob('*.svg')) +
-              [root/'cases/case-01-titanium/report.pdf', root/'cases/case-02-portal-kombat/report.pdf', root/'publication/checksums.sha256']
+              list((root/'cases/case-03-gnss-interference/figures').glob('*.svg')) +
+              [root/'cases/case-01-titanium/report.pdf', root/'cases/case-02-portal-kombat/report.pdf',
+               root/'cases/case-03-gnss-interference/report.pdf', root/'publication/checksums.sha256']
           )
           def digest(p): return sha256(p.read_bytes()).hexdigest()
           Path('/tmp/repro-second.txt').write_text('\n'.join(f'{digest(p)}  {p.as_posix()}' for p in targets) + '\n')
@@ -174,6 +178,7 @@ jobs:
 
           contact_sheet('cases/case-01-titanium/report.pdf', '/tmp/publication-visual-qa/case-01-contact-sheet.png')
           contact_sheet('cases/case-02-portal-kombat/report.pdf', '/tmp/publication-visual-qa/case-02-contact-sheet.png')
+          contact_sheet('cases/case-03-gnss-interference/report.pdf', '/tmp/publication-visual-qa/case-03-contact-sheet.png')
           PY
 
       - name: Upload visual QA artifact
@@ -203,6 +208,8 @@ jobs:
             cases/case-02-portal-kombat/data/key_metrics.csv \
             cases/case-02-portal-kombat/figures/*.svg \
             cases/case-02-portal-kombat/report.pdf \
+            cases/case-03-gnss-interference/figures/*.svg \
+            cases/case-03-gnss-interference/report.pdf \
             publication/checksums.sha256 \
             publication/public-manifest.csv \
             publication/release-checklist.md
