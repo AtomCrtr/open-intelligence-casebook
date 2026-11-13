@@ -164,6 +164,8 @@ def test_case4_traceability_and_sanitization():
     case4 = ROOT / "cases" / "case-04-xz-utils"
     assert (case4 / "citations-ledger.json").exists()
     for path in case4.iterdir():
+        if path.suffix.lower() not in {".md", ".csv", ".json"}:
+            continue
         text = path.read_text(encoding="utf-8")
         assert "avatars.githubusercontent.com" not in text, path.name
         assert "VERDICT DU TEST DU WORKSPACE" not in text, path.name

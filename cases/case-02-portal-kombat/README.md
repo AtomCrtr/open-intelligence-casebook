@@ -13,6 +13,18 @@ Le cas met en œuvre collecte passive, STIX, analyse de graphe, triangulation, D
 
 📄 [Rapport détaillé](report.md) · 📕 [PDF](report.pdf) · 🧪 [Méthodologie](methodology.md) · 📚 [Sources](sources.md) · 🔗 [Carte des preuves](evidence-map.md) · 🧾 [Provenance](provenance.csv) · 📊 [Métriques dérivées](data/key_metrics.csv)
 
+## Comprendre le sujet
+
+**La question en langage courant.** Quand de nombreux sites reprennent des informations similaires, quels liens peut-on réellement établir entre eux ?
+
+**L'idée à retenir.** L'étude décrit une structure et une diffusion observables. Les liens du modèle ne suffisent pas à prouver un décideur unique ou un effet sur les opinions. Le modèle hybride reste une hypothèse de travail, avec les limites de confiance indiquées dans le rapport.
+
+**Ce qui a été fait.** Des données publiques figées ont été organisées en chronologie et en graphe. Le dossier compare plusieurs explications et teste ce qui change lorsque certaines relations sont retirées.
+
+**Statut.** Étude finalisée et publiée dans son périmètre. L'identification du contrôle éditorial et la mesure de l'influence restent non démontrées.
+
+**Pour découvrir les mots et la méthode : [guide de lecture](../../READING_GUIDE.md).**
+
 ---
 
 ## En deux minutes

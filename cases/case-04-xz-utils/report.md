@@ -1,6 +1,38 @@
+---
+title: "XZ Utils - comprendre une compromission logicielle - Case 04"
+author: "Emeline Cartier — Open Intelligence Casebook"
+date: "Présentation clarifiée — 13 novembre 2026"
+lang: fr-FR
+document-class: case-xz
+---
+
+# Avant de commencer
+
+**La question en langage courant.** Comment un logiciel diffusé largement a-t-il pu contenir un mécanisme malveillant, et que peut-on reconstituer à partir des sources publiques ?
+
+**L'idée à retenir.** Les sources établissent la compromission de versions précises et un mécanisme soumis à certaines conditions techniques. Elles ne démontrent pas une exploitation réelle ni l'identité du responsable.
+
+**Ce qui a été fait.** Le dossier reconstitue une chronologie, compare les situations des distributions Linux et conserve les contradictions entre sources. Il repose sur la lecture de documents ; le mécanisme malveillant n'a pas été exécuté par le projet.
+
+**Statut.** Étude finalisée et publiée dans son périmètre, révisée sur le fond le 1er novembre 2026. L'identité réelle et l'exploitation effective restent non établies.
+
+## Les mots utiles
+
+- **XZ Utils / liblzma** : logiciel et bibliothèque de compression concernés par le dossier.
+- **Chaîne d'approvisionnement logicielle** : étapes et acteurs qui produisent et distribuent un logiciel.
+- **Release / tarball** : version publiée / archive distribuée de cette version.
+- **Build** : processus qui transforme les sources en logiciel utilisable.
+- **Backdoor** : mécanisme malveillant d'accès dissimulé, souvent traduit par « porte dérobée ».
+- **CVE** : identifiant public d'une vulnérabilité ; ici CVE-2024-3094.
+- **SSH** : protocole d'accès distant sécurisé ; son interaction avec la bibliothèque compromise dépend de conditions précises.
+
+**Pour lire les conclusions.** Présence d'une version, présence du code malveillant dans le logiciel construit et exploitation réelle sont trois questions distinctes. Les tableaux les séparent.
+
+**Parcours.** Lire le résumé et les principaux constats, puis la chronologie et les limites. Les [sources](sources.md), le [registre des preuves](evidence-register.md) et les [extraits vérifiables](source-extracts.md) permettent d'approfondir. La présentation a été clarifiée le 13 novembre 2026 ; le corps analytique et ses niveaux de confiance sont conservés.
+
 # Case 04 - XZ Utils / CVE-2024-3094 : rapport public
 
-> **Édition publique.** Ce rapport reprend le dossier OSINT d'origine. Seules modifications : retrait d'une section interne d'évaluation de l'espace de travail, retrait des URL d'avatar dans les extraits S-008/S-009, et libellé générique des outils de collecte. Aucun fait, jugement ou niveau de confiance n'est modifié.
+> **Édition publique.** Ce rapport reprend le dossier OSINT d'origine. Transformations de l’édition publique : retrait d'une section interne d'évaluation de l'espace de travail, retrait des URL d'avatar dans les extraits S-008/S-009, et libellé générique des outils de collecte. Une introduction pédagogique, des titres français et une présentation en fiches des tableaux larges ont été ajoutés le 13 novembre 2026. Aucun fait, jugement ou niveau de confiance n'est modifié.
 
 
 > **Case ID :** `OSINT-XZ-UTILS-2026-001`
@@ -10,6 +42,8 @@
 > **Artifacts :** `source-extracts.md` et `citations-ledger.json` dans le même dossier.
 
 ---
+
+# Rapport documenté
 
 ## Révision du 2026-10-30
 
@@ -67,7 +101,7 @@ Les deux lacunes de collecte laissées par la révision précédente sont combl�
 
 ---
 
-## EXECUTIVE SUMMARY
+## Résumé pour comprendre la situation
 
 Les sources publiques convergent fortement sur l’existence d’une compromission de la chaîne de publication de XZ Utils affectant les versions 5.6.0 et 5.6.1. CISA, Debian et le projet XZ identifient ces versions comme compromises ou à risque, tandis que Debian documente un périmètre principalement situé dans les branches testing, unstable et experimental, et indique qu’aucune version stable Debian n’était alors connue comme affectée.[1][3][5]
 
@@ -77,7 +111,7 @@ Les éléments disponibles soutiennent avec une confiance élevée l’existence
 
 ---
 
-## KEY FINDINGS
+## Principaux constats
 
 1. **Versions concernées :** les versions XZ Utils 5.6.0 et 5.6.1 sont identifiées par CISA et le projet XZ comme contenant ou associées au backdoor ; Debian documente des paquets compromis dans ses branches non stables.[1][3][5] **Confiance : HIGH** — plusieurs sources officielles et techniques convergentes.
 2. **Chaîne de publication :** les sources techniques décrivent un mécanisme où des éléments du code malveillant sont présents dans les tarballs de release et où le build de paquets DEB/RPM dans certaines conditions produit une bibliothèque liblzma compromise.[2][4][10] **Confiance : HIGH** pour le mécanisme général ; les détails d’exécution restent dépendants des analyses techniques.
@@ -95,7 +129,7 @@ Aucun mapping MITRE ATT&CK n’est retenu dans ce dossier. Les sources publiques
 
 ---
 
-## FACTS
+## Faits documentés
 
 | ID | Fait | Provenance | Confiance |
 |----|------|------------|-----------|
@@ -124,7 +158,7 @@ Aucun mapping MITRE ATT&CK n’est retenu dans ce dossier. Les sources publiques
 
 ---
 
-## HYPOTHESES
+## Hypothèses concurrentes
 
 ### H1 — Compromission délibérée de la chaîne de publication/build
 
@@ -150,57 +184,323 @@ Aucun mapping MITRE ATT&CK n’est retenu dans ce dossier. Les sources publiques
 
 ---
 
-## Timeline
+## Chronologie
 
 > Les timestamps sont conservés avec le fuseau fourni. Lorsqu’une page n’affiche pas de timezone ou d’heure complète, la normalisation UTC est indiquée comme non disponible.
 
-| Timestamp source | Timezone / source timezone | Normalized UTC | Événement | Source | Statut |
-|------------------|----------------------------|----------------|-----------|--------|--------|
-| 2021-10-29T11:29:18-07:00 | UTC−07:00 | 2021-10-29T18:29:18Z | Premier correctif du compte « Jia Tan » sur la liste xz-devel (`.editorconfig`). | S-021 / [21] ; S-013 / [13] | confirmé sur l’archive de la liste |
-| 2022-12-30T23:34:31+08:00 | UTC+08:00 (déclaré) | 2022-12-30T15:34:31Z | Lot de commits enregistré par Jia Tan sur `master` (commit `8ace358d`) : accès en écriture établi. | S-020 / [20] ; S-013 / [13] | confirmé sur les métadonnées Git ; date déclarée, pas date de push |
-| 2023-03-18T23:37:16+08:00 | UTC+08:00 (déclaré) | 2023-03-18T15:37:16Z | Première release (tag v5.4.2) produite par ce compte. | S-020 / [20] ; S-013 / [13] | confirmé sur le tag |
-| 2024-02-23T23:09:59+08:00 | UTC+08:00 (déclaré) | 2024-02-23T15:09:59Z | Ajout de fichiers de test binaires contenant le code caché (commit `cf44e4b7`). | S-020 / [20] ; S-013 / [13] | confirmé sur les métadonnées Git |
-| 2024-02-24T16:22:06+08:00 | UTC+08:00 (déclaré) | 2024-02-24T08:22:06Z | Tag v5.6.0 par Jia Tan ; l’affichage GitHub `24 Feb 08:22` correspond à l’heure UTC. | S-020 / [20] ; S-008 / [8] | confirmé sur le tag |
-| 2024-02-26T13:47:39Z → 2024-03-29T06:10:17Z | UTC | 2024-02-26T13:47:39Z → 2024-03-29T06:10:17Z | `xz-utils` 5.6.0 dans `noble-proposed` (Ubuntu), jamais publié dans noble. | S-019 / [19] ; S-018 / [18] | confirmé sur Launchpad |
-| 2024-03-09T16:16:00+08:00 | UTC+08:00 (déclaré) | 2024-03-09T08:16:00Z | Tag v5.6.1 par Jia Tan ; l’affichage GitHub `09 Mar 08:16` correspond à l’heure UTC. | S-020 / [20] ; S-009 / [9] | confirmé sur le tag |
-| 2024-03-07 → 2024-03-28 | unknown | not available | Version compromise incluse dans openSUSE Tumbleweed et MicroOS. | S-017 / [17] | confirmé pour openSUSE |
-| 2024-03-28 — heure non fournie | unknown | not available | Découverte et notification privée à Debian et distros@openwall ; CVE-2024-3094 attribuée par Red Hat. Date d’identification également rapportée par Microsoft et Datadog. | S-013, S-006, S-007 / [13][6][7] | rapporté ; cohérent entre lignées distinctes |
-| 2024-03-29T08:51:26-07:00 | UTC−07:00 | 2024-03-29T15:51:26Z | Publication du rapport technique d’Andres Freund sur oss-security. | S-002 / [2] | confirmé |
-| 2024-03-29T16:09:37+00:00 | UTC | 2024-03-29T16:09:37Z | Publication de l’advisory Debian DSA-5649-1. | S-005 / [5] | confirmé |
-| 2024-03-29 — heure non fournie | unknown | not available | Publication de l’alerte CISA. | S-001 / [1] | confirmé comme date de publication |
-| 2024-03-30 — heure non fournie | unknown | not available | Publication initiale de l’article OpenSSF ; mise à jour affichée au 1er avril. | S-004 / [4] | confirmé comme métadonnée de page |
-| 2024-04-01 — heure non fournie | unknown | not available | Publication de la guidance Microsoft ; mise à jour affichée au 7 avril. | S-006 / [6] | confirmé comme métadonnée de page |
-| 2024-04-02 — heure non fournie | unknown | not available | Advisory CERT-EU v1.1 ; historique indiquant une v1.0 au 30 mars. | S-010 / [10] | confirmé |
-| 2024-04-03 — heure non fournie | unknown | not available | Publication de l’analyse Datadog ; dernière mise à jour affichée au 8 avril. | S-007 / [7] | confirmé |
-| 2024-05-29 — heure non fournie | unknown | not available | La page du mainteneur indique la publication de nouvelles releases propres. | S-003 / [3] | rapporté par le mainteneur |
-| 2026-08-21T15:51:32+02:00 | Europe/Paris / UTC+02:00 | 2026-08-21T13:51:32Z | Collecte des pages publiques pour ce dossier. | Journal local et ledger | confirmé |
+
+### Premier correctif du compte « Jia Tan » sur la liste xz-devel (`.editorconfig`).
+
+- **Date et heure de la source :** 2021-10-29T11:29:18-07:00
+- **Fuseau horaire de la source :** UTC−07:00
+- **Date et heure en UTC :** 2021-10-29T18:29:18Z
+- **Source :** S-021 / [21] ; S-013 / [13]
+- **Statut :** confirmé sur l’archive de la liste
+
+
+### Lot de commits enregistré par Jia Tan sur `master` (commit `8ace358d`) : accès en écriture établi.
+
+- **Date et heure de la source :** 2022-12-30T23:34:31+08:00
+- **Fuseau horaire de la source :** UTC+08:00 (déclaré)
+- **Date et heure en UTC :** 2022-12-30T15:34:31Z
+- **Source :** S-020 / [20] ; S-013 / [13]
+- **Statut :** confirmé sur les métadonnées Git ; date déclarée, pas date de push
+
+
+### Première release (tag v5.4.2) produite par ce compte.
+
+- **Date et heure de la source :** 2023-03-18T23:37:16+08:00
+- **Fuseau horaire de la source :** UTC+08:00 (déclaré)
+- **Date et heure en UTC :** 2023-03-18T15:37:16Z
+- **Source :** S-020 / [20] ; S-013 / [13]
+- **Statut :** confirmé sur le tag
+
+
+### Ajout de fichiers de test binaires contenant le code caché (commit `cf44e4b7`).
+
+- **Date et heure de la source :** 2024-02-23T23:09:59+08:00
+- **Fuseau horaire de la source :** UTC+08:00 (déclaré)
+- **Date et heure en UTC :** 2024-02-23T15:09:59Z
+- **Source :** S-020 / [20] ; S-013 / [13]
+- **Statut :** confirmé sur les métadonnées Git
+
+
+### Tag v5.6.0 par Jia Tan ; l’affichage GitHub `24 Feb 08:22` correspond à l’heure UTC.
+
+- **Date et heure de la source :** 2024-02-24T16:22:06+08:00
+- **Fuseau horaire de la source :** UTC+08:00 (déclaré)
+- **Date et heure en UTC :** 2024-02-24T08:22:06Z
+- **Source :** S-020 / [20] ; S-008 / [8]
+- **Statut :** confirmé sur le tag
+
+
+### `xz-utils` 5.6.0 dans `noble-proposed` (Ubuntu), jamais publié dans noble.
+
+- **Date et heure de la source :** 2024-02-26T13:47:39Z → 2024-03-29T06:10:17Z
+- **Fuseau horaire de la source :** UTC
+- **Date et heure en UTC :** 2024-02-26T13:47:39Z → 2024-03-29T06:10:17Z
+- **Source :** S-019 / [19] ; S-018 / [18]
+- **Statut :** confirmé sur Launchpad
+
+
+### Tag v5.6.1 par Jia Tan ; l’affichage GitHub `09 Mar 08:16` correspond à l’heure UTC.
+
+- **Date et heure de la source :** 2024-03-09T16:16:00+08:00
+- **Fuseau horaire de la source :** UTC+08:00 (déclaré)
+- **Date et heure en UTC :** 2024-03-09T08:16:00Z
+- **Source :** S-020 / [20] ; S-009 / [9]
+- **Statut :** confirmé sur le tag
+
+
+### Version compromise incluse dans openSUSE Tumbleweed et MicroOS.
+
+- **Date et heure de la source :** 2024-03-07 → 2024-03-28
+- **Fuseau horaire de la source :** unknown
+- **Date et heure en UTC :** not available
+- **Source :** S-017 / [17]
+- **Statut :** confirmé pour openSUSE
+
+
+### Découverte et notification privée à Debian et distros@openwall ; CVE-2024-3094 attribuée par Red Hat. Date d’identification également rapportée par Microsoft et Datadog.
+
+- **Date et heure de la source :** 2024-03-28 — heure non fournie
+- **Fuseau horaire de la source :** unknown
+- **Date et heure en UTC :** not available
+- **Source :** S-013, S-006, S-007 / [13][6][7]
+- **Statut :** rapporté ; cohérent entre lignées distinctes
+
+
+### Publication du rapport technique d’Andres Freund sur oss-security.
+
+- **Date et heure de la source :** 2024-03-29T08:51:26-07:00
+- **Fuseau horaire de la source :** UTC−07:00
+- **Date et heure en UTC :** 2024-03-29T15:51:26Z
+- **Source :** S-002 / [2]
+- **Statut :** confirmé
+
+
+### Publication de l’advisory Debian DSA-5649-1.
+
+- **Date et heure de la source :** 2024-03-29T16:09:37+00:00
+- **Fuseau horaire de la source :** UTC
+- **Date et heure en UTC :** 2024-03-29T16:09:37Z
+- **Source :** S-005 / [5]
+- **Statut :** confirmé
+
+
+### Publication de l’alerte CISA.
+
+- **Date et heure de la source :** 2024-03-29 — heure non fournie
+- **Fuseau horaire de la source :** unknown
+- **Date et heure en UTC :** not available
+- **Source :** S-001 / [1]
+- **Statut :** confirmé comme date de publication
+
+
+### Publication initiale de l’article OpenSSF ; mise à jour affichée au 1er avril.
+
+- **Date et heure de la source :** 2024-03-30 — heure non fournie
+- **Fuseau horaire de la source :** unknown
+- **Date et heure en UTC :** not available
+- **Source :** S-004 / [4]
+- **Statut :** confirmé comme métadonnée de page
+
+
+### Publication de la guidance Microsoft ; mise à jour affichée au 7 avril.
+
+- **Date et heure de la source :** 2024-04-01 — heure non fournie
+- **Fuseau horaire de la source :** unknown
+- **Date et heure en UTC :** not available
+- **Source :** S-006 / [6]
+- **Statut :** confirmé comme métadonnée de page
+
+
+### Advisory CERT-EU v1.1 ; historique indiquant une v1.0 au 30 mars.
+
+- **Date et heure de la source :** 2024-04-02 — heure non fournie
+- **Fuseau horaire de la source :** unknown
+- **Date et heure en UTC :** not available
+- **Source :** S-010 / [10]
+- **Statut :** confirmé
+
+
+### Publication de l’analyse Datadog ; dernière mise à jour affichée au 8 avril.
+
+- **Date et heure de la source :** 2024-04-03 — heure non fournie
+- **Fuseau horaire de la source :** unknown
+- **Date et heure en UTC :** not available
+- **Source :** S-007 / [7]
+- **Statut :** confirmé
+
+
+### La page du mainteneur indique la publication de nouvelles releases propres.
+
+- **Date et heure de la source :** 2024-05-29 — heure non fournie
+- **Fuseau horaire de la source :** unknown
+- **Date et heure en UTC :** not available
+- **Source :** S-003 / [3]
+- **Statut :** rapporté par le mainteneur
+
+
+### Collecte des pages publiques pour ce dossier.
+
+- **Date et heure de la source :** 2026-08-21T15:51:32+02:00
+- **Fuseau horaire de la source :** Europe/Paris / UTC+02:00
+- **Date et heure en UTC :** 2026-08-21T13:51:32Z
+- **Source :** Journal local et ledger
+- **Statut :** confirmé
 
 ---
 
-## SOURCE ASSESSMENT
+## Évaluation des sources
 
-| Source | Type | Primary / Secondary | Reliability | Corroboration / dépendance | Fraîcheur et limites |
-|--------|------|---------------------|-------------|----------------------------|---------------------|
-| S-001 CISA | advisory gouvernemental | Primary pour la position CISA ; secondary pour l’incident initial | HIGH | Cohérent avec Debian, XZ, Openwall et CERT-EU ; alerte historique | 2024-03-29 ; utile pour l’alerte et la recommandation, pas pour l’état courant de toutes les distributions. |
-| S-002 Openwall / Freund | rapport technique primaire | Primary | HIGH pour les observations et l’analyse de l’auteur | Source initiale majeure ; plusieurs sources secondaires la citent | 2024-03-29 ; l’auteur précise lui-même que certaines parties du mécanisme n’étaient pas encore complètement analysées. |
-| S-003 XZ maintainer | déclaration officielle du projet | Primary pour le statut du projet | MEDIUM-HIGH | Corrobore versions et remédiation ; intérêt direct dans la communication de crise | Page évolutive ; elle mélange faits historiques et mises à jour ultérieures. |
-| S-004 OpenSSF | synthèse d’experts | Secondary | MEDIUM-HIGH | Reprend Openwall, Red Hat et Debian ; dépendance explicite à ces sources | Publiée 2024-03-30, mise à jour 2024-04-01 ; utile pour la synthèse, moins forte qu’une preuve technique originale. |
-| S-005 Debian DSA | advisory distribution | Primary pour Debian | HIGH | Corrobore versions et périmètre Debian ; source indépendante de la communication Microsoft | 2024-03-29 ; périmètre limité à Debian. |
-| S-006 Microsoft | guidance fournisseur | Secondary / technical | HIGH pour les recommandations Microsoft ; MEDIUM pour l’impact global | Reprend CISA et advisories des distributions | Publiée 2024-04-01, mise à jour 2024-04-07 ; document de réponse, pas une autopsie complète. |
-| S-007 Datadog | analyse fournisseur de sécurité | Secondary / technical | MEDIUM-HIGH | Curation explicite de sources externes ; dépend d’Openwall et d’autres analyses | Publiée 2024-04-03, mise à jour 2024-04-08 ; utile pour mécanisme, risque de propagation narrative. |
-| S-008/S-009 GitHub releases | métadonnées de dépôt | Primary | HIGH pour les tags affichés ; MEDIUM pour le contexte temporel incomplet | Corrobore la séquence des releases ; ne prouve pas à elle seule l’intention | Heure et fuseau non affichés dans l’extrait ; année contextualisée mais non répétée par la page. |
-| S-010 CERT-EU | advisory institutionnel européen | Primary pour l’advisory ; Secondary pour les détails repris | HIGH pour la publication ; MEDIUM-HIGH pour les détails techniques en évolution | Références Openwall, Red Hat, Debian et autres advisories | v1.0 du 30 mars, v1.1 du 2 avril ; signale que la liste des distributions n’est pas exhaustive. |
-| S-011 Red Hat | advisory fournisseur/distribution | Primary pour le périmètre Red Hat | HIGH | Corrobore avec Debian la distinction entre branches de développement et systèmes stables ; périmètre spécifique | 2024-03-29, mise à jour 2024-03-30 ; conclusions propres à Red Hat/Fedora. L’URL citée redirige depuis vers `…fedora-40-and-rawhide-users` : le titre parle désormais de Fedora Linux 40, ce qui concorde avec F-006. |
-| S-012 Ars Technica | journalisme technique | Secondary | MEDIUM | S’appuie sur Freund, Openwall, analyses de chercheurs et advisories | Source contemporaine utile pour le contexte ; ne doit pas soutenir seule une attribution. |
-| S-013 Russ Cox, chronologie | compilation chronologique sourcée | Secondary (renvoie à des archives primaires) | MEDIUM-HIGH | Lignée propre ; chaque entrée pointe vers une archive xz-devel, un commit git ou un rapport de bug ; reprend aussi S-002 | Publiée 2024-04-01, mise à jour 2024-04-03 ; dates au jour sans fuseau ; les liens primaires ne sont pas revérifiés un à un ici. |
-| S-014 NIST NVD | notice de vulnérabilité officielle | Primary pour la notice et le score | HIGH | Description fournie par le CNA Red Hat ; corrobore S-011 | Publiée 2024-03-29, dernière modification 2026-06-17 ; le score est une gravité potentielle. |
-| S-015 xzbot | analyse technique de chercheur (rétro-ingénierie) | Primary pour l’analyse du binaire | MEDIUM-HIGH | Lignée distincte de S-002 pour le format de la charge ; cite d’autres analyses publiques | 2024-04-01 → 2024-04-03 ; démonstration en laboratoire avec une clé substituée, pas une observation d’exploitation réelle. |
-| S-016 Arch Linux | annonce de distribution | Primary pour Arch Linux | HIGH | Indépendante de Debian et Red Hat ; reprend S-002 pour le contexte | 2024-03-29, mise à jour ultérieure ; périmètre Arch uniquement. |
-| S-017 openSUSE | annonce de distribution | Primary pour openSUSE / SUSE | HIGH pour le périmètre ; MEDIUM pour la description de l’impact | Indépendante de Debian et Red Hat | 2024-03-29 ; précise que la rétro-ingénierie était alors en cours. |
+
+### S-001 CISA
+
+- **Type :** advisory gouvernemental
+- **Source primaire / secondaire :** Primary pour la position CISA ; secondary pour l’incident initial
+- **Fiabilité :** HIGH
+- **Corroboration / dépendance :** Cohérent avec Debian, XZ, Openwall et CERT-EU ; alerte historique
+- **Fraîcheur et limites :** 2024-03-29 ; utile pour l’alerte et la recommandation, pas pour l’état courant de toutes les distributions.
+
+
+### S-002 Openwall / Freund
+
+- **Type :** rapport technique primaire
+- **Source primaire / secondaire :** Primary
+- **Fiabilité :** HIGH pour les observations et l’analyse de l’auteur
+- **Corroboration / dépendance :** Source initiale majeure ; plusieurs sources secondaires la citent
+- **Fraîcheur et limites :** 2024-03-29 ; l’auteur précise lui-même que certaines parties du mécanisme n’étaient pas encore complètement analysées.
+
+
+### S-003 XZ maintainer
+
+- **Type :** déclaration officielle du projet
+- **Source primaire / secondaire :** Primary pour le statut du projet
+- **Fiabilité :** MEDIUM-HIGH
+- **Corroboration / dépendance :** Corrobore versions et remédiation ; intérêt direct dans la communication de crise
+- **Fraîcheur et limites :** Page évolutive ; elle mélange faits historiques et mises à jour ultérieures.
+
+
+### S-004 OpenSSF
+
+- **Type :** synthèse d’experts
+- **Source primaire / secondaire :** Secondary
+- **Fiabilité :** MEDIUM-HIGH
+- **Corroboration / dépendance :** Reprend Openwall, Red Hat et Debian ; dépendance explicite à ces sources
+- **Fraîcheur et limites :** Publiée 2024-03-30, mise à jour 2024-04-01 ; utile pour la synthèse, moins forte qu’une preuve technique originale.
+
+
+### S-005 Debian DSA
+
+- **Type :** advisory distribution
+- **Source primaire / secondaire :** Primary pour Debian
+- **Fiabilité :** HIGH
+- **Corroboration / dépendance :** Corrobore versions et périmètre Debian ; source indépendante de la communication Microsoft
+- **Fraîcheur et limites :** 2024-03-29 ; périmètre limité à Debian.
+
+
+### S-006 Microsoft
+
+- **Type :** guidance fournisseur
+- **Source primaire / secondaire :** Secondary / technical
+- **Fiabilité :** HIGH pour les recommandations Microsoft ; MEDIUM pour l’impact global
+- **Corroboration / dépendance :** Reprend CISA et advisories des distributions
+- **Fraîcheur et limites :** Publiée 2024-04-01, mise à jour 2024-04-07 ; document de réponse, pas une autopsie complète.
+
+
+### S-007 Datadog
+
+- **Type :** analyse fournisseur de sécurité
+- **Source primaire / secondaire :** Secondary / technical
+- **Fiabilité :** MEDIUM-HIGH
+- **Corroboration / dépendance :** Curation explicite de sources externes ; dépend d’Openwall et d’autres analyses
+- **Fraîcheur et limites :** Publiée 2024-04-03, mise à jour 2024-04-08 ; utile pour mécanisme, risque de propagation narrative.
+
+
+### S-008/S-009 GitHub releases
+
+- **Type :** métadonnées de dépôt
+- **Source primaire / secondaire :** Primary
+- **Fiabilité :** HIGH pour les tags affichés ; MEDIUM pour le contexte temporel incomplet
+- **Corroboration / dépendance :** Corrobore la séquence des releases ; ne prouve pas à elle seule l’intention
+- **Fraîcheur et limites :** Heure et fuseau non affichés dans l’extrait ; année contextualisée mais non répétée par la page.
+
+
+### S-010 CERT-EU
+
+- **Type :** advisory institutionnel européen
+- **Source primaire / secondaire :** Primary pour l’advisory ; Secondary pour les détails repris
+- **Fiabilité :** HIGH pour la publication ; MEDIUM-HIGH pour les détails techniques en évolution
+- **Corroboration / dépendance :** Références Openwall, Red Hat, Debian et autres advisories
+- **Fraîcheur et limites :** v1.0 du 30 mars, v1.1 du 2 avril ; signale que la liste des distributions n’est pas exhaustive.
+
+
+### S-011 Red Hat
+
+- **Type :** advisory fournisseur/distribution
+- **Source primaire / secondaire :** Primary pour le périmètre Red Hat
+- **Fiabilité :** HIGH
+- **Corroboration / dépendance :** Corrobore avec Debian la distinction entre branches de développement et systèmes stables ; périmètre spécifique
+- **Fraîcheur et limites :** 2024-03-29, mise à jour 2024-03-30 ; conclusions propres à Red Hat/Fedora. L’URL citée redirige depuis vers `…fedora-40-and-rawhide-users` : le titre parle désormais de Fedora Linux 40, ce qui concorde avec F-006.
+
+
+### S-012 Ars Technica
+
+- **Type :** journalisme technique
+- **Source primaire / secondaire :** Secondary
+- **Fiabilité :** MEDIUM
+- **Corroboration / dépendance :** S’appuie sur Freund, Openwall, analyses de chercheurs et advisories
+- **Fraîcheur et limites :** Source contemporaine utile pour le contexte ; ne doit pas soutenir seule une attribution.
+
+
+### S-013 Russ Cox, chronologie
+
+- **Type :** compilation chronologique sourcée
+- **Source primaire / secondaire :** Secondary (renvoie à des archives primaires)
+- **Fiabilité :** MEDIUM-HIGH
+- **Corroboration / dépendance :** Lignée propre ; chaque entrée pointe vers une archive xz-devel, un commit git ou un rapport de bug ; reprend aussi S-002
+- **Fraîcheur et limites :** Publiée 2024-04-01, mise à jour 2024-04-03 ; dates au jour sans fuseau ; les liens primaires ne sont pas revérifiés un à un ici.
+
+
+### S-014 NIST NVD
+
+- **Type :** notice de vulnérabilité officielle
+- **Source primaire / secondaire :** Primary pour la notice et le score
+- **Fiabilité :** HIGH
+- **Corroboration / dépendance :** Description fournie par le CNA Red Hat ; corrobore S-011
+- **Fraîcheur et limites :** Publiée 2024-03-29, dernière modification 2026-06-17 ; le score est une gravité potentielle.
+
+
+### S-015 xzbot
+
+- **Type :** analyse technique de chercheur (rétro-ingénierie)
+- **Source primaire / secondaire :** Primary pour l’analyse du binaire
+- **Fiabilité :** MEDIUM-HIGH
+- **Corroboration / dépendance :** Lignée distincte de S-002 pour le format de la charge ; cite d’autres analyses publiques
+- **Fraîcheur et limites :** 2024-04-01 → 2024-04-03 ; démonstration en laboratoire avec une clé substituée, pas une observation d’exploitation réelle.
+
+
+### S-016 Arch Linux
+
+- **Type :** annonce de distribution
+- **Source primaire / secondaire :** Primary pour Arch Linux
+- **Fiabilité :** HIGH
+- **Corroboration / dépendance :** Indépendante de Debian et Red Hat ; reprend S-002 pour le contexte
+- **Fraîcheur et limites :** 2024-03-29, mise à jour ultérieure ; périmètre Arch uniquement.
+
+
+### S-017 openSUSE
+
+- **Type :** annonce de distribution
+- **Source primaire / secondaire :** Primary pour openSUSE / SUSE
+- **Fiabilité :** HIGH pour le périmètre ; MEDIUM pour la description de l’impact
+- **Corroboration / dépendance :** Indépendante de Debian et Red Hat
+- **Fraîcheur et limites :** 2024-03-29 ; précise que la rétro-ingénierie était alors en cours.
 
 ---
 
-## CONTRADICTIONS
+## Contradictions conservées
 
 ### C-001 — 28 mars contre 29 mars
 
@@ -246,7 +546,7 @@ openSUSE écrit, le 29 mars, que la porte dérobée permet à des acteurs malvei
 
 ---
 
-## MATRICE D’EXPOSITION PAR DISTRIBUTION
+## Périmètre concerné selon les distributions
 
 > Trois conditions sont nécessaires à l’exposition : **(1)** une version 5.6.0 ou 5.6.1 présente ; **(2)** le code malveillant effectivement compilé, ce qui exigeait un build de paquet DEB ou RPM x86-64 ; **(3)** un sshd lié à liblzma, en pratique via le patch libsystemd. Une distribution peut remplir (1) sans remplir (2) ou (3).[4][13][16]
 
@@ -266,7 +566,7 @@ Les cellules « — » ne sont pas renseignées par les sources retenues. Une ab
 
 ---
 
-## CONFIDENCE
+## Niveaux de confiance
 
 **Confiance globale : MEDIUM-HIGH.**
 
@@ -286,7 +586,7 @@ Les cellules « — » ne sont pas renseignées par les sources retenues. Une ab
 
 ---
 
-## LIMITATIONS
+## Limites
 
 - Les pages ont été consultées le 21 août 2026, mais une partie des documents est historique et certains sont évolutifs.
 - Les timestamps de plusieurs pages sont seulement des dates sans heure ni timezone.
@@ -300,7 +600,7 @@ Les cellules « — » ne sont pas renseignées par les sources retenues. Une ab
 
 ---
 
-## UNKNOWNS / INTELLIGENCE GAPS
+## Inconnues et informations manquantes
 
 - Quelle est la date et l’heure exactes de la première observation de l’anomalie ? La notification privée (28 mars) et la publication (29 mars) sont désormais distinguées ; la première observation des symptômes reste non datée.
 - Quelle a été l’étendue exacte des paquets distribués et installés dans chaque distribution et canal ?
@@ -313,7 +613,7 @@ Les cellules « — » ne sont pas renseignées par les sources retenues. Une ab
 
 ---
 
-## RECOMMENDED NEXT STEPS
+## Vérifications recommandées
 
 1. Pour une analyse historique plus fine, conserver des copies versionnées ou des archives datées des advisories et comparer les versions successives plutôt que de se fier uniquement à la page actuelle.
 2. Construire une matrice par distribution, version, canal et méthode de build ; ne pas généraliser le périmètre Debian ou Red Hat à tout Linux.
@@ -360,45 +660,87 @@ Les cellules « — » ne sont pas renseignées par les sources retenues. Une ab
 
 ## Sources
 
-[1] https://www.cisa.gov/news-events/alerts/2024/03/29/reported-supply-chain-compromise-affecting-xz-utils-data-compression-library-cve-2024-3094
-    > "CISA and the open source community are responding to reports of malicious code being embedded in XZ Utils versions 5.6.0 and 5.6.1. This activity was assigned CVE-2024-3094."
-[2] https://www.openwall.com/lists/oss-security/2024/03/29/4
-    > "The upstream xz repository and the xz tarballs have been backdoored."
-[3] https://tukaani.org/xz-backdoor
-    > "XZ Utils 5.6.0 and 5.6.1 release tarballs contain a backdoor."
-[4] https://openssf.org/blog/2024/03/30/xz-backdoor-cve-2024-3094
-    > "While the motivation behind this backdoor remains unknown, the intent was to compromise specific distributions, as the backdoors were only applied to DEB or RPM packages for the x86-64 architecture built with gcc and the gnu linker."
-[5] https://www.debian.org/security/dsa-5649-1
-    > "Right now no Debian stable versions are known to be affected."
-[6] https://techcommunity.microsoft.com/blog/vulnerability-management/microsoft-faq-and-guidance-for-xz-utils-backdoor/4101961
-    > "On March 28, 2024 a backdoor was identified in XZ Utils."
-[7] https://securitylabs.datadoghq.com/articles/xz-backdoor-cve-2024-3094
-    > "When a malicious version of the `xz-utils` library is installed, a malicious shared object (SO) file is stored on disk."
-[8] https://github.com/tukaani-project/xz/releases/tag/v5.6.0
-    > "> JiaT75 tagged this 24 Feb 08:22"
-[9] https://github.com/tukaani-project/xz/releases/tag/v5.6.1
-    > "> JiaT75 tagged this 09 Mar 08:16"
-[10] https://cert.europa.eu/publications/security-advisories/2024-032/pdf
-    > "On March 29, several companies issued a warning regarding a backdoor found in the XZ Utils software."
-[11] https://www.redhat.com/en/blog/urgent-security-alert-fedora-41-and-rawhide-users
-    > "No versions of Red Hat Enterprise Linux (RHEL) are affected by this CVE."
-[12] https://arstechnica.com/security/2024/04/what-we-know-about-the-xz-utils-backdoor-that-almost-infected-the-world
-    > "At the moment, it’s unknown if there was ever a real-world person behind this username or if Jia Tan is a completely fabricated individual."
-[13] https://research.swtch.com/xz-timeline
-    > "Over a period of over two years, an attacker using the name “Jia Tan” worked as a diligent, effective contributor to the xz compression library, eventually being granted commit access and maintainership."
-[14] https://nvd.nist.gov/vuln/detail/CVE-2024-3094
-    > "Malicious code was discovered in the upstream tarballs of xz, starting with version 5.6.0."
-[15] https://github.com/amlweems/xzbot
-    > "The backdoor uses a hardcoded ED448 public key for signature validation and decrypting the payload."
-[16] https://archlinux.org/news/the-xz-package-has-been-backdoored/
-    > "To our knowledge the malicious code which was distributed via the release tarball never made it into the Arch Linux provided binaries, as the build script was configured to only inject the bad code in Debian/Fedora based package build environments."
-[17] https://news.opensuse.org/2024/03/29/xz-backdoor/
-    > "Our rolling release distribution openSUSE Tumbleweed and openSUSE MicroOS included this version between March 7 and March 28."
-[18] https://ubuntu.com/security/CVE-2024-3094
-    > "The affected version of xz-utils was only in noble-proposed, and was removed before migrating to noble itself. No released versions of Ubuntu were affected by this issue."
-[19] https://api.launchpad.net/devel/ubuntu/+archive/primary?ws.op=getPublishedSources&source_name=xz-utils&exact_match=true&distro_series=https://api.launchpad.net/devel/ubuntu/noble&ws.size=300
-    > "5.6.0-0.2 Release Deleted created 2024-03-28T14:41:03.560483+00:00 published None superseded 2024-03-28T15:04:50.347590+00:00 removed 2024-03-29T06:10:17.845913+00:00 comment Revert to previous version."
-[20] https://github.com/tukaani-project/xz
-    > "commit cf44e4b7f5dfdbf8c78aef377c10f71e274f63c0 | author Jia Tan 2024-02-23T23:09:59+08:00 | committer Jia Tan 2024-02-23T23:09:59+08:00 | Tests: Add a few test files."
-[21] https://www.mail-archive.com/xz-devel@tukaani.org/msg00512.html
-    > "Jia Tan Fri, 29 Oct 2021 11:29:18 -0700"
+
+**[1] [CISA](https://www.cisa.gov/news-events/alerts/2024/03/29/reported-supply-chain-compromise-affecting-xz-utils-data-compression-library-cve-2024-3094)**
+
+> "CISA and the open source community are responding to reports of malicious code being embedded in XZ Utils versions 5.6.0 and 5.6.1. This activity was assigned CVE-2024-3094."
+
+**[2] [Openwall oss-security — Andres Freund](https://www.openwall.com/lists/oss-security/2024/03/29/4)**
+
+> "The upstream xz repository and the xz tarballs have been backdoored."
+
+**[3] [XZ Utils maintainer page](https://tukaani.org/xz-backdoor)**
+
+> "XZ Utils 5.6.0 and 5.6.1 release tarballs contain a backdoor."
+
+**[4] [OpenSSF](https://openssf.org/blog/2024/03/30/xz-backdoor-cve-2024-3094)**
+
+> "While the motivation behind this backdoor remains unknown, the intent was to compromise specific distributions, as the backdoors were only applied to DEB or RPM packages for the x86-64 architecture built with gcc and the gnu linker."
+
+**[5] [Debian DSA-5649-1](https://www.debian.org/security/dsa-5649-1)**
+
+> "Right now no Debian stable versions are known to be affected."
+
+**[6] [Microsoft](https://techcommunity.microsoft.com/blog/vulnerability-management/microsoft-faq-and-guidance-for-xz-utils-backdoor/4101961)**
+
+> "On March 28, 2024 a backdoor was identified in XZ Utils."
+
+**[7] [Datadog Security Labs](https://securitylabs.datadoghq.com/articles/xz-backdoor-cve-2024-3094)**
+
+> "When a malicious version of the `xz-utils` library is installed, a malicious shared object (SO) file is stored on disk."
+
+**[8] [GitHub release v5.6.0](https://github.com/tukaani-project/xz/releases/tag/v5.6.0)**
+
+> "> JiaT75 tagged this 24 Feb 08:22"
+
+**[9] [GitHub release v5.6.1](https://github.com/tukaani-project/xz/releases/tag/v5.6.1)**
+
+> "> JiaT75 tagged this 09 Mar 08:16"
+
+**[10] [CERT-EU Advisory 2024-032](https://cert.europa.eu/publications/security-advisories/2024-032/pdf)**
+
+> "On March 29, several companies issued a warning regarding a backdoor found in the XZ Utils software."
+
+**[11] [Red Hat advisory](https://www.redhat.com/en/blog/urgent-security-alert-fedora-41-and-rawhide-users)**
+
+> "No versions of Red Hat Enterprise Linux (RHEL) are affected by this CVE."
+
+**[12] [Ars Technica](https://arstechnica.com/security/2024/04/what-we-know-about-the-xz-utils-backdoor-that-almost-infected-the-world)**
+
+> "At the moment, it’s unknown if there was ever a real-world person behind this username or if Jia Tan is a completely fabricated individual."
+
+**[13] [Russ Cox — Timeline of the xz open source attack](https://research.swtch.com/xz-timeline)**
+
+> "Over a period of over two years, an attacker using the name “Jia Tan” worked as a diligent, effective contributor to the xz compression library, eventually being granted commit access and maintainership."
+
+**[14] [NIST NVD — CVE-2024-3094](https://nvd.nist.gov/vuln/detail/CVE-2024-3094)**
+
+> "Malicious code was discovered in the upstream tarballs of xz, starting with version 5.6.0."
+
+**[15] [xzbot — notes, honeypot, and exploit demo for the xz backdoor](https://github.com/amlweems/xzbot)**
+
+> "The backdoor uses a hardcoded ED448 public key for signature validation and decrypting the payload."
+
+**[16] [Arch Linux — The xz package has been backdoored](https://archlinux.org/news/the-xz-package-has-been-backdoored/)**
+
+> "To our knowledge the malicious code which was distributed via the release tarball never made it into the Arch Linux provided binaries, as the build script was configured to only inject the bad code in Debian/Fedora based package build environments."
+
+**[17] [openSUSE — supply chain attack against xz](https://news.opensuse.org/2024/03/29/xz-backdoor/)**
+
+> "Our rolling release distribution openSUSE Tumbleweed and openSUSE MicroOS included this version between March 7 and March 28."
+
+**[18] [Ubuntu Security — CVE-2024-3094](https://ubuntu.com/security/CVE-2024-3094)**
+
+> "The affected version of xz-utils was only in noble-proposed, and was removed before migrating to noble itself. No released versions of Ubuntu were affected by this issue."
+
+**[19] [Launchpad API — xz-utils publishing history for Ubuntu noble](https://api.launchpad.net/devel/ubuntu/+archive/primary?ws.op=getPublishedSources&source_name=xz-utils&exact_match=true&distro_series=https://api.launchpad.net/devel/ubuntu/noble&ws.size=300)**
+
+> "5.6.0-0.2 Release Deleted created 2024-03-28T14:41:03.560483+00:00 published None superseded 2024-03-28T15:04:50.347590+00:00 removed 2024-03-29T06:10:17.845913+00:00 comment Revert to previous version."
+
+**[20] [XZ Utils Git repository — commit and tag metadata (tukaani-project/xz)](https://github.com/tukaani-project/xz)**
+
+> "commit cf44e4b7f5dfdbf8c78aef377c10f71e274f63c0 | author Jia Tan 2024-02-23T23:09:59+08:00 | committer Jia Tan 2024-02-23T23:09:59+08:00 | Tests: Add a few test files."
+
+**[21] [xz-devel mailing-list archive — first patch from Jia Tan](https://www.mail-archive.com/xz-devel@tukaani.org/msg00512.html)**
+
+> "Jia Tan Fri, 29 Oct 2021 11:29:18 -0700"
