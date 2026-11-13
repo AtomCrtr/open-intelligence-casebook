@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import json
 import os
 import re
 import shutil
@@ -15,6 +16,7 @@ import xml.etree.ElementTree as ET
 os.environ.setdefault('SOURCE_DATE_EPOCH', '1788048000')
 
 from pathlib import Path
+from urllib.parse import quote, urlsplit
 
 import fitz
 import matplotlib.pyplot as plt
@@ -194,19 +196,31 @@ def generate_figures() -> None:
     fig.tight_layout(); fig.savefig(C2/'figures/network_explainer.svg',bbox_inches='tight'); plt.close(fig)
 
 
-def build_pdf(case_dir: Path, title: str, keywords: str) -> None:
-    source = (case_dir/'report.md').read_text(encoding='utf-8')
-    case_slug = case_dir.name
-    # Relative links to case files become absolute GitHub URLs; otherwise WeasyPrint writes
-    # "launch" links to the absolute build path (dead for readers, exposes the build directory).
-    for name in ('sources.md', 'key-judgments.md', 'evidence-map.md', 'provenance.csv'):
-        source = source.replace(f']({name})', f']({REPO_URL}/blob/main/cases/{case_slug}/{name})')
-    source = source.replace('](../../AI_TRANSPARENCY.md)', f']({REPO_URL}/blob/main/AI_TRANSPARENCY.md)')
+def build_pdf(case_dir: Path, title: str, keywords: str, stem: str = 'report') -> None:
+    source = (case_dir/f'{stem}.md').read_text(encoding='utf-8')
+    if not source.startswith('---\n'):
+        source = ('---\ntitle: ' + json.dumps(title, ensure_ascii=False) + '\n'
+                  'author: "Emeline Cartier — Open Intelligence Casebook"\n'
+                  'date: "Présentation clarifiée — 13 novembre 2026"\nlang: fr-FR\n---\n\n' + source)
+
+    def public_link(match: re.Match) -> str:
+        target = match.group(2)
+        parts = urlsplit(target)
+        if parts.scheme or parts.netloc or target.startswith('#'):
+            return match.group(0)
+        path = (case_dir / parts.path).resolve().relative_to(ROOT.resolve()).as_posix()
+        suffix = f'#{parts.fragment}' if parts.fragment else ''
+        return f'{match.group(1)}({REPO_URL}/blob/main/{quote(path)}{suffix})'
+
+    # Evidence links must work after download; images stay local for PDF embedding.
+    source = re.sub(r'(?<!!)(\[[^\]\n]*\])\(([^)\s]+)\)', public_link, source)
     with tempfile.TemporaryDirectory() as td:
         td = Path(td); md = td/'report.md'; html = td/'report.html'; raw = td/'raw.pdf'; compressed = td/'compressed.pdf'
         md.write_text(source, encoding='utf-8')
         if shutil.which('pandoc'):
-            run('pandoc', str(md), '--standalone', '--from=gfm', '--to=html5', '-o', str(html))
+            run('pandoc', str(md), '--standalone', '--from=gfm', '--to=html5',
+                '--table-of-contents', '--toc-depth=2', '--metadata=toc-title:Sommaire',
+                '--template', str(ROOT/'tools/report.html'), '-o', str(html))
         else:
             try:
                 import pypandoc
@@ -214,7 +228,8 @@ def build_pdf(case_dir: Path, title: str, keywords: str) -> None:
                 raise RuntimeError('pandoc absent et pypandoc non installé') from exc
             pypandoc.convert_file(
                 str(md), 'html5', format='gfm', outputfile=str(html),
-                extra_args=['--standalone'],
+                extra_args=['--standalone', '--table-of-contents', '--toc-depth=2',
+                            '--metadata=toc-title:Sommaire', '--template', str(ROOT/'tools/report.html')],
             )
         run(command('weasyprint'), '-u', str(case_dir), '-s', str(CSS), '--optimize-images', str(html), str(raw))
         pdf_input = raw
@@ -222,7 +237,7 @@ def build_pdf(case_dir: Path, title: str, keywords: str) -> None:
             run('gs','-sDEVICE=pdfwrite','-dCompatibilityLevel=1.7','-dPDFSETTINGS=/screen','-dDeterministicID','-dOmitInfoDate=true','-dNOPAUSE','-dQUIET','-dBATCH',f'-sOutputFile={compressed}',str(raw))
             pdf_input = compressed
         doc = fitz.open(pdf_input)
-        out = case_dir/'report.pdf'
+        out = case_dir/f'{stem}.pdf'
         normalized_pdf = td/'normalized.pdf'
         doc.save(normalized_pdf, garbage=4, deflate=True, clean=True, no_new_id=True)
         doc.close()
@@ -235,7 +250,7 @@ def build_pdf(case_dir: Path, title: str, keywords: str) -> None:
             key: value if isinstance(value, str) else str(value)
             for key, value in (doc.metadata or {}).items()
         }
-        metadata.update({'title': title, 'author': 'Emeline Cartier', 'subject': 'Open Intelligence Casebook - rapport public', 'keywords': keywords, 'creator': 'Open Intelligence Casebook', 'producer': 'Open Intelligence Casebook', 'creationDate': '', 'modDate': ''})
+        metadata.update({'title': title, 'author': 'Emeline Cartier', 'subject': 'Open Intelligence Casebook - édition pédagogique publique', 'keywords': keywords, 'creator': 'Open Intelligence Casebook', 'producer': 'Open Intelligence Casebook', 'creationDate': '', 'modDate': ''})
         doc.set_metadata(metadata)
         metadata_pdf = td/'metadata.pdf'
         doc.save(metadata_pdf, garbage=4, deflate=True, clean=True, no_new_id=True)
@@ -276,18 +291,19 @@ def build_pdf(case_dir: Path, title: str, keywords: str) -> None:
         out.write_bytes(normalized)
 
 
-def validate_pdf(path: Path, expected_title: str, min_pages: int = 15) -> None:
+def validate_pdf(path: Path, expected_title: str, min_pages: int = 15,
+                 min_text: int = 10000, min_links: int = 8) -> None:
     doc = fitz.open(path)
     if len(doc) < min_pages: raise RuntimeError(f'{path}: rapport trop court ({len(doc)} pages)')
     if not all(abs(p.rect.width-595.28) < 1.0 and abs(p.rect.height-841.89) < 1.0 for p in doc): raise RuntimeError(f'{path}: format non A4')
-    if sum(len(p.get_text().strip()) for p in doc) < 10000: raise RuntimeError(f'{path}: texte insuffisant / non sélectionnable')
+    if sum(len(p.get_text().strip()) for p in doc) < min_text: raise RuntimeError(f'{path}: texte insuffisant / non sélectionnable')
     links = []
     for page in doc:
         links.extend(page.get_links())
     bad = [x for x in links if (x.get('uri') or '').lower().startswith('file:')]
     if bad: raise RuntimeError(f'{path}: liens file:// détectés')
     if [x for x in links if x.get('kind') == fitz.LINK_LAUNCH]: raise RuntimeError(f'{path}: liens vers des fichiers locaux détectés')
-    if len([x for x in links if x.get('uri')]) < 8: raise RuntimeError(f'{path}: trop peu de liens sources')
+    if len([x for x in links if x.get('uri')]) < min_links: raise RuntimeError(f'{path}: trop peu de liens sources')
     if doc.metadata.get('title') != expected_title: raise RuntimeError(f'{path}: métadonnée titre incorrecte')
     doc.close()
 
@@ -304,6 +320,7 @@ def write_publication_files() -> None:
         C1/'data/key_metrics.csv', C1/'provenance.csv', *sorted((C1/'figures').glob('*.svg')), C1/'report.pdf',
         C2/'data/key_metrics.csv', C2/'provenance.csv', *sorted((C2/'figures').glob('*.svg')), C2/'report.pdf',
         C3/'provenance.csv', *sorted((C3/'figures').glob('*.svg')), C3/'report.pdf',
+        C4/'provenance.csv', C4/'report.pdf', ROOT/'READING_GUIDE.pdf',
     ]
     with (PUB/'checksums.sha256').open('w',encoding='utf-8',newline='\n') as f:
         for p in generated:
@@ -376,7 +393,7 @@ FORBIDDEN_TOKENS = ['/mnt/data/','C:\\Users\\','file://','private-user-images.gi
 
 def public_text_files() -> list[Path]:
     """Audience-facing documentation and data scanned for local paths and private URLs."""
-    roots = [ROOT/'README.md', ROOT/'NOTICE.md', ROOT/'DISCLAIMER.md', ROOT/'AI_TRANSPARENCY.md', ROOT/'CONTRIBUTING.md']
+    roots = [ROOT/'README.md', ROOT/'READING_GUIDE.md', ROOT/'NOTICE.md', ROOT/'DISCLAIMER.md', ROOT/'AI_TRANSPARENCY.md', ROOT/'CONTRIBUTING.md']
     roots += [p for base in [ROOT/'cases', ROOT/'methodology', ROOT/'publication'] for p in base.rglob('*') if p.is_file() and p.suffix.lower() in {'.md','.csv','.sha256'} and p.name != 'release-checklist.md']
     return sorted(roots)
 
@@ -400,6 +417,9 @@ def validate_repository() -> None:
     validate_pdf(C1/'report.pdf','Titane et résilience de la filière aéronautique civile européenne - Case 01')
     validate_pdf(C3/'report.pdf','Interférences GNSS et aviation civile européenne - Case 03', min_pages=8)
     validate_pdf(C2/'report.pdf','Portal Kombat / Pravda - comprendre un écosystème informationnel par l’OSINT - Case 02')
+    validate_pdf(C4/'report.pdf','XZ Utils - comprendre une compromission logicielle - Case 04', min_pages=8)
+    validate_pdf(ROOT/'READING_GUIDE.pdf','Comprendre le renseignement et lire les quatre études',
+                 min_pages=3, min_text=4000, min_links=8)
 
     # checksums verify
     for line in (PUB/'checksums.sha256').read_text(encoding='utf-8').splitlines():
@@ -422,6 +442,8 @@ def write_release_checklist() -> None:
     if failing:
         raise RuntimeError(f'Traçabilité des cas en échec : {failing}')
     for path in sorted(C4.iterdir()):
+        if path.suffix.lower() not in {'.md', '.csv', '.json'}:
+            continue
         text = path.read_text(encoding='utf-8')
         if 'avatars.githubusercontent.com' in text or 'VERDICT DU TEST DU WORKSPACE' in text:
             raise RuntimeError(f'{path}: assainissement du Case 04 incomplet')
@@ -457,7 +479,8 @@ def write_release_checklist() -> None:
         '- [x] Case 04 : aucune URL d\'avatar ni section interne d\'évaluation dans les fichiers publiés.',
         f'- [x] Figures SVG : {len(svgs)} fichiers analysés sans erreur.',
         f'- [x] PDF : Case 01 ({pdf_facts(C1/"report.pdf")}), Case 02 ({pdf_facts(C2/"report.pdf")}), '
-        f'Case 03 ({pdf_facts(C3/"report.pdf")}) ; '
+        f'Case 03 ({pdf_facts(C3/"report.pdf")}), Case 04 ({pdf_facts(C4/"report.pdf")}), '
+        f'guide de lecture ({pdf_facts(ROOT/"READING_GUIDE.pdf")}) ; '
         'format A4, texte sélectionnable, titre conforme, aucun lien `file://` ni lien vers un fichier local.',
         f'- [x] Recherche de motifs interdits ({tokens}) dans {len(public_text_files())} fichiers publics : aucune occurrence.',
         f'- [x] Empreintes SHA-256 : {len(checksum_lines)} fichiers générés vérifiés (`checksums.sha256`).',
@@ -487,6 +510,9 @@ def main() -> None:
     build_pdf(C1, 'Titane et résilience de la filière aéronautique civile européenne - Case 01', 'OSINT, aéronautique, titane, supply chain, résilience, Europe, data engineering')
     build_pdf(C2, 'Portal Kombat / Pravda - comprendre un écosystème informationnel par l’OSINT - Case 02', 'OSINT, FIMI, Portal Kombat, Pravda, DISARM, ACH, graphe, Europe')
     build_pdf(C3, 'Interférences GNSS et aviation civile européenne - Case 03', 'OSINT, GNSS, brouillage, leurrage, aviation civile, EASA, OACI, ACH, Europe')
+    build_pdf(C4, 'XZ Utils - comprendre une compromission logicielle - Case 04', 'OSINT, cyber, XZ Utils, chronologie, sources, limites')
+    build_pdf(ROOT, 'Comprendre le renseignement et lire les quatre études',
+              'renseignement, OSINT, initiation, analyse criminelle, guide', stem='READING_GUIDE')
     write_publication_files()
     validate_repository()
     write_release_checklist()
@@ -494,6 +520,8 @@ def main() -> None:
     print(f'CASE01_PAGES={len(fitz.open(C1/"report.pdf"))}')
     print(f'CASE02_PAGES={len(fitz.open(C2/"report.pdf"))}')
     print(f'CASE03_PAGES={len(fitz.open(C3/"report.pdf"))}')
+    print(f'CASE04_PAGES={len(fitz.open(C4/"report.pdf"))}')
+    print(f'GUIDE_PAGES={len(fitz.open(ROOT/"READING_GUIDE.pdf"))}')
 
 if __name__=='__main__':
     main()

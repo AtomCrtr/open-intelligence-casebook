@@ -8,6 +8,28 @@ lang: fr-FR
 
 > **Diffusion : public - sources ouvertes.** Ce rapport est une édition pédagogique et assainie d'un casebook analytique audité. Il ne contient aucune donnée interne d'entreprise et ne constitue pas une recommandation d'achat.
 
+# Avant de commencer
+
+**La question en langage courant.** Si une source de titane devient indisponible, les industriels européens peuvent-ils réellement se fournir ailleurs ?
+
+**L'idée à retenir.** Acheter dans davantage de pays peut aider. Pour fabriquer une pièce d'avion, il faut aussi la bonne matière, des procédés qualifiés, l'accord du client et des livraisons possibles. Les chiffres douaniers éclairent une partie de cette chaîne.
+
+**Ce qui a été fait.** Le dossier compare des statistiques commerciales et des sources industrielles. Il sépare six catégories de produits pour éviter qu'une moyenne masque leurs différences.
+
+**Statut.** Étude finalisée et publiée dans son périmètre. Les achats réels et les qualifications propres à chaque constructeur restent hors de ce que les données douanières démontrent.
+
+## Les mots utiles
+
+- **Résilience** : capacité à continuer de fonctionner malgré une perturbation.
+- **Qualification** : vérification qu'une matière, un procédé et un site satisfont aux exigences applicables.
+- **Substitution** : remplacement réellement utilisable d'une source par une autre.
+- **CN8** : catégorie douanière à huit chiffres permettant de classer les marchandises.
+- **HHI** : indicateur de concentration ; il augmente lorsque les parts se concentrent sur moins d'origines. Ici, sa valeur dépend des origines identifiées et de la couverture des données.
+
+**Pour lire les chiffres.** Une hausse du HHI ne mesure ni la probabilité d'une rupture ni le risque d'un avion. Les masses, les valeurs et les catégories de produits gardent leurs unités propres.
+
+**Parcours.** Lire « En deux minutes », puis les résultats et les limites. La [carte des preuves](evidence-map.md) et les [sources](sources.md) permettent d'approfondir. La présentation a été clarifiée le 13 novembre 2026 ; les données et conclusions conservent les dates de l'étude.
+
 # En deux minutes
 
 Le titane est critique pour de nombreuses applications aéronautiques, mais les données publiques disponibles ne racontent qu'une partie de la chaîne. Les statistiques douanières montrent **où l'Union européenne importe certaines catégories de produits en titane et à quel point ces origines sont concentrées**. Elles ne disent pas directement si ces flux sont destinés à l'aéronautique, s'ils correspondent au bon grade, si un fournisseur est qualifié, si un client l'a approuvé ou si la matière peut être livrée sur un programme précis.

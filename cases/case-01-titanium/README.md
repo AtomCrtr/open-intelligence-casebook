@@ -13,6 +13,18 @@ Le cas combine des données commerciales Eurostat, des sources institutionnelles
 
 📄 [Rapport détaillé](report.md) · 📕 [PDF](report.pdf) · 🧪 [Méthodologie](methodology.md) · 📚 [Sources](sources.md) · 🔗 [Carte des preuves](evidence-map.md) · 🧾 [Provenance](provenance.csv) · 📊 [Métriques dérivées](data/key_metrics.csv)
 
+## Comprendre le sujet
+
+**La question en langage courant.** Si une source de titane devient indisponible, les industriels européens peuvent-ils réellement se fournir ailleurs ?
+
+**L'idée à retenir.** Acheter dans davantage de pays peut aider. Pour fabriquer une pièce d'avion, il faut aussi la bonne matière, des procédés qualifiés, l'accord du client et des livraisons possibles. Les chiffres douaniers éclairent une partie de cette chaîne.
+
+**Ce qui a été fait.** Le dossier compare des statistiques commerciales et des sources industrielles. Il sépare six catégories de produits pour éviter qu'une moyenne masque leurs différences.
+
+**Statut.** Étude finalisée et publiée dans son périmètre. Les achats réels et les qualifications propres à chaque constructeur restent hors de ce que les données douanières démontrent.
+
+**Pour découvrir les mots et la méthode : [guide de lecture](../../READING_GUIDE.md).**
+
 ---
 
 ## En deux minutes

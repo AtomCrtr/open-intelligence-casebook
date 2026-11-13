@@ -2,7 +2,9 @@
 
 ## Sources de vérité
 
-- `cases/case-01-titanium/report.md` et `cases/case-02-portal-kombat/report.md` portent le texte des rapports.
+- Chaque `cases/case-*/report.md` porte le texte de son rapport ; `READING_GUIDE.md` porte le guide de découverte.
+- Les introductions expliquent les sujets ; les corps analytiques, sources et niveaux de confiance restent distincts de cette clarification éditoriale.
+- `tools/report.html` et `tools/report.css` définissent le sommaire, les signets, la pagination et la présentation commune des cinq PDF.
 - `data/key_metrics.csv` porte les métriques publiées.
 - `provenance.csv` porte les liens publics affirmation-source et les lignées informationnelles.
 - `tools/build_publication.py` génère les figures, les PDF, les checksums, le manifeste et la checklist de publication (dérivée des contrôles exécutés).
@@ -31,9 +33,9 @@ python tools/build_publication.py
 sha256sum -c publication/checksums.sha256
 ```
 
-Le générateur valide notamment le format A4, le texte sélectionnable, les liens publics, les métadonnées PDF, le schéma de provenance et les checksums.
+Le générateur produit les quatre rapports et `READING_GUIDE.pdf`. Il valide notamment le format A4, le texte sélectionnable, les liens publics, les métadonnées PDF, le schéma de provenance et les checksums.
 
-Pour contrôler la reproductibilité binaire, exécuter deux constructions successives et comparer les empreintes des deux PDF. La CI Linux reste l'environnement de publication de référence.
+Pour contrôler la reproductibilité binaire, exécuter deux constructions successives et comparer les empreintes des quatre rapports PDF et du guide. La CI Linux reste l'environnement de publication de référence.
 
 ## Solution locale Windows
 

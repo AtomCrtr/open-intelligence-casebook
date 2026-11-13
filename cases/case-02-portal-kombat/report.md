@@ -8,6 +8,29 @@ lang: fr-FR
 
 > **Diffusion : public - TLP:CLEAR.** Collecte passive, résultats dérivés et sources ouvertes. Les corpus amont aux droits de redistribution incertains ne sont pas recopiés dans ce dépôt.
 
+# Avant de commencer
+
+**La question en langage courant.** Quand de nombreux sites reprennent des informations similaires, quels liens peut-on réellement établir entre eux ?
+
+**L'idée à retenir.** L'étude décrit une structure et une diffusion observables. Les liens du modèle ne suffisent pas à prouver un décideur unique ou un effet sur les opinions. Le modèle hybride reste une hypothèse de travail, avec les limites de confiance indiquées dans le rapport.
+
+**Ce qui a été fait.** Des données publiques figées ont été organisées en chronologie et en graphe. Le dossier compare plusieurs explications et teste ce qui change lorsque certaines relations sont retirées.
+
+**Statut.** Étude finalisée et publiée dans son périmètre. L'identification du contrôle éditorial et la mesure de l'influence restent non démontrées.
+
+## Les mots utiles
+
+- **Domaine** : nom qui permet de retrouver un site sur Internet.
+- **Graphe** : représentation d'objets (nœuds) reliés par des liens (arêtes).
+- **STIX** : format structuré pour décrire des objets et des relations ; le graphe étudié reprend le modèle de sa source.
+- **Dissémination** : circulation ou reprise d'un lien ou d'un contenu dans les données étudiées.
+- **ACH** : comparaison de plusieurs hypothèses en recherchant ce qui les soutient et ce qui les affaiblit.
+- **Snapshot** : copie figée d'un ensemble de données à une date donnée.
+
+**Pour lire les chiffres.** Une observation est une ligne ou un élément du corpus. Plusieurs observations peuvent concerner le même domaine. Un lien sur Wikipedia ou X ne donne pas le nombre de lecteurs ni leur adhésion.
+
+**Parcours.** Lire « En deux minutes », puis la structure du réseau, les hypothèses et les limites. La [carte des preuves](evidence-map.md) et les [sources](sources.md) permettent d'approfondir. La présentation a été clarifiée le 13 novembre 2026 ; les données et conclusions conservent les dates de l'étude.
+
 # En deux minutes
 
 Portal Kombat / Pravda est un ensemble de portails d'information automatisés et localisés, documenté par VIGINUM et plusieurs organisations de recherche. L'objectif de ce casebook n'est pas de répéter une attribution, mais de montrer **ce qu'une analyse structurée en sources ouvertes peut établir** sur la chronologie, la structure, la visibilité et les hypothèses de coordination.

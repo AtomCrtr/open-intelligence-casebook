@@ -12,6 +12,18 @@
   <img src="figures/case03_confidence.svg" alt="Douze affirmations publiques tirées des cinq jugements clés, chacune avec son niveau de confiance : élevée pour la hausse 2022–mi-2025 au niveau mondial et balte, les deux foyers, le rejet des artefacts, la réalité des conséquences et l'inadéquation des comptages bruts ; modérée pour la hausse à l'échelle de l'Europe entière, la dominance de la composante réelle et les indicateurs de veille ; non établis : l'évolution après la mi-2025, le classement fin des FIR et la fréquence des conséquences ; attributions rapportées, non jugées." width="100%">
 </p>
 
+**Première visite :** [guide de découverte du renseignement et des quatre cas](https://github.com/AtomCrtr/open-intelligence-casebook/blob/main/READING_GUIDE.md).
+
+## Comprendre le sujet
+
+**La question en langage courant.** Que peut-on savoir sur les perturbations de navigation par satellite qui touchent l'aviation civile, à partir des documents accessibles ?
+
+**L'idée à retenir.** Les sources documentent des perturbations réelles et des conséquences opérationnelles. Elles ne fournissent pas une mesure homogène de tous les événements européens ni de leurs conséquences.
+
+**Ce qui a été fait.** Le dossier compare des publications institutionnelles et sectorielles, examine leurs dépendances et confronte plusieurs explications. Le projet n'a pas exécuté la couche d'observation ADS-B/GPSJAM prévue au départ.
+
+**Statut.** Étude documentaire finalisée et publiée. Une étude fondée sur de nouvelles observations constituerait une phase distincte.
+
 ---
 
 ## En deux minutes

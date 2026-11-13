@@ -1,5 +1,28 @@
 # Case 03 — Interférences GNSS et aviation civile européenne
 
+## Avant de commencer
+
+**La question en langage courant.** Que peut-on savoir sur les perturbations de navigation par satellite qui touchent l'aviation civile, à partir des documents accessibles ?
+
+**L'idée à retenir.** Les sources documentent des perturbations réelles et des conséquences opérationnelles. Elles ne fournissent pas une mesure homogène de tous les événements européens ni de leurs conséquences.
+
+**Ce qui a été fait.** Le dossier compare des publications institutionnelles et sectorielles, examine leurs dépendances et confronte plusieurs explications. Le projet n'a pas exécuté la couche d'observation ADS-B/GPSJAM prévue au départ.
+
+**Statut.** Étude documentaire finalisée et publiée. Une étude fondée sur de nouvelles observations constituerait une phase distincte.
+
+### Les mots utiles
+
+- **GNSS** : ensemble des systèmes de navigation par satellite, dont le GPS fait partie.
+- **Brouillage** : perturbation du signal qui gêne sa réception.
+- **Leurrage** : émission de signaux trompeurs susceptibles d'induire une position ou une heure erronée.
+- **FIR** : zone géographique d'information de vol ; elle sert ici à situer certaines observations rapportées.
+- **ADS-B** : messages émis par les avions, contenant notamment des informations de position ; ils ne sont pas des mesures radiofréquence du brouillage.
+- **Taux normalisé** : nombre d'événements rapporté à une base comparable, par exemple un volume de trafic défini.
+
+**Pour lire les chiffres.** Davantage de signalements peut refléter davantage d'événements, une meilleure détection ou les deux. Les périodes et zones ne sont comparables que si l'on comprend comment les données ont été produites.
+
+**Parcours.** Lire « En cinq minutes », puis les limites et les recommandations. La [carte des preuves](evidence-map.md) et les [sources](sources.md) permettent d'approfondir. La présentation a été clarifiée le 13 novembre 2026 ; les jugements et leurs niveaux de confiance restent ceux de l'édition approuvée.
+
 ## Rapport final — édition documentaire
 
 > **Analyse OSINT — non destinée à la navigation.**

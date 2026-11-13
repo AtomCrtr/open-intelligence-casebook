@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>$if(title)$$title$$else$Open Intelligence Casebook$endif$</title>
+</head>
+<body class="$if(reading-guide)$reading-guide$endif$$if(document-class)$ $document-class$$endif$">
+$if(title)$
+<header id="title-block-header">
+  <p class="collection">OPEN INTELLIGENCE CASEBOOK</p>
+  <h1 class="title">$title$</h1>
+$if(subtitle)$<p class="subtitle">$subtitle$</p>$endif$
+$if(author)$<p class="author">$for(author)$$author$$sep$ · $endfor$</p>$endif$
+$if(date)$<p class="date">$date$</p>$endif$
+  <p class="cover-note">Commencez par l'introduction. Les sources et les limites vous permettent ensuite de vérifier le raisonnement.</p>
+</header>
+$endif$
+$if(toc)$
+<nav id="TOC" role="doc-toc">
+  <h2>Sommaire</h2>
+  $table-of-contents$
+</nav>
+$endif$
+$body$
+</body>
+</html>

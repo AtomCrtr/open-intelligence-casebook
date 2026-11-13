@@ -10,14 +10,14 @@
 ### Des sources ouvertes à une analyse traçable, reproductible et utile à la décision
 
 [![Langue](https://img.shields.io/badge/langue-fran%C3%A7ais-1f6f78)](README.md)
-[![Rapports](https://img.shields.io/badge/rapports%20publics-3-244c66)](#les-casebooks)
+[![Rapports](https://img.shields.io/badge/rapports%20publics-4-244c66)](#les-casebooks)
 [![OSINT](https://img.shields.io/badge/OSINT-passif-355c7d)](#m%C3%A9thode-commune)
 [![Publication](https://img.shields.io/badge/publication-RELEASE%20PASS-2e7d32)](publication/release-checklist.md)
 
 **Open Intelligence Casebook** est un portfolio public d'études d'intelligence en sources ouvertes.  
 Chaque cas part d'une question concrète, transforme des sources publiques en preuves vérifiables, confronte plusieurs hypothèses et restitue un jugement avec ses limites.
 
-[📘 Case 01 — Titane](cases/case-01-titanium/README.md) · [📕 PDF](cases/case-01-titanium/report.pdf) · [🛰️ Case 02 — Portal Kombat](cases/case-02-portal-kombat/README.md) · [📕 PDF](cases/case-02-portal-kombat/report.pdf) · [🔐 Case 04 — XZ Utils](cases/case-04-xz-utils/README.md)
+[📘 Case 01 — Titane](cases/case-01-titanium/README.md) · [📕 PDF](cases/case-01-titanium/report.pdf) · [🛰️ Case 02 — Portal Kombat](cases/case-02-portal-kombat/README.md) · [📕 PDF](cases/case-02-portal-kombat/report.pdf) · [🛩️ Case 03 — GNSS](cases/case-03-gnss-interference/README.md) · [🔐 Case 04 — XZ Utils](cases/case-04-xz-utils/README.md)
 
 </div>
 
@@ -27,8 +27,8 @@ Chaque cas part d'une question concrète, transforme des sources publiques en pr
 
 | | |
 |---|---|
-| **3 rapports publics finalisés** | Cases 01-02 en PDF A4 et Markdown reconstruits par la CI · Case 04 en Markdown |
-| **4 casebooks** | 3 publiés · 1 en développement |
+| **4 études finalisées et publiées** | Chaque cas en Markdown et en PDF A4 reconstruit par la CI |
+| **4 casebooks** | 4 publiés · GNSS finalisé dans son périmètre documentaire |
 | **Approche** | OSINT passif · GEOINT · analyse de données · graphes · ACH |
 | **Principe central** | **Decision-first + Evidence-deep** : décision rapide, preuve entièrement auditable |
 
@@ -36,10 +36,15 @@ Chaque cas part d'une question concrète, transforme des sources publiques en pr
 
 ### Par où commencer ?
 
+**Première visite : [lire le guide de découverte](READING_GUIDE.md) · [télécharger le guide PDF](READING_GUIDE.pdf).** Il explique le renseignement, les mots techniques, l'état des cas et le prochain sujet proposé.
+
+« Finalisé » décrit une édition et un périmètre. Des inconnues peuvent rester ouvertes. Le 13 novembre 2026, les quatre études ont une édition finale ; GNSS reste documentaire, sans analyse de trajectoires ADS-B/GPSJAM. Cette clarification éditoriale ne constitue pas une actualisation des sources.
+
+
 | Vous avez… | Lisez | Vous obtenez |
 |---|---|---|
 | **5 minutes** | la section « En deux minutes » d'un README de cas | la question, la réponse et le niveau de confiance |
-| **30 minutes** | le rapport complet ([Case 01](cases/case-01-titanium/report.md) · [Case 02](cases/case-02-portal-kombat/report.md) · [Case 04](cases/case-04-xz-utils/report.md)) | le raisonnement, les hypothèses concurrentes et les limites |
+| **30 minutes** | le rapport complet ([Case 01](cases/case-01-titanium/report.md) · [Case 02](cases/case-02-portal-kombat/report.md) · [Case 03](cases/case-03-gnss-interference/report.md) · [Case 04](cases/case-04-xz-utils/report.md)) | le raisonnement, les hypothèses concurrentes et les limites |
 | **le temps d'auditer** | la carte des preuves, la table de provenance et les métriques dérivées | le lien vérifiable entre chaque affirmation publique et sa source |
 
 ---
@@ -139,11 +144,15 @@ Un cas de **compromission de la chaîne d'approvisionnement logicielle** traité
 
 <div align="center">
 
-[**Lire la synthèse**](cases/case-04-xz-utils/README.md) · [**Rapport complet**](cases/case-04-xz-utils/report.md) · [**Sources**](cases/case-04-xz-utils/sources.md) · [**Carte des preuves**](cases/case-04-xz-utils/evidence-map.md) · [**Provenance**](cases/case-04-xz-utils/provenance.csv) · [**Ledger de citations**](cases/case-04-xz-utils/citations-ledger.json)
+[**Lire la synthèse**](cases/case-04-xz-utils/README.md) · [**Rapport complet**](cases/case-04-xz-utils/report.md) · [**Télécharger le rapport PDF**](cases/case-04-xz-utils/report.pdf) · [**Sources**](cases/case-04-xz-utils/sources.md) · [**Carte des preuves**](cases/case-04-xz-utils/evidence-map.md) · [**Provenance**](cases/case-04-xz-utils/provenance.csv) · [**Ledger de citations**](cases/case-04-xz-utils/citations-ledger.json)
 
 </div>
 
 ---
+
+## Prochain sujet proposé
+
+**Case 05 — Escroqueries aux faux investissements : analyser un réseau fictif et prioriser les vérifications.** Statut : **proposition, non commencée**. Ce futur exercice distinguerait sources ouvertes sur le phénomène et données entièrement synthétiques pour apprendre les rapprochements, les chronologies et l'analyse de liens. [Comprendre la question et les livrables proposés](READING_GUIDE.md#prochain-sujet-proposé--comprendre-un-réseau-de-fraude).
 
 ## Méthode commune
 

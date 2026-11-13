@@ -1,6 +1,6 @@
 # 🔐 Case 04 - XZ Utils / CVE-2024-3094
 
-**Statut : terminé - édition publique, rapport Markdown. Révisé le 30 octobre 2026.**
+**Statut : terminé et publié — Markdown et PDF. Révision analytique : 1er novembre 2026 ; clarification éditoriale : 13 novembre 2026.**
 
 [![Statut](https://img.shields.io/badge/statut-termin%C3%A9-2e7d32)](report.md)
 [![Sources](https://img.shields.io/badge/sources-21%20publiques-244c66)](sources.md)
@@ -11,7 +11,19 @@
 
 Un cas de **compromission de la chaîne d'approvisionnement logicielle** traité en OSINT strictement passif : 21 sources publiques, faits et analyses séparés, contradictions conservées plutôt que lissées, fiabilité des sources et confiance analytique évaluées séparément.
 
-📄 [Rapport](report.md) · 📚 [Sources](sources.md) · 🔗 [Carte des preuves](evidence-map.md) · 🧾 [Provenance](provenance.csv) · 🗂️ [Registre des preuves](evidence-register.md) · ✂️ [Extraits](source-extracts.md) · 🔏 [Ledger de citations](citations-ledger.json)
+📄 [Rapport](report.md) · [Télécharger le PDF](report.pdf) · 📚 [Sources](sources.md) · 🔗 [Carte des preuves](evidence-map.md) · 🧾 [Provenance](provenance.csv) · 🗂️ [Registre des preuves](evidence-register.md) · ✂️ [Extraits](source-extracts.md) · 🔏 [Ledger de citations](citations-ledger.json)
+
+## Comprendre le sujet
+
+**La question en langage courant.** Comment un logiciel diffusé largement a-t-il pu contenir un mécanisme malveillant, et que peut-on reconstituer à partir des sources publiques ?
+
+**L'idée à retenir.** Les sources établissent la compromission de versions précises et un mécanisme soumis à certaines conditions techniques. Elles ne démontrent pas une exploitation réelle ni l'identité du responsable.
+
+**Ce qui a été fait.** Le dossier reconstitue une chronologie, compare les situations des distributions Linux et conserve les contradictions entre sources. Il repose sur la lecture de documents ; le mécanisme malveillant n'a pas été exécuté par le projet.
+
+**Statut.** Étude finalisée et publiée dans son périmètre, révisée sur le fond le 1er novembre 2026. L'identité réelle et l'exploitation effective restent non établies.
+
+**Pour découvrir les mots et la méthode : [guide de lecture](../../READING_GUIDE.md).**
 
 ---
 
@@ -85,7 +97,7 @@ timeline
 ```text
 case-04-xz-utils/
 ├── README.md               # cette synthèse
-├── report.md               # rapport complet (pas de PDF pour ce cas)
+├── report.md / report.pdf  # rapport complet, en ligne et imprimable
 ├── sources.md              # 21 sources, type, fiabilité, dépendances
 ├── evidence-map.md         # affirmation publique → preuve
 ├── provenance.csv          # lignée informationnelle de chaque affirmation
