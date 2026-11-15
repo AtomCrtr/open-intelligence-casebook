@@ -9,9 +9,9 @@
 - [x] Case 02 : étude commune DFRLab / CheckFirst déclarée comme une seule lignée ; source S-029 bornée à C2-PUB-008.
 - [x] Case 04 : aucune URL d'avatar ni section interne d'évaluation dans les fichiers publiés.
 - [x] Figures SVG : 12 fichiers analysés sans erreur.
-- [x] PDF : Case 01 (23 pages, 12 liens web), Case 02 (22 pages, 19 liens web), Case 03 (12 pages, 19 liens web), Case 04 (27 pages, 32 liens web), guide de lecture (6 pages, 9 liens web) ; format A4, texte sélectionnable, titre conforme, aucun lien `file://` ni lien vers un fichier local.
-- [x] Recherche de motifs interdits (`/mnt/data/`, `C:\Users\`, `file://`, `private-user-images.githubusercontent.com`) dans 40 fichiers publics : aucune occurrence.
-- [x] Empreintes SHA-256 : 24 fichiers générés vérifiés (`checksums.sha256`).
+- [x] PDF : Case 01 (17 pages, 14 liens web), Case 02 (17 pages, 21 liens web), Case 03 (13 pages, 21 liens web), Case 04 (30 pages, 35 liens web), guide de lecture (7 pages, 14 liens web), test débutant (3 pages, 1 liens web) ; format A4, texte sélectionnable, titre conforme, aucun lien `file://` ni lien vers un fichier local.
+- [x] Recherche de motifs interdits (`/mnt/data/`, `C:\Users\`, `file://`, `private-user-images.githubusercontent.com`) dans 41 fichiers publics : aucune occurrence.
+- [x] Empreintes SHA-256 : 25 fichiers générés vérifiés (`checksums.sha256`).
 
 ## Engagements vérifiés par revue humaine (non contrôlés par le générateur)
 

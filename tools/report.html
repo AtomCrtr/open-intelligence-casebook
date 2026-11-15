@@ -12,14 +12,16 @@ $if(title)$
 $if(subtitle)$<p class="subtitle">$subtitle$</p>$endif$
 $if(author)$<p class="author">$for(author)$$author$$sep$ · $endfor$</p>$endif$
 $if(date)$<p class="date">$date$</p>$endif$
-  <p class="cover-note">Commencez par l'introduction. Les sources et les limites vous permettent ensuite de vérifier le raisonnement.</p>
+  <p class="cover-note">$if(cover-note)$$cover-note$$else$Lisez d’abord la synthèse de la page suivante. Le sommaire vous guidera ensuite vers les explications, les sources et les limites.$endif$</p>
 </header>
 $endif$
+$if(no-toc)$$else$
 $if(toc)$
 <nav id="TOC" role="doc-toc">
   <h2>Sommaire</h2>
   $table-of-contents$
 </nav>
+$endif$
 $endif$
 $body$
 </body>

@@ -7,6 +7,7 @@ on:
       - '.bootstrap/**'
       - 'README.md'
       - 'READING_GUIDE.md'
+      - 'BEGINNER_READING_TEST.md'
       - 'cases/**'
       - 'tests/**'
       - 'tools/**'
@@ -59,7 +60,7 @@ jobs:
         run: |
           set -euo pipefail
           sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends pandoc ghostscript fonts-noto-core
+          sudo apt-get install -y --no-install-recommends pandoc poppler-utils fonts-noto-core
           python -m pip install --disable-pip-version-check \
             matplotlib==3.10.8 \
             pymupdf==1.26.7 \
@@ -122,7 +123,7 @@ jobs:
               list((root/'cases/case-03-gnss-interference/figures').glob('*.svg')) +
               [root/'cases/case-01-titanium/report.pdf', root/'cases/case-02-portal-kombat/report.pdf',
                root/'cases/case-03-gnss-interference/report.pdf', root/'cases/case-04-xz-utils/report.pdf',
-               root/'READING_GUIDE.pdf', root/'publication/checksums.sha256']
+               root/'READING_GUIDE.pdf', root/'BEGINNER_READING_TEST.pdf', root/'publication/checksums.sha256']
           )
           def digest(p): return sha256(p.read_bytes()).hexdigest()
           Path('/tmp/repro-first.txt').write_text('\n'.join(f'{digest(p)}  {p.as_posix()}' for p in targets) + '\n')
@@ -138,7 +139,7 @@ jobs:
               list((root/'cases/case-03-gnss-interference/figures').glob('*.svg')) +
               [root/'cases/case-01-titanium/report.pdf', root/'cases/case-02-portal-kombat/report.pdf',
                root/'cases/case-03-gnss-interference/report.pdf', root/'cases/case-04-xz-utils/report.pdf',
-               root/'READING_GUIDE.pdf', root/'publication/checksums.sha256']
+               root/'READING_GUIDE.pdf', root/'BEGINNER_READING_TEST.pdf', root/'publication/checksums.sha256']
           )
           def digest(p): return sha256(p.read_bytes()).hexdigest()
           Path('/tmp/repro-second.txt').write_text('\n'.join(f'{digest(p)}  {p.as_posix()}' for p in targets) + '\n')
@@ -184,6 +185,7 @@ jobs:
           contact_sheet('cases/case-03-gnss-interference/report.pdf', '/tmp/publication-visual-qa/case-03-contact-sheet.png')
           contact_sheet('cases/case-04-xz-utils/report.pdf', '/tmp/publication-visual-qa/case-04-contact-sheet.png')
           contact_sheet('READING_GUIDE.pdf', '/tmp/publication-visual-qa/guide-contact-sheet.png')
+          contact_sheet('BEGINNER_READING_TEST.pdf', '/tmp/publication-visual-qa/beginner-contact-sheet.png')
           PY
 
       - name: Upload visual QA artifact
@@ -217,6 +219,7 @@ jobs:
             cases/case-03-gnss-interference/report.pdf \
             cases/case-04-xz-utils/report.pdf \
             READING_GUIDE.pdf \
+            BEGINNER_READING_TEST.pdf \
             publication/checksums.sha256 \
             publication/public-manifest.csv \
             publication/release-checklist.md

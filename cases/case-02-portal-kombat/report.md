@@ -2,21 +2,33 @@
 title: "Portal Kombat / Pravda : comprendre un écosystème informationnel par l'OSINT"
 subtitle: "Case 02 - Structure, expansion, dissémination et limites d'attribution"
 author: "Emeline Cartier - Open Intelligence Casebook"
-date: "Édition publique révisée - septembre 2026"
+date: "Présentation révisée — 14 novembre 2026 ; données historiques"
 lang: fr-FR
 ---
 
 > **Diffusion : public - TLP:CLEAR.** Collecte passive, résultats dérivés et sources ouvertes. Les corpus amont aux droits de redistribution incertains ne sont pas recopiés dans ce dépôt.
 
-# Avant de commencer
+<!-- READER_SUMMARY_START -->
 
-**La question en langage courant.** Quand de nombreux sites reprennent des informations similaires, quels liens peut-on réellement établir entre eux ?
+# L’essentiel en deux minutes
 
-**L'idée à retenir.** L'étude décrit une structure et une diffusion observables. Les liens du modèle ne suffisent pas à prouver un décideur unique ou un effet sur les opinions. Le modèle hybride reste une hypothèse de travail, avec les limites de confiance indiquées dans le rapport.
+**La question.** Quand de nombreux sites reprennent des informations similaires, quels liens peut-on réellement établir entre eux ?
 
-**Ce qui a été fait.** Des données publiques figées ont été organisées en chronologie et en graphe. Le dossier compare plusieurs explications et teste ce qui change lorsque certaines relations sont retirées.
+**Ce que montre l’étude.** Les données publiques décrivent un ensemble de portails reliés et une circulation de leurs contenus. Une structure partagée peut coexister avec des façons différentes de diffuser l’information. C’est l’hypothèse de travail privilégiée, avec une confiance limitée (« faible à moyenne » dans l’étude).
 
-**Statut.** Étude finalisée et publiée dans son périmètre. L'identification du contrôle éditorial et la mesure de l'influence restent non démontrées.
+**Un chiffre pour comprendre.** L’export examiné contient **371 observations correspondant à 370 domaines distincts**. Un domaine est un nom de site ; une observation est un élément du fichier. Compter ces éléments ne mesure pas le nombre de lecteurs.
+
+**La limite essentielle.** Une ressemblance ou un lien technique ne prouve pas un responsable unique. Une citation sur Wikipedia ou X ne prouve pas que quelqu’un a lu, cru ou changé d’avis à cause du contenu.
+
+**À quoi sert cette analyse ?** Elle permet de cartographier les liens décrits par les sources et de comparer plusieurs explications. Les liens importants demandent encore des vérifications indépendantes avant d’en déduire qui contrôle le réseau.
+
+**Les données.** Exports publics réels, figés aux dates précisées dans le rapport. L’étude est livrée dans ce périmètre ; elle ne suit pas le réseau en temps réel.
+
+**Pour vérifier.** Voir les [sources](sources.md), la [carte des preuves](evidence-map.md) et les résultats détaillés après le sommaire. La révision du 14 novembre 2026 améliore la présentation ; elle n’actualise pas les données.
+
+<!-- READER_SUMMARY_END -->
+
+# Repères de lecture
 
 ## Les mots utiles
 
@@ -29,9 +41,9 @@ lang: fr-FR
 
 **Pour lire les chiffres.** Une observation est une ligne ou un élément du corpus. Plusieurs observations peuvent concerner le même domaine. Un lien sur Wikipedia ou X ne donne pas le nombre de lecteurs ni leur adhésion.
 
-**Parcours.** Lire « En deux minutes », puis la structure du réseau, les hypothèses et les limites. La [carte des preuves](evidence-map.md) et les [sources](sources.md) permettent d'approfondir. La présentation a été clarifiée le 13 novembre 2026 ; les données et conclusions conservent les dates de l'étude.
+**Parcours.** Lire la synthèse, puis la structure du réseau, les hypothèses et les limites. La [carte des preuves](evidence-map.md) et les [sources](sources.md) permettent d'approfondir. La présentation a été révisée le 14 novembre 2026 ; les données et conclusions conservent les dates de l'étude.
 
-# En deux minutes
+# Résultats et chiffres de référence
 
 Portal Kombat / Pravda est un ensemble de portails d'information automatisés et localisés, documenté par VIGINUM et plusieurs organisations de recherche. L'objectif de ce casebook n'est pas de répéter une attribution, mais de montrer **ce qu'une analyse structurée en sources ouvertes peut établir** sur la chronologie, la structure, la visibilité et les hypothèses de coordination.
 
@@ -44,7 +56,7 @@ La meilleure hypothèse de travail reste un **modèle hybride** : une couche str
 - **371 observations correspondant à 370 domaines distincts** dans l'export VIGINUM figé.
 - **31** observations datées de mars 2024 dans la vague `pravda-*`.
 - **609 nœuds / 1 013 relations** dans le graphe STIX.
-- composante principale : **604 nœuds** en baseline ; **602** sans nœud campagne ; **305** sans `amplifies` ; **560** sans `uses`.
+- composante principale : **604 nœuds** dans le modèle initial ; **602** sans les liens des nœuds campagne ; **305** sans `amplifies` ; **560** sans `uses`.
 - **1 932** observations Wikipedia réparties entre **44 éditions linguistiques** : `ru=922`, `uk=580`, `en=133`, `fr=28`.
 - **2 018** observations X, dont **94** en code langue `fr` et **130** vers des domaines France-compatibles.
 - **101 profils de portails** dans les agrégats CheckFirst et **4 572** lignes portail-langue pour **47** codes.
@@ -70,14 +82,72 @@ Le périmètre privilégie France et Union européenne, avec contexte internatio
 
 Les six PIR du dossier canonique sont conservées comme grille de contrôle. La question centrale est bien caractérisée, mais deux couches restent volontairement partielles : la production éditoriale au niveau article et l'identification indépendante d'un opérateur.
 
-| PIR | Question résumée | Statut | Confiance | Lacune résiduelle |
-|---|---|---|---|---|
-| PIR-01 | vagues d'expansion géographique et linguistique | **répondu avec limites** | moyenne | 139 domaines sans date ; `valid_from` n'est pas une date de première publication indépendante |
-| PIR-02 | liens techniques et éditoriaux entre portails | **répondu avec limites** | moyenne | pas de comparaison indépendante DNS/certificats/hébergement dans le snapshot |
-| PIR-03 | sélection, reformulation et localisation des contenus | **partiel** | faible | pas de corpus article sous licence pour tester duplication, traduction et transformation |
-| PIR-04 | acteurs ou sources alimentant le réseau | **partiel** | faible | le contrôle opérateur n'est pas établi indépendamment ; identifiants personnels exclus |
-| PIR-05 | chemins de dissémination hors des portails | **répondu avec limites** | élevée | un lien observé ne mesure ni audience, ni croyance, ni appartenance à un corpus d'entraînement |
-| PIR-06 | niveau de coordination démontrable | **hypothèse de travail** | faible ; H4 faible à moyenne | pas de preuve article-level, ownership ou command-and-control ; attribution étatique non établie |
+<div class="reader-card">
+
+**PIR-01**
+
+- **Question résumée :** vagues d'expansion géographique et linguistique
+- **Statut :** **répondu avec limites**
+- **Confiance :** moyenne
+- **Lacune résiduelle :** 139 domaines sans date ; `valid_from` n'est pas une date de première publication indépendante
+
+</div>
+
+<div class="reader-card">
+
+**PIR-02**
+
+- **Question résumée :** liens techniques et éditoriaux entre portails
+- **Statut :** **répondu avec limites**
+- **Confiance :** moyenne
+- **Lacune résiduelle :** pas de comparaison indépendante DNS/certificats/hébergement dans le snapshot
+
+</div>
+
+<div class="reader-card">
+
+**PIR-03**
+
+- **Question résumée :** sélection, reformulation et localisation des contenus
+- **Statut :** **partiel**
+- **Confiance :** faible
+- **Lacune résiduelle :** pas de corpus article sous licence pour tester duplication, traduction et transformation
+
+</div>
+
+<div class="reader-card">
+
+**PIR-04**
+
+- **Question résumée :** acteurs ou sources alimentant le réseau
+- **Statut :** **partiel**
+- **Confiance :** faible
+- **Lacune résiduelle :** le contrôle opérateur n'est pas établi indépendamment ; identifiants personnels exclus
+
+</div>
+
+<div class="reader-card">
+
+**PIR-05**
+
+- **Question résumée :** chemins de dissémination hors des portails
+- **Statut :** **répondu avec limites**
+- **Confiance :** élevée
+- **Lacune résiduelle :** un lien observé ne mesure ni audience, ni croyance, ni appartenance à un corpus d'entraînement
+
+</div>
+
+<div class="reader-card">
+
+**PIR-06**
+
+- **Question résumée :** niveau de coordination démontrable
+- **Statut :** **hypothèse de travail**
+- **Confiance :** faible ; H4 faible à moyenne
+- **Lacune résiduelle :** pas de preuve au niveau des articles, de la propriété ou de la chaîne de commandement ; attribution étatique non établie
+
+</div>
+
 
 > **À retenir.** Le produit répond donc à la question décisionnelle sans masquer ses lacunes : la dissémination est la couche la mieux étayée ; la production éditoriale, les acteurs et la coordination restent les couches les plus incertaines.
 
@@ -109,20 +179,22 @@ Le paquet STIX figé contient **609 objets non relationnels** et **1 013 relatio
 
 La structure est cohérente avec une couche technique ou organisationnelle partagée, mais un graphe source-modélisé n'est pas une photographie directe du contrôle réel. Certaines relations traduisent le choix du modélisateur et doivent être testées en sensibilité.
 
-# 6. Sensibilité du graphe
+# 6. Que devient le réseau si l’on retire certains liens ?
 
 ![Sensibilité du graphe](figures/graph_sensitivity.svg)
 
 | Scénario | Nœuds | Arêtes | Composante principale |
 |---|---:|---:|---:|
-| Baseline | 609 | 1 013 | 604 |
-| Sans nœud campagne | 609 | 703 | 602 |
+| Modèle initial | 609 | 1 013 | 604 |
+| Sans les liens des nœuds campagne | 609 | 703 | 602 |
 | Sans relations `amplifies` | 609 | 709 | 305 |
 | Sans relations `uses` | 609 | 668 | 560 |
 
+Les nœuds sont les objets du modèle ; les arêtes sont leurs liens. La composante principale est le plus grand ensemble d’objets reliés. Les deux objets « campagne » restent comptés dans ce test : seuls leurs liens sont retirés.
+
 Deux enseignements :
 
-- la grande composante **ne dépend pas d'un seul nœud campagne** ;
+- le grand ensemble connecté **subsiste quand les liens des nœuds campagne sont retirés** ;
 - les relations `amplifies` contribuent fortement à la connectivité du modèle, et leur retrait fragmente fortement le graphe.
 
 Cela décrit une sensibilité de modélisation, pas une preuve de chaîne de commandement.
@@ -162,12 +234,42 @@ Ces étiquettes sont utiles pour structurer la lecture, mais elles doivent reste
 
 ![Hypothèses ACH](figures/ach_hypotheses.svg)
 
-| Hypothèse | Évaluation | Confiance |
-|---|---|---|
-| H1 - coordination centralisée | compatible avec certains objets, mais pas de preuve de contrôle | faible |
-| H2 - fournisseur / infrastructure partagée | compatible avec les éléments TigerWeb et infrastructure | faible |
-| H3 - agrégation indépendante | compatible avec l'hétérogénéité observée ; elle ne peut pas être rejetée à partir des données publiques. La composante géante et la vague `pravda-*` réduisent toutefois son pouvoir explicatif | faible |
-| **H4 - modèle hybride** | **meilleure hypothèse de travail** | **faible à moyenne** |
+<div class="reader-card">
+
+**H1 - coordination centralisée**
+
+- **Évaluation :** compatible avec certains objets, mais pas de preuve de contrôle
+- **Confiance :** faible
+
+</div>
+
+<div class="reader-card">
+
+**H2 - fournisseur / infrastructure partagée**
+
+- **Évaluation :** compatible avec les éléments TigerWeb et infrastructure
+- **Confiance :** faible
+
+</div>
+
+<div class="reader-card">
+
+**H3 - agrégation indépendante**
+
+- **Évaluation :** compatible avec l'hétérogénéité observée ; elle ne peut pas être rejetée à partir des données publiques. La composante géante et la vague `pravda-*` réduisent toutefois son pouvoir explicatif
+- **Confiance :** faible
+
+</div>
+
+<div class="reader-card">
+
+**H4 - modèle hybride**
+
+- **Évaluation :** **meilleure hypothèse de travail**
+- **Confiance :** **faible à moyenne**
+
+</div>
+
 
 H4 signifie seulement que **structure partagée et variations locales coexistent dans le corpus**. Elle n'est pas une attribution.
 

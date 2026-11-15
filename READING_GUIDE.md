@@ -2,10 +2,27 @@
 title: "Comprendre le renseignement et lire les quatre études"
 subtitle: "Guide de découverte — aucune connaissance technique nécessaire"
 author: "Emeline Cartier — Open Intelligence Casebook"
-date: "13 novembre 2026"
+date: "14 novembre 2026"
 lang: fr-FR
 reading-guide: true
 ---
+
+<!-- READER_SUMMARY_START -->
+
+# Commencer en deux minutes
+
+**Le renseignement**, ici, est une analyse qui aide à comprendre une situation et à décider. On part d’une question, on vérifie les informations, puis on explique ce qui est établi et ce qui reste incertain.
+
+**Les quatre cas utilisent des sources réelles.** Titane étudie des échanges commerciaux ; Portal Kombat des liens entre sites ; GNSS des documents sur la navigation aérienne ; XZ Utils une compromission logicielle. Ils montrent des compétences utiles à l’analyse, sans constituer quatre enquêtes criminelles.
+
+**Pour commencer**, choisissez un rapport et lisez sa synthèse juste après la couverture. Essayez ensuite d’expliquer sa question, son résultat et sa principale limite avec vos mots. Les sources et les détails permettent de vérifier votre compréhension.
+
+**Le prochain cas envisagé** porte sur JuicyFields et les escroqueries à l’investissement. Il reste à cadrer à partir de documents publics réels. Une allégation, une arrestation et une condamnation devront être distinguées.
+
+**Pour tester la lecture**, utilisez le [questionnaire débutant](BEGINNER_READING_TEST.md). Aucun résultat de test auprès de débutants n’est encore disponible.
+
+<!-- READER_SUMMARY_END -->
+
 
 # Commencer ici
 
@@ -22,7 +39,7 @@ Un **casebook** est un dossier d'étude : il pose une question, rassemble des in
 | GNSS | Terminée et publiée comme étude documentaire | La couche de mesures propres à partir de trajectoires et de données GPSJAM n'a pas été réalisée. |
 | XZ Utils | Terminée et publiée | L'identité réelle des auteurs et une exploitation réelle restent non établies. |
 
-**Terminé signifie : une réponse livrée pour une question et un périmètre définis.** Cela ne signifie pas que toutes les inconnues ont disparu, que le sujet est clos pour toujours ou que les résultats sont actualisés en continu. Les dates des données et des sources restent celles indiquées dans chaque rapport. L'harmonisation éditoriale du 13 novembre 2026 n'est pas une nouvelle collecte.
+**Terminé signifie : une réponse livrée pour une question et un périmètre définis.** Cela ne signifie pas que toutes les inconnues ont disparu, que le sujet est clos pour toujours ou que les résultats sont actualisés en continu. Les dates des données et des sources restent celles indiquées dans chaque rapport. L'harmonisation éditoriale du 14 novembre 2026 n'est pas une nouvelle collecte.
 
 ## Choisir une première lecture
 
@@ -39,11 +56,9 @@ Dans ce guide, le **renseignement** désigne le résultat d'un travail d'analyse
 
 Une donnée isolée peut être exacte sans répondre à la question. L'analyse lui donne un contexte, teste des explications et indique ses limites.
 
-## Un exemple entièrement fictif
+## Un exemple tiré de Portal Kombat
 
-Trois sites de placement partagent la même adresse de contact technique. C'est une **information de départ**, à vérifier sur les pièces de l'exercice. Elle peut indiquer un prestataire commun. Elle peut aussi soutenir une hypothèse d'organisation commune. À elle seule, elle ne permet pas de qualifier une infraction ni d'identifier un responsable.
-
-L'analyste cherche alors des éléments qui départagent les explications : mêmes bénéficiaires déclarés ? chronologie compatible ? données de paiement simulées cohérentes ? informations contradictoires ? Une note utile précise les liens établis, les liens incertains et la prochaine vérification prioritaire.
+L’export étudié contient 371 observations correspondant à 370 domaines distincts. Cela décrit le fichier examiné. Ce comptage ne donne ni le nombre de lecteurs, ni leur opinion, ni l’identité du responsable du réseau. L’analyse consiste précisément à séparer ces questions et à rechercher les preuves adaptées à chacune.
 
 | Étape | Question simple |
 |---|---|
@@ -95,16 +110,12 @@ Dans chaque dossier, le **rapport** explique le raisonnement. La **carte des pre
 
 Les sources tierces conservent leurs droits. Certaines sont seulement liées et ne sont pas reproduites dans le portfolio. L'[usage de l'IA](AI_TRANSPARENCY.md) est déclaré ; une réponse d'IA ne constitue pas une source.
 
-# Prochain sujet proposé : comprendre un réseau de fraude
+# Prochain sujet proposé : JuicyFields
 
-**Case 05 — Escroqueries aux faux investissements : analyser un réseau fictif et prioriser les vérifications.**
+**Statut : candidat à cadrer, étude non commencée.** Ce projet porterait sur une affaire réelle d’escroquerie présumée à l’investissement dans le cannabis. Il répondrait à la question : **que permettent d’établir les documents publics sur le dispositif décrit par les autorités, sa chronologie et la coopération judiciaire ?**
 
-**Statut : proposition, non commencée.** L'objectif serait d'apprendre comment un analyste transforme des indices dispersés en questions et en priorités utiles. Aucune conclusion sur une affaire réelle n'est annoncée.
+Les points de départ sont les publications d’[Eurojust](https://www.eurojust.europa.eu/news/eurojust-helps-tackle-massive-fraud-eur-645-million-medicinal-cannabis-plants-across-europe), de la [National Crime Agency](https://www.nationalcrimeagency.gov.uk/news/uk-arrest-in-645-million-international-investment-scam) et de la [police de Berlin](https://www.berlin.de/polizei/polizeimeldungen/2024/pressemitteilung.1436559.php). Ces communiqués décrivent les positions des autorités à leurs dates de publication ; ils ne remplacent pas les décisions judiciaires.
 
-La question centrale serait : **quels liens entre sites, sociétés fictives, contacts et paiements simulés soutiennent l'hypothèse d'une organisation commune, et quelles vérifications permettraient de départager les autres explications ?**
+La première étape sera de vérifier l’accès aux décisions et aux documents publics nécessaires. Les liens du réseau devront chacun renvoyer à une pièce. Aucun paiement, acteur ou lien manquant ne sera inventé. Si les sources ne permettent pas de reconstituer des transactions, le dossier le dira et restera documentaire.
 
-Le cas séparerait deux types de matériaux : des publications officielles ouvertes pour comprendre le phénomène, et un dossier entièrement synthétique pour s'exercer. Les comptes, sociétés, personnes, déclarations et transactions de l'exercice seraient inventés et clairement étiquetés.
-
-Les livrables proposés sont une chronologie, un graphe justifié lien par lien, une comparaison d'hypothèses, des traitements Python/SQL reproductibles et une note de deux pages. Cette note expliquerait ce qui est établi dans l'exercice, ce qui reste incertain et quelles vérifications seraient prioritaires dans le cadre décrit.
-
-**Le résultat attendu est un raisonnement vérifiable et utile à une décision.** La taille du réseau ou le nombre de graphiques ne suffisent pas à démontrer la qualité de l'analyse.
+Les livrables envisagés sont une chronologie sourcée, un graphe de relations documentées, une comparaison des explications possibles et une note courte distinguant faits, allégations et inconnues. Ce cadrage ne constitue ni une enquête en cours ni une conclusion sur la culpabilité de personnes.

@@ -2,21 +2,33 @@
 title: "Titane et résilience de la filière aéronautique civile européenne"
 subtitle: "Case 01 - Comprendre la concentration, la qualification et la substituabilité à l'horizon 2030"
 author: "Emeline Cartier - Open Intelligence Casebook"
-date: "Édition publique révisée - septembre 2026"
+date: "Présentation révisée — 14 novembre 2026 ; données historiques"
 lang: fr-FR
 ---
 
 > **Diffusion : public - sources ouvertes.** Ce rapport est une édition pédagogique et assainie d'un casebook analytique audité. Il ne contient aucune donnée interne d'entreprise et ne constitue pas une recommandation d'achat.
 
-# Avant de commencer
+<!-- READER_SUMMARY_START -->
 
-**La question en langage courant.** Si une source de titane devient indisponible, les industriels européens peuvent-ils réellement se fournir ailleurs ?
+# L’essentiel en deux minutes
 
-**L'idée à retenir.** Acheter dans davantage de pays peut aider. Pour fabriquer une pièce d'avion, il faut aussi la bonne matière, des procédés qualifiés, l'accord du client et des livraisons possibles. Les chiffres douaniers éclairent une partie de cette chaîne.
+**La question.** Si une source de titane devient indisponible, les industriels européens peuvent-ils se fournir ailleurs pour fabriquer leurs pièces d’avion ?
 
-**Ce qui a été fait.** Le dossier compare des statistiques commerciales et des sources industrielles. Il sépare six catégories de produits pour éviter qu'une moyenne masque leurs différences.
+**Ce que montre l’étude.** Les importations ne suivent pas toutes la même évolution. Entre 2017 et 2025, les origines des tubes se concentrent davantage ; celles des déchets et chutes se diversifient. Il faut donc regarder chaque catégorie de produit séparément.
 
-**Statut.** Étude finalisée et publiée dans son périmètre. Les achats réels et les qualifications propres à chaque constructeur restent hors de ce que les données douanières démontrent.
+**Un chiffre pour comprendre.** La Chine représente **60,23 %** des origines identifiées pour les tubes en 2025. Cette part décrit les importations étudiées, toutes industries confondues. Elle ne mesure pas la dépendance d’un constructeur aéronautique particulier.
+
+**La limite essentielle.** Acheter dans plusieurs pays ne garantit pas de pouvoir remplacer un fournisseur. Il faut aussi une matière adaptée, des procédés vérifiés, l’accord du client et des livraisons possibles. Les données douanières ne prouvent pas ces conditions.
+
+**À quoi sert cette analyse ?** Elle aide à repérer les produits à examiner en priorité. Avant de décider, il faut vérifier les qualifications, les contrats et les possibilités de livraison propres au besoin réel.
+
+**Les données.** Statistiques commerciales réelles et documents industriels publics ; six catégories de produits, historique 2014–2025. L’étude est livrée pour ce périmètre ; les inconnues restent indiquées dans le rapport.
+
+**Pour vérifier.** Voir les [sources](sources.md), la [carte des preuves](evidence-map.md) et les résultats détaillés après le sommaire. La révision du 14 novembre 2026 améliore la présentation ; elle n’actualise pas les données.
+
+<!-- READER_SUMMARY_END -->
+
+# Repères de lecture
 
 ## Les mots utiles
 
@@ -28,9 +40,9 @@ lang: fr-FR
 
 **Pour lire les chiffres.** Une hausse du HHI ne mesure ni la probabilité d'une rupture ni le risque d'un avion. Les masses, les valeurs et les catégories de produits gardent leurs unités propres.
 
-**Parcours.** Lire « En deux minutes », puis les résultats et les limites. La [carte des preuves](evidence-map.md) et les [sources](sources.md) permettent d'approfondir. La présentation a été clarifiée le 13 novembre 2026 ; les données et conclusions conservent les dates de l'étude.
+**Parcours.** Lire la synthèse, puis les résultats et les limites. La [carte des preuves](evidence-map.md) et les [sources](sources.md) permettent d'approfondir. La présentation a été révisée le 14 novembre 2026 ; les données et conclusions conservent les dates de l'étude.
 
-# En deux minutes
+# Résultats et chiffres de référence
 
 Le titane est critique pour de nombreuses applications aéronautiques, mais les données publiques disponibles ne racontent qu'une partie de la chaîne. Les statistiques douanières montrent **où l'Union européenne importe certaines catégories de produits en titane et à quel point ces origines sont concentrées**. Elles ne disent pas directement si ces flux sont destinés à l'aéronautique, s'ils correspondent au bon grade, si un fournisseur est qualifié, si un client l'a approuvé ou si la matière peut être livrée sur un programme précis.
 
@@ -78,13 +90,61 @@ Le code **81082000** appelle une prudence particulière : il agrège éponge, li
 
 Le dépôt canonique suivait cinq PIR distincts. Leur couverture publique est affichée ici pour éviter qu'une réponse décisionnelle synthétique soit confondue avec une résolution exhaustive de toutes les sous-questions.
 
-| PIR | Question résumée | Statut à l'issue du casebook | Confiance | Lacune qui reste ouverte |
-|---|---|---|---|---|
-| PIR-01 | concentration mondiale maillon par maillon | **partiellement répondu** | faible | pas de série mondiale comparable 2014-2025 pour tous les maillons ni de cartographie exhaustive des acteurs qualifiés |
-| PIR-02 | exposition européenne directe et indirecte | **partiellement répondu** | modérée | les flux CN8 restent toutes industries ; pièces intégrées, réexportations et portefeuille réel non mesurés |
-| PIR-03 | diversification annoncée vs vérifiable | **partiellement répondu** | modérée | approbations clients, contrats, stocks et livraisons restent peu visibles publiquement |
-| PIR-04 | substituabilité, qualification et délais | **partiellement répondu** | faible | aucun délai générique fiable ni équivalence fournisseur/matière transférable à tous les programmes |
-| PIR-05 | trajectoires 2030 et signaux de vigilance | **répondu avec limites au stade scénarios/veille** | modérée sur le cadre | les 18 EWI définissent des signaux et cadences, pas des probabilités ni des seuils automatiques de décision |
+<div class="reader-card">
+
+**PIR-01**
+
+- **Question résumée :** concentration mondiale maillon par maillon
+- **Statut à l'issue du casebook :** **partiellement répondu**
+- **Confiance :** faible
+- **Lacune qui reste ouverte :** pas de série mondiale comparable 2014-2025 pour tous les maillons ni de cartographie exhaustive des acteurs qualifiés
+
+</div>
+
+<div class="reader-card">
+
+**PIR-02**
+
+- **Question résumée :** exposition européenne directe et indirecte
+- **Statut à l'issue du casebook :** **partiellement répondu**
+- **Confiance :** modérée
+- **Lacune qui reste ouverte :** les flux CN8 restent toutes industries ; pièces intégrées, réexportations et portefeuille réel non mesurés
+
+</div>
+
+<div class="reader-card">
+
+**PIR-03**
+
+- **Question résumée :** diversification annoncée vs vérifiable
+- **Statut à l'issue du casebook :** **partiellement répondu**
+- **Confiance :** modérée
+- **Lacune qui reste ouverte :** approbations clients, contrats, stocks et livraisons restent peu visibles publiquement
+
+</div>
+
+<div class="reader-card">
+
+**PIR-04**
+
+- **Question résumée :** substituabilité, qualification et délais
+- **Statut à l'issue du casebook :** **partiellement répondu**
+- **Confiance :** faible
+- **Lacune qui reste ouverte :** aucun délai générique fiable ni équivalence fournisseur/matière transférable à tous les programmes
+
+</div>
+
+<div class="reader-card">
+
+**PIR-05**
+
+- **Question résumée :** trajectoires 2030 et signaux de vigilance
+- **Statut à l'issue du casebook :** **répondu avec limites au stade scénarios/veille**
+- **Confiance :** modérée sur le cadre
+- **Lacune qui reste ouverte :** les 18 EWI définissent des signaux et cadences, pas des probabilités ni des seuils automatiques de décision
+
+</div>
+
 
 > **Interprétation.** Une PIR partiellement répondue n'est pas un échec : elle matérialise la frontière entre ce qui est défendable en sources ouvertes et ce qui exige des données industrielles, contractuelles ou client non publiques.
 
@@ -148,12 +208,46 @@ Cette chaîne est le cœur du casebook. Elle évite deux erreurs : compter une a
 
 ![Hypothèses](figures/hypotheses.svg)
 
-| Hypothèse | Verdict | Confiance | Lecture |
-|---|---|---|---|
-| H1 - exposition élevée persistante | partiellement soutenue | modérée | plusieurs concentrations persistent ou augmentent, d'autres baissent |
-| H2 - diversification effective | non concluante | faible | projets favorables mais portes de qualification/accès incomplètes |
-| H3 - exposition déplacée | partiellement soutenue | faible | recomposition des origines compatible, sans suivi maillon par maillon |
-| H4 - hétérogénéité par maillon/segment | partiellement soutenue | modérée | divergence claire entre catégories, mais segments aéronautiques non mesurés |
+<div class="reader-card">
+
+**H1 - exposition élevée persistante**
+
+- **Verdict :** partiellement soutenue
+- **Confiance :** modérée
+- **Lecture :** plusieurs concentrations persistent ou augmentent, d'autres baissent
+
+</div>
+
+<div class="reader-card">
+
+**H2 - diversification effective**
+
+- **Verdict :** non concluante
+- **Confiance :** faible
+- **Lecture :** projets favorables mais portes de qualification/accès incomplètes
+
+</div>
+
+<div class="reader-card">
+
+**H3 - exposition déplacée**
+
+- **Verdict :** partiellement soutenue
+- **Confiance :** faible
+- **Lecture :** recomposition des origines compatible, sans suivi maillon par maillon
+
+</div>
+
+<div class="reader-card">
+
+**H4 - hétérogénéité par maillon/segment**
+
+- **Verdict :** partiellement soutenue
+- **Confiance :** modérée
+- **Lecture :** divergence claire entre catégories, mais segments aéronautiques non mesurés
+
+</div>
+
 
 Le casebook refuse de fabriquer un « score global » de résilience : cela masquerait des différences de qualité de preuve et de périmètre.
 
@@ -211,16 +305,94 @@ La surveillance des indicateurs est la seule mesure pouvant véritablement **com
 
 Le dossier canonique transforme les dix options de résilience en **huit recommandations**. Les niveaux ci-dessous indiquent une posture de préparation, pas un ordre d'achat. Un EWI ouvre une **revue de posture** ; il ne déclenche jamais automatiquement un sourcing, un stock ou un investissement.
 
-| Niveau | ID | Recommandation | Déclencheurs / signaux principaux | Condition avant activation réelle |
-|---|---|---|---|---|
-| **Agir maintenant** | REC-01 | mettre en place une surveillance gouvernée | démarrage immédiat dans le périmètre informationnel | responsables, sources, cadence, règle de preuve et revue humaine |
-| **Préparer maintenant** | REC-02 | préparer diversification et qualification de nouvelles sources | EWI-03, EWI-04, EWI-06, EWI-09, EWI-17 | objet nommé, données internes, qualification, approbation, accès contractuel et livraison |
-| **Développer / valider** | REC-03 | préparer la visibilité multi-rangs et les droits d'information | préparation continue ; nouveaux jeux de données exploitables (EWI-16) | droits d'accès, fraîcheur, références, sites, origines et statuts de qualification |
-| **Développer / valider** | REC-04 | construire une redondance qualifiée et contractuellement accessible | EWI-04, EWI-06, EWI-07, EWI-09, EWI-12 | deux flux réellement indépendants sur un périmètre qualifié identique |
-| **Développer / valider** | REC-05 | construire la méthode de dimensionnement des stocks ciblés | EWI-09, EWI-13, EWI-17 | consommation, stock existant, délais, criticité, traçabilité et coût d'immobilisation |
-| **Développer / valider** | REC-06 | évaluer une boucle fermée sur un flux de chutes attribuable | EWI-10 | grade, volume collectable, rendement, traitement, qualification, approbation et retour matière |
-| **Développer / valider** | REC-07 | développer un dossier d'alternative matière ou procédé | EWI-03, EWI-18 | faisabilité, essais, responsabilités, qualification, approbation et capacité industrielle |
-| **Maintenir sous surveillance** | REC-08 | conserver la coopération clients/fournisseurs comme option liée à un dossier nommé | EWI-03, EWI-04, EWI-17 | dossier commun, responsabilités identifiées et signal attribuable |
+<div class="reader-card">
+
+**Agir maintenant**
+
+- **ID :** REC-01
+- **Recommandation :** mettre en place une surveillance gouvernée
+- **Déclencheurs / signaux principaux :** démarrage immédiat dans le périmètre informationnel
+- **Condition avant activation réelle :** responsables, sources, cadence, règle de preuve et revue humaine
+
+</div>
+
+<div class="reader-card">
+
+**Préparer maintenant**
+
+- **ID :** REC-02
+- **Recommandation :** préparer diversification et qualification de nouvelles sources
+- **Déclencheurs / signaux principaux :** EWI-03, EWI-04, EWI-06, EWI-09, EWI-17
+- **Condition avant activation réelle :** objet nommé, données internes, qualification, approbation, accès contractuel et livraison
+
+</div>
+
+<div class="reader-card">
+
+**Développer / valider**
+
+- **ID :** REC-03
+- **Recommandation :** préparer la visibilité multi-rangs et les droits d'information
+- **Déclencheurs / signaux principaux :** préparation continue ; nouveaux jeux de données exploitables (EWI-16)
+- **Condition avant activation réelle :** droits d'accès, fraîcheur, références, sites, origines et statuts de qualification
+
+</div>
+
+<div class="reader-card">
+
+**Développer / valider**
+
+- **ID :** REC-04
+- **Recommandation :** construire une redondance qualifiée et contractuellement accessible
+- **Déclencheurs / signaux principaux :** EWI-04, EWI-06, EWI-07, EWI-09, EWI-12
+- **Condition avant activation réelle :** deux flux réellement indépendants sur un périmètre qualifié identique
+
+</div>
+
+<div class="reader-card">
+
+**Développer / valider**
+
+- **ID :** REC-05
+- **Recommandation :** construire la méthode de dimensionnement des stocks ciblés
+- **Déclencheurs / signaux principaux :** EWI-09, EWI-13, EWI-17
+- **Condition avant activation réelle :** consommation, stock existant, délais, criticité, traçabilité et coût d'immobilisation
+
+</div>
+
+<div class="reader-card">
+
+**Développer / valider**
+
+- **ID :** REC-06
+- **Recommandation :** évaluer une boucle fermée sur un flux de chutes attribuable
+- **Déclencheurs / signaux principaux :** EWI-10
+- **Condition avant activation réelle :** grade, volume collectable, rendement, traitement, qualification, approbation et retour matière
+
+</div>
+
+<div class="reader-card">
+
+**Développer / valider**
+
+- **ID :** REC-07
+- **Recommandation :** développer un dossier d'alternative matière ou procédé
+- **Déclencheurs / signaux principaux :** EWI-03, EWI-18
+- **Condition avant activation réelle :** faisabilité, essais, responsabilités, qualification, approbation et capacité industrielle
+
+</div>
+
+<div class="reader-card">
+
+**Maintenir sous surveillance**
+
+- **ID :** REC-08
+- **Recommandation :** conserver la coopération clients/fournisseurs comme option liée à un dossier nommé
+- **Déclencheurs / signaux principaux :** EWI-03, EWI-04, EWI-17
+- **Condition avant activation réelle :** dossier commun, responsabilités identifiées et signal attribuable
+
+</div>
+
 
 ### 12.1 Ce que signifient les EWI
 
