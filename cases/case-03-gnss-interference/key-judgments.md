@@ -6,6 +6,8 @@
 >
 > Analyse OSINT — non destinée à la navigation.
 
+> **Révision analytique du 15 novembre 2026 :** correction du biais de détection et du retrait de lignée, à partir du même corpus. L’approbation du 1er novembre citée ci-dessus concerne l’édition historique ; cette révision est proposée pour relecture.
+
 ## Règles appliquées
 
 - Confiance humaine : **Élevée / Modérée / Faible** ; elle porte sur le jugement, pas sur la fiabilité d'une source.
@@ -18,9 +20,9 @@
 
 ---
 
-## KJ-01 — Une hausse nette jusqu'à mi-2025, une évolution ensuite incertaine
+## KJ-01 — Des indicateurs en hausse jusqu’à mi-2025, une évolution ensuite incertaine
 
-**Jugement.** Les dégradations GNSS touchant l'aviation civile ont nettement augmenté entre 2022 et la mi-2025. Plusieurs lignées distinctes concordent sur le sens de cette évolution. Depuis la mi-2025, l'évolution n'est plus établie : une baisse locale est documentée en Pologne, tandis que les institutions décrivent un phénomène persistant.
+**Jugement.** Les indicateurs et les déclarations institutionnelles décrivent une hausse des dégradations GNSS détectées entre 2022 et la mi-2025. Plusieurs lignées concordent sur le sens du signal mesuré ; elles ne séparent pas les variations du phénomène de celles de sa détection. Depuis la mi-2025, l'évolution n'est plus établie : une baisse locale est documentée en Pologne, tandis que les institutions décrivent un phénomène persistant.
 
 | Élément | Valeur | Preuve | Lignée |
 |---|---|---|---|
@@ -33,10 +35,10 @@
 | Baisse locale après la mi-2025 | EPWW : brouillage au plus haut en juin 2025 (1 940) puis 317 en novembre, remontée à 620 en décembre ; leurrage de 282 (janvier) à 52 (novembre), 95 en décembre | EV-055, EV-056 | ODG-PANSA |
 | Baisses localisées antérieures à la mi-2025 (contexte) | Boeing : hausse mondiale des occurrences avec des baisses localisées dans certaines FIR, sur des données de juin 2024 à mai 2025 ; elles ne renseignent pas l'après-mi-2025 | EV-051, EV-070 | ODG-BOEING-GEM |
 
-- **Confiance : Élevée** pour le sens de la tendance 2022 → mi-2025 au niveau mondial (taux IATA normalisés) et dans le foyer balte (part des vols, États, 2024–2025). **Modérée** pour l'Europe prise dans son ensemble : sur 2022–2023, seuls l'affirmation qualitative de l'EASA (EV-001) et le taux mondial IATA portent le jugement. Le comptage UIT n'est pas retenu comme preuve de tendance (KJ-05).
+- **Confiance : Élevée** pour le sens de la tendance des indicateurs 2022 → mi-2025 au niveau mondial (taux IATA normalisés) et dans le foyer balte (part des vols, États, 2024–2025). **Modérée** pour l'Europe prise dans son ensemble : sur 2022–2023, seuls l'affirmation qualitative de l'EASA (EV-001) et le taux mondial IATA portent le jugement. Le comptage UIT n'est pas retenu comme preuve de tendance (KJ-05).
 - **Confiance : Faible** pour l'ampleur européenne et pour la période postérieure à la mi-2025. Le taux IATA est mondial ; les dénominateurs diffèrent (GAP-002) ; aucune série européenne homogène 2022–2026 n'est publiée.
 - **Limite principale :** aucune série couvrant toute la période du cas (14 février 2022 → 31 juillet 2026) avec un dénominateur constant.
-- **Discriminant :** une série européenne publiée par FIR et par mois, normalisée par le trafic, couvrant 2022–2026.
+- **Discriminant :** une série européenne publiée par FIR et par mois, normalisée par le trafic, couvrant 2022–2026, avec population, définition et détection comparables.
 - **Raccourci interdit :** additionner ou comparer directement les chiffres des lignées. Ils n'ont ni la même unité, ni la même population.
 
 ## KJ-02 — Deux foyers européens persistants, sans démonstration d'une émergence
@@ -59,20 +61,21 @@ Aucune émergence d'un nouveau foyer européen n'est démontrée par les sources
 - **Inconclusif (PIR-2) :** l'atlas FIR/H3 et la mesure de persistance propre au projet n'ont pas été produits (choix de périmètre du 30 octobre 2026). L'« émergence » ne peut pas être évaluée sans série datée par FIR.
 - **Raccourci interdit :** lire une FIR absente du classement comme épargnée. L'absence de données n'est pas une absence de perturbation.
 
-## KJ-03 — Le signal relève surtout de brouillages et de leurrages réels, amplifiés par une meilleure détection
+## KJ-03 — Interférences documentées ; origine de la hausse non départagée
 
-**Jugement.** Les observations sont incompatibles avec une explication dominée par des artefacts de couverture ou des défauts techniques (H3). Elles sont compatibles avec des interférences réelles, en partie intentionnelles (H1). Une part de la hausse des comptages vient d'une meilleure détection (H2), ce qui oriente vers le modèle mixte H4, avec une composante réelle dominante.
+**Jugement.** Des brouillages et des leurrages réels sont documentés sur les événements décrits : une explication exclusivement fondée sur des artefacts ne couvre pas ces éléments. Leur existence ne permet pas de mesurer leur contribution à la hausse des indicateurs. H2 (phénomène stable, mieux détecté) reste possible pour expliquer cette hausse ; le modèle mixte H4 reste compatible, sans dominance établie de H1.
 
-- Discriminants qui écartent H3 :
+- Éléments incompatibles avec une explication exclusivement technique des événements documentés :
   - campagnes de mesure radiofréquence au sol et en vol, avec triangulation (EV-037), reprises dans le procès-verbal UIT (EV-063, EV-066) ;
-  - signatures de leurrage impossibles à produire par un trou de couverture : 293 vols et plus de 21 000 positions fausses sur une trajectoire circulaire autour de Rostov (EV-032) ;
+  - signatures interprétées comme du leurrage dans la source, au-delà d’un simple trou de couverture : 293 vols et plus de 21 000 positions fausses sur une trajectoire circulaire autour de Rostov (EV-032) ;
   - enregistreurs de bord indépendants de la couverture au sol (EV-046, EV-050).
 - Éléments qui maintiennent H2 dans le jeu :
   - la population suivie par IATA FDX varie d'une année à l'autre : le graphique superpose des barres de vols enregistrés, dont les valeurs ne sont pas lisibles dans la couche texte ; seul le cumul est publié (24,6 millions de vols d'août 2021 à juin 2025, EV-045) ;
   - la surveillance s'est institutionnalisée (indicateur EASA, EV-059) ;
   - dans la FIR de Budapest, début 2026, les rapports de pilotes ne couvrent que 2,6 à 8,1 % des événements détectés (EV-057) ; tout progrès du signalement gonfle donc les comptes bruts.
-- Pourquoi la composante réelle domine : les **taux normalisés** progressent aussi (EV-043, EV-042), ce qu'un simple effet de détection n'explique pas.
-- **Confiance : Élevée** pour le rejet de H3 comme explication principale. **Modérée** pour la part relative de H1 et de H2 : elle n'est pas quantifiable avec les sources publiques.
+- **Limite du raisonnement temporel :** les taux normalisés progressent (EV-043, EV-042), mais la normalisation par le trafic ne corrige pas les variations de détection, de population suivie, de couverture ou de définition. Cette hausse ne départage pas H1 et H2 à elle seule.
+- **Discriminant :** série à population, couverture, définition et sensibilité de détection comparables dans le temps, complétée par des mesures indépendantes pour les événements étudiés.
+- **Confiance : Élevée** pour l’existence d’interférences dans les événements documentés. **Part respective de H1 et H2 dans la hausse : non établie**, faute de série comparable et de contrôle de la détection. Le retrait de la dominance H1 corrige une inférence ; ce n’est pas une nouvelle mesure.
 - **Attribution (rapportée, non jugée) :**
   - le Comité du Règlement des radiocommunications de l'UIT, statuant notamment sur un document des administrations d'Estonie, de Lettonie et de Lituanie (EV-069), écrit que des mesures ont géolocalisé la source des brouillages sur le territoire de la Fédération de Russie (EV-063) ;
   - le Conseil de l'OACI qualifie la situation d'infraction à la Convention de Chicago (EV-034) ;
@@ -122,7 +125,7 @@ Les indicateurs utilisables sont les taux normalisés (par 1 000 vols, part des 
 |---|---|---|
 | PIR-1 Évolution | KJ-01 | répondu (sens) ; ampleur européenne inconclusive |
 | PIR-2 Géographie | KJ-02 | répondu (foyers persistants) ; émergence et atlas inconclusifs |
-| PIR-3 Nature | KJ-03 | répondu (compatibilité qualitative, H4 à dominante H1) |
+| PIR-3 Nature | KJ-03 | partiel (existence documentée ; origine de la hausse non départagée) |
 | PIR-4 Conséquences | KJ-04 | répondu (nature) ; fréquence et comparaison témoin inconclusives |
 | PIR-5 Biais | KJ-03, KJ-05 | partiellement répondu (biais de déclaration chiffré) ; décomposition inconclusive |
 | PIR-6 Veille | KJ-05 | répondu (indicateurs et garde-fous) |
