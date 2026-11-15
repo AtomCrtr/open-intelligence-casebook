@@ -12,7 +12,7 @@
 [![Langue](https://img.shields.io/badge/langue-fran%C3%A7ais-1f6f78)](README.md)
 [![Rapports](https://img.shields.io/badge/rapports%20publics-4-244c66)](#les-casebooks)
 [![OSINT](https://img.shields.io/badge/OSINT-passif-355c7d)](#m%C3%A9thode-commune)
-[![Publication](https://img.shields.io/badge/publication-RELEASE%20PASS-2e7d32)](publication/release-checklist.md)
+[![Contrôles techniques](https://img.shields.io/badge/contr%C3%B4les-techniques%20v%C3%A9rifi%C3%A9s-2e7d32)](publication/release-checklist.md)
 
 **Open Intelligence Casebook** est un portfolio public d'études d'intelligence en sources ouvertes.  
 Chaque cas part d'une question concrète, transforme des sources publiques en preuves vérifiables, confronte plusieurs hypothèses et restitue un jugement avec ses limites.
@@ -27,10 +27,16 @@ Chaque cas part d'une question concrète, transforme des sources publiques en pr
 
 | | |
 |---|---|
-| **4 études finalisées et publiées** | Chaque cas en Markdown et en PDF A4 reconstruit par la CI |
-| **4 casebooks** | 4 publiés · GNSS finalisé dans son périmètre documentaire |
+| **4 éditions publiées** | Chaque cas en Markdown et en PDF A4 reconstruit par la CI |
+| **Revue analytique** | En cours ; les corrections publiées ne valent pas clôture de toutes les vérifications |
 | **Approche** | OSINT passif · GEOINT · analyse de données · graphes · ACH |
-| **Principe central** | **Decision-first + Evidence-deep** : décision rapide, preuve entièrement auditable |
+| **Principe central** | **Decision-first + Evidence-deep** : synthèse courte, preuves et limites traçables |
+
+### Trois états à distinguer
+
+- **Contrôles techniques : vérifiés pour l’édition livrée.** Construction, tests et empreintes sont décrits dans la [checklist](publication/release-checklist.md). Leur réussite ne valide pas à elle seule le raisonnement analytique ; le résultat courant de la CI reste consultable sur GitHub.
+- **Revues : encore en cours.** Des corrections de fond ont été publiées ; la reproduction reste limitée à certains résultats et l’harmonisation des appréciations de confiance reste à compléter. Les tests auprès de débutants et avec un lecteur d’écran restent à réaliser ; ils évaluent la compréhension et l’accessibilité, séparément de la solidité analytique.
+- **Contributions : documentées avec leurs lacunes.** La [fiche par cas](AI_TRANSPARENCY.md) décrit les usages de l’IA effectivement observés et les contributions personnelles restant à préciser.
 
 > **Ce dépôt n'est pas un dump de recherche.** C'est une édition publique assainie : pas d'historique privé, pas d'audits internes, pas de secrets et pas de corpus tiers redistribué lorsque les droits sont incertains.
 
@@ -152,7 +158,7 @@ Un cas de **compromission de la chaîne d'approvisionnement logicielle** traité
 
 ## Prochain sujet proposé
 
-**Case 05 envisagé — JuicyFields : comprendre une affaire d’escroquerie présumée à l’investissement à partir de documents publics réels.** Statut : **candidat à cadrer, non commencé**. Aucun acteur, lien ou paiement manquant ne sera inventé. [Question et sources de départ](READING_GUIDE.md#prochain-sujet-proposé--juicyfields).
+**Case 05 en préparation — Rotterdam : ce que permettent d’établir les décisions pénales publiées de 2019 à 2025 sur les rôles internes et les actes examinés en lien avec l’importation de cocaïne.** Statut : **pilote privé préparé ; dix décisions non encore codées**. Les acquittements sont admissibles et les relations entre décisions doivent être explicites. JuicyFields reste une solution de repli. [Périmètre et méthode envisagés](READING_GUIDE.md#prochain-sujet-en-préparation--rotterdam).
 
 ## Méthode commune
 

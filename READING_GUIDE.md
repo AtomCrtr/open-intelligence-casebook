@@ -2,7 +2,7 @@
 title: "Comprendre le renseignement et lire les quatre études"
 subtitle: "Guide de découverte — aucune connaissance technique nécessaire"
 author: "Emeline Cartier — Open Intelligence Casebook"
-date: "14 novembre 2026"
+date: "15 novembre 2026"
 lang: fr-FR
 reading-guide: true
 ---
@@ -17,7 +17,7 @@ reading-guide: true
 
 **Pour commencer**, choisissez un rapport et lisez sa synthèse juste après la couverture. Essayez ensuite d’expliquer sa question, son résultat et sa principale limite avec vos mots. Les sources et les détails permettent de vérifier votre compréhension.
 
-**Le prochain cas envisagé** porte sur JuicyFields et les escroqueries à l’investissement. Il reste à cadrer à partir de documents publics réels. Une allégation, une arrestation et une condamnation devront être distinguées.
+**Le prochain cas en préparation** porte sur les décisions pénales publiées concernant le port de Rotterdam. Un pilote de dix décisions doit vérifier ce que l’on peut comparer. Les accusations, les faits retenus et les acquittements seront distingués. JuicyFields reste un sujet de repli.
 
 **Pour tester la lecture**, utilisez le [questionnaire débutant](BEGINNER_READING_TEST.md). Aucun résultat de test auprès de débutants n’est encore disponible.
 
@@ -26,7 +26,7 @@ reading-guide: true
 
 # Commencer ici
 
-Un **casebook** est un dossier d'étude : il pose une question, rassemble des informations, compare des explications et présente une réponse avec ses limites. Ce portfolio contient quatre études finalisées dans leur périmètre. Elles servent à apprendre et à montrer une méthode d'analyse.
+Un **casebook** est un dossier d'étude : il pose une question, rassemble des informations, compare des explications et présente une réponse avec ses limites. Ce portfolio contient quatre éditions publiées, dont les revues restent ouvertes. Elles servent à apprendre et à montrer une méthode d'analyse.
 
 **Parcours conseillé :** lire ce guide, choisir un sujet dans le tableau, puis lire l'introduction du rapport. Les sources et les tableaux détaillés permettent ensuite de vérifier le raisonnement. Chaque étude existe en Markdown, lisible sur GitHub, et en PDF, téléchargeable et imprimable.
 
@@ -110,12 +110,16 @@ Dans chaque dossier, le **rapport** explique le raisonnement. La **carte des pre
 
 Les sources tierces conservent leurs droits. Certaines sont seulement liées et ne sont pas reproduites dans le portfolio. L'[usage de l'IA](AI_TRANSPARENCY.md) est déclaré ; une réponse d'IA ne constitue pas une source.
 
-# Prochain sujet proposé : JuicyFields
+# Prochain sujet en préparation : Rotterdam
 
-**Statut : candidat à cadrer, étude non commencée.** Ce projet porterait sur une affaire réelle d’escroquerie présumée à l’investissement dans le cannabis. Il répondrait à la question : **que permettent d’établir les documents publics sur le dispositif décrit par les autorités, sa chronologie et la coopération judiciaire ?**
+**Statut : pilote privé préparé, dix décisions non encore codées.** La question est : **que permettent d’établir les décisions pénales publiées entre 2019 et 2025 sur les rôles internes et les actes examinés en lien avec l’importation de cocaïne au port de Rotterdam ?** La période désigne la date des décisions, qui peut différer de celle des faits et de leur publication.
 
-Les points de départ sont les publications d’[Eurojust](https://www.eurojust.europa.eu/news/eurojust-helps-tackle-massive-fraud-eur-645-million-medicinal-cannabis-plants-across-europe), de la [National Crime Agency](https://www.nationalcrimeagency.gov.uk/news/uk-arrest-in-645-million-international-investment-scam) et de la [police de Berlin](https://www.berlin.de/polizei/polizeimeldungen/2024/pressemitteilung.1436559.php). Ces communiqués décrivent les positions des autorités à leurs dates de publication ; ils ne remplacent pas les décisions judiciaires.
+Le protocole prévoit un registre de recherche, une grille versionnée et un échantillon contrasté de dix décisions. Les condamnations, acquittements et issues mixtes sont admissibles. Chaque valeur doit renvoyer à un passage en néerlandais, à sa traduction et à la voix qui s’exprime : parquet, défense ou tribunal. Un acte retenu doit être appuyé par les faits déclarés prouvés par le tribunal.
 
-La première étape sera de vérifier l’accès aux décisions et aux documents publics nécessaires. Les liens du réseau devront chacun renvoyer à une pièce. Aucun paiement, acteur ou lien manquant ne sera inventé. Si les sources ne permettent pas de reconstituer des transactions, le dossier le dira et restera documentaire.
+Les [décisions publiées](https://www.rechtspraak.nl/uitspraken) et le [service Open Data officiel](https://www.rechtspraak.nl/uitspraken/open-data) constituent les sources de départ. Leur [sélection de publication](https://www.rechtspraak.nl/uitspraken/selectiecriteria) empêche d’assimiler le corpus à tous les jugements rendus ou à toute la criminalité portuaire. Une première instance ne signifie pas une décision définitive ; sans vérification des suites, le recours reste inconnu.
 
-Les livrables envisagés sont une chronologie sourcée, un graphe de relations documentées, une comparaison des explications possibles et une note courte distinguant faits, allégations et inconnues. Ce cadrage ne constitue ni une enquête en cours ni une conclusion sur la culpabilité de personnes.
+L’unité d’analyse sera la décision. Le graphe envisagé reliera des catégories de fonctions et d’actes, avec leurs pièces, et non des personnes réidentifiées. Les pseudonymes identiques dans deux décisions ne suffisent pas à relier des individus. Les valeurs manquantes distingueront « non précisé », « absent selon le tribunal » et « sans objet ».
+
+Le codage humain, la vérification des traductions et le recodage de trois décisions à une semaine d’intervalle restent à réaliser. Le pilote déterminera si une comparaison structurée est possible ou si une série qualitative de cas est plus adaptée. Aucun résultat n’est annoncé à ce stade.
+
+**Repli : JuicyFields**, sur documents publics réels, si le corpus Rotterdam ne permet pas le travail prévu. Ce choix de repli ne constitue pas une étude déjà produite.
