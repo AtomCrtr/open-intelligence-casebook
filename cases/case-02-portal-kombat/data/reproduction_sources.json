@@ -1,0 +1,16 @@
+[
+  {
+    "source_id": "S-008",
+    "url": "https://raw.githubusercontent.com/VIGINUM-FR/Rapports-Techniques/933c7332db292fe7a1f73a13058b19e1210b0b1a/202402%20-%20Portal%20Kombat/20241227_SGDSN_VIGINUM_NP_TLP-CLEAR_Portal-Kombat-domains.csv",
+    "commit": "933c7332db292fe7a1f73a13058b19e1210b0b1a",
+    "sha256": "3ddeb4171166e384733bbdf16b8afc66c21b2e40adf166ac9dc107e77e176d89",
+    "byte_size": 15773
+  },
+  {
+    "source_id": "S-031",
+    "url": "https://raw.githubusercontent.com/VIGINUM-FR/Rapports-Techniques/933c7332db292fe7a1f73a13058b19e1210b0b1a/202402%20-%20Portal%20Kombat/20240212_VIGINUM_TLP%20CLEAR_Portal%20Kombat%20A%20structured%20and%20coordinated%20pro-Russian%20propaganda%20network_full.json",
+    "commit": "933c7332db292fe7a1f73a13058b19e1210b0b1a",
+    "sha256": "ecbcf48419c8990d9c22a545da33ffe11c530e7cb628009eea2517e650487456",
+    "byte_size": 1289825
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "attribution": "Source : Eurostat, DS-045409, accès le 26 juillet 2026 ; filtrage et classification par ce projet.",
+  "terms": "https://ec.europa.eu/eurostat/help/copyright-notice",
+  "scope": {
+    "reporter": "EU27_2020",
+    "flow": "IMPORT",
+    "years": [
+      2017,
+      2025
+    ],
+    "measure": "QUANTITY_IN_100KG",
+    "unit": "100 kg",
+    "products": [
+      "81082000",
+      "81083000",
+      "81089030",
+      "81089050",
+      "81089060",
+      "81089090"
+    ]
+  },
+  "historical_note": "Snapshot normalisé historique ; une réacquisition Eurostat actuelle peut différer après révision des séries.",
+  "sha256": "1c8e87596ac6938aa76b3932e62a40403429fd0422367bbff32a5d0d4d1b4880"
+}

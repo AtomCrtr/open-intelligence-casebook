@@ -267,3 +267,7 @@ Pour citer ce travail : [`CITATION.cff`](CITATION.cff) (bouton « Cite this repo
 ## Tester la lecture
 
 Les rapports commencent par une synthèse courte, avant leur sommaire. Le [questionnaire débutant](BEGINNER_READING_TEST.md) ([PDF](BEGINNER_READING_TEST.pdf)) permet de tester leur compréhension. Les résultats de ces tests ne sont pas encore recueillis.
+
+## Reproduire un résultat
+
+Les parcours [Titane](cases/case-01-titanium/REPRODUCE.md) et [Portal Kombat](cases/case-02-portal-kombat/REPRODUCE.md) montrent comment retrouver les chiffres sélectionnés avec Python, puis relier le résultat à ses limites. Ils utilisent des données réelles ; leur périmètre ne couvre pas tous les calculs des dossiers.

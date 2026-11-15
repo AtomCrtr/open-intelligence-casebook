@@ -112,3 +112,7 @@ case-01-titanium/
 ```
 
 [← Retour au casebook](../../README.md)
+
+## Reproduire les mesures
+
+Le [parcours de reproduction](REPRODUCE.md) décrit les données, les étapes de calcul et ce que les chiffres permettent de conclure. La [carte des preuves](evidence-map.md) affiche les identifiants des affirmations.

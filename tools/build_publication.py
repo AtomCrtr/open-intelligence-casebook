@@ -91,6 +91,11 @@ def hypothesis_panel(path: Path, rows: list[list[str]], title: str) -> None:
 def generate_figures() -> None:
     ensure_dirs()
     case1_rows = read_case1_rows()
+    sys.path.insert(0, str(ROOT))
+    from tools.reproduce_results import reproduce_titanium
+    reproduce_titanium(ROOT)
+    with (C2/'data/key_metrics.csv').open(encoding='utf-8', newline='') as handle:
+        metrics2 = {row['metric']: int(row['value']) for row in csv.DictReader(handle)}
     labels = [r[1].replace(' agrégées', '') for r in case1_rows]
     y = range(len(labels))
 
@@ -99,9 +104,19 @@ def generate_figures() -> None:
     ax.barh([i - .18 for i in y], [r[3] for r in case1_rows], height=.34, label='2025', alpha=.9)
     ax.set_yticks(list(y), labels); ax.invert_yaxis(); ax.set_xlabel('HHI parmi les origines identifiées')
     ax.set_title('Concentration des origines extra-UE : 2017 vs 2025')
-    ax.axvline(2500, ls='--', lw=1); ax.text(2525, 5.7, 'repère 2 500', fontsize=8)
+    ax.axvline(2500, ls='--', lw=1)
+    ax.annotate('repère 2 500', xy=(2500, 0), xycoords=('data', 'axes fraction'),
+                xytext=(4, 6), textcoords='offset points', fontsize=8)
     ax.legend(frameon=False); ax.grid(axis='x', alpha=.2)
-    fig.tight_layout(); fig.savefig(C1/'figures/hhi_2017_2025.svg', bbox_inches='tight'); plt.close(fig)
+    with (C1/'data/uncertainty.csv').open(encoding='utf-8', newline='') as handle:
+        uncertainty = list(csv.DictReader(handle))
+    bars2017 = next(row for row in uncertainty if row['cn8'] == '81089030' and row['year'] == '2017')
+    fig.text(.01, .01, 'Source : Eurostat/Comext, snapshot juillet 2026 ; six CN8, UE27 extra-UE, masse nette.\n'
+             f"Barres 2017 : couverture {float(bars2017['identified_coverage_pct']):.2f} % ; enveloppe sur le total "
+             f"{float(bars2017['hhi_lower_bound_total']):.1f}–{float(bars2017['hhi_upper_bound_total']):.1f}.\n"
+             'Barres du graphique : HHI renormalisé sur les origines identifiées. Enveloppe : autre dénominateur, pas un intervalle statistique.', fontsize=8)
+    fig.subplots_adjust(bottom=.19)
+    fig.savefig(C1/'figures/hhi_2017_2025.svg' , bbox_inches='tight'); plt.close(fig)
 
     fig, ax = plt.subplots(figsize=(10, 6.4))
     for i, r in enumerate(case1_rows):
@@ -111,7 +126,7 @@ def generate_figures() -> None:
         ax.text(r[5], i+.18, f'{r[4]} {r[5]:.1f} %', ha='center', fontsize=8)
         ax.text(r[7], i-.25, f'{r[6]} {r[7]:.1f} %', ha='center', fontsize=8)
     ax.set_yticks(list(y), labels); ax.invert_yaxis(); ax.set_xlabel('Part du premier partenaire (%)')
-    ax.set_xlim(15, 66); ax.set_title("Poids du partenaire dominant : changer d'origine ne signifie pas baisser automatiquement la concentration")
+    ax.set_xlim(15, 66); ax.margins(y=.16); ax.set_title("Poids du partenaire dominant : changer d'origine ne signifie pas baisser automatiquement la concentration")
     ax.legend(frameon=False); ax.grid(axis='x', alpha=.2)
     fig.tight_layout(); fig.savefig(C1/'figures/dominant_partner.svg', bbox_inches='tight'); plt.close(fig)
 
@@ -151,7 +166,7 @@ def generate_figures() -> None:
     fig, ax = plt.subplots(figsize=(10.8,4.7)); ax.set_xlim(2012.5,2025.8); ax.set_ylim(0,1.08); ax.set_yticks([]); ax.hlines(.43,2013,2025.1,lw=2)
     events = [
         (2013,'Écosystèmes\nhistoriques',.70,0,'center'), (2018,'Concentration\ndatée',.72,0,'center'),
-        (2022,'Cluster post-2022\n(-news.ru)',.70,0,'center'), (2024.25,'Mars 2024\n31 observations pravda-*',.86,-.10,'right'),
+        (2022,'Cluster post-2022\n(-news.ru)',.70,0,'center'), (2024.25,f"Mars 2024\n{metrics2['domaines_mars_2024']} observations pravda-*",.86,-.10,'right'),
         (2025.05,'Expansion mondiale\nrapportée 2024-2025',.62,.18,'left'),
     ]
     for x,t,ty,dx,ha in events:
@@ -169,19 +184,19 @@ def generate_figures() -> None:
         newline='\n',
     )
 
-    labels2 = ['Modèle initial','Sans liens des nœuds campagne','Sans relations amplifies','Sans relations uses']; vals=[604,602,305,560]
+    labels2 = ['Modèle initial','Sans liens des nœuds campagne','Sans relations amplifies','Sans relations uses']; vals=[metrics2[key] for key in ['composante_principale', 'composante_sans_liens_campagne', 'composante_sans_amplifies', 'composante_sans_uses']]
     fig, ax = plt.subplots(figsize=(9.5,5.3)); bars=ax.barh(labels2,vals,alpha=.85,hatch=['','//','xx','..']); ax.invert_yaxis()
     ax.set_xlabel('Taille de la composante principale (nœuds)'); ax.set_title('Retirer certains liens change la taille du réseau connecté')
     for b,v in zip(bars,vals): ax.text(v+8,b.get_y()+b.get_height()/2,str(v),va='center',fontsize=9)
     ax.set_xlim(0,650); ax.grid(axis='x',alpha=.2); fig.tight_layout(); fig.savefig(C2/'figures/graph_sensitivity.svg',bbox_inches='tight'); plt.close(fig)
 
-    fig, ax = plt.subplots(figsize=(9.7,5.1)); langs=['ru','uk','en','fr']; vals=[922,580,133,28]
+    fig, ax = plt.subplots(figsize=(9.7,5.1)); langs=['ru','uk','en','fr']; vals=[metrics2['wikipedia_'+lang] for lang in langs]
     bars=ax.bar(langs,vals,alpha=.85,hatch=['//','..','xx','--']); ax.set_ylabel('Observations Wikipedia'); ax.set_title('Dissémination observée sur Wikipedia : la couche francophone reste minoritaire')
     for b,v in zip(bars,vals): ax.text(b.get_x()+b.get_width()/2,v+18,str(v),ha='center',fontsize=9)
     ax.grid(axis='y',alpha=.2); fig.tight_layout(); fig.savefig(C2/'figures/wikipedia_languages.svg',bbox_inches='tight'); plt.close(fig)
 
     fig, axes = plt.subplots(2, 2, figsize=(9.8, 4.5))
-    for ax, value, label in zip(axes.flat, [28, 94, 130, 184], [
+    for ax, value, label in zip(axes.flat, [metrics2[key] for key in ['wikipedia_fr', 'x_fr', 'x_fr_domains', 'stix_degre_pravda_fr']], [
         'Observations Wikipedia\nÉdition française', 'Observations X\nCode de langue fr',
         'Observations X\nVers des domaines France-compatibles',
         'Degré du nœud pravda-fr\nLiens dans le modèle STIX',
@@ -404,6 +419,8 @@ def write_publication_files() -> None:
         C3/'provenance.csv', *sorted((C3/'figures').glob('*.svg')), C3/'report.pdf',
         C4/'provenance.csv', C4/'report.pdf', ROOT/'READING_GUIDE.pdf', ROOT/'BEGINNER_READING_TEST.pdf',
     ]
+    generated += [path for case in [C1, C2] for path in sorted((case/'data').glob('*'))
+                  if path.is_file() and path.name != 'key_metrics.csv']
     with (PUB/'checksums.sha256').open('w',encoding='utf-8',newline='\n') as f:
         for p in generated:
             f.write(f'{sha256(p)}  {p.relative_to(ROOT).as_posix()}\n')
@@ -432,6 +449,8 @@ def write_publication_files() -> None:
             elif rel.startswith('tests/'):
                 cls='build_validation'
                 rule='public_original_code'
+            elif rel.endswith('/data/reproduction_masses.csv'):
+                cls='normalized_open_data'; rule='eurostat_reuse_with_attribution'
             elif rel.endswith('.csv'): cls='derived_data'; rule='public_original_derivation'
             else: cls='documentation'; rule='public_original_or_link_only_sources'
             w.writerow([rel,cls,rule])
