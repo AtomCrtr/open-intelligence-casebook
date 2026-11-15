@@ -44,6 +44,8 @@ lang: fr-FR
 
 # Résultats et chiffres de référence
 
+**Vérifier les conclusions.** La [carte des preuves](evidence-map.md) repère les affirmations `C1-PUB-001` à `C1-PUB-008` et les relie aux sources. Le [parcours de reproduction](REPRODUCE.md) permet de recalculer les résultats sélectionnés.
+
 Le titane est critique pour de nombreuses applications aéronautiques, mais les données publiques disponibles ne racontent qu'une partie de la chaîne. Les statistiques douanières montrent **où l'Union européenne importe certaines catégories de produits en titane et à quel point ces origines sont concentrées**. Elles ne disent pas directement si ces flux sont destinés à l'aéronautique, s'ils correspondent au bon grade, si un fournisseur est qualifié, si un client l'a approuvé ou si la matière peut être livrée sur un programme précis.
 
 L'analyse couvre six codes CN8 sur les années complètes 2014-2025. Pour comparer finement les origines, la fenêtre commune la plus robuste est 2017-2025. Le résultat principal est **hétérogène** : les tubes se concentrent fortement, les déchets et certains ouvrages se diversifient, les barres et les formes brutes restent globalement stables, tandis que les produits plats montrent une évolution mixte.
@@ -179,6 +181,18 @@ La comparaison des six catégories montre qu'il n'existe pas une trajectoire uni
 
 Le cas des tubes est le signal le plus visible : le HHI progresse fortement et la Chine représente **60,23 %** du premier partenaire en 2025 parmi les origines identifiées. À l'inverse, les déchets et les autres ouvrages montrent une dispersion plus forte.
 
+<div class="reader-card">
+
+## Une incertitude à conserver dans la lecture
+
+Pour les **barres en 2017**, les origines identifiées couvrent **97,77 %** de la masse publiée ; **2,23 %** restent non attribués à un pays. Le HHI **2 991,9** décrit la concentration **entre les seules origines identifiées**, dont les parts sont ramenées à 100 %.
+
+Si l’on raisonne sur **toute la masse**, la partie inconnue conduit à une enveloppe de **2 860,0 à 3 060,3** selon sa répartition possible. Cette enveloppe utilise un autre dénominateur. Elle n’est ni une marge d’erreur autour de 2 991,9 ni un intervalle de confiance statistique. Elle évite d’attribuer arbitrairement les origines inconnues.
+
+Les [couvertures et enveloppes des douze comparaisons](data/uncertainty.csv) sont publiées, avec un [exemple de recalcul](REPRODUCE.md). Les conclusions restent limitées aux flux commerciaux.
+
+</div>
+
 # 5. Changer de premier partenaire ne signifie pas nécessairement se diversifier
 
 ![Partenaire dominant](figures/dominant_partner.svg)
@@ -302,6 +316,8 @@ Le portefeuille canonique contient dix options, classées par fonction plutôt q
 La surveillance des indicateurs est la seule mesure pouvant véritablement **commencer immédiatement dans son périmètre informationnel**. Les autres nécessitent des données internes, des qualifications, des validations, des partenaires ou des déclencheurs nommés.
 
 # 12. Recommandations conditionnelles
+
+Leur portée et leurs limites correspondent à l’affirmation **C1-PUB-008** de la [carte des preuves](evidence-map.md).
 
 Le dossier canonique transforme les dix options de résilience en **huit recommandations**. Les niveaux ci-dessous indiquent une posture de préparation, pas un ordre d'achat. Un EWI ouvre une **revue de posture** ; il ne déclenche jamais automatiquement un sourcing, un stock ou un investissement.
 

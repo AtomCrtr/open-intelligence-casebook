@@ -88,3 +88,11 @@ Aucune tentative d'identification des personnes derrière les pseudonymes ; aucu
 **RIGHTS REVIEW: PASS**
 
 Aucun artefact tiers copié dans l'édition publique ne conserve un statut de redistribution non résolu. Les sources dont les droits sont incertains restent sous forme de liens et de références.
+
+## Addendum du 15 novembre 2026 — reproduction des mesures
+
+Le sous-ensemble normalisé Eurostat `cases/case-01-titanium/data/reproduction_masses.csv` (2017 et 2025, six CN8, masse et classification des partenaires) est publié avec attribution, périmètre et modifications explicités dans son manifest. Les conditions Eurostat autorisent cette réutilisation avec attribution ; les données dérivées et le référentiel de partenaires étaient déjà couverts par la revue de redistribution du projet. Aucun fichier brut ni donnée Comtrade n’est ajouté. Les limites de révision des séries historiques sont explicites.
+
+Les fichiers VIGINUM restent non redistribués : seuls leurs URL à commit fixe, empreintes et paramètres de traitement sont publiés. Le programme de reproduction les consulte en mémoire et publie des décomptes ; il n’accède à aucun domaine de l’écosystème étudié. Les tests du graphe utilisent des fixtures originales synthétiques. Les fichiers Wikipédia/X ne sont pas requis par ce parcours.
+
+Décision : **RIGHTS REVIEW: PASS** pour ce périmètre limité. Les conditions des sources tierces restent applicables.

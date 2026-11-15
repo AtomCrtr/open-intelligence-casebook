@@ -48,3 +48,14 @@ Chaque rapport contient une synthèse délimitée par `<!-- READER_SUMMARY_START
 Le [test de lecture](BEGINNER_READING_TEST.md) sert à recueillir une validation humaine ; sa préparation ne signifie pas que des débutants ont déjà testé les rapports.
 
 Les identifiants des en-têtes de tableaux balisés et leurs références sont normalisés ensemble : WeasyPrint 68.0 les dérive sinon de la mémoire du processus. Cette normalisation conserve les relations cellule/en-tête et permet la comparaison binaire entre deux constructions.
+
+## Recalculer des résultats avant de construire les PDF
+
+```bash
+python tools/reproduce_results.py titanium
+python tools/reproduce_results.py portal
+```
+
+Le premier parcours est hors réseau et recalcule les douze comparaisons Titane à partir d’un sous-ensemble normalisé Eurostat publié avec attribution. Le second réacquiert en mémoire deux fichiers VIGINUM à un commit et une empreinte fixes, puis recalcule les domaines, le graphe et ses sensibilités. Voir les parcours [Titane](cases/case-01-titanium/REPRODUCE.md) et [Portal Kombat](cases/case-02-portal-kombat/REPRODUCE.md) pour le périmètre exact et les limites. La CI ne télécharge pas les corpus VIGINUM : les tests hors réseau utilisent des exemples synthétiques clairement identifiés.
+
+La construction des figures vérifie le recalcul Titane et lit les mesures numériques Portal Kombat depuis `data/key_metrics.csv`. Une construction PDF seule ne recalcule pas les données VIGINUM ni les métriques Wikipedia/X.

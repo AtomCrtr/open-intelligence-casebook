@@ -14,3 +14,12 @@ x_fr_domains,130,observations X vers domaines France-compatibles
 portails_checkfirst,101,portails dans les agrégats CheckFirst
 portail_langue_rows,4572,lignes portail-langue
 langues_codes,47,codes langue
+domaines_distincts,370,domaines après normalisation minuscule et espaces
+composante_sans_liens_campagne,602,plus grand ensemble connecté sans liens des nœuds campagne
+relations_sans_liens_campagne,703,liens restants ; tous les nœuds restent présents
+composante_sans_amplifies,305,plus grand ensemble connecté sans amplifies
+composante_sans_uses,560,plus grand ensemble connecté sans uses
+wikipedia_ru,922,observations Wikipedia code ru
+wikipedia_uk,580,observations Wikipedia code uk
+wikipedia_en,133,observations Wikipedia code en
+stix_degre_pravda_fr,184,degré STIX du nœud pravda-fr

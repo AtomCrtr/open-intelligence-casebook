@@ -45,6 +45,8 @@ lang: fr-FR
 
 # Résultats et chiffres de référence
 
+**Vérifier les conclusions.** La [carte des preuves](evidence-map.md) repère les affirmations `C2-PUB-001` à `C2-PUB-008` et les relie aux sources. Le [parcours de reproduction](REPRODUCE.md) permet de recalculer les résultats sélectionnés.
+
 Portal Kombat / Pravda est un ensemble de portails d'information automatisés et localisés, documenté par VIGINUM et plusieurs organisations de recherche. L'objectif de ce casebook n'est pas de répéter une attribution, mais de montrer **ce qu'une analyse structurée en sources ouvertes peut établir** sur la chronologie, la structure, la visibilité et les hypothèses de coordination.
 
 Le snapshot étudié contient **371 observations correspondant à 370 domaines distincts**, dont **232 datées** et **139 sans date**. Le paquet STIX comprend **609 objets non relationnels** et **1 013 relations**. La dissémination figée contient **1 932 observations Wikipedia réparties entre 44 éditions linguistiques** et **2 018 observations X**. Ces métriques décrivent un corpus observé ; elles ne mesurent ni l'adhésion humaine, ni l'audience, ni un effet électoral.
@@ -299,6 +301,8 @@ Conserver des frontières entre opérations adjacentes évite d'étendre artific
 | présence France/UE | effet causal sur l'opinion française |
 
 # 14. Recommandations conditionnelles
+
+Ces actions s’appuient sur **C2-PUB-007** (hypothèse de travail) et **C2-PUB-008** (effets non démontrés) dans la [carte des preuves](evidence-map.md).
 
 ## 14.1 Tenir une liste défangée de domaines pour la veille
 

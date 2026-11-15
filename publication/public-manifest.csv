@@ -20,7 +20,11 @@ assets/banner-dark.svg,branding,public_original_content
 assets/banner.svg,branding,public_original_content
 assets/social-preview.png,branding,public_original_content
 cases/case-01-titanium/README.md,documentation,public_original_or_link_only_sources
+cases/case-01-titanium/REPRODUCE.md,documentation,public_original_or_link_only_sources
 cases/case-01-titanium/data/key_metrics.csv,derived_data,public_original_derivation
+cases/case-01-titanium/data/reproduction_manifest.json,documentation,public_original_or_link_only_sources
+cases/case-01-titanium/data/reproduction_masses.csv,normalized_open_data,eurostat_reuse_with_attribution
+cases/case-01-titanium/data/uncertainty.csv,derived_data,public_original_derivation
 cases/case-01-titanium/evidence-map.md,documentation,public_original_or_link_only_sources
 cases/case-01-titanium/figures/dominant_partner.svg,derived_figure,public_original_derivation
 cases/case-01-titanium/figures/hhi_2017_2025.svg,derived_figure,public_original_derivation
@@ -33,7 +37,9 @@ cases/case-01-titanium/report.md,documentation,public_original_or_link_only_sour
 cases/case-01-titanium/report.pdf,generated_report,public_original_analysis
 cases/case-01-titanium/sources.md,documentation,public_original_or_link_only_sources
 cases/case-02-portal-kombat/README.md,documentation,public_original_or_link_only_sources
+cases/case-02-portal-kombat/REPRODUCE.md,documentation,public_original_or_link_only_sources
 cases/case-02-portal-kombat/data/key_metrics.csv,derived_data,public_original_derivation
+cases/case-02-portal-kombat/data/reproduction_sources.json,documentation,public_original_or_link_only_sources
 cases/case-02-portal-kombat/evidence-map.md,documentation,public_original_or_link_only_sources
 cases/case-02-portal-kombat/figures/ach_hypotheses.svg,derived_figure,public_original_derivation
 cases/case-02-portal-kombat/figures/evidence_ladder.svg,derived_figure,public_original_derivation
@@ -73,8 +79,10 @@ publication/release-checklist.md,documentation,public_original_or_link_only_sour
 publication/rights-review.md,documentation,public_original_or_link_only_sources
 tests/test_publication_contract.py,build_validation,public_original_code
 tests/test_reader_pdfs.py,build_validation,public_original_code
+tests/test_reproduction.py,build_validation,public_original_code
 tools/build_publication.py,build_tooling,public_original_code
 tools/check_case.py,build_tooling,public_original_code
 tools/report.css,build_tooling,public_original_code
 tools/report.html,build_tooling,public_original_code
+tools/reproduce_results.py,build_tooling,public_original_code
 publication/public-manifest.csv,publication_control,public_original_content
