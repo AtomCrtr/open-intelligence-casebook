@@ -9,7 +9,7 @@
 📄 [Rapport](report.md) · ⚖️ [Jugements clés](key-judgments.md) · 🔗 [Sources](sources.md) · 🧭 [Carte des preuves](evidence-map.md) · 🧾 [Provenance](provenance.csv)
 
 <p align="center">
-  <img src="figures/case03_confidence.svg" alt="Douze affirmations publiques tirées des cinq jugements clés, chacune avec son niveau de confiance : élevée pour la hausse 2022–mi-2025 au niveau mondial et balte, les deux foyers, le rejet des artefacts, la réalité des conséquences et l'inadéquation des comptages bruts ; modérée pour la hausse à l'échelle de l'Europe entière, la dominance de la composante réelle et les indicateurs de veille ; non établis : l'évolution après la mi-2025, le classement fin des FIR et la fréquence des conséquences ; attributions rapportées, non jugées." width="100%">
+  <img src="figures/case03_confidence.svg" alt="Douze affirmations avec une confiance distincte : existence d’interférences documentées, hausse des indicateurs et foyers géographiques ; cause de la hausse non départagée entre phénomène et détection. Les attributions restent rapportées, non jugées." width="100%">
 </p>
 
 **Première visite :** [guide de découverte du renseignement et des quatre cas](https://github.com/AtomCrtr/open-intelligence-casebook/blob/main/READING_GUIDE.md).

@@ -1,5 +1,7 @@
 # Case 03 — Interférences GNSS et aviation civile européenne
 
+> **Révision analytique du 15 novembre 2026 :** correction du biais de détection et du retrait de lignée, à partir du même corpus. L’approbation du 1er novembre citée ci-dessus concerne l’édition historique ; cette révision est proposée pour relecture.
+
 <!-- READER_SUMMARY_START -->
 
 # L’essentiel en deux minutes
@@ -58,13 +60,13 @@
 
 ## 1. En cinq minutes
 
-**Réponse courte.** Les sources ouvertes suffisent à établir **que** les dégradations GNSS ont fortement augmenté entre 2022 et la mi-2025, **où** elles se concentrent en Europe, et **de quelle nature** elles relèvent : des brouillages et des leurrages réels. Elles ne suffisent pas à **mesurer** l'ampleur européenne, la fréquence des conséquences ni l'évolution récente avec un dénominateur homogène. Les comptages bruts d'incidents sont trompeurs ; seuls des taux normalisés sont utilisables pour la veille.
+**Réponse courte.** Les sources ouvertes décrivent des indicateurs en hausse entre 2022 et la mi-2025 et des foyers européens persistants. Elles documentent des brouillages et des leurrages réels sur certains événements. Elles ne départagent pas la hausse du phénomène et l’amélioration de sa détection. Elles ne suffisent pas à **mesurer** l'ampleur européenne, la fréquence des conséquences ni l'évolution récente avec un dénominateur homogène. Les comptages bruts d'incidents sont trompeurs ; seuls des taux normalisés sont utilisables pour la veille.
 
 <div class="reader-card">
 
 **KJ-01**
 
-- **Jugement clé :** Hausse nette des dégradations GNSS de 2022 à la mi-2025 ; évolution postérieure incertaine (persistance déclarée, baisses locales).
+- **Jugement clé :** Hausse des indicateurs de dégradations GNSS de 2022 à la mi-2025 ; évolution postérieure incertaine (persistance déclarée, baisses locales).
 - **Confiance :** **Élevée** (sens : monde, foyer balte) · Modérée (Europe entière) · Faible (ampleur, après mi-2025)
 
 </div>
@@ -82,8 +84,8 @@
 
 **KJ-03**
 
-- **Jugement clé :** Le signal relève surtout d'interférences réelles, en partie intentionnelles, amplifiées par une meilleure détection : modèle mixte H4 à dominante H1 ; l'hypothèse « artefacts » (H3) est écartée comme explication principale.
-- **Confiance :** **Élevée** (rejet de H3) · Modérée (part H1 / H2)
+- **Jugement clé :** Des interférences réelles sont documentées ; les artefacts seuls ne couvrent pas ces événements. La contribution d’une meilleure détection à la hausse reste non départagée ; aucune dominance de H1 n’est établie.
+- **Confiance :** **Élevée** (existence documentée) · part H1 / H2 non établie
 
 </div>
 
@@ -177,9 +179,9 @@ Deux foyers européens sont persistants. Le foyer Baltique et Nord-Est est cité
 ### PIR-3 — Nature du phénomène (KJ-03)
 
 Évaluation qualitative de compatibilité (voir §6) :
-- **H3 (artefacts) écartée** comme explication principale : mesures RF, signatures de leurrage, enregistreurs de bord ;
+- **H3 (artefacts) insuffisante pour expliquer tous les événements documentés** : mesures RF et observations de bord ; cela ne quantifie pas leur poids dans la tendance ;
 - **H2 (meilleure détection) présente** : biais de déclaration et institutionnalisation de la surveillance ;
-- **conclusion :** modèle mixte H4, à dominante H1.
+- **conclusion :** H4 compatible ; H1 et H2 non départagées pour expliquer la hausse. Une capacité intentionnelle documentée n’établit pas une augmentation des interférences intentionnelles.
 
 Aucune classification automatique, aucun score probabiliste.
 
@@ -218,7 +220,7 @@ Légende : **C** compatible · **I** incompatible · **N** neutre ou non discrim
 
 | Preuve | H1 interférences intentionnelles accrues | H2 phénomène stable, mieux détecté | H3 artefacts / couverture | H4 mixte |
 |---|---|---|---|---|
-| Taux normalisés en hausse (EV-043, EV-042) | C | I | I | C |
+| Taux normalisés en hausse (EV-043, EV-042) | N | N | N | C |
 | Mesures RF et triangulation (EV-037, EV-063) | C | N | I | C |
 | Leurrage circulaire autour de Rostov (EV-032) | C | N | I | C |
 | Enregistreurs de bord, hors couverture au sol (EV-046, EV-050) | C | N | I | C |
@@ -227,7 +229,7 @@ Légende : **C** compatible · **I** incompatible · **N** neutre ou non discrim
 | Interférences internes civiles et militaires (EV-054) | N | N | C (pour une partie) | C |
 | Baisse locale en Pologne fin 2025 (EV-055) | N | N | N | C |
 
-**Lecture :** H3 accumule des incohérences sur des preuves diagnostiques ; H2 seule est incompatible avec la hausse des taux normalisés ; H4 est compatible avec toutes les preuves, H1 en est la composante dominante. Ce qui ferait basculer le jugement : une série européenne à dénominateur constant montrant des taux stables (renforcerait H2), ou des campagnes RF ne trouvant pas d'émetteur (renforcerait H3).
+**Lecture :** les mesures RF et les observations de bord établissent des événements réels et contredisent une explication exclusivement fondée sur la couverture. Elles ne mesurent pas la cause de l’évolution des séries. La hausse des taux, même normalisés par le trafic, reste non discriminante entre H1 et H2 sans contrôle de la détection. H4 est compatible, sans composante dominante établie. Les cellules incompatibles avec H3 portent seulement sur les événements diagnostiques, et non sur la totalité de la tendance. Discriminant : séries à population, définition, couverture et détection stables, avec mesures indépendantes. L’absence d’émetteur lors d’une campagne limitée ne prouverait pas l’absence d’interférence hors de ses lieux et dates.
 
 ## 7. Contradictions et robustesse
 
@@ -239,8 +241,9 @@ Légende : **C** compatible · **I** incompatible · **N** neutre ou non discrim
 **Robustesse — retrait de la lignée dominante.**
 - KJ-01 : sans IATA, seuls l'EASA (qualitatif) et les États (2024–2025, six FIR) portent la tendance ; le sens tient pour le foyer balte, **la confiance pour 2022–2023 tombe à Faible**.
 - KJ-02 : sans l'EASA, les États, l'OACI et Boeing désignent les mêmes foyers ; KJ-02 tient.
-- KJ-03 : sans les mesures RF des États, le rejet de H3 repose encore sur le leurrage de Rostov (même lignée d'États) et sur les enregistreurs de bord ; **la confiance passerait à Modérée**.
-- Aucun jugement ne repose sur une source unique.
+- KJ-03, retrait d’une modalité : retirer EV-037 et les reprises de ses mesures RF (EV-063, EV-066) laisse EV-032 (Rostov, même lignée d’États) et les enregistreurs de bord EV-046/EV-050. Ce test ne retire donc pas toute la lignée.
+- KJ-03, retrait de la lignée des États : exclure EV-029 à EV-042 issus de S-005 annexe A, ainsi que leur reprise dans le corps S-005 et dans EV-062 à EV-069 (UIT, y compris PANSA). Ne conserver dans ce test ni Rostov ni une reformulation de ces déclarations. Restent notamment EV-046 (IATA FDX) et EV-050 (Boeing), ainsi que les limites EV-045/EV-057/EV-059. L’existence d’anomalies de bord reste soutenue ; la caractérisation RF et les attributions perdent leur soutien direct dans ce test. Le jugement est **affaibli**, sans réattribution automatique d’un niveau de confiance. La part respective de H1 et H2 demeure non établie.
+- Une diversité de publications ne garantit pas des origines indépendantes ; les retraits ci-dessus suivent l’origine des éléments, y compris leurs reprises.
 
 ## 8. Recommandations
 
@@ -272,7 +275,7 @@ Légende : **C** compatible · **I** incompatible · **N** neutre ou non discrim
 
 **REC-03**
 
-- **Action :** Exiger, pour tout chiffre transmis, le dénominateur et la définition de « affecté »
+- **Action :** Exiger, pour tout chiffre transmis, le dénominateur, la définition de « affecté » et la comparabilité de la population et de la détection
 - **Objectif :** rendre les séries comparables (GAP-002)
 - **Porteur :** toute organisation qui publie ou relaie des chiffres
 - **Déclencheur / condition :** réception d'un chiffre non normalisé

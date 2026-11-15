@@ -1,12 +1,14 @@
 ---
 title: "XZ Utils - comprendre une compromission logicielle - Case 04"
 author: "Emeline Cartier — Open Intelligence Casebook"
-date: "Présentation révisée — 14 novembre 2026"
+date: "Révision analytique — 15 novembre 2026"
 lang: fr-FR
 document-class: case-xz
 ---
 
 <!-- READER_SUMMARY_START -->
+
+> **Révision analytique du 15 novembre 2026.** Historique du compte, contrôle du compte et durée de l’intention sont désormais distingués. Correction sur le corpus existant, sans nouvelle collecte ; les dates des révisions précédentes restent historiques.
 
 # L’essentiel en deux minutes
 
@@ -44,7 +46,7 @@ document-class: case-xz
 
 # Case 04 - XZ Utils / CVE-2024-3094 : rapport public
 
-> **Édition publique.** Ce rapport reprend le dossier OSINT d'origine. Transformations de l’édition publique : retrait d'une section interne d'évaluation de l'espace de travail, retrait des URL d'avatar dans les extraits S-008/S-009, et libellé générique des outils de collecte. Une introduction pédagogique, des titres français et une présentation en fiches des tableaux larges ont été ajoutés le 13 novembre 2026. Le 14 novembre 2026, une synthèse a été placée avant le sommaire, les faits documentés ont été présentés en fiches et l’historique déplacé en annexe. La contre-lecture n’est pas présentée comme indépendante. Les faits et niveaux de confiance du corps analytique sont conservés.
+> **Édition publique.** Ce rapport reprend le dossier OSINT d'origine. Transformations de l’édition publique : retrait d'une section interne d'évaluation de l'espace de travail, retrait des URL d'avatar dans les extraits S-008/S-009, et libellé générique des outils de collecte. Une introduction pédagogique, des titres français et une présentation en fiches des tableaux larges ont été ajoutés le 13 novembre 2026. Le 14 novembre 2026, une synthèse a été placée avant le sommaire, les faits documentés ont été présentés en fiches et l’historique déplacé en annexe. La contre-lecture n’est pas présentée comme indépendante. La révision analytique du 15 novembre corrige ensuite les inférences sur le contrôle du compte et la durée de l’intention ; les jalons factuels sont conservés.
 
 
 > **Case ID :** `OSINT-XZ-UTILS-2026-001`
@@ -111,7 +113,7 @@ Les éléments disponibles soutiennent avec une confiance élevée l’existence
 4. **Portée réelle :** les sources ne justifient pas l’affirmation simplifiée selon laquelle toutes les distributions Linux ou toutes les installations de production étaient compromises. Debian indique que les versions stables n’étaient pas connues comme affectées, Red Hat que RHEL n’était pas affecté ; Arch Linux indique que le code n’a pas été injecté dans ses binaires et que sshd n’y est pas lié à liblzma ; openSUSE situe l’exposition dans Tumbleweed et MicroOS (7–28 mars) et l’exclut pour SUSE Linux Enterprise et Leap.[5][11][16][17] **Confiance : HIGH** pour chacun de ces périmètres ; l’exposition dépend de trois conditions cumulées — version présente, code effectivement compilé (paquets DEB/RPM x86-64), sshd lié à liblzma via libsystemd — et ne s’extrapole pas aux distributions non documentées.
 5. **Capacité technique :** les analyses décrivent une interférence avec le processus d’authentification SSH permettant une exécution de commande pré-authentification ; l’analyse du binaire montre que la charge doit être chiffrée et signée avec une clé Ed448 de l’attaquant, ce qui réserve la capacité au détenteur de cette clé.[2][7][10][12][15] **Confiance : HIGH** pour la capacité réservée au détenteur de la clé (mécanisme décrit et reproduit en laboratoire avec une clé substituée) ; **LOW** pour toute exploitation réelle, qui n’est pas démontrée. Une exploitation réussie ne produisant pas d’entrée de journal de niveau INFO ou supérieur, l’absence de traces n’établit pas l’absence d’exploitation.[15]
 6. **Attribution :** les sources soutiennent une insertion malveillante et une préparation structurée, mais ne permettent pas d’identifier un acteur réel ou un État avec une confiance suffisante.[4][12] **Confiance : LOW** pour toute attribution spécifique.
-7. **Préparation longue :** l’opération s’inscrit dans plus de deux ans de contributions publiques (premier correctif en octobre 2021, accès en écriture établi fin 2022, première release produite par le même compte en mars 2023), accompagnées de messages de pression envoyés par des comptes qui n’apparaissent nulle part ailleurs selon les observations rapportées.[13][20][21] **Confiance : HIGH** pour les jalons datés, revérifiés le 2026-11-01 sur l’archive xz-devel et les métadonnées Git ; MEDIUM-HIGH pour les messages de pression, non revérifiés.
+7. **Historique du compte :** les sources décrivent plus de deux ans de contributions publiques (premier correctif en octobre 2021, accès en écriture établi fin 2022, première release produite par le même compte en mars 2023), accompagnées de messages de pression envoyés par des comptes qui n’apparaissent nulle part ailleurs selon les observations rapportées.[13][20][21] **Confiance : HIGH** pour les jalons datés, revérifiés le 2026-11-01 sur l’archive xz-devel et les métadonnées Git ; MEDIUM-HIGH pour les messages de pression, non revérifiés. Cet historique ne prouve ni un contrôleur constant du compte ni une intention malveillante depuis 2021.
 
 ---
 
@@ -350,22 +352,22 @@ Aucun mapping MITRE ATT&CK n’est retenu dans ce dossier. Les sources publiques
 
 ### H1 — Compromission délibérée de la chaîne de publication/build
 
-- **Soutien :** tarballs de release compromis, versions successives, code obfusqué, conditions de build ciblées et intervention dans le processus de publication.[2][3][4][10] Révision du 2026-10-30 : plus de deux ans de contributions préalables, accès en écriture puis maintenance des releases, et charge réservée au détenteur d’une clé Ed448 : la préparation est longue et délibérée.[13][15]
+- **Soutien :** tarballs de release compromis, versions successives, code obfusqué, conditions de build ciblées et intervention dans le processus de publication.[2][3][4][10] Révision du 2026-10-30 : plus de deux ans de contributions préalables, accès en écriture puis maintenance des releases, et charge réservée au détenteur d’une clé Ed448 : le mécanisme décrit appuie une insertion volontaire. Les jalons antérieurs datent l’activité du compte, sans dater à eux seuls le début d’une préparation malveillante.[13][15]
 - **Affaiblissement :** les sources publiques ne démontrent pas à elles seules le nombre d’acteurs ni toute la chaîne opérationnelle.
-- **Test ou information invalidante :** preuve indépendante d’une compromission accidentelle du compte ou d’un artefact de build sans intention malveillante ; les sources retenues ne fournissent pas cette preuve.
+- **Test ou information invalidante :** preuve d’un artefact de construction sans mécanisme intentionnellement malveillant. Une prise de contrôle du compte ne contredirait pas une insertion volontaire par son nouveau contrôleur ; elle relève de H2.
 - **Confiance : HIGH** pour l’insertion volontaire de code malveillant ; MEDIUM pour la reconstruction complète de la campagne.
 
-### H2 — Compromission d’un compte ou d’un environnement de mainteneur sans connaissance complète de l’auteur
+### H2 — Prise de contrôle d’un compte ou d’un environnement de publication
 
-- **Soutien :** l’identité réelle derrière le pseudonyme n’est pas établie et les sources ne donnent pas de preuve publique complète sur l’identité opérationnelle.[4][12]
-- **Affaiblissement :** la répétition des modifications, la signature de tarballs et les ajustements entre versions sont plus compatibles avec une action structurée qu’avec un incident ponctuel, sans toutefois prouver le modèle exact.
-- **Test ou information invalidante :** journaux d’accès, preuves cryptographiques, correspondances d’identité ou éléments d’infrastructure non publics.
-- **Révision du 2026-10-30 :** la chronologie sourcée montre que le même compte contribue publiquement depuis 2021, obtient l’accès en écriture puis produit les releases ; l’hypothèse d’un compte légitime compromis à la dernière minute devient peu compatible avec ces observations.[13]
-- **Confiance : LOW** — abaissée depuis LOW-MEDIUM ; hypothèse conservée pour mémoire, sans être exclue formellement en l’absence de données non publiques.
+- **Question distincte de H1 :** qui contrôlait le compte au moment des modifications ? Une insertion volontaire de code malveillant peut être commise après une prise de contrôle. H1, H2 et H3 portent donc sur trois niveaux (mécanisme, contrôle, attribution) et ne forment pas des alternatives mutuellement exclusives.
+- **Soutien disponible :** les sources ne donnent pas l’identité réelle du contrôleur ni un historique public complet des accès.[4][12] C’est une lacune, pas une preuve de détournement.
+- **Limite :** la répétition de modifications et l’ancienneté du compte sont compatibles avec plusieurs scénarios : contrôle continu, partage ou reprise ultérieure. Elles ne permettent pas de départager ces scénarios. Le dossier ne rapporte aucune preuve positive de prise de contrôle.
+- **Discriminant :** éléments vérifiables et datés sur les accès ou le contrôle des clés et de l’environnement, dans un cadre autorisé. Les métadonnées des commits ne suffisent pas.
+- **Évaluation : non départagée.** Le précédent abaissement de confiance fondé sur la seule ancienneté du compte est retiré. Le contrôleur et la date de début d’une intention malveillante restent inconnus.
 
 ### H3 — Opération organisée ou soutenue par un acteur étatique
 
-- **Soutien :** durée apparente de préparation, ciblage technique et effort de construction d’une position de confiance ; certaines analyses secondaires évoquent un profil compatible avec une opération très organisée.[7][12]
+- **Soutien rapporté :** ciblage technique et interprétation secondaire d’une préparation structurée ; certaines analyses secondaires évoquent un profil compatible avec une opération très organisée.[7][12]
 - **Affaiblissement :** aucune source primaire retenue n’identifie un État, un groupe ou une personne réelle ; OpenSSF indique que la motivation reste inconnue.[4]
 - **Test ou information invalidante :** renseignement indépendant et vérifiable reliant l’opération à un acteur identifié.
 - **Confiance : LOW** — hypothèse plausible mais insuffisamment étayée ; aucune attribution n’est retenue.
@@ -864,7 +866,7 @@ Les cellules « — » ne sont pas renseignées par les sources retenues. Une ab
 | L’impact a été limité à certains canaux/distributions et n’est pas équivalent à une compromission universelle | HIGH pour Debian/Red Hat ; MEDIUM pour l’écosystème global | Les sources sont précises pour leurs périmètres mais ne couvrent pas toutes les distributions. |
 | Une exploitation réussie à grande échelle a eu lieu | LOW / non établi | Les sources décrivent une capacité et un risque ; aucune preuve retenue d’exploitation réussie à grande échelle. |
 | La capacité est une exécution de commande pré-authentification réservée au détenteur de la clé Ed448 | HIGH | Mécanisme décrit par l’analyse du binaire et reproduit en laboratoire avec une clé substituée ; cohérent avec les advisories.[15] |
-| La compromission résulte d’une préparation de plus de deux ans | HIGH | Jalons datés revérifiés sur l’archive xz-devel et les métadonnées Git (2021-10-29 → 2024-03-09).[13][20][21] |
+| L’historique public du compte s’étend sur plus de deux ans ; la durée de l’intention malveillante n’est pas établie | HIGH | Jalons datés revérifiés sur l’archive xz-devel et les métadonnées Git (2021-10-29 → 2024-03-09) ; HIGH porte sur ces dates, pas sur une continuité d’identité ou d’intention.[13][20][21] |
 | Le 28 mars désigne la notification privée et le 29 mars la divulgation publique | MEDIUM-HIGH | Trois lignées concordantes ; la liste distros n’est pas publique.[13][2][17] |
 | Jia Tan correspond à une personne réelle identifiable | LOW / non établi | Les sources publiques retenues signalent explicitement cette incertitude. |
 | Attribution à un État ou à un groupe précis | LOW / non retenue | Aucun élément primaire suffisant ; hypothèse fondée surtout sur des inférences secondaires. |
@@ -1036,7 +1038,7 @@ Les cellules « — » ne sont pas renseignées par les sources retenues. Une ab
 
 Réétude du dossier à partir de cinq sources complémentaires ([13] à [17]) et de trois citations ajoutées à [11]. Les faits F-001 à F-012 sont conservés ; aucun niveau de confiance n'est relevé sans source nouvelle. Principaux apports :
 
-- **Chronologie longue (2021–2024)** : la compromission ne commence pas en février 2024 ; une compilation sourcée décrit plus de deux ans de contributions puis l'accès en écriture et la maintenance de releases (F-013, F-014).[13]
+- **Chronologie longue (2021–2024)** : une compilation sourcée décrit plus de deux ans de contributions puis l'accès en écriture et la maintenance de releases (F-013, F-014).[13]
 - **C-001 réconciliée** : le 28 mars correspond à la découverte et à la notification privée, le 29 mars à la divulgation publique (F-015).[13][2][17]
 - **C-003 résolue au niveau documentaire** : le déclencheur M4 n'existe que dans les tarballs, la charge de second niveau est dans des fichiers de test du dépôt Git (F-016).[11][13][14]
 - **Capacité technique requalifiée** : l'accès est conditionné à une signature Ed448 détenue par l'attaquant ; c'est une exécution de commande pré-authentification réservée au détenteur de la clé, pas un contournement d'authentification utilisable par n'importe qui (F-017).[15]

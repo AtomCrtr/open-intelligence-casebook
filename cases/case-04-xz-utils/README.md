@@ -59,7 +59,7 @@ timeline
 | Hypothèse | Évaluation | Confiance |
 |---|---|---|
 | **H1 - compromission délibérée de la chaîne de publication / build** | explication principale : tarballs compromis, versions successives, code obfusqué, conditions de build ciblées | **HIGH** pour l'insertion volontaire ; MEDIUM pour la reconstruction complète |
-| H2 - compromission d'un compte ou d'un environnement de mainteneur sans connaissance de l'auteur | peu compatible avec plus de deux ans de contributions du même compte avant les releases compromises | LOW (abaissée) |
+| H2 - prise de contrôle d’un compte ou d’un environnement | l’ancienneté du compte ne départage pas contrôle continu, partage ou reprise ultérieure | non départagée |
 | H3 - opération organisée ou soutenue par un État | plausible, mais aucune source primaire n'identifie un acteur | LOW - non retenue |
 
 ## Contradictions conservées
@@ -81,14 +81,14 @@ timeline
 | mécanisme lié à la chaîne de publication / build et à liblzma | identité réelle derrière le pseudonyme |
 | capacité réservée au détenteur d'une clé Ed448 | périmètre exact des distributions non documentées |
 | périmètres Debian, Red Hat / Fedora, Arch Linux, openSUSE / SUSE, Ubuntu | exposition des machines ayant activé `noble-proposed` |
-| préparation de plus de deux ans (jalons vérifiés sur sources primaires) | |
+| historique du compte de plus de deux ans (dates vérifiées ; intention initiale non établie) | |
 | séquence des releases et des advisories | attribution à un groupe ou à un État |
 
 ## Garanties de traçabilité
 
 - Chaque citation de [`citations-ledger.json`](citations-ledger.json) figure **mot pour mot** dans [`source-extracts.md`](source-extracts.md), et chaque référence [n] du rapport pointe vers une source du ledger : c'est vérifié automatiquement par `tools/check_case.py` dans les tests du dépôt.
 - Édition publique : seules les URL d'avatar des extraits S-008 / S-009 et une section interne ont été retirées.
-- **Révision du 30 octobre 2026** : cinq sources ajoutées ([13] à [17]), chronologie 2021–2024, matrice d'exposition par distribution, C-001 et C-003 résolues, capacité technique requalifiée, H2 abaissée. Les faits d'origine sont conservés ; le détail figure en tête du [rapport](report.md#révision-du-2026-10-30).
+- **Révision du 30 octobre 2026** : cinq sources ajoutées ([13] à [17]), chronologie 2021–2024, matrice d'exposition par distribution, C-001 et C-003 résolues, capacité technique requalifiée, H2 alors abaissée (inférence retirée lors de la révision du 15 novembre 2026). Les faits d'origine sont conservés ; le détail figure en tête du [rapport](report.md#révision-du-2026-10-30).
 - **Révision du 1er novembre 2026** : quatre sources primaires ajoutées ([18] à [21]) ; Ubuntu ajouté à la matrice d'exposition ; chronologie 2021–2024 vérifiée sur l'archive xz-devel et les métadonnées Git (dépôt cloné sans aucun contenu de fichier) ; heures des tags v5.6.0 et v5.6.1 normalisées en UTC. Le détail figure en tête du [rapport](report.md#révision-du-2026-11-01).
 - Aucune tentative d'identification des personnes derrière les pseudonymes, aucun scan, aucune interaction avec des systèmes réels.
 
@@ -107,3 +107,5 @@ case-04-xz-utils/
 ```
 
 [← Retour au casebook](../../README.md)
+
+Révision analytique du 15 novembre 2026 : H1 (mécanisme), H2 (contrôle du compte) et H3 (attribution) portent sur des niveaux différents et peuvent coexister. Voir le [rapport](report.md).
