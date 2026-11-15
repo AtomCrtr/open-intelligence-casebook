@@ -1,13 +1,30 @@
-# Transparence sur l'usage de l'IA
+# Contributions et usage effectif de l’IA
 
-Des assistants d'IA générative peuvent être utilisés comme outils d'assistance documentaire, éditoriale et technique : structuration, reformulation, génération de code, mise en page, contrôles de cohérence ou préparation de tests.
+**Mise à jour : 15 novembre 2026.** Cette fiche décrit les interventions observables dans les échanges et corrections récents. Elle ne reconstitue pas automatiquement la contribution de chaque personne à toutes les étapes historiques.
 
-## Ce que l'IA ne remplace pas
+## Usages documentés par cas
 
-- la sélection et la vérification des sources ;
-- l'évaluation de la qualité des preuves ;
-- la définition des hypothèses et niveaux de confiance ;
-- les jugements analytiques et recommandations ;
-- la décision finale de publication.
+| Cas | Assistance IA effectivement réalisée dans les révisions récentes | Contribution personnelle à documenter par la propriétaire |
+|---|---|---|
+| Titane | Audit et recalcul des douze comparaisons ; préparation du sous-ensemble Eurostat et du programme de reproduction ; explicitation des bornes ; rédaction et mise en page assistées ; tests techniques | Sélection initiale des sources, traitements et requêtes écrits ou relancés personnellement, vérifications manuelles et choix analytiques à détailler |
+| Portal Kombat | Recomptage des fichiers VIGINUM vérifiés ; code de graphe et tests ; correction du libellé des sensibilités ; cartes de preuves et présentation assistées | Recherche initiale, codage et vérification personnelle des relations, traitements maîtrisés et interprétations à détailler |
+| GNSS | Contre-lecture documentaire assistée ; repérage puis correction des inférences sur les taux et la détection ; clarification des retraits de lignée ; synchronisation des surfaces publiques et génération des PDF | Lecture personnelle du corpus, arbitrages sur les jugements, contrôle des limites et compétences de traitement à détailler |
+| XZ Utils | Contre-lecture et correction du raisonnement sur l’historique et le contrôle du compte ; harmonisation des références ; structuration et mise en page assistées | Lecture des sources techniques, reconstitution personnelle de la chronologie et vérifications reproduites à détailler |
 
-Aucune affirmation n'est considérée comme sourcée parce qu'un modèle l'a produite. Les chiffres et conclusions publiés doivent remonter à une source ouverte ou à un résultat analytique validé. En cas de divergence, la source et les artefacts vérifiés font foi.
+Les interventions ci-dessus ont été effectuées avec **Codex** dans les échanges récents. Des recommandations de **Claude**, transmises par la propriétaire, ont aussi servi au choix et au cadrage du pilote Rotterdam. Aucun journal complet des outils employés dans toutes les phases historiques n’est revendiqué.
+
+## Rôle de la propriétaire et points restant à préciser
+
+La propriétaire a défini ses objectifs professionnels, demandé les audits et corrections, discuté les orientations et fusionné les changements proposés. Le détail de son travail autonome par cas reste à compléter par elle : dates, tâches effectuées, exemples vérifiés et traitements qu’elle sait refaire. Une fusion ou une approbation éditoriale ne documente pas à elle seule une vérification de chaque source.
+
+Pour le futur pilote Rotterdam, l’assistant prépare le protocole, les fichiers vides et les outils. Le codage des dix décisions, les contrôles de traduction et le recodage à une semaine d’intervalle sont **prévus, pas réalisés**. Ils doivent être attribués à la personne qui les effectuera et accompagnés de leurs traces.
+
+## Règles de preuve et de revue
+
+Une réponse d’IA n’est jamais une source. Les chiffres doivent remonter aux données ou aux documents cités. Les erreurs repérées dans les révisions montrent que les suggestions de modèles doivent être vérifiées, y compris lorsqu’elles semblent plausibles.
+
+Les contre-lectures effectuées par le même assistant sont désignées comme telles. Elles ne constituent ni une revue indépendante ni une validation scientifique. La responsabilité des jugements et de la publication reste humaine. Les contrôles techniques, l’évaluation analytique, les tests de compréhension et l’accessibilité ont des objets distincts.
+
+## À préparer pour un entretien
+
+Pour chaque cas, la propriétaire doit pouvoir préciser : sa question, une source examinée personnellement, une transformation qu’elle sait refaire, une conclusion justifiée avec sa limite et l’aide exacte reçue de l’IA. Les tâches restant à confirmer ne doivent pas être présentées sur le CV comme déjà réalisées personnellement.
