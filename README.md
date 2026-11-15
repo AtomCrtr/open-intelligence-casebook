@@ -152,7 +152,7 @@ Un cas de **compromission de la chaîne d'approvisionnement logicielle** traité
 
 ## Prochain sujet proposé
 
-**Case 05 — Escroqueries aux faux investissements : analyser un réseau fictif et prioriser les vérifications.** Statut : **proposition, non commencée**. Ce futur exercice distinguerait sources ouvertes sur le phénomène et données entièrement synthétiques pour apprendre les rapprochements, les chronologies et l'analyse de liens. [Comprendre la question et les livrables proposés](READING_GUIDE.md#prochain-sujet-proposé--comprendre-un-réseau-de-fraude).
+**Case 05 envisagé — JuicyFields : comprendre une affaire d’escroquerie présumée à l’investissement à partir de documents publics réels.** Statut : **candidat à cadrer, non commencé**. Aucun acteur, lien ou paiement manquant ne sera inventé. [Question et sources de départ](READING_GUIDE.md#prochain-sujet-proposé--juicyfields).
 
 ## Méthode commune
 
@@ -263,3 +263,7 @@ Pour citer ce travail : [`CITATION.cff`](CITATION.cff) (bouton « Cite this repo
 **Des données ouvertes aux décisions : rendre les preuves, les limites et l'incertitude visibles.**
 
 </div>
+
+## Tester la lecture
+
+Les rapports commencent par une synthèse courte, avant leur sommaire. Le [questionnaire débutant](BEGINNER_READING_TEST.md) ([PDF](BEGINNER_READING_TEST.pdf)) permet de tester leur compréhension. Les résultats de ces tests ne sont pas encore recueillis.

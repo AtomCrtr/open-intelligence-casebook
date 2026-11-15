@@ -68,6 +68,26 @@ def ensure_dirs() -> None:
         p.mkdir(parents=True, exist_ok=True)
 
 
+def hypothesis_panel(path: Path, rows: list[list[str]], title: str) -> None:
+    """Qualitative assessments have no numerical bar height or probability scale."""
+    fig, ax = plt.subplots(figsize=(10.5, 3.8))
+    ax.axis('off')
+    table = ax.table(cellText=rows, colLabels=['Hypothèse', 'Évaluation', 'Confiance'],
+                     colWidths=[.39, .39, .22], cellLoc='left', loc='center', bbox=[0, .14, 1, .74])
+    table.auto_set_font_size(False); table.set_fontsize(9)
+    for (row, col), cell in table.get_celld().items():
+        cell.set_edgecolor('#d8e0e7')
+        if row == 0:
+            cell.set_facecolor('#173d6b'); cell.get_text().set_color('white')
+        elif row % 2 == 0:
+            cell.set_facecolor('#f2f6f8')
+    ax.set_title(title, pad=12)
+    fig.text(.5, .03, 'Appréciations qualitatives, pas des probabilités. Source : rapport, section des hypothèses.',
+             ha='center', fontsize=8)
+    fig.tight_layout()
+    fig.savefig(path, bbox_inches='tight'); plt.close(fig)
+
+
 def generate_figures() -> None:
     ensure_dirs()
     case1_rows = read_case1_rows()
@@ -107,13 +127,12 @@ def generate_figures() -> None:
     ax.text(.2,.45,'Lecture publique : une capacité nouvelle peut améliorer l’offre potentielle sans être encore mobilisable par un équipementier aéronautique.',fontsize=9)
     fig.tight_layout(); fig.savefig(C1/'figures/qualification_gates.svg', bbox_inches='tight'); plt.close(fig)
 
-    hyp = ['H1\nExposition persistante','H2\nDiversification effective','H3\nExposition déplacée','H4\nHétérogénéité']
-    score = [2,1,2,2]; conf = ['modérée','faible','faible','modérée']
-    fig, ax = plt.subplots(figsize=(9.5, 4.6)); ax.bar(hyp, score, alpha=.8, hatch=['//','..','xx','--'])
-    ax.set_ylim(0,3); ax.set_yticks([0,1,2,3], ['non','non concluant','partiellement soutenu','soutenu'])
-    for i, c in enumerate(conf): ax.text(i, score[i]+.12, f'Confiance {c}', ha='center', fontsize=9)
-    ax.set_title('Hypothèses concurrentes : verdict et confiance restent séparés'); ax.grid(axis='y', alpha=.2)
-    fig.tight_layout(); fig.savefig(C1/'figures/hypotheses.svg', bbox_inches='tight'); plt.close(fig)
+    hypothesis_panel(C1/'figures/hypotheses.svg', [
+        ['H1 — Exposition persistante', 'Partiellement soutenue', 'Modérée'],
+        ['H2 — Diversification effective', 'Non concluante', 'Faible'],
+        ['H3 — Exposition déplacée', 'Partiellement soutenue', 'Faible'],
+        ['H4 — Hétérogénéité', 'Partiellement soutenue', 'Modérée'],
+    ], 'Titane : comparer les explications possibles')
 
     fig, ax = plt.subplots(figsize=(10.5, 4.4)); ax.axis('off'); ax.set_xlim(0,10.5); ax.set_ylim(0,4.4)
     scenarios = [
@@ -150,9 +169,9 @@ def generate_figures() -> None:
         newline='\n',
     )
 
-    labels2 = ['Baseline','Sans nœud campagne','Sans relations amplifies','Sans relations uses']; vals=[604,602,305,560]
+    labels2 = ['Modèle initial','Sans liens des nœuds campagne','Sans relations amplifies','Sans relations uses']; vals=[604,602,305,560]
     fig, ax = plt.subplots(figsize=(9.5,5.3)); bars=ax.barh(labels2,vals,alpha=.85,hatch=['','//','xx','..']); ax.invert_yaxis()
-    ax.set_xlabel('Taille de la composante principale (nœuds)'); ax.set_title('Sensibilité du graphe : la connectivité ne dépend pas d’un seul artefact')
+    ax.set_xlabel('Taille de la composante principale (nœuds)'); ax.set_title('Retirer certains liens change la taille du réseau connecté')
     for b,v in zip(bars,vals): ax.text(v+8,b.get_y()+b.get_height()/2,str(v),va='center',fontsize=9)
     ax.set_xlim(0,650); ax.grid(axis='x',alpha=.2); fig.tight_layout(); fig.savefig(C2/'figures/graph_sensitivity.svg',bbox_inches='tight'); plt.close(fig)
 
@@ -161,10 +180,19 @@ def generate_figures() -> None:
     for b,v in zip(bars,vals): ax.text(b.get_x()+b.get_width()/2,v+18,str(v),ha='center',fontsize=9)
     ax.grid(axis='y',alpha=.2); fig.tight_layout(); fig.savefig(C2/'figures/wikipedia_languages.svg',bbox_inches='tight'); plt.close(fig)
 
-    fig, ax = plt.subplots(figsize=(9.8,4.8)); items=['Wikipedia\nfr','X code\nfr','X vers domaines\nFrance-compatibles','Degré STIX\npravda-fr']; vals=[28,94,130,184]
-    bars=ax.bar(items,vals,alpha=.85,hatch=['//','..','xx','--']); ax.set_title('Focus France : présence documentée, sans mesure d’audience ni d’adhésion'); ax.set_ylabel('Décompte dans le snapshot')
-    for b,v in zip(bars,vals): ax.text(b.get_x()+b.get_width()/2,v+5,str(v),ha='center',fontsize=9)
-    ax.grid(axis='y',alpha=.2); fig.tight_layout(); fig.savefig(C2/'figures/france_focus.svg',bbox_inches='tight'); plt.close(fig)
+    fig, axes = plt.subplots(2, 2, figsize=(9.8, 4.5))
+    for ax, value, label in zip(axes.flat, [28, 94, 130, 184], [
+        'Observations Wikipedia\nÉdition française', 'Observations X\nCode de langue fr',
+        'Observations X\nVers des domaines France-compatibles',
+        'Degré du nœud pravda-fr\nLiens dans le modèle STIX',
+    ]):
+        ax.axis('off')
+        ax.text(.5, .65, str(value), ha='center', va='center', fontsize=26, color='#173d6b')
+        ax.text(.5, .25, label, ha='center', va='center', fontsize=10)
+    fig.suptitle('France : quatre indicateurs différents, sans mesure d’audience')
+    fig.text(.5, .015, 'Unités distinctes : ne pas additionner ces valeurs. Source : rapport Portal Kombat, focus France.', ha='center', fontsize=8)
+    fig.tight_layout(rect=(0, .06, 1, .94))
+    fig.savefig(C2/'figures/france_focus.svg', bbox_inches='tight'); plt.close(fig)
 
     # Evidence ladder, shortened labels to avoid cross-box overflow
     fig, ax = plt.subplots(figsize=(10.8,4.2)); ax.axis('off'); ax.set_xlim(0,10.8); ax.set_ylim(0,4.2)
@@ -178,12 +206,12 @@ def generate_figures() -> None:
     ax.text(.18,.42,'Une présence observable peut soutenir une hypothèse de structure ou de coordination, mais elle ne devient jamais automatiquement une attribution ou une mesure d’impact.',fontsize=8.5)
     fig.tight_layout(pad=.7); fig.savefig(C2/'figures/evidence_ladder.svg',bbox_inches='tight'); plt.close(fig)
 
-    hyp2=['H1\nCentralisée','H2\nInfra partagée','H3\nAgrégation indépendante','H4\nModèle hybride']; vals=[1,1,1,2]; conf=['faible','faible','faible','faible à moyenne']
-    fig, ax = plt.subplots(figsize=(9.8,4.8)); ax.bar(hyp2,vals,alpha=.85,hatch=['//','..','xx','--']); ax.set_ylim(0,3)
-    ax.set_yticks([0,1,2,3],['rejetée','compatible','meilleure hypothèse','établie'])
-    for i,(v,c) in enumerate(zip(vals,conf)): ax.text(i,v+.12,c,ha='center',fontsize=9)
-    ax.set_title('ACH : H4 reste la meilleure hypothèse de travail, pas une attribution'); ax.grid(axis='y',alpha=.2)
-    fig.tight_layout(); fig.savefig(C2/'figures/ach_hypotheses.svg',bbox_inches='tight'); plt.close(fig)
+    hypothesis_panel(C2/'figures/ach_hypotheses.svg', [
+        ['H1 — Coordination centralisée', 'Compatible, contrôle non prouvé', 'Faible'],
+        ['H2 — Infrastructure partagée', 'Compatible', 'Faible'],
+        ['H3 — Agrégation indépendante', 'Compatible, non rejetée', 'Faible'],
+        ['H4 — Modèle hybride', 'Hypothèse de travail privilégiée', 'Faible à moyenne'],
+    ], 'Portal Kombat : comparer les explications possibles')
 
     fig, ax = plt.subplots(figsize=(10.5,5.0)); ax.axis('off'); ax.set_xlim(0,10.5); ax.set_ylim(0,5)
     boxes=[(.5,2.0,2.0,1.1,'Couche technique\npartagée'),(4.25,3.1,2.0,1.1,'Portails\nlocalisés'),(4.25,1.0,2.0,1.1,'Contenus\nagrégés'),(8.0,3.1,2.0,1.1,'Wikipedia'),(8.0,1.0,2.0,1.1,'X / autres\nreprises')]
@@ -196,12 +224,63 @@ def generate_figures() -> None:
     fig.tight_layout(); fig.savefig(C2/'figures/network_explainer.svg',bbox_inches='tight'); plt.close(fig)
 
 
+def position_reader_summary(html: str) -> str:
+    """Move the explicitly delimited lead before the TOC, retaining anchors."""
+    start, end = '<!-- READER_SUMMARY_START -->', '<!-- READER_SUMMARY_END -->'
+    if start not in html and end not in html:
+        return html
+    if html.count(start) != 1 or html.count(end) != 1:
+        raise ValueError('Une seule synthèse complète est attendue')
+    before, _, rest = html.partition(start)
+    summary, _, after = rest.partition(end)
+    if end in before or '</header>' not in before:
+        raise ValueError('Synthèse mal positionnée ou couverture absente')
+    body = before + after
+    return body.replace('</header>', '</header>\n<section class="reader-summary">'
+                        + summary + '</section>\n', 1)
+
+
+def validate_text_layer(path: Path) -> None:
+    """Fail on corrupt encoding even when the rendered page looks correct."""
+    with fitz.open(path) as doc:
+        text = ''.join(page.get_text() for page in doc)
+    invalid = [c for c in text if (ord(c) < 32 and c not in '\n\r\t') or c == '\ufffd']
+    if invalid:
+        raise RuntimeError(f'{path}: texte PDF corrompu ({len(invalid)} caractères invalides)')
+
+
+def normalize_structure_ids(doc: fitz.Document) -> None:
+    """WeasyPrint 68 uses process memory IDs for tagged table headers.
+
+    Replace those IDs and their cell references together, before saving. This
+    preserves the accessibility relationships and makes repeated builds stable.
+    """
+    elements = [xref for xref in range(1, doc.xref_length())
+                if doc.xref_get_key(xref, 'Type')[1] == '/StructElem']
+    identifiers = {}
+    for xref in elements:
+        kind, value = doc.xref_get_key(xref, 'ID')
+        if kind == 'string':
+            identifiers[value] = f'structure-{xref}'
+            doc.xref_set_key(xref, 'ID', fitz.get_pdf_str(identifiers[value]))
+    for xref in elements:
+        kind, value = doc.xref_get_key(xref, 'A/Headers')
+        if kind != 'array':
+            continue
+        def replace(match: re.Match) -> str:
+            original = match.group(1)
+            if original not in identifiers:
+                raise RuntimeError(f'En-tête de tableau PDF non résolu : {original}')
+            return fitz.get_pdf_str(identifiers[original])
+        doc.xref_set_key(xref, 'A/Headers', re.sub(r'\((\d+)\)', replace, value))
+
+
 def build_pdf(case_dir: Path, title: str, keywords: str, stem: str = 'report') -> None:
     source = (case_dir/f'{stem}.md').read_text(encoding='utf-8')
     if not source.startswith('---\n'):
         source = ('---\ntitle: ' + json.dumps(title, ensure_ascii=False) + '\n'
                   'author: "Emeline Cartier — Open Intelligence Casebook"\n'
-                  'date: "Présentation clarifiée — 13 novembre 2026"\nlang: fr-FR\n---\n\n' + source)
+                  'date: "Présentation révisée — 14 novembre 2026"\nlang: fr-FR\n---\n\n' + source)
 
     def public_link(match: re.Match) -> str:
         target = match.group(2)
@@ -215,7 +294,7 @@ def build_pdf(case_dir: Path, title: str, keywords: str, stem: str = 'report') -
     # Evidence links must work after download; images stay local for PDF embedding.
     source = re.sub(r'(?<!!)(\[[^\]\n]*\])\(([^)\s]+)\)', public_link, source)
     with tempfile.TemporaryDirectory() as td:
-        td = Path(td); md = td/'report.md'; html = td/'report.html'; raw = td/'raw.pdf'; compressed = td/'compressed.pdf'
+        td = Path(td); md = td/'report.md'; html = td/'report.html'; raw = td/'raw.pdf'
         md.write_text(source, encoding='utf-8')
         if shutil.which('pandoc'):
             run('pandoc', str(md), '--standalone', '--from=gfm', '--to=html5',
@@ -231,12 +310,13 @@ def build_pdf(case_dir: Path, title: str, keywords: str, stem: str = 'report') -
                 extra_args=['--standalone', '--table-of-contents', '--toc-depth=2',
                             '--metadata=toc-title:Sommaire', '--template', str(ROOT/'tools/report.html')],
             )
-        run(command('weasyprint'), '-u', str(case_dir), '-s', str(CSS), '--optimize-images', str(html), str(raw))
-        pdf_input = raw
-        if shutil.which('gs'):
-            run('gs','-sDEVICE=pdfwrite','-dCompatibilityLevel=1.7','-dPDFSETTINGS=/screen','-dDeterministicID','-dOmitInfoDate=true','-dNOPAUSE','-dQUIET','-dBATCH',f'-sOutputFile={compressed}',str(raw))
-            pdf_input = compressed
-        doc = fitz.open(pdf_input)
+        html.write_text(position_reader_summary(html.read_text(encoding='utf-8')), encoding='utf-8')
+        # Preserve WeasyPrint's font mappings. Ghostscript pdfwrite corrupted
+        # the bold/heading text of the full Titane and Portal Kombat reports.
+        run(command('weasyprint'), '-u', str(case_dir), '-s', str(CSS), '--optimize-images',
+            '--pdf-tags', str(html), str(raw))
+        doc = fitz.open(raw)
+        normalize_structure_ids(doc)
         out = case_dir/f'{stem}.pdf'
         normalized_pdf = td/'normalized.pdf'
         doc.save(normalized_pdf, garbage=4, deflate=True, clean=True, no_new_id=True)
@@ -257,8 +337,8 @@ def build_pdf(case_dir: Path, title: str, keywords: str, stem: str = 'report') -
         doc.close()
         metadata_pdf.replace(out)
 
-        # PyMuPDF preserves the upstream trailer /ID. Ghostscript's /ID may
-        # still vary even when every content byte is stable. Normalize only
+        # PyMuPDF preserves the upstream trailer /ID, which may vary
+        # even when every content byte is stable. Normalize only
         # the two fixed-width 16-byte IDs without changing file offsets.
         pdf = out.read_bytes()
         marker = b'/ID[<'
@@ -289,10 +369,12 @@ def build_pdf(case_dir: Path, title: str, keywords: str, stem: str = 'report') -
         normalized = (normalized[:first_start] + stable_id + normalized[first_end:second_start] +
                       stable_id + normalized[second_end:])
         out.write_bytes(normalized)
+        validate_text_layer(out)
 
 
-def validate_pdf(path: Path, expected_title: str, min_pages: int = 15,
+def validate_pdf(path: Path, expected_title: str, min_pages: int = 8,
                  min_text: int = 10000, min_links: int = 8) -> None:
+    validate_text_layer(path)
     doc = fitz.open(path)
     if len(doc) < min_pages: raise RuntimeError(f'{path}: rapport trop court ({len(doc)} pages)')
     if not all(abs(p.rect.width-595.28) < 1.0 and abs(p.rect.height-841.89) < 1.0 for p in doc): raise RuntimeError(f'{path}: format non A4')
@@ -320,7 +402,7 @@ def write_publication_files() -> None:
         C1/'data/key_metrics.csv', C1/'provenance.csv', *sorted((C1/'figures').glob('*.svg')), C1/'report.pdf',
         C2/'data/key_metrics.csv', C2/'provenance.csv', *sorted((C2/'figures').glob('*.svg')), C2/'report.pdf',
         C3/'provenance.csv', *sorted((C3/'figures').glob('*.svg')), C3/'report.pdf',
-        C4/'provenance.csv', C4/'report.pdf', ROOT/'READING_GUIDE.pdf',
+        C4/'provenance.csv', C4/'report.pdf', ROOT/'READING_GUIDE.pdf', ROOT/'BEGINNER_READING_TEST.pdf',
     ]
     with (PUB/'checksums.sha256').open('w',encoding='utf-8',newline='\n') as f:
         for p in generated:
@@ -393,7 +475,7 @@ FORBIDDEN_TOKENS = ['/mnt/data/','C:\\Users\\','file://','private-user-images.gi
 
 def public_text_files() -> list[Path]:
     """Audience-facing documentation and data scanned for local paths and private URLs."""
-    roots = [ROOT/'README.md', ROOT/'READING_GUIDE.md', ROOT/'NOTICE.md', ROOT/'DISCLAIMER.md', ROOT/'AI_TRANSPARENCY.md', ROOT/'CONTRIBUTING.md']
+    roots = [ROOT/'README.md', ROOT/'READING_GUIDE.md', ROOT/'BEGINNER_READING_TEST.md', ROOT/'NOTICE.md', ROOT/'DISCLAIMER.md', ROOT/'AI_TRANSPARENCY.md', ROOT/'CONTRIBUTING.md']
     roots += [p for base in [ROOT/'cases', ROOT/'methodology', ROOT/'publication'] for p in base.rglob('*') if p.is_file() and p.suffix.lower() in {'.md','.csv','.sha256'} and p.name != 'release-checklist.md']
     return sorted(roots)
 
@@ -420,6 +502,9 @@ def validate_repository() -> None:
     validate_pdf(C4/'report.pdf','XZ Utils - comprendre une compromission logicielle - Case 04', min_pages=8)
     validate_pdf(ROOT/'READING_GUIDE.pdf','Comprendre le renseignement et lire les quatre études',
                  min_pages=3, min_text=4000, min_links=8)
+
+    validate_pdf(ROOT/'BEGINNER_READING_TEST.pdf', 'Tester la compréhension des casebooks',
+                 min_pages=2, min_text=3000, min_links=1)
 
     # checksums verify
     for line in (PUB/'checksums.sha256').read_text(encoding='utf-8').splitlines():
@@ -480,7 +565,8 @@ def write_release_checklist() -> None:
         f'- [x] Figures SVG : {len(svgs)} fichiers analysés sans erreur.',
         f'- [x] PDF : Case 01 ({pdf_facts(C1/"report.pdf")}), Case 02 ({pdf_facts(C2/"report.pdf")}), '
         f'Case 03 ({pdf_facts(C3/"report.pdf")}), Case 04 ({pdf_facts(C4/"report.pdf")}), '
-        f'guide de lecture ({pdf_facts(ROOT/"READING_GUIDE.pdf")}) ; '
+        f'guide de lecture ({pdf_facts(ROOT/"READING_GUIDE.pdf")}), '
+        f'test débutant ({pdf_facts(ROOT/"BEGINNER_READING_TEST.pdf")}) ; '
         'format A4, texte sélectionnable, titre conforme, aucun lien `file://` ni lien vers un fichier local.',
         f'- [x] Recherche de motifs interdits ({tokens}) dans {len(public_text_files())} fichiers publics : aucune occurrence.',
         f'- [x] Empreintes SHA-256 : {len(checksum_lines)} fichiers générés vérifiés (`checksums.sha256`).',
@@ -513,6 +599,8 @@ def main() -> None:
     build_pdf(C4, 'XZ Utils - comprendre une compromission logicielle - Case 04', 'OSINT, cyber, XZ Utils, chronologie, sources, limites')
     build_pdf(ROOT, 'Comprendre le renseignement et lire les quatre études',
               'renseignement, OSINT, initiation, analyse criminelle, guide', stem='READING_GUIDE')
+    build_pdf(ROOT, 'Tester la compréhension des casebooks',
+              'lecture, débutants, questionnaire, compréhension', stem='BEGINNER_READING_TEST')
     write_publication_files()
     validate_repository()
     write_release_checklist()

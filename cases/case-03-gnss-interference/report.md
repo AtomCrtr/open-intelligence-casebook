@@ -1,14 +1,26 @@
 # Case 03 — Interférences GNSS et aviation civile européenne
 
-## Avant de commencer
+<!-- READER_SUMMARY_START -->
 
-**La question en langage courant.** Que peut-on savoir sur les perturbations de navigation par satellite qui touchent l'aviation civile, à partir des documents accessibles ?
+# L’essentiel en deux minutes
 
-**L'idée à retenir.** Les sources documentent des perturbations réelles et des conséquences opérationnelles. Elles ne fournissent pas une mesure homogène de tous les événements européens ni de leurs conséquences.
+**La question.** Que peut-on savoir sur les perturbations de navigation par satellite qui touchent l’aviation civile européenne ?
 
-**Ce qui a été fait.** Le dossier compare des publications institutionnelles et sectorielles, examine leurs dépendances et confronte plusieurs explications. Le projet n'a pas exécuté la couche d'observation ADS-B/GPSJAM prévue au départ.
+**Ce que montre l’étude.** Des documents institutionnels et sectoriels décrivent des perturbations réelles et des conséquences pour les vols. Ils signalent notamment deux ensembles de zones : la Baltique et le Nord-Est européen ; la mer Noire et la Méditerranée orientale. Le détail de chaque conclusion et de sa confiance figure dans le rapport.
 
-**Statut.** Étude documentaire finalisée et publiée. Une étude fondée sur de nouvelles observations constituerait une phase distincte.
+**Deux mots utiles.** Le **brouillage** gêne la réception du signal. Le **leurrage** transmet des signaux trompeurs qui peuvent induire une position ou une heure erronée. GNSS désigne les systèmes de navigation par satellite, dont le GPS fait partie.
+
+**La limite essentielle.** Plus de signalements peut traduire plus de perturbations, une meilleure détection ou les deux. Rapporter les incidents à un volume de trafic aide à comparer, mais ne suffit pas à supprimer les différences de détection. Ces documents ne donnent pas une mesure homogène de tous les événements européens ni de leurs conséquences.
+
+**À quoi sert cette analyse ?** Elle aide à organiser une veille : préciser la zone, la période, la façon de compter et les limites de chaque indicateur avant de comparer les chiffres.
+
+**Les données.** Publications publiques réelles. Le projet n’a pas produit de mesures de brouillage ni réalisé la phase d’observation ADS-B/GPSJAM envisagée au départ. Étude documentaire livrée ; document **non destiné à la navigation**.
+
+**Pour vérifier.** Voir les [sources](sources.md) et la [carte des preuves](evidence-map.md). Présentation révisée le 14 novembre 2026, sans nouvelle collecte.
+
+<!-- READER_SUMMARY_END -->
+
+## Repères de lecture
 
 ### Les mots utiles
 
@@ -21,7 +33,7 @@
 
 **Pour lire les chiffres.** Davantage de signalements peut refléter davantage d'événements, une meilleure détection ou les deux. Les périodes et zones ne sont comparables que si l'on comprend comment les données ont été produites.
 
-**Parcours.** Lire « En cinq minutes », puis les limites et les recommandations. La [carte des preuves](evidence-map.md) et les [sources](sources.md) permettent d'approfondir. La présentation a été clarifiée le 13 novembre 2026 ; les jugements et leurs niveaux de confiance restent ceux de l'édition approuvée.
+**Parcours.** Lire la synthèse, puis les limites et les recommandations. La [carte des preuves](evidence-map.md) et les [sources](sources.md) permettent d'approfondir. La présentation a été révisée le 14 novembre 2026 ; les jugements et leurs niveaux de confiance restent ceux de l'édition approuvée.
 
 ## Rapport final — édition documentaire
 
@@ -48,13 +60,51 @@
 
 **Réponse courte.** Les sources ouvertes suffisent à établir **que** les dégradations GNSS ont fortement augmenté entre 2022 et la mi-2025, **où** elles se concentrent en Europe, et **de quelle nature** elles relèvent : des brouillages et des leurrages réels. Elles ne suffisent pas à **mesurer** l'ampleur européenne, la fréquence des conséquences ni l'évolution récente avec un dénominateur homogène. Les comptages bruts d'incidents sont trompeurs ; seuls des taux normalisés sont utilisables pour la veille.
 
-| # | Jugement clé | Confiance |
-|---|---|---|
-| KJ-01 | Hausse nette des dégradations GNSS de 2022 à la mi-2025 ; évolution postérieure incertaine (persistance déclarée, baisses locales). | **Élevée** (sens : monde, foyer balte) · Modérée (Europe entière) · Faible (ampleur, après mi-2025) |
-| KJ-02 | Deux foyers européens (CEAC, Turquie comprise) persistants de 2024 à octobre 2026 : Baltique et Nord-Est (EPWW, EYVL, EVRR, EETT, EFIN, ESAA) ; mer Noire et Méditerranée orientale (LTAA, LTBB, LRBB, LBSR, LCCC). Pas d'émergence démontrée. | **Élevée** (foyers) · Faible (classement fin) |
-| KJ-03 | Le signal relève surtout d'interférences réelles, en partie intentionnelles, amplifiées par une meilleure détection : modèle mixte H4 à dominante H1 ; l'hypothèse « artefacts » (H3) est écartée comme explication principale. | **Élevée** (rejet de H3) · Modérée (part H1 / H2) |
-| KJ-04 | Conséquences opérationnelles réelles et documentées (déroutements, fausses alertes TAWS, positions erronées après la sortie de zone) ; fréquence et gravité non mesurables. | **Élevée** (nature) · Faible (fréquence) |
-| KJ-05 | Les comptages bruts ne sont pas des indicateurs de tendance (à Budapest, 2,6 à 8,1 % des événements déclarés par les pilotes) ; les taux normalisés et l'indicateur EASA par FIR le sont, avec garde-fous. | **Élevée** · Modérée (liste d'indicateurs) |
+<div class="reader-card">
+
+**KJ-01**
+
+- **Jugement clé :** Hausse nette des dégradations GNSS de 2022 à la mi-2025 ; évolution postérieure incertaine (persistance déclarée, baisses locales).
+- **Confiance :** **Élevée** (sens : monde, foyer balte) · Modérée (Europe entière) · Faible (ampleur, après mi-2025)
+
+</div>
+
+<div class="reader-card">
+
+**KJ-02**
+
+- **Jugement clé :** Deux foyers européens (CEAC, Turquie comprise) persistants de 2024 à octobre 2026 : Baltique et Nord-Est (EPWW, EYVL, EVRR, EETT, EFIN, ESAA) ; mer Noire et Méditerranée orientale (LTAA, LTBB, LRBB, LBSR, LCCC). Pas d'émergence démontrée.
+- **Confiance :** **Élevée** (foyers) · Faible (classement fin)
+
+</div>
+
+<div class="reader-card">
+
+**KJ-03**
+
+- **Jugement clé :** Le signal relève surtout d'interférences réelles, en partie intentionnelles, amplifiées par une meilleure détection : modèle mixte H4 à dominante H1 ; l'hypothèse « artefacts » (H3) est écartée comme explication principale.
+- **Confiance :** **Élevée** (rejet de H3) · Modérée (part H1 / H2)
+
+</div>
+
+<div class="reader-card">
+
+**KJ-04**
+
+- **Jugement clé :** Conséquences opérationnelles réelles et documentées (déroutements, fausses alertes TAWS, positions erronées après la sortie de zone) ; fréquence et gravité non mesurables.
+- **Confiance :** **Élevée** (nature) · Faible (fréquence)
+
+</div>
+
+<div class="reader-card">
+
+**KJ-05**
+
+- **Jugement clé :** Les comptages bruts ne sont pas des indicateurs de tendance (à Budapest, 2,6 à 8,1 % des événements déclarés par les pilotes) ; les taux normalisés et l'indicateur EASA par FIR le sont, avec garde-fous.
+- **Confiance :** **Élevée** · Modérée (liste d'indicateurs)
+
+</div>
+
 
 **Ce que le rapport n'établit pas :** une série européenne 2022–2026 ; un atlas FIR/H3 ; une comparaison avec des zones témoins ; une fréquence de conséquences ; une attribution propre au projet. Les attributions citées (UIT, Conseil de l'OACI, PANSA, IATA) sont **rapportées**, jamais requalifiées.
 
@@ -194,12 +244,54 @@ Légende : **C** compatible · **I** incompatible · **N** neutre ou non discrim
 
 ## 8. Recommandations
 
-| ID | Action | Objectif | Porteur | Déclencheur / condition | Revue |
-|---|---|---|---|---|---|
-| REC-01 | Suivre le classement EASA 7/30 jours et des taux normalisés ; ne jamais suivre un compte brut d'incidents | éviter de confondre hausse du signalement et hausse du phénomène | responsable sécurité des vols ou veille | mise en place de toute veille GNSS | trimestrielle, à chaque révision du bulletin EASA |
-| REC-02 | Traiter les effets GNSS comme pouvant persister après la sortie d'une zone affectée (positions, temps, TAWS) | couvrir les vols qui traversent les deux foyers | exploitants, formation des équipages | vols traversant les FIR de KJ-02 | à chaque nouvelle publication EASA ou OACI |
-| REC-03 | Exiger, pour tout chiffre transmis, le dénominateur et la définition de « affecté » | rendre les séries comparables (GAP-002) | toute organisation qui publie ou relaie des chiffres | réception d'un chiffre non normalisé | à chaque échange de données |
-| REC-04 | N'ouvrir une phase observationnelle (ADS-B bornée, témoins) que pour une question laissée ouverte ici : ampleur européenne, émergence, conséquences | ne pas collecter de trajectoires pour compenser une lacune documentaire | propriétaire du projet | nouvelle décision explicite et permissions | à la décision suivante sur D4 et GPSJAM |
+<div class="reader-card">
+
+**REC-01**
+
+- **Action :** Suivre le classement EASA 7/30 jours et des taux normalisés ; ne jamais suivre un compte brut d'incidents
+- **Objectif :** éviter de confondre hausse du signalement et hausse du phénomène
+- **Porteur :** responsable sécurité des vols ou veille
+- **Déclencheur / condition :** mise en place de toute veille GNSS
+- **Revue :** trimestrielle, à chaque révision du bulletin EASA
+
+</div>
+
+<div class="reader-card">
+
+**REC-02**
+
+- **Action :** Traiter les effets GNSS comme pouvant persister après la sortie d'une zone affectée (positions, temps, TAWS)
+- **Objectif :** couvrir les vols qui traversent les deux foyers
+- **Porteur :** exploitants, formation des équipages
+- **Déclencheur / condition :** vols traversant les FIR de KJ-02
+- **Revue :** à chaque nouvelle publication EASA ou OACI
+
+</div>
+
+<div class="reader-card">
+
+**REC-03**
+
+- **Action :** Exiger, pour tout chiffre transmis, le dénominateur et la définition de « affecté »
+- **Objectif :** rendre les séries comparables (GAP-002)
+- **Porteur :** toute organisation qui publie ou relaie des chiffres
+- **Déclencheur / condition :** réception d'un chiffre non normalisé
+- **Revue :** à chaque échange de données
+
+</div>
+
+<div class="reader-card">
+
+**REC-04**
+
+- **Action :** N'ouvrir une phase observationnelle (ADS-B bornée, témoins) que pour une question laissée ouverte ici : ampleur européenne, émergence, conséquences
+- **Objectif :** ne pas collecter de trajectoires pour compenser une lacune documentaire
+- **Porteur :** propriétaire du projet
+- **Déclencheur / condition :** nouvelle décision explicite et permissions
+- **Revue :** à la décision suivante sur D4 et GPSJAM
+
+</div>
+
 
 ## 9. Limites et lacunes
 

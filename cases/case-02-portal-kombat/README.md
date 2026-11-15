@@ -44,7 +44,7 @@ Le cas met en œuvre collecte passive, STIX, analyse de graphe, triangulation, D
 | Snapshot VIGINUM | **371 observations correspondant à 370 domaines distincts** (232 datées, 139 sans date) |
 | Vague `pravda-*` | **31** observations datées de mars 2024 |
 | Graphe STIX | **609 nœuds / 1 013 relations** |
-| Composante principale | **604** nœuds en baseline ; **602** sans nœud campagne ; **305** sans `amplifies` ; **560** sans `uses` |
+| Composante principale | **604** nœuds dans le modèle initial ; **602** sans les liens des nœuds campagne ; **305** sans `amplifies` ; **560** sans `uses` |
 | Wikipedia | **1 932** observations, **44 éditions linguistiques** (`ru=922`, `uk=580`, `en=133`, `fr=28`) |
 | X | **2 018** observations, dont **94** en `fr` et **130** vers des domaines France-compatibles |
 | Agrégats CheckFirst | **101** profils de portails, **4 572** lignes portail-langue pour **47** codes |
