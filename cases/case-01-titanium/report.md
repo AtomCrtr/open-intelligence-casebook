@@ -2,7 +2,7 @@
 title: "Titane et résilience de la filière aéronautique civile européenne"
 subtitle: "Case 01 - Comprendre la concentration, la qualification et la substituabilité à l'horizon 2030"
 author: "Emeline Cartier - Open Intelligence Casebook"
-date: "Présentation révisée — 14 novembre 2026 ; données historiques"
+date: "Présentation et traçabilité révisées — 17 novembre 2026 ; données historiques"
 lang: fr-FR
 ---
 
@@ -22,7 +22,7 @@ lang: fr-FR
 
 **À quoi sert cette analyse ?** Elle aide à repérer les produits à examiner en priorité. Avant de décider, il faut vérifier les qualifications, les contrats et les possibilités de livraison propres au besoin réel.
 
-**Les données.** Statistiques commerciales réelles et documents industriels publics ; six catégories de produits, historique 2014–2025. L’étude est livrée pour ce périmètre ; les inconnues restent indiquées dans le rapport.
+**Les données.** Statistiques commerciales réelles et documents industriels publics ; six catégories de produits comparées en **2017 et en 2025**. Cette édition ne publie pas de série annuelle intermédiaire ; les inconnues restent indiquées dans le rapport.
 
 **Pour vérifier.** Voir les [sources](sources.md), la [carte des preuves](evidence-map.md) et les résultats détaillés après le sommaire. La révision du 14 novembre 2026 améliore la présentation ; elle n’actualise pas les données.
 
@@ -48,7 +48,7 @@ lang: fr-FR
 
 Le titane est critique pour de nombreuses applications aéronautiques, mais les données publiques disponibles ne racontent qu'une partie de la chaîne. Les statistiques douanières montrent **où l'Union européenne importe certaines catégories de produits en titane et à quel point ces origines sont concentrées**. Elles ne disent pas directement si ces flux sont destinés à l'aéronautique, s'ils correspondent au bon grade, si un fournisseur est qualifié, si un client l'a approuvé ou si la matière peut être livrée sur un programme précis.
 
-L'analyse couvre six codes CN8 sur les années complètes 2014-2025. Pour comparer finement les origines, la fenêtre commune la plus robuste est 2017-2025. Le résultat principal est **hétérogène** : les tubes se concentrent fortement, les déchets et certains ouvrages se diversifient, les barres et les formes brutes restent globalement stables, tandis que les produits plats montrent une évolution mixte.
+Les mesures publiées comparent six codes CN8 pour **deux années complètes : 2017 et 2025**. Elles ne retracent pas les variations entre ces deux dates. Le cadrage historique 2014–2025 du dossier de travail reste distinct de ce parcours public. Le résultat principal est **hétérogène** : les tubes se concentrent fortement, les déchets et certains ouvrages se diversifient, les barres et les formes brutes restent globalement stables, tandis que les produits plats montrent une évolution mixte.
 
 La conséquence stratégique est simple : **diversification commerciale ≠ résilience aéronautique**. Une capacité industrielle supplémentaire devient réellement utile seulement si plusieurs portes convergent : qualification, approbation client, accès contractuel et livraison.
 
@@ -73,14 +73,14 @@ Cette nuance est essentielle lorsqu'on lit des annonces de « nouvelle capacité
 
 # 2. Question, périmètre et unité de lecture
 
-En langage courant : **comment la dépendance européenne aux importations de titane a-t-elle évolué depuis 2014, et quelles preuves supplémentaires faut-il avant d'en déduire la résilience aéronautique à l'horizon 2030 ?**
+En langage courant : **que montre la comparaison des importations européennes de titane en 2017 et en 2025, et quelles preuves supplémentaires faut-il pour apprécier la résilience aéronautique à l'horizon 2030 ?**
 
-La question analytique détaillée est : **comment l'exposition de la filière aéronautique civile européenne aux concentrations et ruptures de la chaîne d'approvisionnement du titane a-t-elle évolué depuis 2014, et quelles options de résilience un équipementier de rang 1 devrait-il prioriser à l'horizon 2030 ?**
+Cette édition associe la **comparaison commerciale de 2017 et de 2025** à une lecture documentaire des capacités industrielles et des options de résilience à l’horizon 2030. Elle ne restitue pas toute la série annuelle du cadrage historique 2014–2025 et ne permet pas de dater les changements entre les deux années comparées.
 
 | Dimension | Périmètre | Limite |
 |---|---|---|
 | Flux | Importations extra-UE de l'UE27 | Les flux intra-UE ne mesurent pas l'exposition externe. |
-| Temps | 2014-2025 complet ; 2017-2025 pour comparaison fine des origines | 2026 partiel n'est pas comparé aux années complètes. |
+| Temps des mesures publiées | Deux années complètes : 2017 et 2025 | Pas de série annuelle intermédiaire dans cette édition ; 2026 reste hors de cette comparaison. |
 | Produits | 6 codes CN8 | Les stades restent séparés pour éviter le double comptage. |
 | Mesure principale | Masse nette | Les valeurs en euros sont complémentaires, pas un substitut au volume. |
 | Secteur | Question aéronautique, données commerciales toutes industries | Aucun flux n'est appelé « aéronautique » sans preuve complémentaire. |
@@ -166,6 +166,8 @@ Le HHI additionne les carrés des parts de marché des origines. Une valeur plus
 
 # 4. Ce que montrent les flux
 
+**Preuves et limites :** [C1-PUB-001](evidence-map.md#c1-pub-001) · [C1-PUB-002](evidence-map.md#c1-pub-002) · [C1-PUB-003](evidence-map.md#c1-pub-003).
+
 ![Comparaison du HHI 2017-2025](figures/hhi_2017_2025.svg)
 
 La comparaison des six catégories montre qu'il n'existe pas une trajectoire unique de « dépendance au titane » :
@@ -179,7 +181,7 @@ La comparaison des six catégories montre qu'il n'existe pas une trajectoire uni
 | Tubes et tuyaux | 2 130,6 | 4 137,9 | concentration en hausse |
 | Autres ouvrages | 3 352,0 | 2 366,4 | concentration en baisse |
 
-Le cas des tubes est le signal le plus visible : le HHI progresse fortement et la Chine représente **60,23 %** du premier partenaire en 2025 parmi les origines identifiées. À l'inverse, les déchets et les autres ouvrages montrent une dispersion plus forte.
+Le cas des tubes est le signal le plus visible : le HHI progresse fortement et la Chine représente **60,23 %** des origines identifiées en 2025. À l'inverse, les déchets et les autres ouvrages montrent une dispersion plus forte.
 
 <div class="reader-card">
 
@@ -195,6 +197,8 @@ Les [couvertures et enveloppes des douze comparaisons](data/uncertainty.csv) son
 
 # 5. Changer de premier partenaire ne signifie pas nécessairement se diversifier
 
+**Preuves et limites :** [C1-PUB-004](evidence-map.md#c1-pub-004).
+
 ![Partenaire dominant](figures/dominant_partner.svg)
 
 Les formes brutes et poudres illustrent un piège classique. Le premier partenaire passe des États-Unis au Kazakhstan entre 2017 et 2025, mais le HHI reste quasiment stable. Le nom du partenaire dominant change sans transformation profonde de la structure de concentration.
@@ -204,6 +208,8 @@ Pour les barres, le premier partenaire reste les États-Unis et sa part progress
 > **Ce que cela ne prouve pas.** L'origine douanière n'est ni le producteur réel, ni un fournisseur qualifié, ni le client final. Des transformations intermédiaires et réexportations peuvent exister.
 
 # 6. Capacité industrielle : le vrai sujet est la maturité de la preuve
+
+**Preuves et limites :** [C1-PUB-005](evidence-map.md#c1-pub-005).
 
 Le corpus canonique suit onze initiatives. Elles peuvent se situer à des stades très différents : engagement, chantier, installation achevée, production, qualification, approbation ou livraison.
 
@@ -219,6 +225,8 @@ Quelques exemples structurants :
 Cette chaîne est le cœur du casebook. Elle évite deux erreurs : compter une annonce comme une redondance industrielle réelle, puis compter une capacité industrielle réelle comme une source immédiatement substituable.
 
 # 7. Hypothèses concurrentes
+
+**Preuves et limites :** [C1-PUB-006](evidence-map.md#c1-pub-006).
 
 ![Hypothèses](figures/hypotheses.svg)
 
@@ -279,6 +287,8 @@ Une information non observée reste une lacune, jamais une preuve automatique d'
 
 # 9. Trois futurs possibles à l'horizon 2030
 
+**Preuves et limites :** [C1-PUB-007](evidence-map.md#c1-pub-007).
+
 ![Scénarios 2030](figures/scenarios_2030.svg)
 
 Les scénarios ne sont pas des prévisions probabilistes. Ils servent à tester si une option reste utile lorsque les hypothèses de capacité, qualification et demande évoluent.
@@ -317,7 +327,7 @@ La surveillance des indicateurs est la seule mesure pouvant véritablement **com
 
 # 12. Recommandations conditionnelles
 
-Leur portée et leurs limites correspondent à l’affirmation **C1-PUB-008** de la [carte des preuves](evidence-map.md).
+Leur portée et leurs limites correspondent à l’affirmation [C1-PUB-008](evidence-map.md#c1-pub-008) de la [carte des preuves](evidence-map.md).
 
 Le dossier canonique transforme les dix options de résilience en **huit recommandations**. Les niveaux ci-dessous indiquent une posture de préparation, pas un ordre d'achat. Un EWI ouvre une **revue de posture** ; il ne déclenche jamais automatiquement un sourcing, un stock ou un investissement.
 

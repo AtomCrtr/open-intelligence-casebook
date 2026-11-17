@@ -1,6 +1,6 @@
 # Contributions et usage effectif de l’IA
 
-**Mise à jour : 15 novembre 2026.** Cette fiche décrit les interventions observables dans les échanges et corrections récents. Elle ne reconstitue pas automatiquement la contribution de chaque personne à toutes les étapes historiques.
+**Mise à jour : 17 novembre 2026.** Cette fiche décrit les interventions observables dans les échanges et corrections récents. Elle ne reconstitue pas automatiquement la contribution de chaque personne à toutes les étapes historiques.
 
 ## Usages documentés par cas
 
@@ -12,6 +12,12 @@
 | XZ Utils | Contre-lecture et correction du raisonnement sur l’historique et le contrôle du compte ; harmonisation des références ; structuration et mise en page assistées | Lecture des sources techniques, reconstitution personnelle de la chronologie et vérifications reproduites à détailler |
 
 Les interventions ci-dessus ont été effectuées avec **Codex** dans les échanges récents. Des recommandations de **Claude**, transmises par la propriétaire, ont aussi servi au choix et au cadrage du pilote Rotterdam. Aucun journal complet des outils employés dans toutes les phases historiques n’est revendiqué.
+
+## Révision de cohérence et de traçabilité du 17 novembre
+
+À partir des constats de relecture de Claude et des échanges transmis par la propriétaire, Codex a précisé le périmètre public Titane (comparaison de 2017 et 2025), harmonisé les statuts, ajouté les liens des rapports vers les affirmations, relié les trois notations GNSS et défini les objets dérivés. Les PDF ont été reconstruits et contrôlés techniquement. Un second assistant a relu les correspondances et les destinations ; cela ne vaut pas revue analytique indépendante. Les tests auprès de débutants et avec un lecteur d’écran restent à réaliser.
+
+Ces interventions n’établissent aucune lecture personnelle, aucun recalcul autonome ni aucun codage humain de la propriétaire. Les contributions individuelles de la table ci-dessus restent à documenter.
 
 ## Rôle de la propriétaire et points restant à préciser
 

@@ -63,9 +63,17 @@ def test_real_titanium_subset_recomputes_all_twelve_comparisons():
 
 
 def test_evidence_maps_have_exactly_the_provenance_claims():
-    for slug, prefix in [('case-01-titanium', 'C1'), ('case-02-portal-kombat', 'C2')]:
+    for slug, prefix in [('case-01-titanium', 'C1'), ('case-02-portal-kombat', 'C2'),
+                         ('case-03-gnss-interference', 'C3'), ('case-04-xz-utils', 'C4')]:
         case = reproduction.ROOT/'cases'/slug
         claims = {r['claim_id'] for r in reproduction.read_csv(case/'provenance.csv')}
-        ids = re.findall(r'^\| (' + prefix + r'-PUB-\d+) \|', (case/'evidence-map.md').read_text(), re.M)
+        evidence_map = (case/'evidence-map.md').read_text()
+        ids = re.findall(r'^\| (' + prefix + r'-PUB-\d+) \|', evidence_map, re.M)
         assert set(ids) == claims
         assert len(ids) == len(claims)
+        anchors = re.findall(r'<a id="(c\d-pub-\d+)"></a>', evidence_map)
+        assert set(anchors) == {claim.lower() for claim in claims}
+        assert len(anchors) == len(claims)
+        report_links = re.findall(r'\]\(evidence-map\.md#(c\d-pub-\d+)\)',
+                                  (case/'report.md').read_text())
+        assert set(report_links) == set(anchors)

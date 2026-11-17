@@ -44,7 +44,7 @@ Chaque cas part d'une question concrète, transforme des sources publiques en pr
 
 **Première visite : [lire le guide de découverte](READING_GUIDE.md) · [télécharger le guide PDF](READING_GUIDE.pdf).** Il explique le renseignement, les mots techniques, l'état des cas et le prochain sujet proposé.
 
-« Finalisé » décrit une édition et un périmètre. Des inconnues peuvent rester ouvertes. Le 13 novembre 2026, les quatre études ont une édition finale ; GNSS reste documentaire, sans analyse de trajectoires ADS-B/GPSJAM. Cette clarification éditoriale ne constitue pas une actualisation des sources.
+Chaque étude dispose d’une édition publiée pour un périmètre défini. Les revues encore ouvertes sont indiquées séparément ci-dessus. GNSS reste documentaire, sans analyse de trajectoires ADS-B/GPSJAM ; cette clarification ne constitue pas une actualisation des sources.
 
 
 | Vous avez… | Lisez | Vous obtenez |
@@ -59,19 +59,19 @@ Chaque cas part d'une question concrète, transforme des sources publiques en pr
 
 ### ✈️ Case 01 — Titane & résilience aéronautique
 
-**Question :** comment la dépendance européenne aux importations de titane a-t-elle évolué depuis 2014, et quelles preuves supplémentaires faut-il avant d'en déduire la résilience aéronautique à l'horizon 2030 ?
+**Question :** que montre la comparaison des importations européennes de titane en 2017 et en 2025, et quelles preuves supplémentaires faut-il pour apprécier la résilience aéronautique à l'horizon 2030 ?
 
 L'étude combine données commerciales publiques, preuves industrielles et analyse structurée. Elle montre surtout qu'une diversification commerciale ne devient pas automatiquement une alternative aéronautique utilisable.
 
 **À retenir :**
 - six catégories CN8 étudiées séparément ;
-- comparaison commune des origines entre **2017 et 2025** ;
+- comparaison des origines pour **deux années, 2017 et 2025**, sans série annuelle intermédiaire publiée ;
 - concentration très hétérogène selon les formes ;
 - distinction stricte entre **capacité → qualification → approbation client → accès contractuel → livraison → substitution** ;
 - trois scénarios qualitatifs à l'horizon 2030 et un portefeuille d'options conditionnelles.
 
 <p align="center">
-  <img src="cases/case-01-titanium/figures/hhi_2017_2025.svg" alt="Évolution de la concentration HHI des importations de titane entre 2017 et 2025" width="88%">
+  <img src="cases/case-01-titanium/figures/hhi_2017_2025.svg" alt="Comparaison de la concentration HHI des importations de titane en 2017 et en 2025" width="88%">
 </p>
 
 <div align="center">

@@ -14,3 +14,11 @@ Cette page présente une sélection des sources structurantes. Le registre canon
 10. [S-017 — UKTMP, site institutionnel](https://www.uktmp.kz/en/) - déclarations sur production et marché, utilisées avec prudence comme source intéressée.
 
 Les communications d'entreprises servent à documenter les faits qu'elles engagent ; elles ne sont pas utilisées seules pour conclure à une qualification ou à une performance non démontrée.
+
+## Productions du projet citées dans la provenance
+
+Ces identifiants ne désignent pas des sources tierces. Ils exposent un traitement ou un raisonnement du projet et n’ajoutent aucune corroboration indépendante.
+
+- **DERIVED-C1** : appréciation des hypothèses au §7 du [rapport](report.md), à partir des mesures et observations industrielles exposées dans la [carte des preuves](evidence-map.md#c1-pub-006). Le lecteur peut remonter aux données et sources des affirmations précédentes ; la synthèse ne crée pas une nouvelle observation.
+- **ANALYST-SCENARIO** : construction des trois scénarios 2030 au §9 du [rapport](report.md), issue des constats, hypothèses et inconnues précédents. Ce sont des configurations exploratoires, pas des observations futures ni des probabilités. Voir [C1-PUB-007](evidence-map.md#c1-pub-007).
+- **ANALYST-SYNTHESIS** : recommandations conditionnelles des §12–13 du [rapport](report.md), dérivées des constats et scénarios, avec les données internes encore requises. Voir [C1-PUB-008](evidence-map.md#c1-pub-008).

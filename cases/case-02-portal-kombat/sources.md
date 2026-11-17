@@ -25,3 +25,8 @@ Les corpus amont aux droits de redistribution incertains ne sont pas recopiés d
 - S-024 contextualise la divulgation VIGINUM sur la vague de mars 2024 ; elle constitue une publication distincte, pas une nouvelle observation primaire de cette vague.
 - S-016 et S-030 publient une même étude commune DFRLab/CheckFirst fondée sur les mêmes données de dissémination. Elles forment une seule lignée informationnelle.
 - S-029 fournit une lecture concurrente sur les citations par des systèmes d'IA. Elle ne teste ni la structure du réseau, ni son commandement, ni l'attribution de ses opérateurs.
+
+## Productions du projet citées dans la provenance
+
+- **DERIVED-C2-STIX** : calcul des variantes du graphe à partir du paquet VIGINUM **S-031**. Le [parcours de reproduction](REPRODUCE.md) et le [code public](../../tools/reproduce_results.py) décrivent le retrait de liens ; voir [C2-PUB-004](evidence-map.md#c2-pub-004). Ce calcul dépend de la même lignée VIGINUM et ne prouve pas un commandement réel.
+- **ANALYST-ACH** : appréciation des hypothèses au §10 du [rapport](report.md), à partir des observations et sources exposées dans les affirmations précédentes. Voir [C2-PUB-007](evidence-map.md#c2-pub-007). C’est un raisonnement du projet, pas une source tierce indépendante.

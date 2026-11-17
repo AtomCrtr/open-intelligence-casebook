@@ -1,13 +1,13 @@
 # ✈️ Case 01 - Titane et résilience aéronautique européenne
 
-**Statut : terminé - édition publique assainie.**
+**Édition publiée — revues ouvertes.**
 
-[![Statut](https://img.shields.io/badge/statut-termin%C3%A9-2e7d32)](report.md)
-[![Période](https://img.shields.io/badge/p%C3%A9riode-2014--2025-244c66)](methodology.md)
+[![Statut](https://img.shields.io/badge/statut-%C3%A9dition%20publi%C3%A9e-244c66)](report.md)
+[![Période](https://img.shields.io/badge/comparaison-2017%20et%202025-244c66)](methodology.md)
 [![Codes CN8](https://img.shields.io/badge/codes%20CN8-6-355c7d)](data/key_metrics.csv)
 [![Hypothèses](https://img.shields.io/badge/ACH-4%20hypoth%C3%A8ses-1f6f78)](#hypothèses-concurrentes)
 
-> **Question :** comment la dépendance européenne aux importations de titane a-t-elle évolué depuis 2014, et quelles preuves supplémentaires faut-il avant d'en déduire la résilience aéronautique à l'horizon 2030 ?
+> **Question :** que montre la comparaison des importations européennes de titane en 2017 et en 2025, et quelles preuves supplémentaires faut-il pour apprécier la résilience aéronautique à l'horizon 2030 ?
 
 Le cas combine des données commerciales Eurostat, des sources institutionnelles et des publications industrielles. Il montre surtout pourquoi **diversification commerciale, capacité industrielle, qualification aéronautique, approbation client et substitution réelle ne sont pas équivalentes**.
 
@@ -21,7 +21,9 @@ Le cas combine des données commerciales Eurostat, des sources institutionnelles
 
 **Ce qui a été fait.** Le dossier compare des statistiques commerciales et des sources industrielles. Il sépare six catégories de produits pour éviter qu'une moyenne masque leurs différences.
 
-**Statut.** Étude finalisée et publiée dans son périmètre. Les achats réels et les qualifications propres à chaque constructeur restent hors de ce que les données douanières démontrent.
+**Statut.** La revue analytique reste [ouverte](../../README.md#trois-états-à-distinguer). Les tests auprès de débutants et la vérification avec un lecteur d’écran restent **à réaliser**. Les [contrôles techniques](../../publication/release-checklist.md) et les [contributions personnelles](../../AI_TRANSPARENCY.md) sont documentés séparément.
+
+Les achats réels et les qualifications propres à chaque constructeur restent hors de ce que les données douanières démontrent.
 
 **Pour découvrir les mots et la méthode : [guide de lecture](../../READING_GUIDE.md).**
 
@@ -34,7 +36,7 @@ Le cas combine des données commerciales Eurostat, des sources institutionnelles
 - Conséquence : **diversification commerciale ≠ résilience aéronautique**. Une capacité nouvelle n'est utile que si qualification, approbation client, accès contractuel et livraison convergent.
 
 <p align="center">
-  <img src="figures/hhi_2017_2025.svg" alt="Évolution de la concentration HHI des importations de titane entre 2017 et 2025 par code CN8" width="88%">
+  <img src="figures/hhi_2017_2025.svg" alt="Comparaison de la concentration HHI des importations de titane en 2017 et en 2025 par code CN8" width="88%">
 </p>
 
 ## Chiffres clés
@@ -42,7 +44,7 @@ Le cas combine des données commerciales Eurostat, des sources institutionnelles
 | Indicateur | Valeur |
 |---|---|
 | Catégories CN8 étudiées séparément | **6** |
-| Historique / fenêtre commune de comparaison | **2014-2025** / **2017-2025** |
+| Années des mesures publiées | **2017 et 2025**, sans série annuelle intermédiaire |
 | HHI des tubes et tuyaux | **2 130,6 → 4 137,9** |
 | HHI des déchets et chutes | **2 568,5 → 1 449,4** |
 | Premier partenaire des tubes en 2025 | **Chine, 60,23 %** des origines identifiées |
@@ -75,7 +77,7 @@ flowchart LR
 
 | Établi par les sources publiques | Non démontré |
 |---|---|
-| trajectoires des flux et HHI par code | exposition exacte d'un programme ou d'un portefeuille réel |
+| comparaison des flux et HHI par code en 2017 et en 2025 | exposition exacte d'un programme ou d'un portefeuille réel |
 | existence et statut de certaines initiatives | consommation exacte d'un équipementier |
 | certaines démarches de qualification engagées | approbation de toutes les alternatives par chaque client |
 | divergence entre catégories de produits | autonomie européenne ou effet causal d'un projet sur les flux |

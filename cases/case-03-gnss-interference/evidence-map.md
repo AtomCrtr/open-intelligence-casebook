@@ -6,22 +6,22 @@ Chaque identifiant cité dans le [rapport](report.md) et les [jugements clés](k
 
 ## Affirmations publiques
 
-Les affirmations C3-01 à C3-12 de la figure résument les jugements clés ; chacune ne cite que des preuves de son propre jugement. « non établi » signale une question sur laquelle les sources ne permettent qu'une confiance faible.
+Les identifiants C3-PUB-01 à C3-PUB-12 sont ceux de la provenance ; les repères C3-01 à C3-12 sont ceux de la figure. La table ci-dessous les relie aux jugements clés ; chaque affirmation ne cite que des preuves de son propre jugement. « non établi » signale une question sur laquelle les sources ne permettent qu'une confiance faible.
 
-| Affirmation | Jugement | Énoncé | Confiance | Preuves |
-|---|---|---|---|---|
-| C3-01 | KJ-01 | Les indicateurs de dégradations GNSS et les déclarations institutionnelles décrivent une hausse du signal détecté entre 2022 et la mi-2025, au niveau mondial et dans le foyer balte. | Élevée | EV-001, EV-002, EV-043, EV-044, EV-048, EV-042 |
-| C3-12 | KJ-01 | Les déclarations institutionnelles décrivent aussi une hausse dans l’espace aérien européen ; les séries ne séparent pas le phénomène et sa détection. | Modérée | EV-001, EV-002, EV-042, EV-043 |
-| C3-02 | KJ-01 | Le sens de l'évolution après la mi-2025 : les institutions décrivent une persistance, une baisse locale est documentée en Pologne. | non établi | EV-039, EV-060, EV-055, EV-056 |
-| C3-03 | KJ-02 | La dégradation se concentre de 2024 à octobre 2026 sur deux foyers : Baltique et Nord-Est ; mer Noire et Méditerranée orientale. | Élevée | EV-003, EV-029, EV-059, EV-060, EV-052, EV-058, EV-049 |
-| C3-04 | KJ-02 | Le classement fin entre FIR et l'apparition de nouveaux foyers (un rang ne mesure pas une intensité). | non établi | EV-059 |
-| C3-05 | KJ-03 | Des interférences réelles sont documentées sur certains événements ; une explication exclusivement fondée sur des artefacts ne couvre pas ces preuves. | Élevée | EV-037, EV-063, EV-066, EV-032, EV-046, EV-050, EV-043, EV-042 |
-| C3-06 | KJ-03 | La contribution respective des interférences réelles et des changements de détection à la hausse des indicateurs n’est pas établie ; les taux normalisés ne suffisent pas à les départager. | non établi | EV-045, EV-059, EV-057, EV-043, EV-042 |
-| C3-07 | KJ-03 | Les attributions citées (UIT, Conseil de l'OACI, PANSA, IATA) sont rapportées telles quelles ; le projet ne les requalifie pas. | rapportée, non jugée | EV-063, EV-069, EV-034, EV-068, EV-054, EV-047 |
-| C3-08 | KJ-04 | Les conséquences opérationnelles sont réelles : déroutements, fausses alertes TAWS et effets importés sont rapportés comme observés ; d'autres effets sont décrits comme possibles. | Élevée | EV-007, EV-008, EV-058, EV-009, EV-010, EV-038, EV-021, EV-012 |
-| C3-09 | KJ-04 | La fréquence et la gravité de ces conséquences. | non établi | EV-031 |
-| C3-10 | KJ-05 | Les comptages bruts d'incidents ne sont pas des indicateurs de tendance. | Élevée | EV-057, EV-022 |
-| C3-11 | KJ-05 | Les taux normalisés et l'indicateur EASA par FIR sont utilisables pour la veille, à condition d'en afficher les biais. | Modérée | EV-059, EV-061 |
+| ID de provenance | Repère de figure | Jugement | Énoncé | Confiance | Preuves |
+|---|---|---|---|---|---|
+| C3-PUB-01 | C3-01 | KJ-01 | <a id="c3-pub-01"></a>Les indicateurs de dégradations GNSS et les déclarations institutionnelles décrivent une hausse du signal détecté entre 2022 et la mi-2025, au niveau mondial et dans le foyer balte. | Élevée | EV-001, EV-002, EV-043, EV-044, EV-048, EV-042 |
+| C3-PUB-12 | C3-12 | KJ-01 | <a id="c3-pub-12"></a>Les déclarations institutionnelles décrivent aussi une hausse dans l’espace aérien européen ; les séries ne séparent pas le phénomène et sa détection. | Modérée | EV-001, EV-002, EV-042, EV-043 |
+| C3-PUB-02 | C3-02 | KJ-01 | <a id="c3-pub-02"></a>Le sens de l'évolution après la mi-2025 : les institutions décrivent une persistance, une baisse locale est documentée en Pologne. | non établi | EV-039, EV-060, EV-055, EV-056 |
+| C3-PUB-03 | C3-03 | KJ-02 | <a id="c3-pub-03"></a>La dégradation se concentre de 2024 à octobre 2026 sur deux foyers : Baltique et Nord-Est ; mer Noire et Méditerranée orientale. | Élevée | EV-003, EV-029, EV-059, EV-060, EV-052, EV-058, EV-049 |
+| C3-PUB-04 | C3-04 | KJ-02 | <a id="c3-pub-04"></a>Le classement fin entre FIR et l'apparition de nouveaux foyers (un rang ne mesure pas une intensité). | non établi | EV-059 |
+| C3-PUB-05 | C3-05 | KJ-03 | <a id="c3-pub-05"></a>Des interférences réelles sont documentées sur certains événements ; une explication exclusivement fondée sur des artefacts ne couvre pas ces preuves. | Élevée | EV-037, EV-063, EV-066, EV-032, EV-046, EV-050, EV-043, EV-042 |
+| C3-PUB-06 | C3-06 | KJ-03 | <a id="c3-pub-06"></a>La contribution respective des interférences réelles et des changements de détection à la hausse des indicateurs n’est pas établie ; les taux normalisés ne suffisent pas à les départager. | non établi | EV-045, EV-059, EV-057, EV-043, EV-042 |
+| C3-PUB-07 | C3-07 | KJ-03 | <a id="c3-pub-07"></a>Les attributions citées (UIT, Conseil de l'OACI, PANSA, IATA) sont rapportées telles quelles ; le projet ne les requalifie pas. | rapportée, non jugée | EV-063, EV-069, EV-034, EV-068, EV-054, EV-047 |
+| C3-PUB-08 | C3-08 | KJ-04 | <a id="c3-pub-08"></a>Les conséquences opérationnelles sont réelles : déroutements, fausses alertes TAWS et effets importés sont rapportés comme observés ; d'autres effets sont décrits comme possibles. | Élevée | EV-007, EV-008, EV-058, EV-009, EV-010, EV-038, EV-021, EV-012 |
+| C3-PUB-09 | C3-09 | KJ-04 | <a id="c3-pub-09"></a>La fréquence et la gravité de ces conséquences. | non établi | EV-031 |
+| C3-PUB-10 | C3-10 | KJ-05 | <a id="c3-pub-10"></a>Les comptages bruts d'incidents ne sont pas des indicateurs de tendance. | Élevée | EV-057, EV-022 |
+| C3-PUB-11 | C3-11 | KJ-05 | <a id="c3-pub-11"></a>Les taux normalisés et l'indicateur EASA par FIR sont utilisables pour la veille, à condition d'en afficher les biais. | Modérée | EV-059, EV-061 |
 
 ## Preuves citées
 
