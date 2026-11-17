@@ -1,8 +1,8 @@
 # 🛰️ Case 02 - Portal Kombat / Pravda et intégrité de l'information
 
-**Statut : terminé - édition publique fondée sur des dérivés, sources amont link-only lorsque nécessaire.**
+**Édition publiée — revues ouvertes.**
 
-[![Statut](https://img.shields.io/badge/statut-termin%C3%A9-2e7d32)](report.md)
+[![Statut](https://img.shields.io/badge/statut-%C3%A9dition%20publi%C3%A9e-244c66)](report.md)
 [![Domaines](https://img.shields.io/badge/domaines-370%20distincts-244c66)](data/key_metrics.csv)
 [![STIX](https://img.shields.io/badge/STIX-609%20n%C5%93uds%20%C2%B7%201%20013%20relations-355c7d)](methodology.md)
 [![Cadres](https://img.shields.io/badge/cadres-DISARM%20%C2%B7%20ACH-1f6f78)](#hypothèses-concurrentes)
@@ -21,7 +21,9 @@ Le cas met en œuvre collecte passive, STIX, analyse de graphe, triangulation, D
 
 **Ce qui a été fait.** Des données publiques figées ont été organisées en chronologie et en graphe. Le dossier compare plusieurs explications et teste ce qui change lorsque certaines relations sont retirées.
 
-**Statut.** Étude finalisée et publiée dans son périmètre. L'identification du contrôle éditorial et la mesure de l'influence restent non démontrées.
+**Statut.** La revue analytique reste [ouverte](../../README.md#trois-états-à-distinguer). Les tests auprès de débutants et la vérification avec un lecteur d’écran restent **à réaliser**. Les [contrôles techniques](../../publication/release-checklist.md) et les [contributions personnelles](../../AI_TRANSPARENCY.md) sont documentés séparément.
+
+L'identification du contrôle éditorial et la mesure de l'influence restent non démontrées.
 
 **Pour découvrir les mots et la méthode : [guide de lecture](../../READING_GUIDE.md).**
 

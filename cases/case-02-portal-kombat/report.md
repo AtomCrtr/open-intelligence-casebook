@@ -2,7 +2,7 @@
 title: "Portal Kombat / Pravda : comprendre un écosystème informationnel par l'OSINT"
 subtitle: "Case 02 - Structure, expansion, dissémination et limites d'attribution"
 author: "Emeline Cartier - Open Intelligence Casebook"
-date: "Présentation révisée — 14 novembre 2026 ; données historiques"
+date: "Présentation et traçabilité révisées — 17 novembre 2026 ; données historiques"
 lang: fr-FR
 ---
 
@@ -165,6 +165,8 @@ STIX est un format structuré utilisé pour représenter des objets et relations
 
 # 4. Chronologie : une expansion par vagues
 
+**Preuves et limites :** [C2-PUB-001](evidence-map.md#c2-pub-001) · [C2-PUB-002](evidence-map.md#c2-pub-002).
+
 ![Chronologie](figures/timeline.svg)
 
 L'export VIGINUM contient **371 observations correspondant à 370 domaines distincts**. **232** observations portent une date `valid_from`, **139** restent non datées. Les concentrations annuelles datées apparaissent notamment en 2013, 2018, 2022 et 2024.
@@ -175,6 +177,8 @@ Les phases 2024 tardif et 2025 sont davantage documentées par des publications 
 
 # 5. Structure du réseau : expliquer sans surinterpréter
 
+**Preuves et limites :** [C2-PUB-003](evidence-map.md#c2-pub-003).
+
 ![Structure simplifiée](figures/network_explainer.svg)
 
 Le paquet STIX figé contient **609 objets non relationnels** et **1 013 relations**. La composante principale contient **604 nœuds**.
@@ -182,6 +186,8 @@ Le paquet STIX figé contient **609 objets non relationnels** et **1 013 relatio
 La structure est cohérente avec une couche technique ou organisationnelle partagée, mais un graphe source-modélisé n'est pas une photographie directe du contrôle réel. Certaines relations traduisent le choix du modélisateur et doivent être testées en sensibilité.
 
 # 6. Que devient le réseau si l’on retire certains liens ?
+
+**Preuves et limites :** [C2-PUB-004](evidence-map.md#c2-pub-004).
 
 ![Sensibilité du graphe](figures/graph_sensitivity.svg)
 
@@ -203,6 +209,8 @@ Cela décrit une sensibilité de modélisation, pas une preuve de chaîne de com
 
 # 7. France et Union européenne
 
+**Preuves et limites :** [C2-PUB-006](evidence-map.md#c2-pub-006).
+
 ![Focus France](figures/france_focus.svg)
 
 Le ciblage français est documenté, mais la France n'est pas dominante dans la couche Wikipedia.
@@ -217,6 +225,8 @@ Le ciblage français est documenté, mais la France n'est pas dominante dans la 
 Ces décomptes mesurent une présence dans le corpus, pas une audience ni une adhésion.
 
 # 8. Dissémination Wikipedia et X
+
+**Preuves et limites :** [C2-PUB-005](evidence-map.md#c2-pub-005).
 
 ![Langues Wikipedia](figures/wikipedia_languages.svg)
 
@@ -302,7 +312,7 @@ Conserver des frontières entre opérations adjacentes évite d'étendre artific
 
 # 14. Recommandations conditionnelles
 
-Ces actions s’appuient sur **C2-PUB-007** (hypothèse de travail) et **C2-PUB-008** (effets non démontrés) dans la [carte des preuves](evidence-map.md).
+Ces actions s’appuient sur [C2-PUB-007](evidence-map.md#c2-pub-007) (hypothèse de travail) et [C2-PUB-008](evidence-map.md#c2-pub-008) (effets non démontrés) dans la [carte des preuves](evidence-map.md).
 
 ## 14.1 Tenir une liste défangée de domaines pour la veille
 

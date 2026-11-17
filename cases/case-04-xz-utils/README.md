@@ -1,8 +1,8 @@
 # 🔐 Case 04 - XZ Utils / CVE-2024-3094
 
-**Statut : terminé et publié — Markdown et PDF. Révision analytique : 1er novembre 2026 ; clarification éditoriale : 13 novembre 2026.**
+**Édition publiée — revues ouvertes.**
 
-[![Statut](https://img.shields.io/badge/statut-termin%C3%A9-2e7d32)](report.md)
+[![Statut](https://img.shields.io/badge/statut-%C3%A9dition%20publi%C3%A9e-244c66)](report.md)
 [![Sources](https://img.shields.io/badge/sources-21%20publiques-244c66)](sources.md)
 [![Collecte](https://img.shields.io/badge/collecte-passive-355c7d)](report.md#2-méthode-de-collecte)
 [![Traçabilité](https://img.shields.io/badge/citations-v%C3%A9rifi%C3%A9es%20mot%20pour%20mot-1f6f78)](citations-ledger.json)
@@ -21,7 +21,9 @@ Un cas de **compromission de la chaîne d'approvisionnement logicielle** traité
 
 **Ce qui a été fait.** Le dossier reconstitue une chronologie, compare les situations des distributions Linux et conserve les contradictions entre sources. Il repose sur la lecture de documents ; le mécanisme malveillant n'a pas été exécuté par le projet.
 
-**Statut.** Étude finalisée et publiée dans son périmètre, révisée sur le fond le 1er novembre 2026. L'identité réelle et l'exploitation effective restent non établies.
+**Statut.** La revue analytique reste [ouverte](../../README.md#trois-états-à-distinguer). Les tests auprès de débutants et la vérification avec un lecteur d’écran restent **à réaliser**. Les [contrôles techniques](../../publication/release-checklist.md) et les [contributions personnelles](../../AI_TRANSPARENCY.md) sont documentés séparément.
+
+L'identité réelle et l'exploitation effective restent non établies.
 
 **Pour découvrir les mots et la méthode : [guide de lecture](../../READING_GUIDE.md).**
 

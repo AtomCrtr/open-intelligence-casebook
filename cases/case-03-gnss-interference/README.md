@@ -1,6 +1,6 @@
 # 🛩️ Case 03 - Interférences GNSS et aviation civile européenne
 
-**Statut : évaluation documentaire finale (version 1.0 du 1er novembre 2026).**
+**Édition publiée — revues ouvertes.**
 
 > **Analyse OSINT — non destinée à la navigation.**
 
@@ -22,7 +22,9 @@
 
 **Ce qui a été fait.** Le dossier compare des publications institutionnelles et sectorielles, examine leurs dépendances et confronte plusieurs explications. Le projet n'a pas exécuté la couche d'observation ADS-B/GPSJAM prévue au départ.
 
-**Statut.** Étude documentaire finalisée et publiée. Une étude fondée sur de nouvelles observations constituerait une phase distincte.
+**Statut.** La revue analytique reste [ouverte](../../README.md#trois-états-à-distinguer). Les tests auprès de débutants et la vérification avec un lecteur d’écran restent **à réaliser**. Les [contrôles techniques](../../publication/release-checklist.md) et les [contributions personnelles](../../AI_TRANSPARENCY.md) sont documentés séparément.
+
+GNSS reste une étude documentaire ; une phase de nouvelles observations serait distincte.
 
 ---
 

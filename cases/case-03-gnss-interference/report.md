@@ -66,6 +66,8 @@
 
 **KJ-01**
 
+**Preuves et limites :** [C3-PUB-01](evidence-map.md#c3-pub-01) · [C3-PUB-12](evidence-map.md#c3-pub-12) · [C3-PUB-02](evidence-map.md#c3-pub-02).
+
 - **Jugement clé :** Hausse des indicateurs de dégradations GNSS de 2022 à la mi-2025 ; évolution postérieure incertaine (persistance déclarée, baisses locales).
 - **Confiance :** **Élevée** (sens : monde, foyer balte) · Modérée (Europe entière) · Faible (ampleur, après mi-2025)
 
@@ -74,6 +76,8 @@
 <div class="reader-card">
 
 **KJ-02**
+
+**Preuves et limites :** [C3-PUB-03](evidence-map.md#c3-pub-03) · [C3-PUB-04](evidence-map.md#c3-pub-04).
 
 - **Jugement clé :** Deux foyers européens (CEAC, Turquie comprise) persistants de 2024 à octobre 2026 : Baltique et Nord-Est (EPWW, EYVL, EVRR, EETT, EFIN, ESAA) ; mer Noire et Méditerranée orientale (LTAA, LTBB, LRBB, LBSR, LCCC). Pas d'émergence démontrée.
 - **Confiance :** **Élevée** (foyers) · Faible (classement fin)
@@ -84,6 +88,8 @@
 
 **KJ-03**
 
+**Preuves et limites :** [C3-PUB-05](evidence-map.md#c3-pub-05) · [C3-PUB-06](evidence-map.md#c3-pub-06) · [C3-PUB-07](evidence-map.md#c3-pub-07).
+
 - **Jugement clé :** Des interférences réelles sont documentées ; les artefacts seuls ne couvrent pas ces événements. La contribution d’une meilleure détection à la hausse reste non départagée ; aucune dominance de H1 n’est établie.
 - **Confiance :** **Élevée** (existence documentée) · part H1 / H2 non établie
 
@@ -93,6 +99,8 @@
 
 **KJ-04**
 
+**Preuves et limites :** [C3-PUB-08](evidence-map.md#c3-pub-08) · [C3-PUB-09](evidence-map.md#c3-pub-09).
+
 - **Jugement clé :** Conséquences opérationnelles réelles et documentées (déroutements, fausses alertes TAWS, positions erronées après la sortie de zone) ; fréquence et gravité non mesurables.
 - **Confiance :** **Élevée** (nature) · Faible (fréquence)
 
@@ -101,6 +109,8 @@
 <div class="reader-card">
 
 **KJ-05**
+
+**Preuves et limites :** [C3-PUB-10](evidence-map.md#c3-pub-10) · [C3-PUB-11](evidence-map.md#c3-pub-11).
 
 - **Jugement clé :** Les comptages bruts ne sont pas des indicateurs de tendance (à Budapest, 2,6 à 8,1 % des événements déclarés par les pilotes) ; les taux normalisés et l'indicateur EASA par FIR le sont, avec garde-fous.
 - **Confiance :** **Élevée** · Modérée (liste d'indicateurs)
